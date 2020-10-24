@@ -5,7 +5,7 @@
 ### Autoren
 
 | Name               | Matrikelnummer | Hochschule |
-| ------------------ | -------------- | ---------- |
+| :----------------- | :------------- | :--------- |
 | Florian Jeger      | 270885         | TH Lübeck  |
 | Christoph Jeger    | 270898         | TH Lübeck  |
 
