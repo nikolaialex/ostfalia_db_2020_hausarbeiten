@@ -11,10 +11,12 @@
 
 
 ## Inhaltsverzeichnis
-1. [Einleitung](#einleitung)
-2. [Neo4j](#neo4j)
-3. [Fazit](#fazit)
-4. [Literaturverzeichnis](#literaturverzeichnis)
+1. [Einleitung](#1-einleitung)
+2. [Neo4j](#2-neo4j)
+  <br/>2.1. [Was bringt eine Graph-Basierung?](#21-was-bringt-eine-graph-basierung)
+  <br/>2.2. [Wofür eignet sich Neo4j?](#22-wofür-eignet-sich-neo4j)
+3. [Fazit](#3-fazit)
+4. [Literaturverzeichnis](#4-literaturverzeichnis)
 
 
 ## 1. Einleitung
