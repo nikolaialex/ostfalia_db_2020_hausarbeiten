@@ -48,14 +48,17 @@ Heutzutage sind viele allgemeine Graph-Algorithmen in der Mathematik bzw. in der
 ### 2.2. Wofür eignet sich Neo4j?
 Für ein System, wo die Daten zahlreich vernetzt und kaum strukturiert sind, eignet sich besonders Neo4j. Besitzt ein System zahlreiche zusammenhängende strukturierte Daten, die verwaltet werden müssen, dann eignet sich Neo4j nicht besonders und es wäre besser eine relationale Datenbank zu wählen. Besitzt das System allerdings vernetze Daten, wo die Beziehungen zwischen den Daten abgefragt werden müssen, dann ist Neo4j als Graphdatenbank die passende Wahl. Die folgende Abbildung zeigt einen Überblick von den Bestandteilen von Neo4j die ein Anwender benötigt. [2]
 
-<center>
-  
-![Neo4j-Überblick](images/Neo4j-Überblick.jpg?raw=true "Neo4j-Überblick")
+<center><img src="images/Neo4j-Überblick.jpg" title="Neo4j-Überblick" width="100%" height="auto"></center>
 
-</center>
 
 ## 3. Fazit
 
 
 
 ## 4. Literaturverzeichnis
+
+- [1] IT Verlag für Informationstechnik GmbH, „Fünf Tipps für die Wahl der richtigen Datenbank,“ 01 April 2020. [Online]. Available: https://www.it-daily.net/it-management/big-data-analytics/23876-fuenf-tipps-fuer-die-wahl-der-richtigen-datenbank. [Zugriff am 25 Oktober 2020].
+- [2] P. Ghadir, „innoq.com,“ 24 Oktober 2020. [Online]. Available: https://www.innoq.com/de/articles/2012/09/neo4j-rockt/.
+- [3] „datenbanken-verstehen.de,“ Begerow Beratungsgesellschaft mbH & Co. KG, [Online]. Available: https://www.datenbanken-verstehen.de/lexikon/neo4j/. [Zugriff am 24 Oktober 2020].
+- [4] „neo4j.com,“ Neo4j, Inc., [Online]. Available: https://neo4j.com/release-notes/. [Zugriff am 24 Oktober 2020].
+
