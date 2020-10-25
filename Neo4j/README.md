@@ -13,8 +13,8 @@
 ## Inhaltsverzeichnis
 1. [Einleitung](#1-einleitung)
 2. [Neo4j](#2-neo4j)
-  <br />2.1. [Was bringt eine Graph-Basierung?](#21-was-bringt-eine-graph-basierung)
-  <br />2.2. [Wofür eignet sich Neo4j?](#22-wofür-eignet-sich-neo4j)
+  <br/>2.1. [Was bringt eine Graph-Basierung?](#21-was-bringt-eine-graph-basierung)
+  <br/>2.2. [Wofür eignet sich Neo4j?](#22-wofür-eignet-sich-neo4j)
 3. [Fazit](#3-fazit)
 4. [Literaturverzeichnis](#4-literaturverzeichnis)
 
@@ -50,6 +50,7 @@ Für ein System, wo die Daten zahlreich vernetzt und kaum strukturiert sind, eig
 
 <center><img src="images/Neo4j-Überblick.jpg" title="Neo4j-Überblick" width="100%" height="auto"></center>
 
+**Abbildung 2-1: Neo4j-Überblick [2]**
 
 ## 3. Fazit
 
