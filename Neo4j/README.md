@@ -49,10 +49,24 @@ Heutzutage sind viele allgemeine Graph-Algorithmen in der Mathematik bzw. in der
 
 
 ### 2.2. Vorteile von Graphendatenbanken
+Graphdatenbanken besitzen allgemein einen Vorteil gegenüber Relationalen Datenbanken (RDBMS) und anderen NoSQL-Datenbanken, wenn es um komplizierte Beziehungen innerhalb einer riesigen Datenmenge geht. [5]
 
+Relationale Datenbanken eignen sich nicht dafür, aus dem Grund, dass sie für das Darstellen und Finden von Verbindungen viele zeitintensive JOINs benötigen. Je mehr Datensätze entstehen bzw. hinzugefügt werden und je tiefer diese Verbindungen gehen, desto mehr Zeit wird benötigt. Die Lösung für dieses Problem sind Graphdatenbanken, weil sie für dieses Problem entwickelt und optimiert wurden. Sie besitzen dementsprechend die nötigen Algorithmen. [5] 
 
+Nach einer allgemeinen Beschreibung von den Vorteilen einer Graphdatenbank folgt eine explizite Aufzählung der Vorteile der Graphendatenbank Neo4j: 
+
+- **Zuverlässig und schnell:** Bei Neo4j können Daten vollständig schnell geschrieben und gelesen werden. [6]
+- **Einfach zu bedienen:** Neo4j bietet ein leicht verständliches User-Interfaces und es gibt erprobte Lernmaterialien, die den Einstieg erleichtern. [6]
+- **Gutes Preis-Leistungs-Verhältnis:** Die Enterprise-Version von Neo4j wird zu einem fairen Preis angeboten. [6]
+- **Skalierbar:** Neo4j garantiert hohe Geschwindigkeiten und passt sich dem Datenvolumen an. [6]
+- **ACID Optimierung:** Durch Atomarität, Konsistenz, Isolation und Dauerhaftigkeit wird die Verknüpfung von Daten optimiert. [6]
+- **Benutzerfreundlich:** Neo4j bietet ein einfaches User-Interfaces, Cypher und Java für Anwendungen. [6]
+- **Open Source:** Neo4j ist ein Open Source Projekt. Die Community unterstützt das Open Source Projekt von Neo4j, diese Unterstützung fließt auch in die Enterprise-Version mit ein. [6]
+- **Erprobt & bewährt:** Von Analysten wird Neo4J als zuverlässig genug für kritische Anwendungen eingestuft. [6]
+- **Community:** Neo4j besitzt die größte Community aller Graph-Datenbanken. [6]
 
 ### 2.3. Nachteile von Graphendatenbanken
+Die NoSQL-Datenbanken verteilen ihre Daten hauptsächlich nach ihrem Primärschlüssel. Die Graphdatenbanken hingegen müssen ihr Beziehungsgeflecht aufbrechen, damit das System auf einer verteilten Architektur skalierbar ist. Dafür stellen Graphdatenbanken entsprechende Operationen bereit. Sharding (bezeichnet die Aufteilung einer Datenbank auf mehrere physikalische Datenbankserver) ist bei Graphdatenbanken kein einfacher Prozess wie bei anderen Systemen. Der Sharing Prozess führt eher zu Performanceverlust als zu Performancegewinn, weil diese Systeme eher für Ein-Server-Architekturen konzipiert wurden. Bei diesen Ein-Server-Architekturen geschieht das traversieren schneller als auf einem verteilten System. Soll eine Graphdatenbank verteil werden und die Kapazität des Servers ist nicht ausreichend, dann ist es notwendig, dass der Graph in Teilgraphen partitioniert (aufgeteilt) wird. Dabei kann es schwierig werden eine geeignete Stelle für das partitionieren im Graphen zu finden. [5]
 
 
 ### 2.4. Wofür eignet sich Neo4j?
@@ -62,7 +76,18 @@ Für ein System, wo die Daten zahlreich vernetzt und kaum strukturiert sind, eig
 
 
 ### 2.5. Datenmodell
+Leonard Euler legte mit der Graphentheorie die Grundlage für das Datenmodell der Graphdatenbanken [5]. Anders als in relationale Datenbanken, wo die Übertragung eines Graphenmodells mit den Knoten und Kanten nur in der Form einer Datenbanktabelle möglich ist, nutzt Neo4j die unveränderte Form der Graphenelemente. Das hat den Effekt, dass die Problemfelder, die sonst entstehen, deutlich vereinfacht werden. Die wichtigsten Bestandteile des Datenmodells von Neo4j werden nachfolgend beschrieben: [7]
 
+- **Knoten (Nodes):** Das Grundelement in jeden Graphen ist der Knoten. In Neo4j enthält jeder Knoten eine eindeutige ID, die fortlaufend für alle Knoten verteilt wird. Die Knoten in Neo4j können Eigenschaften zugewiesen werden, die auch Properties genannt werden. Diese Attribute enthalten einfache Schlüssel oder Werte-Paare. Diese Eigenschaften müssen kein vorgegebenes Schema folgen, das heißt, die Attribute können sich von Knoten zu Knoten unterscheiden. Dies ermöglicht eine größere Flexibilität im Vergleich zu relationalen Datenbanken, wo für jeden Knotentyp eine eigene Tabelle erforderlich ist. [7]
+<br><br>In Neo4j existiert außerdem ein spezieller Knoten, den sogenannten Referenzknoten. Dieser existiert in jeder neu angelegten Neo4j Datenbank, weil dieser Knoten den allgemein bekannten Einstiegspunkt für jeden Graphen darstellt. Dieser Knoten sollte zu mindestens indirekt mit allen Knoten verbunden sein, damit jeder Knoten von dem Referenzknoten erreichbar ist. [7]
+
+- **Kanten (Relationships):** Die Verbindungen zwischen den Knoten werden als Kanten oder Relationships bezeichnet und stellen eine Auffindbarkeit des Knotens in der Datenbank sicher. Dabei kann ein Knoten keine, eine oder mehrere Beziehungen zu anderen Knoten haben. Auch die Kanten können mit einer eindeutigen ID identifiziert werden, die fortlaufend für alle vergeben werden. Eine Kante kann nur durch einen Start- und Endknoten mit einem Typbezeichner entstehen. Dabei sind die Kanten immer gerichtet, das heißt eine Kante ist immer nur mit zwei Knoten verbunden. Die Richtung der Kante kann ebenfalls entscheidend sein, denn wenn X Follower von Y ist, heißt das nicht das Y auch Follower von X ist. Sollte die Richtung der Verbindung der Knoten egal sein, kann diese beim traversieren auch ignoriert werden. Kanten können ebenfalls wie Knoten Attribute enthalten in der Form von Schlüssel oder Werte-Paare. [7].
+
+- **Pfade:** Pfade sind eine Aufreihung von einem oder mehreren Knoten über Kanten und stellen das Ergebnis einer Suchanfrage dar. [7].
+
+- **Indizes durch Labels:** Die Knoten können mit zusätzlichen Eigenschaften versehen werden, die Labels genannt werden. Labels ermöglichen eine Teilmenge an Knoten auszuzeichnen und zu indizieren, damit können die Knoten gruppiert und bei Suchanfragen schneller gefunden werden. Wichtig ist, dass Knoten jederzeit mit weiteren Attributen und Labels ergänzt werden können. Knoten können mehr als ein Label enthalten. [3]
+
+Die Abbildung 2-2 zeigt ein Beispiel für das Datenmodell von Neo4j. Der Knoten John und Jane haben unter anderem die Attribute von Kundendaten, wie Name, Nachname, Ort und E-Mail. Jedoch müssen die Knoten nicht alle die gleichen Eigenschaften mit unterschiedlichen Werten besitzen. So hat der Knoten Jane in diesem Beispiel nicht das Attribut von einer E-Mail-Adresse. Außerdem wurde der Knoten John und Jane mit dem Label Kunden versehen. Damit kann über das Label Kunden John und Jane leichter und schneller über eine Suchanfrage in der Datenbank gefunden werden. Das Beispiel verdeutlicht ebenfalls, dass die Knoten unterschiedliche Beziehungen (Kanten) zueinander haben können. 
 
 <p align="center"><img src="images/nodes_neoj4_graphdatenbanken.jpg" title="Veranschaulichung von Knoten und Kanten in Neo4j" width="100%" height="auto"><b>Abbildung 2-2: Veranschaulichung von Knoten und Kanten in Neo4j [3]</b></p>
 
