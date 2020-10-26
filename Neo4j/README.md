@@ -14,7 +14,10 @@
 1. [Einleitung](#1-einleitung)
 2. [Neo4j](#2-neo4j)
   <br/>2.1. [Was bringt eine Graph-Basierung?](#21-was-bringt-eine-graph-basierung)
-  <br/>2.2. [Wofür eignet sich Neo4j?](#22-wofür-eignet-sich-neo4j)
+  <br/>2.2. [Vorteile von Graphendatenbanken](#22-vorteile-von-graphendatenbanken)
+  <br/>2.3. [Nachteile von Graphendatenbanken](#23-nachteile-von-graphendatenbanken)
+  <br/>2.4. [Wofür eignet sich Neo4j?](#24-wofür-eignet-sich-neo4j)
+  <br/>2.5. [Datenmodell](#25-datenmodell)
 3. [Fazit](#3-fazit)
 4. [Literaturverzeichnis](#4-literaturverzeichnis)
 
@@ -45,10 +48,24 @@ Die Graphdatenbank Neo4j besitzt wohl überlegte Strategien für die Verwaltung 
 Heutzutage sind viele allgemeine Graph-Algorithmen in der Mathematik bzw. in der Informatik bekannt. Eine Implementierung von bekannten Graph-Algorithmen ist in Neo4j bereits vorhanden, z.B. sind die Algorithmen für die Suche von den kürzesten Wegen sowie der A*- Algorithmus und der Dijkstras Algorithmus bereits implementiert. [2]
 
 
-### 2.2. Wofür eignet sich Neo4j?
+### 2.2. Vorteile von Graphendatenbanken
+
+
+
+### 2.3. Nachteile von Graphendatenbanken
+
+
+### 2.4. Wofür eignet sich Neo4j?
 Für ein System, wo die Daten zahlreich vernetzt und kaum strukturiert sind, eignet sich besonders Neo4j. Besitzt ein System zahlreiche zusammenhängende strukturierte Daten, die verwaltet werden müssen, dann eignet sich Neo4j nicht besonders und es wäre besser eine relationale Datenbank zu wählen. Besitzt das System allerdings vernetze Daten, wo die Beziehungen zwischen den Daten abgefragt werden müssen, dann ist Neo4j als Graphdatenbank die passende Wahl. Die folgende Abbildung 2-1 zeigt einen Überblick von den Bestandteilen von Neo4j die ein Anwender benötigt. [2]
 
 <p align="center"><img src="images/Neo4j-Überblick.jpg" title="Neo4j-Überblick" width="100%" height="auto"><b>Abbildung 2-1: Neo4j-Überblick [2]</b></p>
+
+
+### 2.5. Datenmodell
+
+
+<p align="center"><img src="images/nodes_neoj4_graphdatenbanken.jpg" title="Veranschaulichung von Knoten und Kanten in Neo4j" width="100%" height="auto"><b>Abbildung 2-2: Veranschaulichung von Knoten und Kanten in Neo4j [3]</b></p>
+
 
 ## 3. Fazit
 
@@ -60,4 +77,7 @@ Für ein System, wo die Daten zahlreich vernetzt und kaum strukturiert sind, eig
 - [2] P. Ghadir, „innoq.com,“ 24 Oktober 2020. [Online]. Available: https://www.innoq.com/de/articles/2012/09/neo4j-rockt/.
 - [3] „datenbanken-verstehen.de,“ Begerow Beratungsgesellschaft mbH & Co. KG, [Online]. Available: https://www.datenbanken-verstehen.de/lexikon/neo4j/. [Zugriff am 24 Oktober 2020].
 - [4] „neo4j.com,“ Neo4j, Inc., [Online]. Available: https://neo4j.com/release-notes/. [Zugriff am 24 Oktober 2020].
+- [5] „wi-wiki.de,“ Technische Hochschule Mittelhessen, [Online]. Available: http://wi-wiki.de/doku.php?id=bigdata:graphdb. [Zugriff am 26 Oktober 2020].
+- [6] „aoe.com,“ AOE GmbH, [Online]. Available: https://www.aoe.com/de/produkte/datenbanken-storage/neo4j.html. [Zugriff am 26 Oktober 2020].
+- [7] S. Schönung, „Graphendatenbanken,“ 2012. [Online]. Available: https://www.christianbaun.de/SEM12/Dokumente/CLCP_SEM_SS2012_Graphendatenbanken_Ausarbeitung.pdf. [Zugriff am 26 Oktober 2020].
 
