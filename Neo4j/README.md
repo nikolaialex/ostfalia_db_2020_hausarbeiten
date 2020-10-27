@@ -82,14 +82,17 @@ Für ein System, wo die Daten zahlreich vernetzt und kaum strukturiert sind, eig
 ## 2. Installation und Start
 Diese Schritte sind nötig um Neo4j unter Windows zu installieren und zu starten:
 - Java muss auf dem PC (Personal Computer) installiert sein. [7]
-- Nun ist es nötig die neuste Version von Neo4j zu downloaden. Hierfür besucht man die <a href="https://neo4j.com/download-center/#community" target="_blank">Neo4j-Webseite</a> und downloadet die "Neo4j Community Edition". [7]
-- Der nächste Schritt, ist die heruntergeladene ZIP-Datei zu entpacken. [7]
+- Nun ist es nötig die neuste Version von Neo4j herunterzuladen. Hierfür besucht man die <a href="https://neo4j.com/download-center/#community" target="_blank">Neo4j-Webseite</a> und downloadet die "Neo4j Community Edition". [7]
+- Der nächste Schritt ist die heruntergeladene ZIP-Datei zu entpacken. [7]
 - Nun navigiert man über die Konsole in den Bin Ordner und führt „bin\neo4j console“ aus. Jetzt können Neo4j-Abfragen im Terminal ausführt werden. [7]
-- Im gleichen Verzeichnis führt man den Befehl „bin/neo4j start“ aus in der Konsole, um den Webserver zu starten. Damit der Webserver gestoppt wird gibt man den Befehl „bin/neo4j stop“ in der Konsole ein. [7] [8]
+- Im gleichen Verzeichnis führt man den Befehl „bin/neo4j start“ aus in der Konsole, um den Webserver zu starten. Damit der Webserver gestoppt wird, gibt man den Befehl „bin/neo4j stop“ in der Konsole ein. [7] [8]
 - Nun ruft man im Browser seiner Wahl den localhost unter http://localhost:7474 auf. [9]
 - Der Benutzername und das Passwort sind bei Neo4j ab der Community-Version 3.0.3 standardmäßig „neo4j“ (siehe Abbildung 2-1). Nachdem das Passwort eingegeben wurde, kann das Passwort geändert werden. [9] [8]
 
 <p align="center"><img src="images/neo4j-login.png" title="Neo4j Login" width="100%" height="auto"><b>Abbildung 2-1: Neo4j Login</b></p>
+
+Aus dem Grund, dass Neo4j mit Java erstellt wurde, läuft Neo4j auf jeder Plattform auf der Java installiert ist. [8]
+
 
 ## 3. Grundlagen
 Nachfolgend werden die Grundlagen zu Graphen und die Thematik von den Graphdatenbanken spezifisch am Beispiel von Neo4j näher betrachtet.
@@ -136,21 +139,20 @@ Die Abbildung 3-1 zeigt ein Beispiel für das Datenmodell von Neo4j. Der Knoten 
 
 
 ### 3.2. Datenintegrität
-Bei vielen NoSQL-Datenbanktechnologien geht die Skalierbarkeit auf Kosten der Garantie für die Abgeschlossenheit, Konsistenz, Isolation und Dauerhaftigkeit kurz ACID. Neo4j bietet hingegen mit seiner NoSQL-Datenbank eine vollständige transaktionsfähige und weites gehende ACID-konformität an. Damit steht Neo4j den relationalen Datenbanken in diesem Punkt fast nichts nach. [10]
+Bei vielen NoSQL-Datenbanktechnologien geht die Skalierbarkeit auf Kosten der Garantie für die Abgeschlossenheit, Konsistenz, Isolation und Dauerhaftigkeit, kurz ACID. Neo4j bietet hingegen mit seiner NoSQL-Datenbank eine vollständige transaktionsfähige und weitest gehende ACID-Konformität an. Damit steht Neo4j den relationalen Datenbanken in diesem Punkt in fast nichts nach. [10]
 
-Durch die Datenbankmodellierung der Knoten und Kanten wird außerdem eine Form der Datenintegrität gesichert. Denn es ist nur möglich Kanten zu erstellen die einen Anfangs- und Endknoten besitzen. Zudem ist das Löschen von einem Knoten nur möglich, wenn an diesen Knoten keine Kanten mehr dran sind. Diese Datenintegrität ist bei Neo4j von Anfang an garantiert wohingegen bei relationalen Datenbanken dies nur über Bestimmung von Fremdschlüssel möglich ist. [10]
+Durch die Datenbankmodellierung der Knoten und Kanten wird außerdem eine Form der Datenintegrität gesichert. Denn es ist nur möglich Kanten zu erstellen, die einen Anfangs- und Endknoten besitzen. Zudem ist das Löschen von einem Knoten nur möglich, wenn an diesem Knoten keine Kanten mehr dran sind. Diese Datenintegrität ist bei Neo4j von Anfang an garantiert, wohingegen bei relationalen Datenbanken dies nur über die Bestimmung von Fremdschlüsseln möglich ist. [10]
 
-Dadurch, dass kein festes Schema bei Neo4j vorhanden ist, bietet das jedoch gefahren hinsichtlich der Datenintegrität. Denn hier ist es problemlos möglich Daten eines anderen Typs oder unter falschen Namen in einem Knoten zu speichern. Dieser Fall würde bei relationalen Datenbanken durch das feste Schema nicht auftreten. [10]
+Dadurch, dass kein festes Schema bei Neo4j vorhanden ist, bietet das jedoch Gefahren hinsichtlich der Datenintegrität. Denn hier ist es problemlos möglich Daten eines anderen Typs oder unter falschem Namen in einem Knoten zu speichern. Dieser Fall würde bei relationalen Datenbanken durch das feste Schema nicht auftreten. [10]
 
 
 ## 4. Plugins
 Neo4j lässt sich wie andere Datenbanken mit Hilfe von Plugins erweitern. Diese Plugins werden auch als Functions und Procedures bezeichnet. [12]
 
-- Die Hilfsfunktionen die Cypher erweitern sind die sogenannten Functions. Dabei besitzen diese Functions selber keinen direkten Zugriff auf die Datenbank. Die Functions geben einen Wert zurück aber bekommen mehre Werte übergeben. String-Concatenation wäre ein Beispiel einer solchen Function. Hierbei wird eine Liste von Strings übergeben und es wird ein String zurückgegeben. [12]
+- Die Hilfsfunktionen, die Cypher erweitern, sind die sogenannten Functions. Dabei besitzen diese Functions selber keinen direkten Zugriff auf die Datenbank. Die Functions geben einen Wert zurück, aber bekommen mehre Werte übergeben. String-Concatenation wäre ein Beispiel einer solchen Function. Hierbei wird eine Liste von Strings übergeben und es wird ein String zurückgegeben. [12]
+- Im Gegensatz zu den Functions sind die Procedures mächtige Funktionen. Die Procedures besitzen Zugriff auf die Datenbank und geben Streams von Werten zurück. Diese können dazu benutzt werden, um neue Funktionen zu implementieren. Damit können z.B. komplexe Cypher-Befehle in einen Einzelnen verpackt werden. [12]
 
-- Im Gegensatz zu den Functions sind die Procedures mächtige Funktionen. Die Procedures besitzen Zugriff auf die Datenbank und geben Streams von Werten zurück. Diese können dazu benutzt werden, um neue Funktionen zu implementieren. Damit können z.B. komplexe Cypher-Befehle in einen einzelnen verpackt werden. [12]
-
-Mit Verwendung des Neo4j-Kernels werden Functions und Procedures in Java implementiert. Die dabei entstehende jar wird dann im Plugin-Folder abgelegt. Startet die Datenbank neu, dann wird es automatisch angewendet. Weiterhin stellt Neo4j die Plugin-Library „APOC“ (Awesome Procedures On Cypher) bereit. Diese enthält über 450 Functions und Procedures. Außerdem erweitert und pflegt Neo4j die Plugin-Library „Neo4j-Graph-Algorithms“. Diese Bibliothek enthält über 30 Graph-Algorithmen zu diesen Algortihmen zählen unter anderem A*, Betweenness Centrality und PageRank. [12]
+Mit Verwendung des Neo4j-Kernels werden Functions und Procedures in Java implementiert. Die dabei entstehende jar wird dann im Plugin-Folder abgelegt. Startet die Datenbank neu, dann wird es automatisch angewendet. Weiterhin stellt Neo4j die Plugin-Library „APOC“ (Awesome Procedures On Cypher) bereit. Diese enthält über 450 Functions und Procedures. Außerdem erweitert und pflegt Neo4j die Plugin-Library „Neo4j-Graph-Algorithms“. Diese Bibliothek enthält über 30 Graph-Algorithmen. Zu diesen Algortihmen zählen unter anderem A*, Betweenness Centrality und PageRank. [12]
 
 
 ## 5. Fazit
