@@ -21,8 +21,9 @@
 3. [Grundlagen](#3-grundlagen)
   <br/>3.1. [Datenmodell](#31-datenmodell)
   <br/>3.2. [Datenintegrität](#32-datenintegrität)
-4. [Fazit](#4-fazit)
-5. [Literaturverzeichnis](#5-literaturverzeichnis)
+4. [Plugins](#4-plugins)
+5. [Fazit](#5-fazit)
+6. [Literaturverzeichnis](#6-literaturverzeichnis)
 
 
 ## 1. Einleitung
@@ -98,7 +99,7 @@ Leonard Euler legte mit der Graphentheorie die Grundlage für das Datenmodell de
 
 **Knoten (Nodes):** Das Grundelement in jeden Graphen ist der Knoten. In Neo4j enthält jeder Knoten eine eindeutige ID, die fortlaufend für alle Knoten verteilt wird. Die Knoten in Neo4j können Eigenschaften zugewiesen werden, die auch Properties genannt werden. Diese Attribute enthalten einfache Schlüssel oder Werte-Paare. Diese Eigenschaften müssen kein vorgegebenes Schema folgen, das heißt, die Attribute können sich von Knoten zu Knoten unterscheiden. Dies ermöglicht eine größere Flexibilität im Vergleich zu relationalen Datenbanken, wo für jeden Knotentyp eine eigene Tabelle erforderlich ist. [10]
 
-Die folgenden Wertetypen können für Properties vergeben werden:
+Die folgenden Wertetypen aus Tabelle 3-1 können für Properties vergeben werden:
 
 | Typ                               | Beschreibung                                                                               |
 | :-------------------------------- | :----------------------------------------------------------------------------------------- | 
@@ -135,14 +136,28 @@ Die Abbildung 3-1 zeigt ein Beispiel für das Datenmodell von Neo4j. Der Knoten 
 
 
 ### 3.2. Datenintegrität
+Bei vielen NoSQL-Datenbanktechnologien geht die Skalierbarkeit auf Kosten der Garantie für die Abgeschlossenheit, Konsistenz, Isolation und Dauerhaftigkeit kurz ACID. Neo4j bietet hingegen mit seiner NoSQL-Datenbank eine vollständige transaktionsfähige und weites gehende ACID-konformität an. Damit steht Neo4j den relationalen Datenbanken in diesem Punkt fast nichts nach. [10]
+
+Durch die Datenbankmodellierung der Knoten und Kanten wird außerdem eine Form der Datenintegrität gesichert. Denn es ist nur möglich Kanten zu erstellen die einen Anfangs- und Endknoten besitzen. Zudem ist das Löschen von einem Knoten nur möglich, wenn an diesen Knoten keine Kanten mehr dran sind. Diese Datenintegrität ist bei Neo4j von Anfang an garantiert wohingegen bei relationalen Datenbanken dies nur über Bestimmung von Fremdschlüssel möglich ist. [10]
+
+Dadurch, dass kein festes Schema bei Neo4j vorhanden ist, bietet das jedoch gefahren hinsichtlich der Datenintegrität. Denn hier ist es problemlos möglich Daten eines anderen Typs oder unter falschen Namen in einem Knoten zu speichern. Dieser Fall würde bei relationalen Datenbanken durch das feste Schema nicht auftreten. [10]
+
+
+## 4. Plugins
+Neo4j lässt sich wie andere Datenbanken mit Hilfe von Plugins erweitern. Diese Plugins werden auch als Functions und Procedures bezeichnet. [12]
+
+- Die Hilfsfunktionen die Cypher erweitern sind die sogenannten Functions. Dabei besitzen diese Functions selber keinen direkten Zugriff auf die Datenbank. Die Functions geben einen Wert zurück aber bekommen mehre Werte übergeben. String-Concatenation wäre ein Beispiel einer solchen Function. Hierbei wird eine Liste von Strings übergeben und es wird ein String zurückgegeben. [12]
+
+- Im Gegensatz zu den Functions sind die Procedures mächtige Funktionen. Die Procedures besitzen Zugriff auf die Datenbank und geben Streams von Werten zurück. Diese können dazu benutzt werden, um neue Funktionen zu implementieren. Damit können z.B. komplexe Cypher-Befehle in einen einzelnen verpackt werden. [12]
+
+Mit Verwendung des Neo4j-Kernels werden Functions und Procedures in Java implementiert. Die dabei entstehende jar wird dann im Plugin-Folder abgelegt. Startet die Datenbank neu, dann wird es automatisch angewendet. Weiterhin stellt Neo4j die Plugin-Library „APOC“ (Awesome Procedures On Cypher) bereit. Diese enthält über 450 Functions und Procedures. Außerdem erweitert und pflegt Neo4j die Plugin-Library „Neo4j-Graph-Algorithms“. Diese Bibliothek enthält über 30 Graph-Algorithmen zu diesen Algortihmen zählen unter anderem A*, Betweenness Centrality und PageRank. [12]
+
+
+## 5. Fazit
 
 
 
-## 4. Fazit
-
-
-
-## 5. Literaturverzeichnis
+## 6. Literaturverzeichnis
 
 - [1] IT Verlag für Informationstechnik GmbH, „Fünf Tipps für die Wahl der richtigen Datenbank,“ 01 April 2020. [Online]. Available: https://www.it-daily.net/it-management/big-data-analytics/23876-fuenf-tipps-fuer-die-wahl-der-richtigen-datenbank. [Zugriff am 25 Oktober 2020].
 - [2] P. Ghadir, „innoq.com,“ 24 Oktober 2020. [Online]. Available: https://www.innoq.com/de/articles/2012/09/neo4j-rockt/.
@@ -155,5 +170,5 @@ Die Abbildung 3-1 zeigt ein Beispiel für das Datenmodell von Neo4j. Der Knoten 
 - [9] skyridetim, „geeksforgeeks.org,“ [Online]. Available: https://www.geeksforgeeks.org/neo4j-installation/. [Zugriff am 27 Oktober 2020].
 - [10] S. Schönung, „Graphendatenbanken,“ 2012. [Online]. Available: https://www.christianbaun.de/SEM12/Dokumente/CLCP_SEM_SS2012_Graphendatenbanken_Ausarbeitung.pdf. [Zugriff am 26 Oktober 2020].
 - [11] Neo4j, Inc., „Property values,“ [Online]. Available: https://neo4j.com/docs/java-reference/current/java-embedded/property-values/index.html. [Zugriff am 27 Oktober 2020].
-
+- [12] S. Schubert, „informatik-aktuell.de,“ [Online]. Available: https://www.informatik-aktuell.de/betrieb/datenbanken/einstieg-in-die-graphdatenbank-neo4j.html. [Zugriff am 27 Oktober 2020].
 
