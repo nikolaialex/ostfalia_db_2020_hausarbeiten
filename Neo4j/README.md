@@ -17,12 +17,12 @@
   <br/>1.3. [Vorteile von Graphendatenbanken](#13-vorteile-von-graphendatenbanken)
   <br/>1.4. [Nachteile von Graphendatenbanken](#14-nachteile-von-graphendatenbanken)
   <br/>1.5. [Wofür eignet sich Neo4j?](#15-wofür-eignet-sich-neo4j)  
-2. [Installation und Start](#2-neo4j-installation-und-start)  
+2. [Installation und Start](#2-installation-und-start)  
 3. [Grundlagen](#3-grundlagen)
   <br/>3.1. [Datenmodell](#31-datenmodell)
   <br/>3.2. [Datenintegrität](#32-datenintegrität)
-4. [Fazit](#3-fazit)
-5. [Literaturverzeichnis](#4-literaturverzeichnis)
+4. [Fazit](#4-fazit)
+5. [Literaturverzeichnis](#5-literaturverzeichnis)
 
 
 ## 1. Einleitung
