@@ -18,6 +18,7 @@
   <br/>2.3. [Nachteile von Graphendatenbanken](#23-nachteile-von-graphendatenbanken)
   <br/>2.4. [Wofür eignet sich Neo4j?](#24-wofür-eignet-sich-neo4j)
   <br/>2.5. [Datenmodell](#25-datenmodell)
+  <br/>2.6. [Datenintegrität](#26-datenintegrität)
 3. [Fazit](#3-fazit)
 4. [Literaturverzeichnis](#4-literaturverzeichnis)
 
@@ -101,7 +102,7 @@ Die folgenden Wertetypen können für Properties vergeben werden:
 | java.time.LocalDateTime           | Eine sofortige Erfassung des Datums und der Uhrzeit, aber nicht der Zeitzone.              | 
 | java.time.temporal.TemporalAmount | Ein zeitlicher Betrag. Dadurch wird der Zeitunterschied zwischen zwei Momenten erfasst.    | 
 
-<p align="center"><b>Tabelle 2-1: Properties Werttypen in Neo4j [8]</b></p>
+<p align="center"><b>Tabelle 2-1: Werttypen für Properties in Neo4j [8]</b></p>
 
 In Neo4j existiert außerdem ein spezieller Knoten, den sogenannten Referenzknoten. Dieser existiert in jeder neu angelegten Neo4j Datenbank, weil dieser Knoten den allgemein bekannten Einstiegspunkt für jeden Graphen darstellt. Dieser Knoten sollte zu mindestens indirekt mit allen Knoten verbunden sein, damit jeder Knoten von dem Referenzknoten erreichbar ist. [7]
 
@@ -114,6 +115,10 @@ In Neo4j existiert außerdem ein spezieller Knoten, den sogenannten Referenzknot
 Die Abbildung 2-2 zeigt ein Beispiel für das Datenmodell von Neo4j. Der Knoten John und Jane haben unter anderem die Attribute von Kundendaten, wie Name, Nachname, Ort und E-Mail. Jedoch müssen die Knoten nicht alle die gleichen Eigenschaften mit unterschiedlichen Werten besitzen. So hat der Knoten Jane in diesem Beispiel nicht das Attribut von einer E-Mail-Adresse. Außerdem wurde der Knoten John und Jane mit dem Label Kunden versehen. Damit kann über das Label Kunden John und Jane leichter und schneller über eine Suchanfrage in der Datenbank gefunden werden. Das Beispiel verdeutlicht ebenfalls, dass die Knoten unterschiedliche Beziehungen (Kanten) zueinander haben können. 
 
 <p align="center"><img src="images/nodes_neoj4_graphdatenbanken.jpg" title="Veranschaulichung des Datenmodells in Neo4j" width="100%" height="auto"><b>Abbildung 2-2: Veranschaulichung des Datenmodells in Neo4j [3]</b></p>
+
+
+### 2.6. Datenintegrität
+
 
 
 ## 3. Fazit
