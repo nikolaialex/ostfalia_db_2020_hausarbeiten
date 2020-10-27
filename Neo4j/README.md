@@ -82,7 +82,7 @@ Für ein System, wo die Daten zahlreich vernetzt und kaum strukturiert sind, eig
 ## 2. Installation und Start
 Diese Schritte sind nötig um Neo4j unter Windows zu installieren und zu starten:
 - Java muss auf dem PC (Personal Computer) installiert sein. [7]
-- Nun ist es nötig die neuste Version von Neo4j zu downloaden. Hierfür besucht man die neo4j-Website und downloadet die "Neo4j Community Edition". [7]
+- Nun ist es nötig die neuste Version von Neo4j zu downloaden. Hierfür besucht man die <a href="https://neo4j.com/download-center/#community" target="_blank">Neo4j-Webseite</a> und downloadet die "Neo4j Community Edition". [7]
 - Der nächste Schritt, ist die heruntergeladene ZIP-Datei zu entpacken. [7]
 - Nun navigiert man über die Konsole in den Bin Ordner und führt „bin\neo4j console“ aus. Jetzt können Neo4j-Abfragen im Terminal ausführt werden. [7]
 - Im gleichen Verzeichnis führt man den Befehl „bin/neo4j start“ aus in der Konsole, um den Webserver zu starten. Damit der Webserver gestoppt wird gibt man den Befehl „bin/neo4j stop“ in der Konsole ein. [7] [8]
