@@ -92,7 +92,7 @@ Diese Schritte sind nötig um Neo4j unter Windows zu installieren und zu starten
 <p align="center"><img src="images/neo4j-login.png" title="Neo4j Login" width="100%" height="auto"><b>Abbildung 2-1: Neo4j Login</b></p>
 
 ## 3. Grundlagen
-
+Nachfolgend werden die Grundlagen zu Graphen und die Thematik von den Graphdatenbanken spezifisch am Beispiel von Neo4j näher betrachtet.
 
 ### 3.1. Datenmodell
 Leonard Euler legte mit der Graphentheorie die Grundlage für das Datenmodell der Graphdatenbanken [5]. Anders als in relationale Datenbanken, wo die Übertragung eines Graphenmodells mit den Knoten und Kanten nur in der Form einer Datenbanktabelle möglich ist, nutzt Neo4j die unveränderte Form der Graphenelemente. Das hat den Effekt, dass die Problemfelder, die sonst entstehen, deutlich vereinfacht werden. Die wichtigsten Bestandteile des Datenmodells von Neo4j werden nachfolgend beschrieben: [10]
