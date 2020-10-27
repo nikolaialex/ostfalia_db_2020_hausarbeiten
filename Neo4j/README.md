@@ -102,7 +102,7 @@ Die folgenden Wertetypen können für Properties vergeben werden:
 | java.time.LocalDateTime           | Eine sofortige Erfassung des Datums und der Uhrzeit, aber nicht der Zeitzone.              | 
 | java.time.temporal.TemporalAmount | Ein zeitlicher Betrag. Dadurch wird der Zeitunterschied zwischen zwei Momenten erfasst.    | 
 
-<p align="center"><b>Tabelle 2-1: Werttypen für Properties in Neo4j [8]</b></p>
+<p align="center"><b>Tabelle 2-1: Wertetypen für Properties in Neo4j [8]</b></p>
 
 In Neo4j existiert außerdem ein spezieller Knoten, den sogenannten Referenzknoten. Dieser existiert in jeder neu angelegten Neo4j Datenbank, weil dieser Knoten den allgemein bekannten Einstiegspunkt für jeden Graphen darstellt. Dieser Knoten sollte zu mindestens indirekt mit allen Knoten verbunden sein, damit jeder Knoten von dem Referenzknoten erreichbar ist. [7]
 
