@@ -88,7 +88,7 @@ Diese Schritte sind nötig um Neo4j unter Windows zu installieren und zu starten
 - Nun ruft man im Browser seiner Wahl den localhost unter http://localhost:7474 auf. [9]
 - Der Benutzername und das Passwort sind bei Neo4j ab der Community-Version 3.0.3 standardmäßig „neo4j“ (siehe Abbildung 2-1). Nachdem das Passwort eingegeben wurde, kann das Passwort geändert werden. [9] [8]
 
-<p align="center"><img src="images/neo4j-login.jpg" title="Neo4j Login" width="100%" height="auto"><b>siehe Abbildung 2-1 Neo4j Login</b></p>
+<p align="center"><img src="images/neo4j-login.png" title="Neo4j Login" width="100%" height="auto"><b>Abbildung 2-1 Neo4j Login</b></p>
 
 ## 3. Grundlagen
 
