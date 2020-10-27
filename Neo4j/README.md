@@ -78,18 +78,42 @@ Für ein System, wo die Daten zahlreich vernetzt und kaum strukturiert sind, eig
 ### 2.5. Datenmodell
 Leonard Euler legte mit der Graphentheorie die Grundlage für das Datenmodell der Graphdatenbanken [5]. Anders als in relationale Datenbanken, wo die Übertragung eines Graphenmodells mit den Knoten und Kanten nur in der Form einer Datenbanktabelle möglich ist, nutzt Neo4j die unveränderte Form der Graphenelemente. Das hat den Effekt, dass die Problemfelder, die sonst entstehen, deutlich vereinfacht werden. Die wichtigsten Bestandteile des Datenmodells von Neo4j werden nachfolgend beschrieben: [7]
 
-- **Knoten (Nodes):** Das Grundelement in jeden Graphen ist der Knoten. In Neo4j enthält jeder Knoten eine eindeutige ID, die fortlaufend für alle Knoten verteilt wird. Die Knoten in Neo4j können Eigenschaften zugewiesen werden, die auch Properties genannt werden. Diese Attribute enthalten einfache Schlüssel oder Werte-Paare. Diese Eigenschaften müssen kein vorgegebenes Schema folgen, das heißt, die Attribute können sich von Knoten zu Knoten unterscheiden. Dies ermöglicht eine größere Flexibilität im Vergleich zu relationalen Datenbanken, wo für jeden Knotentyp eine eigene Tabelle erforderlich ist. [7]
-<br><br>In Neo4j existiert außerdem ein spezieller Knoten, den sogenannten Referenzknoten. Dieser existiert in jeder neu angelegten Neo4j Datenbank, weil dieser Knoten den allgemein bekannten Einstiegspunkt für jeden Graphen darstellt. Dieser Knoten sollte zu mindestens indirekt mit allen Knoten verbunden sein, damit jeder Knoten von dem Referenzknoten erreichbar ist. [7]
+**Knoten (Nodes):** Das Grundelement in jeden Graphen ist der Knoten. In Neo4j enthält jeder Knoten eine eindeutige ID, die fortlaufend für alle Knoten verteilt wird. Die Knoten in Neo4j können Eigenschaften zugewiesen werden, die auch Properties genannt werden. Diese Attribute enthalten einfache Schlüssel oder Werte-Paare. Diese Eigenschaften müssen kein vorgegebenes Schema folgen, das heißt, die Attribute können sich von Knoten zu Knoten unterscheiden. Dies ermöglicht eine größere Flexibilität im Vergleich zu relationalen Datenbanken, wo für jeden Knotentyp eine eigene Tabelle erforderlich ist. [7]
 
-- **Kanten (Relationships):** Die Verbindungen zwischen den Knoten werden als Kanten oder Relationships bezeichnet und stellen eine Auffindbarkeit des Knotens in der Datenbank sicher. Dabei kann ein Knoten keine, eine oder mehrere Beziehungen zu anderen Knoten haben. Auch die Kanten können mit einer eindeutigen ID identifiziert werden, die fortlaufend für alle vergeben werden. Eine Kante kann nur durch einen Start- und Endknoten mit einem Typbezeichner entstehen. Dabei sind die Kanten immer gerichtet, das heißt eine Kante ist immer nur mit zwei Knoten verbunden. Die Richtung der Kante kann ebenfalls entscheidend sein, denn wenn X Follower von Y ist, heißt das nicht das Y auch Follower von X ist. Sollte die Richtung der Verbindung der Knoten egal sein, kann diese beim traversieren auch ignoriert werden. Kanten können ebenfalls wie Knoten Attribute enthalten in der Form von Schlüssel oder Werte-Paare. [7].
+Die folgenden Wertetypen können für Properties vergeben werden:
 
-- **Pfade:** Pfade sind eine Aufreihung von einem oder mehreren Knoten über Kanten und stellen das Ergebnis einer Suchanfrage dar. [7].
+| Typ                               | Beschreibung                                                                               |
+| :-------------------------------- | :----------------------------------------------------------------------------------------- | 
+| boolean                           | true oder false		                                                                     | 
+| byte                              | 8-bit integer (Ganzzahl)                                                                   | 
+| short                             | 16-bit integer (Ganzzahl)                                                                  | 
+| int                               | 32-bit integer (Ganzzahl)                                                                  | 
+| long                              | 64-bit integer (Ganzzahl)                                                                  | 
+| float                             | 32-Bit IEEE 754 Gleitkommazahl                                                             | 
+| double                            | 64-Bit IEEE 754 Gleitkommazahl                                                             | 
+| char                              | 16-Bit-Ganzzahlen ohne Vorzeichen, die Unicode-Zeichen darstellen                          | 
+| String                            | Sequenz von Unicode-Zeichen                                                                | 
+| org.neo4j.graphdb.spatial.Point   | Ein 2D- oder 3D-Punktobjekt in einem bestimmten Koordinatensystem.                         | 
+| java.time.LocalDate               | Eine sofortige Erfassung des Datums, aber nicht der Zeit oder der Zeitzone.                | 
+| java.time.OffsetTime              | Eine sofortige Erfassung der Tageszeit und des Zeitzonenversatzes, jedoch nicht das Datum. | 
+| java.time.LocalTime               | Ein Augenblick, der die Tageszeit erfasst, aber nicht das Datum und nicht die Zeitzone.    | 
+| java.time.ZonedDateTime           | Eine sofortige Erfassung des Datums, der Uhrzeit und der Zeitzone.                         | 
+| java.time.LocalDateTime           | Eine sofortige Erfassung des Datums und der Uhrzeit, aber nicht der Zeitzone.              | 
+| java.time.temporal.TemporalAmount | Ein zeitlicher Betrag. Dadurch wird der Zeitunterschied zwischen zwei Momenten erfasst.    | 
 
-- **Indizes durch Labels:** Die Knoten können mit zusätzlichen Eigenschaften versehen werden, die Labels genannt werden. Labels ermöglichen eine Teilmenge an Knoten auszuzeichnen und zu indizieren, damit können die Knoten gruppiert und bei Suchanfragen schneller gefunden werden. Wichtig ist, dass Knoten jederzeit mit weiteren Attributen und Labels ergänzt werden können. Knoten können mehr als ein Label enthalten. [3]
+<p align="center"><b>Tabelle 2-1: Properties Werttypen in Neo4j [8]</b></p>
+
+In Neo4j existiert außerdem ein spezieller Knoten, den sogenannten Referenzknoten. Dieser existiert in jeder neu angelegten Neo4j Datenbank, weil dieser Knoten den allgemein bekannten Einstiegspunkt für jeden Graphen darstellt. Dieser Knoten sollte zu mindestens indirekt mit allen Knoten verbunden sein, damit jeder Knoten von dem Referenzknoten erreichbar ist. [7]
+
+**Kanten (Relationships):** Die Verbindungen zwischen den Knoten werden als Kanten oder Relationships bezeichnet und stellen eine Auffindbarkeit des Knotens in der Datenbank sicher. Dabei kann ein Knoten keine, eine oder mehrere Beziehungen zu anderen Knoten haben. Auch die Kanten können mit einer eindeutigen ID identifiziert werden, die fortlaufend für alle vergeben werden. Eine Kante kann nur durch einen Start- und Endknoten mit einem Typbezeichner entstehen. Dabei sind die Kanten immer gerichtet, das heißt eine Kante ist immer nur mit zwei Knoten verbunden. Die Richtung der Kante kann ebenfalls entscheidend sein, denn wenn X Follower von Y ist, heißt das nicht das Y auch Follower von X ist. Sollte die Richtung der Verbindung der Knoten egal sein, kann diese beim traversieren auch ignoriert werden. Kanten können ebenfalls wie Knoten Attribute enthalten in der Form von Schlüssel oder Werte-Paare. [7].
+
+**Pfade:** Pfade sind eine Aufreihung von einem oder mehreren Knoten über Kanten und stellen das Ergebnis einer Suchanfrage dar. [7].
+
+**Indizes durch Labels:** Die Knoten können mit zusätzlichen Eigenschaften versehen werden, die Labels genannt werden. Labels ermöglichen eine Teilmenge an Knoten auszuzeichnen und zu indizieren, damit können die Knoten gruppiert und bei Suchanfragen schneller gefunden werden. Wichtig ist, dass Knoten jederzeit mit weiteren Attributen und Labels ergänzt werden können. Knoten können mehr als ein Label enthalten. [3]
 
 Die Abbildung 2-2 zeigt ein Beispiel für das Datenmodell von Neo4j. Der Knoten John und Jane haben unter anderem die Attribute von Kundendaten, wie Name, Nachname, Ort und E-Mail. Jedoch müssen die Knoten nicht alle die gleichen Eigenschaften mit unterschiedlichen Werten besitzen. So hat der Knoten Jane in diesem Beispiel nicht das Attribut von einer E-Mail-Adresse. Außerdem wurde der Knoten John und Jane mit dem Label Kunden versehen. Damit kann über das Label Kunden John und Jane leichter und schneller über eine Suchanfrage in der Datenbank gefunden werden. Das Beispiel verdeutlicht ebenfalls, dass die Knoten unterschiedliche Beziehungen (Kanten) zueinander haben können. 
 
-<p align="center"><img src="images/nodes_neoj4_graphdatenbanken.jpg" title="Veranschaulichung von Knoten und Kanten in Neo4j" width="100%" height="auto"><b>Abbildung 2-2: Veranschaulichung von Knoten und Kanten in Neo4j [3]</b></p>
+<p align="center"><img src="images/nodes_neoj4_graphdatenbanken.jpg" title="Veranschaulichung des Datenmodells in Neo4j" width="100%" height="auto"><b>Abbildung 2-2: Veranschaulichung des Datenmodells in Neo4j [3]</b></p>
 
 
 ## 3. Fazit
@@ -105,4 +129,5 @@ Die Abbildung 2-2 zeigt ein Beispiel für das Datenmodell von Neo4j. Der Knoten 
 - [5] „wi-wiki.de,“ Technische Hochschule Mittelhessen, [Online]. Available: http://wi-wiki.de/doku.php?id=bigdata:graphdb. [Zugriff am 26 Oktober 2020].
 - [6] „aoe.com,“ AOE GmbH, [Online]. Available: https://www.aoe.com/de/produkte/datenbanken-storage/neo4j.html. [Zugriff am 26 Oktober 2020].
 - [7] S. Schönung, „Graphendatenbanken,“ 2012. [Online]. Available: https://www.christianbaun.de/SEM12/Dokumente/CLCP_SEM_SS2012_Graphendatenbanken_Ausarbeitung.pdf. [Zugriff am 26 Oktober 2020].
+- [8] Neo4j, Inc., „Property values,“ [Online]. Available: https://neo4j.com/docs/java-reference/current/java-embedded/property-values/index.html. [Zugriff am 27 Oktober 2020].
 
