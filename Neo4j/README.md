@@ -23,9 +23,10 @@
   <br/>3.2. [Datenintegrität](#32-datenintegrität)
 4. [Architektur](#4-architektur)
 5. [Plugins](#5-plugins)
-6. [Migration](#6-migration)
-7. [Fazit](#7-fazit)
-8. [Literaturverzeichnis](#8-literaturverzeichnis)
+6. [Object-Graph-Mapping (OGM)](#6-object-graph-mapping-ogm)
+7. [Migration](#7-migration)
+8. [Fazit](#8-fazit)
+9. [Literaturverzeichnis](#9-literaturverzeichnis)
 
 
 ## 1. Einleitung
@@ -149,7 +150,7 @@ Dadurch, dass kein festes Schema bei Neo4j vorhanden ist, bietet das jedoch Gefa
 
 
 ## 4. Architektur
-Eine Datenbank kommt im Unternehmen-Umfeld erst zur Verwendung, wenn die Datenbank gewisse Voraussetzungen erfüllen. Wichtig für die Wahl einer Datenbank ist für Unternehmen die Eigenschaften Abgeschlossenheit, Konsistenz, Isolation und Dauerhaftigkeit (ACID). Neo4j ist ACID-fähig und legt einen großen Wert auf eine Hochverfügbarkeit. Daher ist die Architektur der Datenbank auf eine Master-Slave-Architektur ausgelegt, siehe Abbildung 4 1. Die Aufgaben werden so verteilt, dass der Master für den größten Teil der Schreiblast und die Slaves für das Bearbeiten von Leseanfragen zuständig sind. Der vorgeschaltete Load-Balancer übernimmt die Verteilung der Lasten und der Apache Zookeper ist für die Koordinierung der Master und Slaves zuständig, sowie für die Bestimmung eines Master Servers. Das Ziel dieser Architektur ist eine Fehlertoleranz und Skalierbarkeit des gesamten Systems zu erreichen. [12] [10]
+Eine Datenbank kommt im Unternehmen-Umfeld erst zur Verwendung, wenn die Datenbank gewisse Voraussetzungen erfüllen. Wichtig für die Wahl einer Datenbank ist für Unternehmen die Eigenschaften Abgeschlossenheit, Konsistenz, Isolation und Dauerhaftigkeit (ACID). Neo4j ist ACID-fähig und legt einen großen Wert auf eine Hochverfügbarkeit. Daher ist die Architektur der Datenbank auf eine Master-Slave-Architektur ausgelegt, siehe Abbildung 4 1. Die Aufgaben werden so verteilt, dass der Master für den größten Teil der Schreiblast und die Slaves für das Bearbeiten von Leseanfragen zuständig sind. Der vorgeschaltete Load-Balancer übernimmt die Verteilung der Lasten und der Apache Zookeeper ist für die Koordinierung der Master und Slaves zuständig sowie für die Bestimmung eines Master Servers. Das Ziel dieser Architektur ist, eine Fehlertoleranz und Skalierbarkeit des gesamten Systems zu erreichen. [12] [10]
 
 <p align="center"><img src="images/Neo4J-Hochverfügbarkeitsarchitektur.jpg" title="Hochverfügbarkeitsarchitektur von Neo4j" width="100%" height="auto"><b>Abbildung 4-1: Hochverfügbarkeitsarchitektur von Neo4j [12]</b></p>
 
@@ -160,23 +161,32 @@ Neo4j lässt sich wie andere Datenbanken mit Hilfe von Plugins erweitern. Diese 
 - Die Hilfsfunktionen, die Cypher erweitern, sind die sogenannten Functions. Dabei besitzen diese Functions selber keinen direkten Zugriff auf die Datenbank. Die Functions geben einen Wert zurück, aber bekommen mehre Werte übergeben. String-Concatenation wäre ein Beispiel einer solchen Function. Hierbei wird eine Liste von Strings übergeben und es wird ein String zurückgegeben. [13]
 - Im Gegensatz zu den Functions sind die Procedures mächtige Funktionen. Die Procedures besitzen Zugriff auf die Datenbank und geben Streams von Werten zurück. Diese können dazu benutzt werden, um neue Funktionen zu implementieren. Damit können z.B. komplexe Cypher-Befehle in einen Einzelnen verpackt werden. [13]
 
-Mit Verwendung des Neo4j-Kernels werden Functions und Procedures in Java implementiert. Die dabei entstehende jar wird dann im Plugin-Folder abgelegt. Startet die Datenbank neu, dann wird es automatisch angewendet. Weiterhin stellt Neo4j die Plugin-Library „APOC“ (Awesome Procedures On Cypher) bereit. Diese enthält über 450 Functions und Procedures. Außerdem erweitert und pflegt Neo4j die Plugin-Library „Neo4j-Graph-Algorithms“. Diese Bibliothek enthält über 30 Graph-Algorithmen. Zu diesen Algortihmen zählen unter anderem A*, Betweenness Centrality und PageRank. [13]
+Mit Verwendung des Neo4j-Kernels werden Functions und Procedures in Java implementiert. Die dabei entstehende jar wird dann im Plugin-Folder abgelegt. Startet die Datenbank neu, dann wird es automatisch angewendet. Weiterhin stellt Neo4j die Plugin-Library „APOC“ (Awesome Procedures On Cypher) bereit. Diese enthält über 450 Functions und Procedures. Außerdem erweitert und pflegt Neo4j die Plugin-Library „Neo4j-Graph-Algorithms“. Diese Bibliothek enthält über 30 Graph-Algorithmen. Zu diesen Algorithmen zählen unter anderem A*, Betweenness Centrality und PageRank. [13]
 
 
-## 6. Migration
-Bei der Einführung einer Neo4j-Datenbank ist davon auszugehen, dass bereits eine relationale Datenbank vorhanden ist aufgrund der hohe Verbreitung von relationalen Datenbanken. Daher wird die relationale Datenbank entweder in Neo4j übernommen oder die relationale Datenbank bleibt bestehen und wird durch die Neo4j Datenbank erweitert. Die beiden beschriebenen Anwendungsfälle sind mit Neo4j leicht zu umzusetzen. [13]
-
-Die Abfragesprache Cypher die Neo4j verwendet, bietet Funktionen für die Auflösung einer relationalen Datenbank. Hierfür besitzt Cypher Funktionen für den Import von Daten aus json, csv, xml und anderen Formaten. Daher ist es notwendig zuerst einen Export der Daten aus der relationalen Datenbank durchzuführen und dann einen Cypher-Import in die Neo4j Datenbank durchzuführen. Allerdings weist Neo4j eine schwäche bei der Schreiben-Performanz auf. Aus diesem Grund kann ein Groß-Import von Daten etwas Zeit in Anspruch nehmen. [13]
-
-Ist das Ziel eine relationale Datenbank mit Neo4j zu erweitern, dann ist der Einsatz von Plugins hilfreich. Für die meisten Datenbank-Technologien bietet APOC Plugins mit Connectoren an. Damit können Cypher-Statements geschrieben werden, die die Verteilung der Daten von der relationalen Datenbank auf Neo4j managen. Zum Beispiel ist es dann möglich ein System zu implementieren, dass die Stammdaten in einer relationalen Datenbank aufbewahrt, aber die Nachfolger bzw. die Vorgänger Relationen in Neo4j gepflegt wird. [13]
+## 6. Object-Graph-Mapping (OGM)
 
 
+## 7. Migration
+Bei der Einführung einer Neo4j-Datenbank ist davon auszugehen, dass bereits eine relationale Datenbank vorhanden ist aufgrund der hohen Verbreitung von relationalen Datenbanken. Daher wird die relationale Datenbank entweder in Neo4j übernommen oder die relationale Datenbank bleibt bestehen und wird durch die Neo4j Datenbank erweitert. Die beiden beschriebenen Anwendungsfälle sind mit Neo4j leicht umzusetzen. [13]
 
-## 7. Fazit
+Die Abfragesprache Cypher, die Neo4j verwendet, bietet Funktionen für die Auflösung einer relationalen Datenbank. Hierfür besitzt Cypher Funktionen für den Import von Daten aus json, csv, xml und anderen Formaten. Daher ist es notwendig zuerst einen Export der Daten aus der relationalen Datenbank durchzuführen und dann einen Cypher-Import in die Neo4j Datenbank durchzuführen. Allerdings weist Neo4j eine Schwäche bei der Schreiben-Performanz auf. Aus diesem Grund kann ein Groß-Import von Daten etwas Zeit in Anspruch nehmen. [13]
+
+Ist das Ziel eine relationale Datenbank mit Neo4j zu erweitern, dann ist der Einsatz von Plugins hilfreich. Für die meisten Datenbank-Technologien bietet APOC Plugins mit Connectoren an. Damit können Cypher-Statements geschrieben werden, die die Verteilung der Daten von der relationalen Datenbank auf Neo4j managen. Zum Beispiel ist es dann möglich ein System zu implementieren, das die Stammdaten in einer relationalen Datenbank aufbewahrt, aber die Nachfolger bzw. die Vorgänger Relationen in Neo4j gepflegt wird. [13]
 
 
 
-## 8. Literaturverzeichnis
+## 8. Fazit
+Die Community Edition von Neo4j ermöglicht eine schnelle Installation und ein schnelles Starten. Die integrierte Dokumentation und das Tutorial führt einen Neo4j-Einsteiger in die Konzepte von Neo4j und dessen Abfragesprache Cypher ein.
+
+Die Stärke von Neo4j ist die einfache Traversierung von Graphen, dass im Vergleich zu relationalen Datenbanken eine erhebliche Minimierung des Aufwandes bei der Entwicklung zur Folge hat. Das ist möglich, weil die Graphen mit gerichteten Kanten eins zu eins in Neo4j umgesetzt werden können. Damit lassen sich dann auch komplexe Beziehungen einfacher darstellen und effektiv verwalten. Zudem bieten Graphdatenbanken, durch die Eigenschaften von Graphen eine sehr schnelle Lesegeschwindigkeit, das unabhängig von den enthalten Datenmenge gewährleitet ist. Außerdem bietet Neo4j durch seine Schemalosigkeit für die Datenmodellierung genug Flexibilität um mit ständig ändernden Anforderungen klar zu kommen. 
+
+Die eigens entwickelte Abfragesprache Cypher ermöglicht eine Java-basierte Plugin-Entwicklung und eine Object Graph Mapping (OGM) Nutzung. Dazu bietet Neo4j einen einfachen Datenimport an. Dazu ist Neo4j in der Lage ACID konforme Datenbanken zu stellen, die voll clusterfähig sind, was besonders das Unternehmen-Umfeld ansprechen soll.
+
+Zu beachten ist jedoch, dass durch eine fehlende Standardisierung von Graphendatenbanken, zum Beispiel bei der Abfragesprache bei Neo4j Cyphe,r auch eine stärke Bindung an die Datenbanktechnologie Neo4j miteingeht.
+
+
+## 9. Literaturverzeichnis
 
 - [1] IT Verlag für Informationstechnik GmbH, „Fünf Tipps für die Wahl der richtigen Datenbank,“ 01 April 2020. [Online]. Available: https://www.it-daily.net/it-management/big-data-analytics/23876-fuenf-tipps-fuer-die-wahl-der-richtigen-datenbank. [Zugriff am 25 Oktober 2020].
 - [2] P. Ghadir, „Neo4j – Eine graph-basierte transaktionale Datenbank,“ 01 September 2012. [Online]. Available: https://www.innoq.com/de/articles/2012/09/neo4j-rockt/. [Zugriff am 24 Oktober 2020].
