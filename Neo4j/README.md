@@ -259,7 +259,7 @@ Die Stärke von Neo4j ist die einfache Traversierung von Graphen, dass im Vergle
 
 Die eigens entwickelte Abfragesprache Cypher ermöglicht eine Java-basierte Plugin-Entwicklung und eine Object Graph Mapping (OGM) Nutzung. Dazu bietet Neo4j einen einfachen Datenimport an. Dazu ist Neo4j in der Lage ACID konforme Datenbanken zu stellen, die voll clusterfähig sind, was besonders das Unternehmen-Umfeld ansprechen soll.
 
-Zu beachten ist jedoch, dass durch eine fehlende Standardisierung von Graphendatenbanken, zum Beispiel bei der Abfragesprache bei Neo4j Cyphe,r auch eine stärke Bindung an die Datenbanktechnologie Neo4j miteingeht.
+Zu beachten ist jedoch, dass durch eine fehlende Standardisierung von Graphendatenbanken, zum Beispiel bei der Abfragesprache bei Neo4j Cypher auch eine stärke Bindung an die Datenbanktechnologie Neo4j miteingeht.
 
 
 ## 9. Literaturverzeichnis
