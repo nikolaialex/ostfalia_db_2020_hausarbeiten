@@ -165,6 +165,82 @@ Mit Verwendung des Neo4j-Kernels werden Functions und Procedures in Java impleme
 
 
 ## 6. Object-Graph-Mapping (OGM)
+Ein nützliches Werkzeug für die Arbeit mit Neo4j ist das Object-Graph-Mapping (OGM). Dabei ist OGM eine Bibliothek mit der es möglich ist Java-Objektstrukturen auf die Neo4j-Graphstruktur zu übernehmen. Weiterhin ermöglicht OGM den programmatischen Zugriff auf die Datenbank über eine Session. Object-Graph-Mapping kommt dem gleich, was für relationale Datenbanken Hibernate darstellt. Dabei ist das Mapping einfach gehalten und besitzt eine ähnliche Umsetzung über Annotations wie bei Hibernate. [13]
+
+Ist das Ziel Objekte einer Klasse auf Knoten zu mappen, dann annotiert man die Klasse mit @NodeEntity. Die Attribute, die nur vorübergehend sind, werden automatisch gemappt. Hingegen können die eingebetteten Objekte mit @Relationship annotiert werden. Die Umsetzung einer gemappten Relation ist in Listing 6-1 OGM-Annotation zu sehen. Dort ist ein Beispiel Annotation für eine Person, die mehre Personen kennen kann, abgebildet. [13]
+
+```java
+@Data
+@NodeEntity
+public class Person {
+
+    @Id
+    @GeneratedValue
+    private Long id;
+
+    private String name;
+
+    @Relationship(type = "KNOWS")
+    private List<Person> persons;
+
+}
+```
+<p align="center"><b>Listing 6-1: OGM-Annotation [13]</b></p>
+
+Damit man eine Klasse auf eine Relation mit zusätzlichen Attributen mappen kann, verwendet man @RelationshipEntity, um Klassen zu annotieren. Dabei ist es nötig die Klassen zu kennzeichnen mit @StartNode und @EndNode (siehe Listing 6-2). Weiterhin muss der Start- oder Endknoten referenziert werden, damit ein Mapping möglich ist (siehe Listing 6-3). [13]
+
+```java
+@Data
+@RelationshipEntity(type = „KNOWS“)
+public class KnowsRelation {
+
+    @Id
+    @GeneratedValue
+    private Long id;
+
+    private Instant since;
+
+    @StartNode
+    private Person from;
+
+    @EndNode
+    private Person to;
+
+}
+```
+<p align="center"><b>Listing 6-2: Eine auf eine Klasse gemappte Relation mit zusätzlichen Attributen [13]</b></p>
+
+```java
+@Data
+@NodeEntity
+public class Person {
+
+    @Id
+    @GeneratedValue
+    private Long id;
+
+    private String name;
+
+    @Relationship(type = „KNOWS“)    private List<KnowsRelation> knowsRelations;
+
+}
+```
+<p align="center"><b>Listing 6-3: Eine referenzierte RelationshipEntity [13]</b></p>
+
+Alle Entitäten brauchen aus technischen Gründen eine Id, die mit @Id gesetzt wird. Außerdem kann man diese Id generieren lassen, dazu annotiert man sie mit @GeneratedValue. Mit IdStrategy kann zusätzlich angegeben werden, wie die Ids generiert werden. Object-Graph-Mapping verwendet nativen Ids in dem Fall, wenn keine angegeben wurde. Allerdings ist das nicht zu empfehlen, weil die Ids nach einer Zeitspanne recycelt werden. Besonders bei Applikationen, die lange verwendet werden, führt dies zu Problemen. Ids selber zu erzeugen ist die bessere Lösung. Es kann zum Beispiel die UuidStrategy genutzt werden, um Uuids zu erzeugen. [13]
+
+Die Neo4j Datenbank kann aber nicht triviale Werte speichern. Daher benötigt man einen Mechanismus, um Uuids abbilden zu können. Für dieses Problem bietet der OGMConverter Abhilfe. Mit dem OGMConverter können nicht-triviale Attribute auf Graph-Attribute übersetzt werden. Mit der in der OGM enthaltene UuidStringConverter können Uuid-Objekte in der Datenbank als Strings gespeichert werden. [13]
+
+Unter org.neo4j.ogm.typeconversion.AttributeConverter können eigene Converter als Implementierung hinzugefügt werden. Eigene IdStrategies können unter org.neo4j.ogm.id.IdStrategy hinzugefügt werden. Das Listing 4 zeigt ein Mapping, wo eine Uuid verwendet wird statt der nativen Id. [13]
+
+```java
+@Id
+@GeneratedValue(strategy = UuidStrategy.class)
+@Convert(UuidStringConverter.class)
+private UUID id;
+
+```
+<p align="center"><b>Listing 6-4: Verwendung einer Uuid in OGM [13]</b></p>
 
 
 ## 7. Migration
