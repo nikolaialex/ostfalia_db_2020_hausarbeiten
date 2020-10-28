@@ -149,7 +149,7 @@ Dadurch, dass kein festes Schema bei Neo4j vorhanden ist, bietet das jedoch Gefa
 
 
 ## 4. Architektur
-
+Eine Datenbank kommt im Unternehmen-Umfeld erst zur Verwendung, wenn die Datenbank gewisse Voraussetzungen erfüllen. Wichtig für die Wahl einer Datenbank ist für Unternehmen die Eigenschaften Abgeschlossenheit, Konsistenz, Isolation und Dauerhaftigkeit (ACID). Neo4j ist ACID-fähig und legt einen großen Wert auf eine Hochverfügbarkeit. Daher ist die Architektur der Datenbank auf eine Master-Slave-Architektur ausgelegt, siehe Abbildung 4 1. Die Aufgaben werden so verteilt, dass der Master für den größten Teil der Schreiblast und die Slaves für das Bearbeiten von Leseanfragen zuständig sind. Der vorgeschaltete Load-Balancer übernimmt die Verteilung der Lasten und der Apache Zookeper ist für die Koordinierung der Master und Slaves zuständig, sowie für die Bestimmung eines Master Servers. Das Ziel dieser Architektur ist eine Fehlertoleranz und Skalierbarkeit des gesamten Systems zu erreichen. [12] [10]
 
 <p align="center"><img src="images/Neo4J-Hochverfügbarkeitsarchitektur.jpg" title="Hochverfügbarkeitsarchitektur von Neo4j" width="100%" height="auto"><b>Abbildung 4-1: Hochverfügbarkeitsarchitektur von Neo4j [12]</b></p>
 
@@ -164,11 +164,11 @@ Mit Verwendung des Neo4j-Kernels werden Functions und Procedures in Java impleme
 
 
 ## 6. Migration
-Bei der Einführung einer Neo4j-Datenbank ist davon auszugehen, dass bereits eine relationale Datenbank vorhanden ist aufgrund der hohe Verbreitung von relationalen Datenbanken. Daher wird die relationale Datenbank entweder in Neo4j übernommen oder die relationale Datenbank bleibt bestehen und wird durch die Neo4j Datenbank erweitert. Die beiden beschriebenen Anwendungsfälle sind mit Neo4j leicht zu umzusetzen. [12]
+Bei der Einführung einer Neo4j-Datenbank ist davon auszugehen, dass bereits eine relationale Datenbank vorhanden ist aufgrund der hohe Verbreitung von relationalen Datenbanken. Daher wird die relationale Datenbank entweder in Neo4j übernommen oder die relationale Datenbank bleibt bestehen und wird durch die Neo4j Datenbank erweitert. Die beiden beschriebenen Anwendungsfälle sind mit Neo4j leicht zu umzusetzen. [13]
 
-Die Abfragesprache Cypher die Neo4j verwendet, bietet Funktionen für die Auflösung einer relationalen Datenbank. Hierfür besitzt Cypher Funktionen für den Import von Daten aus json, csv, xml und anderen Formaten. Daher ist es notwendig zuerst einen Export der Daten aus der relationalen Datenbank durchzuführen und dann einen Cypher-Import in die Neo4j Datenbank durchzuführen. Allerdings weist Neo4j eine schwäche bei der Schreiben-Performanz auf. Aus diesem Grund kann ein Groß-Import von Daten etwas Zeit in Anspruch nehmen. [12]
+Die Abfragesprache Cypher die Neo4j verwendet, bietet Funktionen für die Auflösung einer relationalen Datenbank. Hierfür besitzt Cypher Funktionen für den Import von Daten aus json, csv, xml und anderen Formaten. Daher ist es notwendig zuerst einen Export der Daten aus der relationalen Datenbank durchzuführen und dann einen Cypher-Import in die Neo4j Datenbank durchzuführen. Allerdings weist Neo4j eine schwäche bei der Schreiben-Performanz auf. Aus diesem Grund kann ein Groß-Import von Daten etwas Zeit in Anspruch nehmen. [13]
 
-Ist das Ziel eine relationale Datenbank mit Neo4j zu erweitern, dann ist der Einsatz von Plugins hilfreich. Für die meisten Datenbank-Technologien bietet APOC Plugins mit Connectoren an. Damit können Cypher-Statements geschrieben werden, die die Verteilung der Daten von der relationalen Datenbank auf Neo4j managen. Zum Beispiel ist es dann möglich ein System zu implementieren, dass die Stammdaten in einer relationalen Datenbank aufbewahrt, aber die Nachfolger bzw. die Vorgänger Relationen in Neo4j gepflegt wird. [12]
+Ist das Ziel eine relationale Datenbank mit Neo4j zu erweitern, dann ist der Einsatz von Plugins hilfreich. Für die meisten Datenbank-Technologien bietet APOC Plugins mit Connectoren an. Damit können Cypher-Statements geschrieben werden, die die Verteilung der Daten von der relationalen Datenbank auf Neo4j managen. Zum Beispiel ist es dann möglich ein System zu implementieren, dass die Stammdaten in einer relationalen Datenbank aufbewahrt, aber die Nachfolger bzw. die Vorgänger Relationen in Neo4j gepflegt wird. [13]
 
 
 
