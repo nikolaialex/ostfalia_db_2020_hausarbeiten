@@ -21,9 +21,10 @@
 3. [Grundlagen](#3-grundlagen)
   <br/>3.1. [Datenmodell](#31-datenmodell)
   <br/>3.2. [Datenintegrität](#32-datenintegrität)
-4. [Plugins](#4-plugins)
-5. [Fazit](#5-fazit)
-6. [Literaturverzeichnis](#6-literaturverzeichnis)
+4. [Architektur](#4-architektur)
+5. [Plugins](#4-plugins)
+6. [Fazit](#5-fazit)
+7. [Literaturverzeichnis](#6-literaturverzeichnis)
 
 
 ## 1. Einleitung
@@ -146,20 +147,26 @@ Durch die Datenbankmodellierung der Knoten und Kanten wird außerdem eine Form d
 Dadurch, dass kein festes Schema bei Neo4j vorhanden ist, bietet das jedoch Gefahren hinsichtlich der Datenintegrität. Denn hier ist es problemlos möglich Daten eines anderen Typs oder unter falschem Namen in einem Knoten zu speichern. Dieser Fall würde bei relationalen Datenbanken durch das feste Schema nicht auftreten. [10]
 
 
-## 4. Plugins
-Neo4j lässt sich wie andere Datenbanken mit Hilfe von Plugins erweitern. Diese Plugins werden auch als Functions und Procedures bezeichnet. [12]
-
-- Die Hilfsfunktionen, die Cypher erweitern, sind die sogenannten Functions. Dabei besitzen diese Functions selber keinen direkten Zugriff auf die Datenbank. Die Functions geben einen Wert zurück, aber bekommen mehre Werte übergeben. String-Concatenation wäre ein Beispiel einer solchen Function. Hierbei wird eine Liste von Strings übergeben und es wird ein String zurückgegeben. [12]
-- Im Gegensatz zu den Functions sind die Procedures mächtige Funktionen. Die Procedures besitzen Zugriff auf die Datenbank und geben Streams von Werten zurück. Diese können dazu benutzt werden, um neue Funktionen zu implementieren. Damit können z.B. komplexe Cypher-Befehle in einen Einzelnen verpackt werden. [12]
-
-Mit Verwendung des Neo4j-Kernels werden Functions und Procedures in Java implementiert. Die dabei entstehende jar wird dann im Plugin-Folder abgelegt. Startet die Datenbank neu, dann wird es automatisch angewendet. Weiterhin stellt Neo4j die Plugin-Library „APOC“ (Awesome Procedures On Cypher) bereit. Diese enthält über 450 Functions und Procedures. Außerdem erweitert und pflegt Neo4j die Plugin-Library „Neo4j-Graph-Algorithms“. Diese Bibliothek enthält über 30 Graph-Algorithmen. Zu diesen Algortihmen zählen unter anderem A*, Betweenness Centrality und PageRank. [12]
+## 4. Architektur
 
 
-## 5. Fazit
+<p align="center"><img src="images/Neo4J-Hochverfügbarkeitsarchitektur.jpg" title="Hochverfügbarkeitsarchitektur von Neo4j" width="100%" height="auto"><b>Abbildung 4-1: Hochverfügbarkeitsarchitektur von Neo4j [12]</b></p>
+
+
+## 5. Plugins
+Neo4j lässt sich wie andere Datenbanken mit Hilfe von Plugins erweitern. Diese Plugins werden auch als Functions und Procedures bezeichnet. [13]
+
+- Die Hilfsfunktionen, die Cypher erweitern, sind die sogenannten Functions. Dabei besitzen diese Functions selber keinen direkten Zugriff auf die Datenbank. Die Functions geben einen Wert zurück, aber bekommen mehre Werte übergeben. String-Concatenation wäre ein Beispiel einer solchen Function. Hierbei wird eine Liste von Strings übergeben und es wird ein String zurückgegeben. [13]
+- Im Gegensatz zu den Functions sind die Procedures mächtige Funktionen. Die Procedures besitzen Zugriff auf die Datenbank und geben Streams von Werten zurück. Diese können dazu benutzt werden, um neue Funktionen zu implementieren. Damit können z.B. komplexe Cypher-Befehle in einen Einzelnen verpackt werden. [13]
+
+Mit Verwendung des Neo4j-Kernels werden Functions und Procedures in Java implementiert. Die dabei entstehende jar wird dann im Plugin-Folder abgelegt. Startet die Datenbank neu, dann wird es automatisch angewendet. Weiterhin stellt Neo4j die Plugin-Library „APOC“ (Awesome Procedures On Cypher) bereit. Diese enthält über 450 Functions und Procedures. Außerdem erweitert und pflegt Neo4j die Plugin-Library „Neo4j-Graph-Algorithms“. Diese Bibliothek enthält über 30 Graph-Algorithmen. Zu diesen Algortihmen zählen unter anderem A*, Betweenness Centrality und PageRank. [13]
+
+
+## 6. Fazit
 
 
 
-## 6. Literaturverzeichnis
+## 7. Literaturverzeichnis
 
 - [1] IT Verlag für Informationstechnik GmbH, „Fünf Tipps für die Wahl der richtigen Datenbank,“ 01 April 2020. [Online]. Available: https://www.it-daily.net/it-management/big-data-analytics/23876-fuenf-tipps-fuer-die-wahl-der-richtigen-datenbank. [Zugriff am 25 Oktober 2020].
 - [2] P. Ghadir, „innoq.com,“ 24 Oktober 2020. [Online]. Available: https://www.innoq.com/de/articles/2012/09/neo4j-rockt/.
@@ -172,5 +179,5 @@ Mit Verwendung des Neo4j-Kernels werden Functions und Procedures in Java impleme
 - [9] skyridetim, „geeksforgeeks.org,“ [Online]. Available: https://www.geeksforgeeks.org/neo4j-installation/. [Zugriff am 27 Oktober 2020].
 - [10] S. Schönung, „Graphendatenbanken,“ 2012. [Online]. Available: https://www.christianbaun.de/SEM12/Dokumente/CLCP_SEM_SS2012_Graphendatenbanken_Ausarbeitung.pdf. [Zugriff am 26 Oktober 2020].
 - [11] Neo4j, Inc., „Property values,“ [Online]. Available: https://neo4j.com/docs/java-reference/current/java-embedded/property-values/index.html. [Zugriff am 27 Oktober 2020].
-- [12] S. Schubert, „informatik-aktuell.de,“ [Online]. Available: https://www.informatik-aktuell.de/betrieb/datenbanken/einstieg-in-die-graphdatenbank-neo4j.html. [Zugriff am 27 Oktober 2020].
-
+- [12] C. Borowski, „Agilität statt Performanceprobleme: Die Graphendatenbank Neo4j,“ 29 September 2017. [Online]. Available: https://blogs.itemis.com/de/agilit%C3%A4t-statt-performanceprobleme-die-graphendatenbank-neo4j#:~:text=Neo4j%20ist%20ACID%2Df%C3%A4hig.&text=Neben%20mehreren%20Neo4j%2DInstanzen%2C%20die,die%20Skalierbarkeit%20des%20Gesamtsystems%20erreicht.. [Zugriff am 28 Oktober 2020].
+- [13] S. Schubert, „informatik-aktuell.de,“ [Online]. Available: https://www.informatik-aktuell.de/betrieb/datenbanken/einstieg-in-die-graphdatenbank-neo4j.html. [Zugriff am 27 Oktober 2020].
