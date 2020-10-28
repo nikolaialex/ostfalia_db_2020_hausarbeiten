@@ -179,15 +179,15 @@ Ist das Ziel eine relationale Datenbank mit Neo4j zu erweitern, dann ist der Ein
 ## 8. Literaturverzeichnis
 
 - [1] IT Verlag für Informationstechnik GmbH, „Fünf Tipps für die Wahl der richtigen Datenbank,“ 01 April 2020. [Online]. Available: https://www.it-daily.net/it-management/big-data-analytics/23876-fuenf-tipps-fuer-die-wahl-der-richtigen-datenbank. [Zugriff am 25 Oktober 2020].
-- [2] P. Ghadir, „innoq.com,“ 24 Oktober 2020. [Online]. Available: https://www.innoq.com/de/articles/2012/09/neo4j-rockt/.
-- [3] „datenbanken-verstehen.de,“ Begerow Beratungsgesellschaft mbH & Co. KG, [Online]. Available: https://www.datenbanken-verstehen.de/lexikon/neo4j/. [Zugriff am 24 Oktober 2020].
-- [4] „neo4j.com,“ Neo4j, Inc., [Online]. Available: https://neo4j.com/release-notes/. [Zugriff am 24 Oktober 2020].
-- [5] „wi-wiki.de,“ Technische Hochschule Mittelhessen, [Online]. Available: http://wi-wiki.de/doku.php?id=bigdata:graphdb. [Zugriff am 26 Oktober 2020].
-- [6] „aoe.com,“ AOE GmbH, [Online]. Available: https://www.aoe.com/de/produkte/datenbanken-storage/neo4j.html. [Zugriff am 26 Oktober 2020].
-- [7] „neo4j.com,“ Neo4j, Inc., [Online]. Available: https://neo4j.com/docs/operations-manual/current/installation/windows/#windows-installation. [Zugriff am 27 Oktober 2020].
-- [8] „riptutorial.com,“ [Online]. Available: https://riptutorial.com/de/neo4j. [Zugriff am 27 Oktober 2020].
-- [9] skyridetim, „geeksforgeeks.org,“ [Online]. Available: https://www.geeksforgeeks.org/neo4j-installation/. [Zugriff am 27 Oktober 2020].
+- [2] P. Ghadir, „Neo4j – Eine graph-basierte transaktionale Datenbank,“ 01 September 2012. [Online]. Available: https://www.innoq.com/de/articles/2012/09/neo4j-rockt/. [Zugriff am 24 Oktober 2020].
+- [3] „Neo4j,“ Begerow Beratungsgesellschaft mbH & Co. KG, [Online]. Available: https://www.datenbanken-verstehen.de/lexikon/neo4j/. [Zugriff am 24 Oktober 2020].
+- [4] „Neo4j Release Notes,“ Neo4j, Inc., [Online]. Available: https://neo4j.com/release-notes/. [Zugriff am 24 Oktober 2020].
+- [5] „Graphdatenbanken,“ Technische Hochschule Mittelhessen, [Online]. Available: http://wi-wiki.de/doku.php?id=bigdata:graphdb. [Zugriff am 26 Oktober 2020].
+- [6] „Neo4J: Die weltweit führende Graph-Datenbank,“ AOE GmbH, [Online]. Available: https://www.aoe.com/de/produkte/datenbanken-storage/neo4j.html. [Zugriff am 26 Oktober 2020].
+- [7] „Neo4j docs - Windows installation,“ Neo4j, Inc., [Online]. Available: https://neo4j.com/docs/operations-manual/current/installation/windows/#windows-installation. [Zugriff am 27 Oktober 2020].
+- [8] „Erste Schritte mit neo4j,“ [Online]. Available: https://riptutorial.com/de/neo4j. [Zugriff am 27 Oktober 2020].
+- [9] skyridetim, „Neo4j Installation,“ [Online]. Available: https://www.geeksforgeeks.org/neo4j-installation/. [Zugriff am 27 Oktober 2020].
 - [10] S. Schönung, „Graphendatenbanken,“ 2012. [Online]. Available: https://www.christianbaun.de/SEM12/Dokumente/CLCP_SEM_SS2012_Graphendatenbanken_Ausarbeitung.pdf. [Zugriff am 26 Oktober 2020].
-- [11] Neo4j, Inc., „Property values,“ [Online]. Available: https://neo4j.com/docs/java-reference/current/java-embedded/property-values/index.html. [Zugriff am 27 Oktober 2020].
+- [11] Neo4j, Inc., „Neo4j docs - Property values,“ [Online]. Available: https://neo4j.com/docs/java-reference/current/java-embedded/property-values/index.html. [Zugriff am 27 Oktober 2020].
 - [12] C. Borowski, „Agilität statt Performanceprobleme: Die Graphendatenbank Neo4j,“ 29 September 2017. [Online]. Available: https://blogs.itemis.com/de/agilit%C3%A4t-statt-performanceprobleme-die-graphendatenbank-neo4j#:~:text=Neo4j%20ist%20ACID%2Df%C3%A4hig.&text=Neben%20mehreren%20Neo4j%2DInstanzen%2C%20die,die%20Skalierbarkeit%20des%20Gesamtsystems%20erreicht.. [Zugriff am 28 Oktober 2020].
-- [13] S. Schubert, „informatik-aktuell.de,“ [Online]. Available: https://www.informatik-aktuell.de/betrieb/datenbanken/einstieg-in-die-graphdatenbank-neo4j.html. [Zugriff am 27 Oktober 2020].
+- [13] S. Schubert, „Einstieg in die Graphdatenbank Neo4j,“ [Online]. Available: https://www.informatik-aktuell.de/betrieb/datenbanken/einstieg-in-die-graphdatenbank-neo4j.html. [Zugriff am 27 Oktober 2020].
