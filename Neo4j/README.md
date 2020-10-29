@@ -1,4 +1,4 @@
-# Neo4j
+table { width:100%; }# Neo4j
 
 ### Ausarbeitung für das Modul Datenbanktechnologien
 
@@ -84,7 +84,7 @@ Die NoSQL-Datenbanken verteilen ihre Daten hauptsächlich nach ihrem Primärschl
 ### 1.5. Wofür eignet sich Neo4j?
 Für ein System, wo die Daten zahlreich vernetzt und kaum strukturiert sind, eignet sich besonders Neo4j. Besitzt ein System zahlreiche zusammenhängende strukturierte Daten, die verwaltet werden müssen, dann eignet sich Neo4j nicht besonders und es wäre besser eine relationale Datenbank zu wählen. Besitzt das System allerdings vernetze Daten, wo die Beziehungen zwischen den Daten abgefragt werden müssen, dann ist Neo4j als Graphdatenbank die passende Wahl. Die folgende Abbildung 2-1 zeigt einen Überblick von den Bestandteilen von Neo4j die ein Anwender benötigt. [2]
 
-<p align="center"><img src="images/Neo4j-Überblick.jpg" title="Neo4j-Überblick" width="100%" height="auto"><b>Abbildung 1-1: Neo4j-Überblick [2]</b></p>
+<p align="left"><img src="images/Neo4j-Überblick.jpg" title="Neo4j-Überblick" width="100%" height="auto"><b>Abbildung 1-1: Neo4j-Überblick [2]</b></p>
 
 
 ## 2. Installation und Start
@@ -97,7 +97,7 @@ Diese Schritte sind nötig um Neo4j unter Windows zu installieren und zu starten
 - Nun ruft man im Browser seiner Wahl den localhost unter http://localhost:7474 auf. [9]
 - Der Benutzername und das Passwort sind bei Neo4j ab der Community-Version 3.0.3 standardmäßig „neo4j“ (siehe Abbildung 2-1). Nachdem das Passwort eingegeben wurde, kann das Passwort geändert werden. [9] [8]
 
-<p align="center"><img src="images/neo4j-login.png" title="Neo4j Login" width="100%" height="auto"><b>Abbildung 2-1: Neo4j Login</b></p>
+<p align="left"><img src="images/neo4j-login.png" title="Neo4j Login" width="100%" height="auto"><b>Abbildung 2-1: Neo4j Login</b></p>
 
 Aus dem Grund, dass Neo4j mit Java erstellt wurde, läuft Neo4j auf jeder Plattform auf der Java installiert ist. [8]
 
@@ -131,7 +131,7 @@ Die folgenden Wertetypen aus Tabelle 3-1 können für Properties vergeben werden
 | java.time.LocalDateTime           | Eine sofortige Erfassung des Datums und der Uhrzeit, aber nicht der Zeitzone.              | 
 | java.time.temporal.TemporalAmount | Ein zeitlicher Betrag. Dadurch wird der Zeitunterschied zwischen zwei Momenten erfasst.    | 
 
-<p align="center"><b>Tabelle 3-1: Wertetypen für Properties in Neo4j [11]</b></p>
+<p align="left"><b>Tabelle 3-1: Wertetypen für Properties in Neo4j [11]</b></p>
 
 In Neo4j existiert außerdem ein spezieller Knoten, den sogenannten Referenzknoten. Dieser existiert in jeder neu angelegten Neo4j Datenbank, weil dieser Knoten den allgemein bekannten Einstiegspunkt für jeden Graphen darstellt. Dieser Knoten sollte zu mindestens indirekt mit allen Knoten verbunden sein, damit jeder Knoten von dem Referenzknoten erreichbar ist. [10]
 
@@ -143,7 +143,7 @@ In Neo4j existiert außerdem ein spezieller Knoten, den sogenannten Referenzknot
 
 Die Abbildung 3-1 zeigt ein Beispiel für das Datenmodell von Neo4j. Der Knoten John und Jane haben unter anderem die Attribute von Kundendaten, wie Name, Nachname, Ort und E-Mail. Jedoch müssen die Knoten nicht alle die gleichen Eigenschaften mit unterschiedlichen Werten besitzen. So hat der Knoten Jane in diesem Beispiel nicht das Attribut von einer E-Mail-Adresse. Außerdem wurde der Knoten John und Jane mit dem Label Kunden versehen. Damit kann über das Label Kunden John und Jane leichter und schneller über eine Suchanfrage in der Datenbank gefunden werden. Das Beispiel verdeutlicht ebenfalls, dass die Knoten unterschiedliche Beziehungen (Kanten) zueinander haben können. 
 
-<p align="center"><img src="images/nodes_neoj4_graphdatenbanken.jpg" title="Veranschaulichung des Datenmodells in Neo4j" width="100%" height="auto"><b>Abbildung 3-1: Veranschaulichung des Datenmodells in Neo4j [3]</b></p>
+<p align="left"><img src="images/nodes_neoj4_graphdatenbanken.jpg" title="Veranschaulichung des Datenmodells in Neo4j" width="100%" height="auto"><b>Abbildung 3-1: Veranschaulichung des Datenmodells in Neo4j [3]</b></p>
 
 
 ### 3.2. Datenintegrität
@@ -157,7 +157,7 @@ Dadurch, dass kein festes Schema bei Neo4j vorhanden ist, bietet das jedoch Gefa
 ## 4. Architektur
 Eine Datenbank kommt im Unternehmen-Umfeld erst zur Verwendung, wenn die Datenbank gewisse Voraussetzungen erfüllen. Wichtig für die Wahl einer Datenbank ist für Unternehmen die Eigenschaften Abgeschlossenheit, Konsistenz, Isolation und Dauerhaftigkeit (ACID). Neo4j ist ACID-fähig und legt einen großen Wert auf eine Hochverfügbarkeit. Daher ist die Architektur der Datenbank auf eine Master-Slave-Architektur ausgelegt, siehe Abbildung 4 1. Die Aufgaben werden so verteilt, dass der Master für den größten Teil der Schreiblast und die Slaves für das Bearbeiten von Leseanfragen zuständig sind. Der vorgeschaltete Load-Balancer übernimmt die Verteilung der Lasten und der Apache Zookeeper ist für die Koordinierung der Master und Slaves zuständig sowie für die Bestimmung eines Master Servers. Das Ziel dieser Architektur ist, eine Fehlertoleranz und Skalierbarkeit des gesamten Systems zu erreichen. [12] [10]
 
-<p align="center"><img src="images/Neo4J-Hochverfügbarkeitsarchitektur.jpg" title="Hochverfügbarkeitsarchitektur von Neo4j" width="100%" height="auto"><b>Abbildung 4-1: Hochverfügbarkeitsarchitektur von Neo4j [12]</b></p>
+<p align="left"><img src="images/Neo4J-Hochverfügbarkeitsarchitektur.jpg" title="Hochverfügbarkeitsarchitektur von Neo4j" width="100%" height="auto"><b>Abbildung 4-1: Hochverfügbarkeitsarchitektur von Neo4j [12]</b></p>
 
 
 ## 5. Cypher
@@ -181,7 +181,7 @@ Die Abfragesprachen SQL oder SPARQL haben das Design von der Abfragesprache Cyph
 | SKIP                              | Bestimmte Anzahl an Resultate am Anfang überspringen                                       | 
 | LIMIT                             | Resultat auf ein bestimmte Anzahl limitieren                                               | 
 
-<p align="center"><b>Tabelle 5-1: Wichtige Schlüsselwörter für die Sprachstruktur von Cypher [14]</b></p>
+<p align="left"><b>Tabelle 5-1: Wichtige Schlüsselwörter für die Sprachstruktur von Cypher [14]</b></p>
 
 Das Konstrukt MATCH – WHERE – RETURN ist die Basis jeder Abfrage. Mit MATCH können Knoten und Kanten durch einen Musterabgleich gewählt, mit WHERE gefiltert und mit RETURN die gewünschten Informationen zurückgegeben werden. Zurückgegeben kann ein Knoten, aber auch eine Ergebnisstabelle mit einer Kombination von Konten und deren Eigenschaften. [14]
 
@@ -190,7 +190,7 @@ MATCH [Musterabgleich]
 WHERE [Filter]
 RETURN [Knoten oder Eigenschaften] 
 ```
-<p align="center"><b>Listing 5-1: Basis Konstrukt [14]</b></p>
+<p align="left"><b>Listing 5-1: Basis Konstrukt [14]</b></p>
 
 Das Schlüsselwort CREATE wird benötigt, um einen neuen Knoten zu erstellen und wird ergänzt mit der Beziehung zu anderen Knoten. [14]
 
@@ -198,7 +198,7 @@ Das Schlüsselwort CREATE wird benötigt, um einen neuen Knoten zu erstellen und
 CREATE [Knoten- und Kantendefinition]
 RETURN [Knoten oder Eigenschaften] 
 ```
-<p align="center"><b>Listing 5-2: Knoten erstellen [14]</b></p>
+<p align="left"><b>Listing 5-2: Knoten erstellen [14]</b></p>
 
 Die vorher gezeigten Abfragen können zu einer MATCH – CREATE – RETURN Abfrage zusammengefügt werden. Zum Beispiel kann ein Knoten abgefragt werden, um dann einen neuen Knoten über einer neuen Kante zu verbinden und diese dann zurückzugeben. [14]
 
@@ -207,7 +207,7 @@ MATCH [Musterabgleich]
 CREATE [Knoten- und Kantendefinition]
 RETURN [Knoten oder Eigenschaften] 
 ```
-<p align="center"><b>Listing 5-3: Kombinierte Abfrage [14]</b></p>
+<p align="left"><b>Listing 5-3: Kombinierte Abfrage [14]</b></p>
 
 ### 5.2. Filterformulierung
 Die Abfragesprache Cypher besitzt unterschiedliche Operatoren, um Filter zu formulieren. Diese Operatoren werden auch in anderen Sprachen wie Java und SQL verwendet [14]. Nachfolgend wird die Tabelle der Operatoren aufgeführt.
@@ -224,7 +224,7 @@ Die Abfragesprache Cypher besitzt unterschiedliche Operatoren, um Filter zu form
 | IS NULL                           | Gleich NULL                                                                                | 
 | IS NOT NULL                       | Ungleich NULL                                                                              | 
 
-<p align="center"><b>Tabelle 5-2: Filterformulierung in der Sprachstruktur von Cypher [14]</b></p>
+<p align="left"><b>Tabelle 5-2: Filterformulierung in der Sprachstruktur von Cypher [14]</b></p>
 
 In Cypher gibt es vier boolesche Operatoren, um Filter zu verknüpfen [14].
 
@@ -235,7 +235,7 @@ In Cypher gibt es vier boolesche Operatoren, um Filter zu verknüpfen [14].
 | XOR                               | Exklusives ODER                                                                            | 
 | NOT                               | NICHT                                                                                      | 
 
-<p align="center"><b>Tabelle 5-3: Boolesche Operatoren in der Sprachstruktur von Cypher [14]</b></p>
+<p align="left"><b>Tabelle 5-3: Boolesche Operatoren in der Sprachstruktur von Cypher [14]</b></p>
 
 ### 5.3. Datentypen
 Welcher Datentyp verwendet wird, entscheidet Neo4j durch die Definition der Daten. Hierbei verwendet Neo4j Datentypen, die auch andere Sprachen verwenden. Zu diesen Datentypen zählen boolean, byte, short, int, long, float, double, char und String. [14]
@@ -281,7 +281,7 @@ public class Person {
 
 }
 ```
-<p align="center"><b>Listing 7-1: OGM-Annotation [15]</b></p>
+<p align="left"><b>Listing 7-1: OGM-Annotation [15]</b></p>
 
 Damit man eine Klasse auf eine Relation mit zusätzlichen Attributen mappen kann, verwendet man @RelationshipEntity, um Klassen zu annotieren. Dabei ist es nötig die Klassen zu kennzeichnen mit @StartNode und @EndNode (siehe Listing 7-2). Weiterhin muss der Start- oder Endknoten referenziert werden, damit ein Mapping möglich ist (siehe Listing 7-3). [15]
 
@@ -304,7 +304,7 @@ public class KnowsRelation {
 
 }
 ```
-<p align="center"><b>Listing 7-2: Eine auf eine Klasse gemappte Relation mit zusätzlichen Attributen [15]</b></p>
+<p align="left"><b>Listing 7-2: Eine auf eine Klasse gemappte Relation mit zusätzlichen Attributen [15]</b></p>
 
 ```java
 @Data
@@ -321,7 +321,7 @@ public class Person {
 
 }
 ```
-<p align="center"><b>Listing 7-3: Eine referenzierte RelationshipEntity [15]</b></p>
+<p align="left"><b>Listing 7-3: Eine referenzierte RelationshipEntity [15]</b></p>
 
 Alle Entitäten brauchen aus technischen Gründen eine Id, die mit @Id gesetzt wird. Außerdem kann man diese Id generieren lassen, dazu annotiert man sie mit @GeneratedValue. Mit IdStrategy kann zusätzlich angegeben werden, wie die Ids generiert werden. Object-Graph-Mapping verwendet nativen Ids in dem Fall, wenn keine angegeben wurde. Allerdings ist das nicht zu empfehlen, weil die Ids nach einer Zeitspanne recycelt werden. Besonders bei Applikationen, die lange verwendet werden, führt dies zu Problemen. Ids selber zu erzeugen ist die bessere Lösung. Es kann zum Beispiel die UuidStrategy genutzt werden, um Uuids zu erzeugen. [15]
 
@@ -336,7 +336,7 @@ Unter org.neo4j.ogm.typeconversion.AttributeConverter können eigene Converter a
 private UUID id;
 
 ```
-<p align="center"><b>Listing 7-4: Verwendung einer Uuid in OGM [15]</b></p>
+<p align="left"><b>Listing 7-4: Verwendung einer Uuid in OGM [15]</b></p>
 
 
 ## 8. Migration
