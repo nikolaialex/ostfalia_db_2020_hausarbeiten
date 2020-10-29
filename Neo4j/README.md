@@ -1,4 +1,4 @@
-table { width:100%; }# Neo4j
+# Neo4j
 
 ### Ausarbeitung für das Modul Datenbanktechnologien
 
