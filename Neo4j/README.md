@@ -23,6 +23,10 @@
   <br/>3.2. [Datenintegrität](#32-datenintegrität)
 4. [Architektur](#4-architektur)
 5. [Cypher](#5-cypher)
+  <br/>5.1. [Syntax](#51-syntax)
+  <br/>5.2. [Filterformulierung](#52-filterformulierung)
+  <br/>5.3. [Datentypen](#53-datentypen)
+  <br/>5.4. [Vorteile der Abfragesprache Cypher](#54-vorteile-der-abfragesprache-cypher)
 6. [Plugins](#6-plugins)
 7. [Object-Graph-Mapping (OGM)](#7-object-graph-mapping-ogm)
 8. [Migration](#8-migration)
@@ -157,20 +161,109 @@ Eine Datenbank kommt im Unternehmen-Umfeld erst zur Verwendung, wenn die Datenba
 
 
 ## 5. Cypher
+Aus einem Projekt des Unternehmens Neo4j Inc. entstand im Jahre 2011 die Abfragesprache Cypher für die Graphdatenbank Neo4j. Mit dem Open-Source-Projekt openCypher hat Neo4j die Abfragesprache Cypher im Jahre 2015 zu einem Open-Source-Projekt gemacht. Cypher ist eine deklarative Abfragesprache für Graphdatenbanken. Mit der übersichtlichen Syntax, die Cypher besitzt, können komplizierte Abfrage oder Datenaktualisierungen in Graphdatenbanken schnell und einfach formuliert werden. Dabei eignet sich Cypher für den Betrieb und die Entwicklung. Die Absprache ermöglicht einen effizienten und intuitiven Umgang mit Daten in NoSQL-Graphdatenbanken. [13]
+
+### 5.1. Syntax
+Die Abfragesprachen SQL oder SPARQL haben das Design von der Abfragesprache Cypher geprägt. Eine Abfrage in Cypher besitzt eine gewisse Ähnlichkeit wie eine Abfrage in SQL. Zum Beispiel besitzen sie zum Teil ähnliche oder gleiche Schlüsselwörter, die dementsprechend groß geschrieben werden. [14] In der nachfolgenden Tabelle sind wichtige Schlüsselwörter aufgelistet: 
+
+| Schlüsselwort                     | Beschreibung                                                                               |
+| :-------------------------------- | :----------------------------------------------------------------------------------------- | 
+| MATCH                             | Musterabgleich		                                                                     | 
+| OPTIONAL MATCH                    | Optional Musterabgleich                                                                    | 
+| WHERE                             | Selektion                                                                                  | 
+| RETURN                            | Rückgabe als Knoten oder Ergebnistabelle                                                   | 
+| WITH                              | Erstellen eines Alias für einen Knoten                                                     | 
+| CREATE                            | Erstellen eines Knotens oder einer Kante                                                   | 
+| SET                               | Eigenschaft eines Knotens oder einer Kante einen Wert zuweisen                             | 
+| DELETE                            | Knoten entfernen                                                                           | 
+| REMOVE                            | Entfernen einer Eigenschaft, eines Labels oder eines Typs                                  | 
+| ORDER BY                          | Sortierung                                                                                 | 
+| SKIP                              | Bestimmte Anzahl an Resultate am Anfang überspringen                                       | 
+| LIMIT                             | Resultat auf ein bestimmte Anzahl limitieren                                               | 
+
+<p align="center"><b>Tabelle 5-1: Wichtige Schlüsselwörter für die Sprachstruktur von Cypher [14]</b></p>
+
+Das Konstrukt MATCH – WHERE – RETURN ist die Basis jeder Abfrage. Mit MATCH können Knoten und Kanten durch einen Musterabgleich gewählt, mit WHERE gefiltert und mit RETURN die gewünschten Informationen zurückgegeben werden. Zurückgegeben kann ein Knoten, aber auch eine Ergebnisstabelle mit einer Kombination von Konten und deren Eigenschaften. [14]
+
+```cypher
+MATCH [Musterabgleich]
+WHERE [Filter]
+RETURN [Knoten oder Eigenschaften] 
+```
+<p align="center"><b>Listing 5-1: Basis Konstrukt [14]</b></p>
+
+Das Schlüsselwort CREATE wird benötigt, um einen neuen Knoten zu erstellen und wird ergänzt mit der Beziehung zu anderen Knoten. [14]
+
+```cypher
+CREATE [Knoten- und Kantendefinition]
+RETURN [Knoten oder Eigenschaften] 
+```
+<p align="center"><b>Listing 5-2: Knoten erstellen [14]</b></p>
+
+Die vorher gezeigten Abfragen können zu einer MATCH – CREATE – RETURN Abfrage zusammengefügt werden. Zum Beispiel kann ein Knoten abgefragt werden, um dann einen neuen Knoten über einer neuen Kante zu verbinden und diese dann zurückzugeben. [14]
+
+```cypher
+MATCH [Musterabgleich]
+CREATE [Knoten- und Kantendefinition]
+RETURN [Knoten oder Eigenschaften] 
+```
+<p align="center"><b>Listing 5-3: Kombinierte Abfrage [14]</b></p>
+
+### 5.2. Filterformulierung
+Die Abfragesprache Cypher besitzt unterschiedliche Operatoren, um Filter zu formulieren. Diese Operatoren werden auch in anderen Sprachen wie Java und SQL verwendet [14]. Nachfolgend wird die Tabelle der Operatoren aufgeführt.
+
+
+| Schlüsselwort                     | Beschreibung                                                                               |
+| :-------------------------------- | :----------------------------------------------------------------------------------------- | 
+| =                                 | Gleich		                                                                             | 
+| <                                 | Kleiner als                                                                                | 
+| >                                 | Grösser als                                                                                | 
+| <>                                | Ungleich                                                                                   | 
+| <=                                | Kleiner gleich                                                                             | 
+| >=                                | Grösser gleich                                                                             | 
+| IS NULL                           | Gleich NULL                                                                                | 
+| IS NOT NULL                       | Ungleich NULL                                                                              | 
+
+<p align="center"><b>Tabelle 5-2: Filterformulierung in der Sprachstruktur von Cypher [14]</b></p>
+
+In Cypher gibt es vier boolesche Operatoren, um Filter zu verknüpfen [14].
+
+| Schlüsselwort                     | Beschreibung                                                                               |
+| :-------------------------------- | :----------------------------------------------------------------------------------------- | 
+| AND                               | UND		                                                                                 | 
+| OR                                | ODER                                                                                       | 
+| XOR                               | Exklusives ODER                                                                            | 
+| NOT                               | NICHT                                                                                      | 
+
+<p align="center"><b>Tabelle 5-3: Boolesche Operatoren in der Sprachstruktur von Cypher [14]</b></p>
+
+### 5.3. Datentypen
+Welcher Datentyp verwendet wird, entscheidet Neo4j durch die Definition der Daten. Hierbei verwendet Neo4j Datentypen, die auch andere Sprachen verwenden. Zu diesen Datentypen zählen boolean, byte, short, int, long, float, double, char und String. [14]
+
+### 5.4. Vorteile der Abfragesprache Cypher
+Die Abfragesprache besitzt viele Vorteile für Graphdatenbanken. Im Folgenden werden diese Vorteile aufgelistet:
+
+- Die Abfragesprache ist schnell zu erlernen und gut lesbar. [13]
+- Die Abfragesprache besitzt eine einfache und übersichtliche Syntax. [13]
+- Komplizierte Abfragen sind mit einfachen Ausdrücken realisierbar. [13]
+- Die Abfragesprache ist mit dem Open-Source-Projekt openCypher für andere Graphdatenbanken und Plattformen nutzbar. [13]
+- Die Abfragesprache Cypher besitzt eine breite Akzeptanz. [13]
+- Die Abfragesprache Cypher bildet eine Grundlage für die in der Standardisierung befindlichen Graph Query Language (GQL). [13]
+
 
 ## 6. Plugins
-Neo4j lässt sich wie andere Datenbanken mit Hilfe von Plugins erweitern. Diese Plugins werden auch als Functions und Procedures bezeichnet. [13]
+Neo4j lässt sich wie andere Datenbanken mit Hilfe von Plugins erweitern. Diese Plugins werden auch als Functions und Procedures bezeichnet. [15]
 
-- Die Hilfsfunktionen, die Cypher erweitern, sind die sogenannten Functions. Dabei besitzen diese Functions selber keinen direkten Zugriff auf die Datenbank. Die Functions geben einen Wert zurück, aber bekommen mehre Werte übergeben. String-Concatenation wäre ein Beispiel einer solchen Function. Hierbei wird eine Liste von Strings übergeben und es wird ein String zurückgegeben. [13]
-- Im Gegensatz zu den Functions sind die Procedures mächtige Funktionen. Die Procedures besitzen Zugriff auf die Datenbank und geben Streams von Werten zurück. Diese können dazu benutzt werden, um neue Funktionen zu implementieren. Damit können z.B. komplexe Cypher-Befehle in einen Einzelnen verpackt werden. [13]
+- Die Hilfsfunktionen, die Cypher erweitern, sind die sogenannten Functions. Dabei besitzen diese Functions selber keinen direkten Zugriff auf die Datenbank. Die Functions geben einen Wert zurück, aber bekommen mehre Werte übergeben. String-Concatenation wäre ein Beispiel einer solchen Function. Hierbei wird eine Liste von Strings übergeben und es wird ein String zurückgegeben. [15]
+- Im Gegensatz zu den Functions sind die Procedures mächtige Funktionen. Die Procedures besitzen Zugriff auf die Datenbank und geben Streams von Werten zurück. Diese können dazu benutzt werden, um neue Funktionen zu implementieren. Damit können z.B. komplexe Cypher-Befehle in einen Einzelnen verpackt werden. [15]
 
-Mit Verwendung des Neo4j-Kernels werden Functions und Procedures in Java implementiert. Die dabei entstehende jar wird dann im Plugin-Folder abgelegt. Startet die Datenbank neu, dann wird es automatisch angewendet. Weiterhin stellt Neo4j die Plugin-Library „APOC“ (Awesome Procedures On Cypher) bereit. Diese enthält über 450 Functions und Procedures. Außerdem erweitert und pflegt Neo4j die Plugin-Library „Neo4j-Graph-Algorithms“. Diese Bibliothek enthält über 30 Graph-Algorithmen. Zu diesen Algorithmen zählen unter anderem A*, Betweenness Centrality und PageRank. [13]
+Mit Verwendung des Neo4j-Kernels werden Functions und Procedures in Java implementiert. Die dabei entstehende jar wird dann im Plugin-Folder abgelegt. Startet die Datenbank neu, dann wird es automatisch angewendet. Weiterhin stellt Neo4j die Plugin-Library „APOC“ (Awesome Procedures On Cypher) bereit. Diese enthält über 450 Functions und Procedures. Außerdem erweitert und pflegt Neo4j die Plugin-Library „Neo4j-Graph-Algorithms“. Diese Bibliothek enthält über 30 Graph-Algorithmen. Zu diesen Algorithmen zählen unter anderem A*, Betweenness Centrality und PageRank. [15]
 
 
 ## 7. Object-Graph-Mapping (OGM)
-Ein nützliches Werkzeug für die Arbeit mit Neo4j ist das Object-Graph-Mapping (OGM). Dabei ist OGM eine Bibliothek mit der es möglich ist Java-Objektstrukturen auf die Neo4j-Graphstruktur zu übernehmen. Weiterhin ermöglicht OGM den programmatischen Zugriff auf die Datenbank über eine Session. Object-Graph-Mapping kommt dem gleich, was für relationale Datenbanken Hibernate darstellt. Dabei ist das Mapping einfach gehalten und besitzt eine ähnliche Umsetzung über Annotations wie bei Hibernate. [13]
+Ein nützliches Werkzeug für die Arbeit mit Neo4j ist das Object-Graph-Mapping (OGM). Dabei ist OGM eine Bibliothek mit der es möglich ist Java-Objektstrukturen auf die Neo4j-Graphstruktur zu übernehmen. Weiterhin ermöglicht OGM den programmatischen Zugriff auf die Datenbank über eine Session. Object-Graph-Mapping kommt dem gleich, was für relationale Datenbanken Hibernate darstellt. Dabei ist das Mapping einfach gehalten und besitzt eine ähnliche Umsetzung über Annotations wie bei Hibernate. [15]
 
-Ist das Ziel Objekte einer Klasse auf Knoten zu mappen, dann annotiert man die Klasse mit @NodeEntity. Die Attribute, die nur vorübergehend sind, werden automatisch gemappt. Hingegen können die eingebetteten Objekte mit @Relationship annotiert werden. Die Umsetzung einer gemappten Relation ist in Listing 7-1 OGM-Annotation zu sehen. Dort ist ein Beispiel Annotation für eine Person, die mehre Personen kennen kann, abgebildet. [13]
+Ist das Ziel Objekte einer Klasse auf Knoten zu mappen, dann annotiert man die Klasse mit @NodeEntity. Die Attribute, die nur vorübergehend sind, werden automatisch gemappt. Hingegen können die eingebetteten Objekte mit @Relationship annotiert werden. Die Umsetzung einer gemappten Relation ist in Listing 7-1 OGM-Annotation zu sehen. Dort ist ein Beispiel Annotation für eine Person, die mehre Personen kennen kann, abgebildet. [15]
 
 ```java
 @Data
@@ -188,9 +281,9 @@ public class Person {
 
 }
 ```
-<p align="center"><b>Listing 7-1: OGM-Annotation [13]</b></p>
+<p align="center"><b>Listing 7-1: OGM-Annotation [15]</b></p>
 
-Damit man eine Klasse auf eine Relation mit zusätzlichen Attributen mappen kann, verwendet man @RelationshipEntity, um Klassen zu annotieren. Dabei ist es nötig die Klassen zu kennzeichnen mit @StartNode und @EndNode (siehe Listing 7-2). Weiterhin muss der Start- oder Endknoten referenziert werden, damit ein Mapping möglich ist (siehe Listing 7-3). [13]
+Damit man eine Klasse auf eine Relation mit zusätzlichen Attributen mappen kann, verwendet man @RelationshipEntity, um Klassen zu annotieren. Dabei ist es nötig die Klassen zu kennzeichnen mit @StartNode und @EndNode (siehe Listing 7-2). Weiterhin muss der Start- oder Endknoten referenziert werden, damit ein Mapping möglich ist (siehe Listing 7-3). [15]
 
 ```java
 @Data
@@ -211,7 +304,7 @@ public class KnowsRelation {
 
 }
 ```
-<p align="center"><b>Listing 7-2: Eine auf eine Klasse gemappte Relation mit zusätzlichen Attributen [13]</b></p>
+<p align="center"><b>Listing 7-2: Eine auf eine Klasse gemappte Relation mit zusätzlichen Attributen [15]</b></p>
 
 ```java
 @Data
@@ -228,13 +321,13 @@ public class Person {
 
 }
 ```
-<p align="center"><b>Listing 7-3: Eine referenzierte RelationshipEntity [13]</b></p>
+<p align="center"><b>Listing 7-3: Eine referenzierte RelationshipEntity [15]</b></p>
 
-Alle Entitäten brauchen aus technischen Gründen eine Id, die mit @Id gesetzt wird. Außerdem kann man diese Id generieren lassen, dazu annotiert man sie mit @GeneratedValue. Mit IdStrategy kann zusätzlich angegeben werden, wie die Ids generiert werden. Object-Graph-Mapping verwendet nativen Ids in dem Fall, wenn keine angegeben wurde. Allerdings ist das nicht zu empfehlen, weil die Ids nach einer Zeitspanne recycelt werden. Besonders bei Applikationen, die lange verwendet werden, führt dies zu Problemen. Ids selber zu erzeugen ist die bessere Lösung. Es kann zum Beispiel die UuidStrategy genutzt werden, um Uuids zu erzeugen. [13]
+Alle Entitäten brauchen aus technischen Gründen eine Id, die mit @Id gesetzt wird. Außerdem kann man diese Id generieren lassen, dazu annotiert man sie mit @GeneratedValue. Mit IdStrategy kann zusätzlich angegeben werden, wie die Ids generiert werden. Object-Graph-Mapping verwendet nativen Ids in dem Fall, wenn keine angegeben wurde. Allerdings ist das nicht zu empfehlen, weil die Ids nach einer Zeitspanne recycelt werden. Besonders bei Applikationen, die lange verwendet werden, führt dies zu Problemen. Ids selber zu erzeugen ist die bessere Lösung. Es kann zum Beispiel die UuidStrategy genutzt werden, um Uuids zu erzeugen. [15]
 
-Die Neo4j Datenbank kann aber nicht triviale Werte speichern. Daher benötigt man einen Mechanismus, um Uuids abbilden zu können. Für dieses Problem bietet der OGMConverter Abhilfe. Mit dem OGMConverter können nicht-triviale Attribute auf Graph-Attribute übersetzt werden. Mit der in der OGM enthaltene UuidStringConverter können Uuid-Objekte in der Datenbank als Strings gespeichert werden. [13]
+Die Neo4j Datenbank kann aber nicht triviale Werte speichern. Daher benötigt man einen Mechanismus, um Uuids abbilden zu können. Für dieses Problem bietet der OGMConverter Abhilfe. Mit dem OGMConverter können nicht-triviale Attribute auf Graph-Attribute übersetzt werden. Mit der in der OGM enthaltene UuidStringConverter können Uuid-Objekte in der Datenbank als Strings gespeichert werden. [15]
 
-Unter org.neo4j.ogm.typeconversion.AttributeConverter können eigene Converter als Implementierung hinzugefügt werden. Eigene IdStrategies können unter org.neo4j.ogm.id.IdStrategy hinzugefügt werden. Das Listing 7-4 zeigt ein Mapping, wo eine Uuid verwendet wird statt der nativen Id. [13]
+Unter org.neo4j.ogm.typeconversion.AttributeConverter können eigene Converter als Implementierung hinzugefügt werden. Eigene IdStrategies können unter org.neo4j.ogm.id.IdStrategy hinzugefügt werden. Das Listing 7-4 zeigt ein Mapping, wo eine Uuid verwendet wird statt der nativen Id. [15]
 
 ```java
 @Id
@@ -243,15 +336,15 @@ Unter org.neo4j.ogm.typeconversion.AttributeConverter können eigene Converter a
 private UUID id;
 
 ```
-<p align="center"><b>Listing 7-4: Verwendung einer Uuid in OGM [13]</b></p>
+<p align="center"><b>Listing 7-4: Verwendung einer Uuid in OGM [15]</b></p>
 
 
 ## 8. Migration
-Bei der Einführung einer Neo4j-Datenbank ist davon auszugehen, dass bereits eine relationale Datenbank vorhanden ist aufgrund der hohen Verbreitung von relationalen Datenbanken. Daher wird die relationale Datenbank entweder in Neo4j übernommen oder die relationale Datenbank bleibt bestehen und wird durch die Neo4j Datenbank erweitert. Die beiden beschriebenen Anwendungsfälle sind mit Neo4j leicht umzusetzen. [13]
+Bei der Einführung einer Neo4j-Datenbank ist davon auszugehen, dass bereits eine relationale Datenbank vorhanden ist aufgrund der hohen Verbreitung von relationalen Datenbanken. Daher wird die relationale Datenbank entweder in Neo4j übernommen oder die relationale Datenbank bleibt bestehen und wird durch die Neo4j Datenbank erweitert. Die beiden beschriebenen Anwendungsfälle sind mit Neo4j leicht umzusetzen. [15]
 
-Die Abfragesprache Cypher, die Neo4j verwendet, bietet Funktionen für die Auflösung einer relationalen Datenbank. Hierfür besitzt Cypher Funktionen für den Import von Daten aus json, csv, xml und anderen Formaten. Daher ist es notwendig zuerst einen Export der Daten aus der relationalen Datenbank durchzuführen und dann einen Cypher-Import in die Neo4j Datenbank durchzuführen. Allerdings weist Neo4j eine Schwäche bei der Schreiben-Performanz auf. Aus diesem Grund kann ein Groß-Import von Daten etwas Zeit in Anspruch nehmen. [13]
+Die Abfragesprache Cypher, die Neo4j verwendet, bietet Funktionen für die Auflösung einer relationalen Datenbank. Hierfür besitzt Cypher Funktionen für den Import von Daten aus json, csv, xml und anderen Formaten. Daher ist es notwendig zuerst einen Export der Daten aus der relationalen Datenbank durchzuführen und dann einen Cypher-Import in die Neo4j Datenbank durchzuführen. Allerdings weist Neo4j eine Schwäche bei der Schreiben-Performanz auf. Aus diesem Grund kann ein Groß-Import von Daten etwas Zeit in Anspruch nehmen. [15]
 
-Ist das Ziel eine relationale Datenbank mit Neo4j zu erweitern, dann ist der Einsatz von Plugins hilfreich. Für die meisten Datenbank-Technologien bietet APOC Plugins mit Connectoren an. Damit können Cypher-Statements geschrieben werden, die die Verteilung der Daten von der relationalen Datenbank auf Neo4j managen. Zum Beispiel ist es dann möglich ein System zu implementieren, das die Stammdaten in einer relationalen Datenbank aufbewahrt, aber die Nachfolger bzw. die Vorgänger Relationen in Neo4j gepflegt wird. [13]
+Ist das Ziel eine relationale Datenbank mit Neo4j zu erweitern, dann ist der Einsatz von Plugins hilfreich. Für die meisten Datenbank-Technologien bietet APOC Plugins mit Connectoren an. Damit können Cypher-Statements geschrieben werden, die die Verteilung der Daten von der relationalen Datenbank auf Neo4j managen. Zum Beispiel ist es dann möglich ein System zu implementieren, das die Stammdaten in einer relationalen Datenbank aufbewahrt, aber die Nachfolger bzw. die Vorgänger Relationen in Neo4j gepflegt wird. [15]
 
 
 
@@ -266,7 +359,6 @@ Zu beachten ist jedoch, dass durch eine fehlende Standardisierung von Graphendat
 
 
 ## 10. Literaturverzeichnis
-
 - [1] IT Verlag für Informationstechnik GmbH, „Fünf Tipps für die Wahl der richtigen Datenbank,“ 01 April 2020. [Online]. Available: https://www.it-daily.net/it-management/big-data-analytics/23876-fuenf-tipps-fuer-die-wahl-der-richtigen-datenbank. [Zugriff am 25 Oktober 2020].
 - [2] P. Ghadir, „Neo4j – Eine graph-basierte transaktionale Datenbank,“ 01 September 2012. [Online]. Available: https://www.innoq.com/de/articles/2012/09/neo4j-rockt/. [Zugriff am 24 Oktober 2020].
 - [3] „Neo4j,“ Begerow Beratungsgesellschaft mbH & Co. KG, [Online]. Available: https://www.datenbanken-verstehen.de/lexikon/neo4j/. [Zugriff am 24 Oktober 2020].
@@ -279,4 +371,6 @@ Zu beachten ist jedoch, dass durch eine fehlende Standardisierung von Graphendat
 - [10] S. Schönung, „Graphendatenbanken,“ 2012. [Online]. Available: https://www.christianbaun.de/SEM12/Dokumente/CLCP_SEM_SS2012_Graphendatenbanken_Ausarbeitung.pdf. [Zugriff am 26 Oktober 2020].
 - [11] Neo4j, Inc., „Neo4j docs - Property values,“ [Online]. Available: https://neo4j.com/docs/java-reference/current/java-embedded/property-values/index.html. [Zugriff am 27 Oktober 2020].
 - [12] C. Borowski, „Agilität statt Performanceprobleme: Die Graphendatenbank Neo4j,“ 29 September 2017. [Online]. Available: https://blogs.itemis.com/de/agilit%C3%A4t-statt-performanceprobleme-die-graphendatenbank-neo4j#:~:text=Neo4j%20ist%20ACID%2Df%C3%A4hig.&text=Neben%20mehreren%20Neo4j%2DInstanzen%2C%20die,die%20Skalierbarkeit%20des%20Gesamtsystems%20erreicht.. [Zugriff am 28 Oktober 2020].
-- [13] S. Schubert, „Einstieg in die Graphdatenbank Neo4j,“ [Online]. Available: https://www.informatik-aktuell.de/betrieb/datenbanken/einstieg-in-die-graphdatenbank-neo4j.html. [Zugriff am 27 Oktober 2020].
+- [13] S. Luber, „Was ist Cypher?,“ [Online]. Available: https://www.bigdata-insider.de/was-ist-cypher-a-912813/. [Zugriff am 29 Oktober 2020].
+- [14] „Sprachstruktur,“ Information Systems Research Group, [Online]. Available: https://www.sql-nosql.org/de/cypher-tutorial. [Zugriff am 29 Oktober 2020].
+- [15] S. Schubert, „Einstieg in die Graphdatenbank Neo4j,“ [Online]. Available: https://www.informatik-aktuell.de/betrieb/datenbanken/einstieg-in-die-graphdatenbank-neo4j.html. [Zugriff am 27 Oktober 2020].
