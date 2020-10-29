@@ -22,11 +22,12 @@
   <br/>3.1. [Datenmodell](#31-datenmodell)
   <br/>3.2. [Datenintegrität](#32-datenintegrität)
 4. [Architektur](#4-architektur)
-5. [Plugins](#5-plugins)
-6. [Object-Graph-Mapping (OGM)](#6-object-graph-mapping-ogm)
-7. [Migration](#7-migration)
-8. [Fazit](#8-fazit)
-9. [Literaturverzeichnis](#9-literaturverzeichnis)
+5. [Cypher](#5-cypher)
+6. [Plugins](#6-plugins)
+7. [Object-Graph-Mapping (OGM)](#7-object-graph-mapping-ogm)
+8. [Migration](#8-migration)
+9. [Fazit](#9-fazit)
+10. [Literaturverzeichnis](#10-literaturverzeichnis)
 
 
 ## 1. Einleitung
@@ -155,7 +156,9 @@ Eine Datenbank kommt im Unternehmen-Umfeld erst zur Verwendung, wenn die Datenba
 <p align="center"><img src="images/Neo4J-Hochverfügbarkeitsarchitektur.jpg" title="Hochverfügbarkeitsarchitektur von Neo4j" width="100%" height="auto"><b>Abbildung 4-1: Hochverfügbarkeitsarchitektur von Neo4j [12]</b></p>
 
 
-## 5. Plugins
+## 5. Cypher
+
+## 6. Plugins
 Neo4j lässt sich wie andere Datenbanken mit Hilfe von Plugins erweitern. Diese Plugins werden auch als Functions und Procedures bezeichnet. [13]
 
 - Die Hilfsfunktionen, die Cypher erweitern, sind die sogenannten Functions. Dabei besitzen diese Functions selber keinen direkten Zugriff auf die Datenbank. Die Functions geben einen Wert zurück, aber bekommen mehre Werte übergeben. String-Concatenation wäre ein Beispiel einer solchen Function. Hierbei wird eine Liste von Strings übergeben und es wird ein String zurückgegeben. [13]
@@ -164,10 +167,10 @@ Neo4j lässt sich wie andere Datenbanken mit Hilfe von Plugins erweitern. Diese 
 Mit Verwendung des Neo4j-Kernels werden Functions und Procedures in Java implementiert. Die dabei entstehende jar wird dann im Plugin-Folder abgelegt. Startet die Datenbank neu, dann wird es automatisch angewendet. Weiterhin stellt Neo4j die Plugin-Library „APOC“ (Awesome Procedures On Cypher) bereit. Diese enthält über 450 Functions und Procedures. Außerdem erweitert und pflegt Neo4j die Plugin-Library „Neo4j-Graph-Algorithms“. Diese Bibliothek enthält über 30 Graph-Algorithmen. Zu diesen Algorithmen zählen unter anderem A*, Betweenness Centrality und PageRank. [13]
 
 
-## 6. Object-Graph-Mapping (OGM)
+## 7. Object-Graph-Mapping (OGM)
 Ein nützliches Werkzeug für die Arbeit mit Neo4j ist das Object-Graph-Mapping (OGM). Dabei ist OGM eine Bibliothek mit der es möglich ist Java-Objektstrukturen auf die Neo4j-Graphstruktur zu übernehmen. Weiterhin ermöglicht OGM den programmatischen Zugriff auf die Datenbank über eine Session. Object-Graph-Mapping kommt dem gleich, was für relationale Datenbanken Hibernate darstellt. Dabei ist das Mapping einfach gehalten und besitzt eine ähnliche Umsetzung über Annotations wie bei Hibernate. [13]
 
-Ist das Ziel Objekte einer Klasse auf Knoten zu mappen, dann annotiert man die Klasse mit @NodeEntity. Die Attribute, die nur vorübergehend sind, werden automatisch gemappt. Hingegen können die eingebetteten Objekte mit @Relationship annotiert werden. Die Umsetzung einer gemappten Relation ist in Listing 6-1 OGM-Annotation zu sehen. Dort ist ein Beispiel Annotation für eine Person, die mehre Personen kennen kann, abgebildet. [13]
+Ist das Ziel Objekte einer Klasse auf Knoten zu mappen, dann annotiert man die Klasse mit @NodeEntity. Die Attribute, die nur vorübergehend sind, werden automatisch gemappt. Hingegen können die eingebetteten Objekte mit @Relationship annotiert werden. Die Umsetzung einer gemappten Relation ist in Listing 7-1 OGM-Annotation zu sehen. Dort ist ein Beispiel Annotation für eine Person, die mehre Personen kennen kann, abgebildet. [13]
 
 ```java
 @Data
@@ -185,9 +188,9 @@ public class Person {
 
 }
 ```
-<p align="center"><b>Listing 6-1: OGM-Annotation [13]</b></p>
+<p align="center"><b>Listing 7-1: OGM-Annotation [13]</b></p>
 
-Damit man eine Klasse auf eine Relation mit zusätzlichen Attributen mappen kann, verwendet man @RelationshipEntity, um Klassen zu annotieren. Dabei ist es nötig die Klassen zu kennzeichnen mit @StartNode und @EndNode (siehe Listing 6-2). Weiterhin muss der Start- oder Endknoten referenziert werden, damit ein Mapping möglich ist (siehe Listing 6-3). [13]
+Damit man eine Klasse auf eine Relation mit zusätzlichen Attributen mappen kann, verwendet man @RelationshipEntity, um Klassen zu annotieren. Dabei ist es nötig die Klassen zu kennzeichnen mit @StartNode und @EndNode (siehe Listing 7-2). Weiterhin muss der Start- oder Endknoten referenziert werden, damit ein Mapping möglich ist (siehe Listing 7-3). [13]
 
 ```java
 @Data
@@ -208,7 +211,7 @@ public class KnowsRelation {
 
 }
 ```
-<p align="center"><b>Listing 6-2: Eine auf eine Klasse gemappte Relation mit zusätzlichen Attributen [13]</b></p>
+<p align="center"><b>Listing 7-2: Eine auf eine Klasse gemappte Relation mit zusätzlichen Attributen [13]</b></p>
 
 ```java
 @Data
@@ -225,13 +228,13 @@ public class Person {
 
 }
 ```
-<p align="center"><b>Listing 6-3: Eine referenzierte RelationshipEntity [13]</b></p>
+<p align="center"><b>Listing 7-3: Eine referenzierte RelationshipEntity [13]</b></p>
 
 Alle Entitäten brauchen aus technischen Gründen eine Id, die mit @Id gesetzt wird. Außerdem kann man diese Id generieren lassen, dazu annotiert man sie mit @GeneratedValue. Mit IdStrategy kann zusätzlich angegeben werden, wie die Ids generiert werden. Object-Graph-Mapping verwendet nativen Ids in dem Fall, wenn keine angegeben wurde. Allerdings ist das nicht zu empfehlen, weil die Ids nach einer Zeitspanne recycelt werden. Besonders bei Applikationen, die lange verwendet werden, führt dies zu Problemen. Ids selber zu erzeugen ist die bessere Lösung. Es kann zum Beispiel die UuidStrategy genutzt werden, um Uuids zu erzeugen. [13]
 
 Die Neo4j Datenbank kann aber nicht triviale Werte speichern. Daher benötigt man einen Mechanismus, um Uuids abbilden zu können. Für dieses Problem bietet der OGMConverter Abhilfe. Mit dem OGMConverter können nicht-triviale Attribute auf Graph-Attribute übersetzt werden. Mit der in der OGM enthaltene UuidStringConverter können Uuid-Objekte in der Datenbank als Strings gespeichert werden. [13]
 
-Unter org.neo4j.ogm.typeconversion.AttributeConverter können eigene Converter als Implementierung hinzugefügt werden. Eigene IdStrategies können unter org.neo4j.ogm.id.IdStrategy hinzugefügt werden. Das Listing 4 zeigt ein Mapping, wo eine Uuid verwendet wird statt der nativen Id. [13]
+Unter org.neo4j.ogm.typeconversion.AttributeConverter können eigene Converter als Implementierung hinzugefügt werden. Eigene IdStrategies können unter org.neo4j.ogm.id.IdStrategy hinzugefügt werden. Das Listing 7-4 zeigt ein Mapping, wo eine Uuid verwendet wird statt der nativen Id. [13]
 
 ```java
 @Id
@@ -240,10 +243,10 @@ Unter org.neo4j.ogm.typeconversion.AttributeConverter können eigene Converter a
 private UUID id;
 
 ```
-<p align="center"><b>Listing 6-4: Verwendung einer Uuid in OGM [13]</b></p>
+<p align="center"><b>Listing 7-4: Verwendung einer Uuid in OGM [13]</b></p>
 
 
-## 7. Migration
+## 8. Migration
 Bei der Einführung einer Neo4j-Datenbank ist davon auszugehen, dass bereits eine relationale Datenbank vorhanden ist aufgrund der hohen Verbreitung von relationalen Datenbanken. Daher wird die relationale Datenbank entweder in Neo4j übernommen oder die relationale Datenbank bleibt bestehen und wird durch die Neo4j Datenbank erweitert. Die beiden beschriebenen Anwendungsfälle sind mit Neo4j leicht umzusetzen. [13]
 
 Die Abfragesprache Cypher, die Neo4j verwendet, bietet Funktionen für die Auflösung einer relationalen Datenbank. Hierfür besitzt Cypher Funktionen für den Import von Daten aus json, csv, xml und anderen Formaten. Daher ist es notwendig zuerst einen Export der Daten aus der relationalen Datenbank durchzuführen und dann einen Cypher-Import in die Neo4j Datenbank durchzuführen. Allerdings weist Neo4j eine Schwäche bei der Schreiben-Performanz auf. Aus diesem Grund kann ein Groß-Import von Daten etwas Zeit in Anspruch nehmen. [13]
@@ -252,7 +255,7 @@ Ist das Ziel eine relationale Datenbank mit Neo4j zu erweitern, dann ist der Ein
 
 
 
-## 8. Fazit
+## 9. Fazit
 Die Community Edition von Neo4j ermöglicht eine schnelle Installation und ein schnelles Starten. Die integrierte Dokumentation und das Tutorial führt einen Neo4j-Einsteiger in die Konzepte von Neo4j und dessen Abfragesprache Cypher ein.
 
 Die Stärke von Neo4j ist die einfache Traversierung von Graphen, dass im Vergleich zu relationalen Datenbanken eine erhebliche Minimierung des Aufwandes bei der Entwicklung zur Folge hat. Das ist möglich, weil die Graphen mit gerichteten Kanten eins zu eins in Neo4j umgesetzt werden können. Damit lassen sich dann auch komplexe Beziehungen einfacher darstellen und effektiv verwalten. Zudem bieten Graphdatenbanken, durch die Eigenschaften von Graphen eine sehr schnelle Lesegeschwindigkeit, das unabhängig von den enthalten Datenmenge gewährleitet ist. Außerdem bietet Neo4j durch seine Schemalosigkeit für die Datenmodellierung genug Flexibilität um mit ständig ändernden Anforderungen klar zu kommen. 
@@ -262,7 +265,7 @@ Die eigens entwickelte Abfragesprache Cypher ermöglicht eine Java-basierte Plug
 Zu beachten ist jedoch, dass durch eine fehlende Standardisierung von Graphendatenbanken, zum Beispiel bei der Abfragesprache Cypher von Neo4j auch eine stärke Bindung an die Datenbanktechnologie Neo4j miteingeht.
 
 
-## 9. Literaturverzeichnis
+## 10. Literaturverzeichnis
 
 - [1] IT Verlag für Informationstechnik GmbH, „Fünf Tipps für die Wahl der richtigen Datenbank,“ 01 April 2020. [Online]. Available: https://www.it-daily.net/it-management/big-data-analytics/23876-fuenf-tipps-fuer-die-wahl-der-richtigen-datenbank. [Zugriff am 25 Oktober 2020].
 - [2] P. Ghadir, „Neo4j – Eine graph-basierte transaktionale Datenbank,“ 01 September 2012. [Online]. Available: https://www.innoq.com/de/articles/2012/09/neo4j-rockt/. [Zugriff am 24 Oktober 2020].
