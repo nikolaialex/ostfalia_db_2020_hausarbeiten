@@ -169,7 +169,9 @@ Eine Datenbank kommt im Unternehmen-Umfeld erst zur Verwendung, wenn die Datenba
 Aus einem Projekt des Unternehmens Neo4j Inc. entstand im Jahre 2011 die Abfragesprache Cypher für die Graphdatenbank Neo4j. Mit dem Open-Source-Projekt openCypher hat Neo4j die Abfragesprache Cypher im Jahre 2015 zu einem Open-Source-Projekt gemacht. Cypher ist eine deklarative Abfragesprache für Graphdatenbanken. Mit der übersichtlichen Syntax, die Cypher besitzt, können komplizierte Abfrage oder Datenaktualisierungen in Graphdatenbanken schnell und einfach formuliert werden. Dabei eignet sich Cypher für den Betrieb und die Entwicklung. Die Absprache ermöglicht einen effizienten und intuitiven Umgang mit Daten in NoSQL-Graphdatenbanken. [13]
 
 ### 5.1. Syntax
-Die Abfragesprachen SQL oder SPARQL haben das Design von der Abfragesprache Cypher geprägt. Eine Abfrage in Cypher besitzt eine gewisse Ähnlichkeit wie eine Abfrage in SQL. Zum Beispiel besitzen sie zum Teil ähnliche oder gleiche Schlüsselwörter, die dementsprechend groß geschrieben werden. [14] In der nachfolgenden Tabelle sind wichtige Schlüsselwörter aufgelistet: 
+Die Abfragesprachen SQL oder SPARQL haben das Design von der Abfragesprache Cypher geprägt. Eine Abfrage in Cypher besitzt eine gewisse Ähnlichkeit wie eine Abfrage in SQL. Zum Beispiel besitzen sie zum Teil ähnliche oder gleiche Schlüsselwörter, die dementsprechend groß geschrieben werden. [14] 
+
+In der nachfolgenden Tabelle sind wichtige Schlüsselwörter aufgelistet: 
 
 | Schlüsselwort                     | Beschreibung                                                                               |
 | :-------------------------------- | :----------------------------------------------------------------------------------------- | 
