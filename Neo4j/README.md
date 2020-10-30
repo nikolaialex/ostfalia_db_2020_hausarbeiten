@@ -29,8 +29,9 @@
   <br/>5.4. [Knoten bearbeiten](#54-knoten-bearbeiten)
   <br/>5.5. [Kanten Operationen](#55-kanten-operationen)
   <br/>5.6. [Selektion](#56-selektion)
-  <br/>5.7. [Aggregationsfunktionen](#57-aggregationsfunktionen)
-  <br/>5.8. [Vorteile der Abfragesprache Cypher](#58-vorteile-der-abfragesprache-cypher)
+  <br/>5.7. [Projektionen](#57-projektionen)
+  <br/>5.8. [Aggregationsfunktionen](#58-aggregationsfunktionen)
+  <br/>5.9. [Vorteile der Abfragesprache Cypher](#59-vorteile-der-abfragesprache-cypher)
 6. [Plugins](#6-plugins)
 7. [Object-Graph-Mapping (OGM)](#7-object-graph-mapping-ogm)
 8. [Migration](#8-migration)
@@ -312,7 +313,19 @@ RETURN (movie)
 <p align="left"><b>Listing 5-9: Abfrage Selektion [14]</b></p>
 
 
-### 5.7. Aggregationsfunktionen
+
+### 5.7. Projektionen
+Mit Projektionen können Ergebnisse angepasst dargestellt werden. Mit dem Schlüsselwort RETURN ist das möglich. Dabei ist es notwendig, dass das Resultat eine Menge an Knoten, Kanten oder eine Tabelle ist. [14] 
+
+Das Listing 5-10 zeigt eine einfache Projektion. Hierbei werden alle Beziehungen die zwischen einer Person und einem Film bestehen ausgegeben.
+
+```cypher
+MATCH (person:Person) - [rel:ACTED_IN] -> (movie:Movie) 
+RETURN (rel) 
+```
+<p align="left"><b>Listing 5-10: Projektion [14]</b></p>
+
+### 5.8. Aggregationsfunktionen
 Damit Ergebnisse entsprechend dargestellt werden können, sind Aggregationsfunktionen ein entscheidendes Mittel. Diese Funktionen sind besonders für statistische Abfragen nützlich, siehe Tabelle 5-4. [14]
 
 | Funktion                          | Beschreibung                                                                               |
@@ -334,9 +347,9 @@ Nachfolgend ein Beispiel für eine Aggregationsfunktion:
 MATCH (person:Person) - [rel] -> (movie:Movie) 
 RETURN max(rel.salary) 
 ```
-<p align="left"><b>Listing 5-10: Beispiel für eine Maximalfunktion [14]</b></p>
+<p align="left"><b>Listing 5-11: Beispiel für eine Maximalfunktion [14]</b></p>
 
-### 5.8. Vorteile der Abfragesprache Cypher
+### 5.9. Vorteile der Abfragesprache Cypher
 Die Abfragesprache besitzt viele Vorteile für Graphdatenbanken. Im Folgenden werden diese Vorteile aufgelistet:
 
 - Die Abfragesprache ist schnell zu erlernen und gut lesbar. [13]
