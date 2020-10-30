@@ -26,7 +26,7 @@
   <br/>5.1. [Syntax](#51-syntax)
   <br/>5.2. [Filterformulierung](#52-filterformulierung)
   <br/>5.3. [Datentypen](#53-datentypen)
-  <br/>5.4. [Knoten bearbeiten](#54-knoten-bearbeiten)
+  <br/>5.4. [Knoten Operationen](#54-knoten-operationen)
   <br/>5.5. [Kanten Operationen](#55-kanten-operationen)
   <br/>5.6. [Selektion](#56-selektion)
   <br/>5.7. [Projektionen](#57-projektionen)
@@ -247,8 +247,11 @@ In Cypher gibt es vier boolesche Operatoren, um Filter zu verknüpfen [14].
 Welcher Datentyp verwendet wird, entscheidet Neo4j durch die Definition der Daten. Hierbei verwendet Neo4j Datentypen, die auch andere Sprachen verwenden. Zu diesen Datentypen zählen boolean, byte, short, int, long, float, double, char und String. [14]
 
 
-### 5.4. Knoten bearbeiten
+### 5.4. Knoten Operationen
 
+#### Knoten erstellen
+
+#### Knoten bearbeiten
 Mit dem Schlüsselwort SET kann in Cypher ein bereits bestehender Knoten geändert werden. Weiterhin kann mit dem Schlüsselwort SET Labels und Eigenschaften hinzugefügt und geändert werden. Dementsprechend kann man mit dem Schlüsselwort REMOVE Eigenschaften und Labels gelöscht werden. Allerdings muss bevor eine Änderung stattfinden kann muss der Knoten mit einem Musterabgleich (MATCH) oder einem Filter (WHERE) ausgewählt werden. [14]
 
 ```cypher
@@ -264,6 +267,8 @@ REMOVE movie:Action
 RETURN (movie) 
 ```
 <p align="left"><b>Listing 5-5: REMOVE eines Labels [14]</b></p>
+
+#### Knoten löschen
 
 
 ### 5.5. Kanten Operationen
