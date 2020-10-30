@@ -26,7 +26,8 @@
   <br/>5.1. [Syntax](#51-syntax)
   <br/>5.2. [Filterformulierung](#52-filterformulierung)
   <br/>5.3. [Datentypen](#53-datentypen)
-  <br/>5.4. [Vorteile der Abfragesprache Cypher](#54-vorteile-der-abfragesprache-cypher)
+  <br/>5.4. [Aggregationsfunktionen](#54-aggregationsfunktionen)
+  <br/>5.5. [Vorteile der Abfragesprache Cypher](#55-vorteile-der-abfragesprache-cypher)
 6. [Plugins](#6-plugins)
 7. [Object-Graph-Mapping (OGM)](#7-object-graph-mapping-ogm)
 8. [Migration](#8-migration)
@@ -179,7 +180,8 @@ Die Abfragesprachen SQL oder SPARQL haben das Design von der Abfragesprache Cyph
 | REMOVE                            | Entfernen einer Eigenschaft, eines Labels oder eines Typs                                  | 
 | ORDER BY                          | Sortierung                                                                                 | 
 | SKIP                              | Bestimmte Anzahl an Resultate am Anfang überspringen                                       | 
-| LIMIT                             | Resultat auf ein bestimmte Anzahl limitieren                                               | 
+| LIMIT                             | Resultat auf ein bestimmte Anzahl limitieren                                               |
+| DISTINCT                          | Resultat ohne Duplikate in der Ausgabe                                                     | 
 
 <p align="left"><b>Tabelle 5-1: Wichtige Schlüsselwörter für die Sprachstruktur von Cypher [14]</b></p>
 
@@ -224,7 +226,7 @@ Die Abfragesprache Cypher besitzt unterschiedliche Operatoren, um Filter zu form
 | IS NULL                           | Gleich NULL                                                                                | 
 | IS NOT NULL                       | Ungleich NULL                                                                              | 
 
-<p align="left"><b>Tabelle 5-2: Filterformulierung in der Sprachstruktur von Cypher [14]</b></p>
+<p align="left"><b>Tabelle 5-2: Filterformulierung für die Abfragesprache Cypher [14]</b></p>
 
 In Cypher gibt es vier boolesche Operatoren, um Filter zu verknüpfen [14].
 
@@ -235,12 +237,40 @@ In Cypher gibt es vier boolesche Operatoren, um Filter zu verknüpfen [14].
 | XOR                               | Exklusives ODER                                                                            | 
 | NOT                               | NICHT                                                                                      | 
 
-<p align="left"><b>Tabelle 5-3: Boolesche Operatoren in der Sprachstruktur von Cypher [14]</b></p>
+<p align="left"><b>Tabelle 5-3: Boolesche Operatoren für die Abfragesprache Cypher [14]</b></p>
 
 ### 5.3. Datentypen
 Welcher Datentyp verwendet wird, entscheidet Neo4j durch die Definition der Daten. Hierbei verwendet Neo4j Datentypen, die auch andere Sprachen verwenden. Zu diesen Datentypen zählen boolean, byte, short, int, long, float, double, char und String. [14]
 
-### 5.4. Vorteile der Abfragesprache Cypher
+
+
+
+
+### 5.4. Aggregationsfunktionen
+Damit Ergebnisse entsprechend dargestellt werden können, sind Aggregationsfunktionen ein entscheidendes Mittel. Diese Funktionen sind besonders für statistische Abfragen nützlich, siehe Tabelle 5-4. [14]
+
+| Funktion                          | Beschreibung                                                                               |
+| :-------------------------------- | :----------------------------------------------------------------------------------------- | 
+| count()                           | Gibt die Anzahl der Knoten zurück.		                                                 | 
+| type()                            | Gibt alle existierenden Typen von Kanten zurück.                                           | 
+| max()                             | Maximalfunktion, gibt den größten Wert zurück.                                             | 
+| min()                             | Minimalfunktion, gibt den kleinsten Wert zurück.                                           | 
+| sum()                             | Summenfunktion, rechnet die Werte zusammen und gibt diese zurück.                          | 
+| avg()                             | Durchschnittsfunktion, gibt den Durchschnitt der Werte zurück.                             | 
+| stdev()                           | Standardabweichung, ermittelt für die Werte die Standardabweichung  und gibt diese zurück.  | 
+| collect()                         | Gibt eine Sammlung aller Werte in einem Array zurück.                                      |
+
+<p align="left"><b>Tabelle 5-4: Liste von Aggregationsfunktionen für die Abfragesprache Cypher</b></p>
+
+Nachfolgend ein Beispiel für eine Aggregationsfunktion:
+
+```cypher
+MATCH (person:Person) - [rel] -> (movie:Movie) 
+RETURN max(rel.salary) 
+```
+<p align="left"><b>Listing 5-4: Beispiel für eine Maximalfunktion  [14]</b></p>
+
+### 5.5. Vorteile der Abfragesprache Cypher
 Die Abfragesprache besitzt viele Vorteile für Graphdatenbanken. Im Folgenden werden diese Vorteile aufgelistet:
 
 - Die Abfragesprache ist schnell zu erlernen und gut lesbar. [13]
