@@ -248,6 +248,7 @@ Welcher Datentyp verwendet wird, entscheidet Neo4j durch die Definition der Date
 
 
 ### 5.4. Knoten bearbeiten
+
 Mit dem Schlüsselwort SET kann in Cypher ein bereits bestehender Knoten geändert werden. Weiterhin kann mit dem Schlüsselwort SET Labels und Eigenschaften hinzugefügt und geändert werden. Dementsprechend kann man mit dem Schlüsselwort REMOVE Eigenschaften und Labels gelöscht werden. Allerdings muss bevor eine Änderung stattfinden kann muss der Knoten mit einem Musterabgleich (MATCH) oder einem Filter (WHERE) ausgewählt werden. [14]
 
 ```cypher
@@ -266,6 +267,8 @@ RETURN (movie)
 
 
 ### 5.5. Kanten Operationen
+
+#### Kanten erstellen
 Für das Erstellen einer Beziehung zweier Knoten ist es nötig einem Musterabgleich (MATCH) durchzuführen. Mit dem Filter (WHERE) kann die Auswahl eigeschränkt werden. Das Listing 6 zeigt eine Abfrage wo zuerst die Person mit dem Namen “Keanu Reeves” und der Film mit dem Titel “Man of Tai Chi” abgefragt wird. Weiterhin wird eine Beziehung von der Person zum Film erstellt. Die Person soll die Rolle des Filmregisseurs einnehmen. Dafür wird der Beziehungs-Typ durch einen Doppelpunkt getrennt angegeben. Die Beziehung die erstellt wurde, wird mit der Variabel rel zurückgegeben. [14]
 
 ```cypher
@@ -276,6 +279,7 @@ RETURN (rel)
 ```
 <p align="left"><b>Listing 5-6: Kante erstellen [14]</b></p>
 
+#### Kanten ändern
 Um Kanten zu ändern kommt ebenfalls das Schlüsselwort SET zum Einsatz. Zu beachten ist, ob die Eigenschaft vorhanden ist oder nicht. Dabei wird die Eigenschaft überschrieben oder hinzugefügt. Die folgende Abfrage zeigt, dass die Regisseure von „The Matix“ jeweils ein Gehalt von 1 Million zugeordnet wird. [14]
 
 ```cypher
@@ -286,6 +290,7 @@ RETURN (rel)
 ```
 <p align="left"><b>Listing 5-7: Kante ändern [14]</b></p>
 
+#### Kanten löschen
 Mit dem Schlüsselwort DELETE können Kanten ebenfalls wie Knoten gelöscht werden. Die folgende Abfrage zeigt Beispielhaft das Löschen des Regisseurs von dem Film „Man of Tai Chi“. [14]
 
 ```cypher
