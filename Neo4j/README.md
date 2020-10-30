@@ -26,8 +26,10 @@
   <br/>5.1. [Syntax](#51-syntax)
   <br/>5.2. [Filterformulierung](#52-filterformulierung)
   <br/>5.3. [Datentypen](#53-datentypen)
-  <br/>5.4. [Aggregationsfunktionen](#54-aggregationsfunktionen)
-  <br/>5.5. [Vorteile der Abfragesprache Cypher](#55-vorteile-der-abfragesprache-cypher)
+  <br/>5.4. [Selektion](#54-selektion)
+  <br/>5.5. [Projektionen](#55-projektionen)
+  <br/>5.6. [Aggregationsfunktionen](#56-aggregationsfunktionen)
+  <br/>5.7. [Vorteile der Abfragesprache Cypher](#57-vorteile-der-abfragesprache-cypher)
 6. [Plugins](#6-plugins)
 7. [Object-Graph-Mapping (OGM)](#7-object-graph-mapping-ogm)
 8. [Migration](#8-migration)
@@ -243,10 +245,13 @@ In Cypher gibt es vier boolesche Operatoren, um Filter zu verknüpfen [14].
 Welcher Datentyp verwendet wird, entscheidet Neo4j durch die Definition der Daten. Hierbei verwendet Neo4j Datentypen, die auch andere Sprachen verwenden. Zu diesen Datentypen zählen boolean, byte, short, int, long, float, double, char und String. [14]
 
 
+### 5.4. Selektion
 
 
+### 5.5. Projektionen
 
-### 5.4. Aggregationsfunktionen
+
+### 5.6. Aggregationsfunktionen
 Damit Ergebnisse entsprechend dargestellt werden können, sind Aggregationsfunktionen ein entscheidendes Mittel. Diese Funktionen sind besonders für statistische Abfragen nützlich, siehe Tabelle 5-4. [14]
 
 | Funktion                          | Beschreibung                                                                               |
@@ -270,7 +275,7 @@ RETURN max(rel.salary)
 ```
 <p align="left"><b>Listing 5-4: Beispiel für eine Maximalfunktion  [14]</b></p>
 
-### 5.5. Vorteile der Abfragesprache Cypher
+### 5.7. Vorteile der Abfragesprache Cypher
 Die Abfragesprache besitzt viele Vorteile für Graphdatenbanken. Im Folgenden werden diese Vorteile aufgelistet:
 
 - Die Abfragesprache ist schnell zu erlernen und gut lesbar. [13]
