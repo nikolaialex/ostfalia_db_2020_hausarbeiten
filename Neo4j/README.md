@@ -301,6 +301,7 @@ RETURN (director), (movie)
 Mit dem Schlüsselwort WHERE können in Cypher Selektionen formuliert werden. Dafür können Standard-Operatoren wie „=“ oder „<“ verwendet werden. Außerdem gibt es noch andere Möglichkeiten, um Selektionen anhand des Inhalts zu beschreiben. [14]
 
 Eine andere Möglichkeit für eine Selektion bietet regex (Regular Expression). Damit ist es möglich den Inhalt von String Eigenschaften zu filtern. Hierfür wird dem „=“ Symbol ein „~“ (Tilde) Symbol hinzugefügt. Es folgt daraufhin eine regex Beschreibung. Zu vergleichen ist dieses Konstrukt mit dem Schlüsselwort LIKE in SQL. [14]
+
 Mit der Nachfolgenden Abfrage (Listing 9) werden alle „Movie“ Knoten die im Titel eine „o“ enthalten gefiltert.
 
 ```cypher
