@@ -250,6 +250,11 @@ Welcher Datentyp verwendet wird, entscheidet Neo4j durch die Definition der Date
 ### 5.4. Knoten Operationen
 
 #### Knoten erstellen
+Um Daten als Knoten abzubilden müssen die Eigenschaften eines Knoten in geschweiften Klammer definiert werden. Nachfolgend wird ein neuer Knoten erstellt:
+```cypher
+CREATE (n { title : 'Man of Tai Chi', released : 2013 }) 
+```
+<p align="left"><b>Listing 5-4: Knoten erstellen</b></p>
 
 #### Knoten bearbeiten
 Mit dem Schlüsselwort SET kann in Cypher ein bereits bestehender Knoten geändert werden. Weiterhin kann mit dem Schlüsselwort SET Labels und Eigenschaften hinzugefügt und geändert werden. Dementsprechend kann man mit dem Schlüsselwort REMOVE Eigenschaften und Labels gelöscht werden. Allerdings muss bevor eine Änderung stattfinden kann muss der Knoten mit einem Musterabgleich (MATCH) oder einem Filter (WHERE) ausgewählt werden. [14]
@@ -259,17 +264,16 @@ MATCH (movie:Movie { title : 'Man of Tai Chi' })
 SET movie:Action
 RETURN (movie) 
 ```
-<p align="left"><b>Listing 5-4: Die Abfrage fügt dem Movie- “Man of Tai Chi” das Label “Action” hinzu [14]</b></p>
+<p align="left"><b>Listing 5-5: Die Abfrage fügt dem Movie- “Man of Tai Chi” das Label “Action” hinzu [14]</b></p>
+
+#### Knoten löschen
 
 ```cypher
 MATCH (movie:Movie { title : 'Man of Tai Chi' }) 
 REMOVE movie:Action
 RETURN (movie) 
 ```
-<p align="left"><b>Listing 5-5: REMOVE eines Labels [14]</b></p>
-
-#### Knoten löschen
-
+<p align="left"><b>Listing 5-6: REMOVE eines Labels [14]</b></p>
 
 ### 5.5. Kanten Operationen
 
@@ -282,7 +286,7 @@ WHERE director.name = 'Keanu Reeves' AND movie.title = 'Man of Tai Chi'
 CREATE (director) - [rel:DIRECTED] -> (movie)
 RETURN (rel) 
 ```
-<p align="left"><b>Listing 5-6: Kante erstellen [14]</b></p>
+<p align="left"><b>Listing 5-7: Kante erstellen [14]</b></p>
 
 #### Kanten ändern
 Um Kanten zu ändern kommt ebenfalls das Schlüsselwort SET zum Einsatz. Zu beachten ist, ob die Eigenschaft vorhanden ist oder nicht. Dabei wird die Eigenschaft überschrieben oder hinzugefügt. Die folgende Abfrage zeigt, dass die Regisseure von „The Matix“ jeweils ein Gehalt von 1 Million zugeordnet wird. [14]
@@ -293,7 +297,7 @@ WHERE movie.title = "The Matrix"
 SET rel.salary = 1000000 
 RETURN (rel) 
 ```
-<p align="left"><b>Listing 5-7: Kante ändern [14]</b></p>
+<p align="left"><b>Listing 5-8: Kante ändern [14]</b></p>
 
 #### Kanten löschen
 Mit dem Schlüsselwort DELETE können Kanten ebenfalls wie Knoten gelöscht werden. Die folgende Abfrage zeigt Beispielhaft das Löschen des Regisseurs von dem Film „Man of Tai Chi“. [14]
@@ -304,7 +308,7 @@ WHERE director.name = 'Keanu Reeves' AND movie.title = 'Man of Tai Chi'
 DELETE rel
 RETURN (director), (movie)
 ```
-<p align="left"><b>Listing 5-8: Kante löschen [14]</b></p>
+<p align="left"><b>Listing 5-9: Kante löschen [14]</b></p>
 
 
 
@@ -320,7 +324,7 @@ MATCH (movie:Movie)
 WHERE movie.title =~ ".*o.*" 
 RETURN (movie)
 ```
-<p align="left"><b>Listing 5-9: Abfrage Selektion [14]</b></p>
+<p align="left"><b>Listing 5-10: Abfrage Selektion [14]</b></p>
 
 
 
@@ -333,7 +337,7 @@ Das Listing 5-10 zeigt eine einfache Projektion. Hierbei werden alle Beziehungen
 MATCH (person:Person) - [rel:ACTED_IN] -> (movie:Movie) 
 RETURN (rel) 
 ```
-<p align="left"><b>Listing 5-10: Projektion [14]</b></p>
+<p align="left"><b>Listing 5-11: Projektion [14]</b></p>
 
 ### 5.8. Aggregationsfunktionen
 Damit Ergebnisse entsprechend dargestellt werden können, sind Aggregationsfunktionen ein entscheidendes Mittel. Diese Funktionen sind besonders für statistische Abfragen nützlich, siehe Tabelle 5-4. [14]
@@ -357,7 +361,7 @@ Nachfolgend ein Beispiel für eine Aggregationsfunktion:
 MATCH (person:Person) - [rel] -> (movie:Movie) 
 RETURN max(rel.salary) 
 ```
-<p align="left"><b>Listing 5-11: Beispiel für eine Maximalfunktion [14]</b></p>
+<p align="left"><b>Listing 5-12: Beispiel für eine Maximalfunktion [14]</b></p>
 
 ### 5.9. Vorteile der Abfragesprache Cypher
 Die Abfragesprache besitzt viele Vorteile für Graphdatenbanken. Im Folgenden werden diese Vorteile aufgelistet:
