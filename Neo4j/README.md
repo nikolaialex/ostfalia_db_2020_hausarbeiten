@@ -216,7 +216,9 @@ RETURN [Knoten oder Eigenschaften]
 <p align="left"><b>Listing 5-3: Kombinierte Abfrage [14]</b></p>
 
 ### 5.2. Filterformulierung
-Die Abfragesprache Cypher besitzt unterschiedliche Operatoren, um Filter zu formulieren. Diese Operatoren werden auch in anderen Sprachen wie Java und SQL verwendet [14]. Nachfolgend wird die Tabelle der Operatoren aufgeführt.
+Die Abfragesprache Cypher besitzt unterschiedliche Operatoren, um Filter zu formulieren. Diese Operatoren werden auch in anderen Sprachen wie Java und SQL verwendet [14]. 
+
+Nachfolgend wird die Tabelle der Operatoren aufgeführt.
 
 
 | Schlüsselwort                     | Beschreibung                                                                               |
