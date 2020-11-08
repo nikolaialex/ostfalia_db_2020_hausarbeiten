@@ -7,7 +7,7 @@
 | Name               | Matrikelnummer | Hochschule |
 | :----------------- | :------------- | :--------- |
 | Corinna Schnögl     |          | Beuth Hochschule für Technik Berlin  |
-|     |         |   |
+| Susanne Mitschke |         |   |
 
 
 ## Inhalterverzeichnis
