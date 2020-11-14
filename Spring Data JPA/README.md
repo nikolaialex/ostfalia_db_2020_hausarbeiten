@@ -6,7 +6,7 @@
 
 | Name               | Matrikelnummer | Hochschule |
 | :----------------- | :------------- | :--------- |
-| Luis Jacobi        |                |            |
+| Luis Jacobi        | 70464054               |    Ostfalia        |
 | Volkan Gülsen      |904879          |Beuth Hochschule Berlin|
 | Philipp-Christopher Thiele                   |273060                |TH Lübeck            |
 |                    |                |            |
