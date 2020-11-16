@@ -6,3 +6,7 @@
 This is a *bold* text. This is _emphasized_. (Link)[http://google.com]
 
 Hallo Peter
+
+* Sensordaten zur Steuerung von Raketen (SpaceX) 
+* Incident Monitoring im eCommerce
+* Analyse von Bilddaten 
