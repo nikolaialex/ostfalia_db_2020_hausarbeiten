@@ -25,10 +25,8 @@ Komponenten/Aufgaben: Verarbeitet Daten möglichst in Echtzeit, hält die Daten 
 
 ### Batch Layer
 Technologien: Hadoop
-
 Komponenten/Aufgaben: Master Dataset, Data Processing, Fehlerbehebung des Speedlayers
 
 ### Serving Layer
 Technologien: Cassandra, HBase
-
 Komponenten/Aufgaben: Bereitstellung der aufbereiteten Daten
