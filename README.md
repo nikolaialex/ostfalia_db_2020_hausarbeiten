@@ -28,3 +28,7 @@ Komponenten/Aufgaben: Master Dataset, Data Processing, Fehlerbehebung des Speedl
 ### Serving Layer
 Technologien: Cassandra, HBase  
 Komponenten/Aufgaben: Bereitstellung der aufbereiteten Daten
+
+### Allgemein 
+Zunächst erklären, was das ist, was das kann usw. ---> https://www.datenbanken-verstehen.de/lexikon/lambda-architektur/ Gut für Info Einleitung
+Beispiel, warum für große Datenmengen diese Technologie von Vorteil ist. Warum würde z.B. keine relationale Datenbank reichen?
