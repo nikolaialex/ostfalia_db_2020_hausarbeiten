@@ -94,7 +94,7 @@ Der amerikanische geschäfts- und beschäftigungsorientierte Onlinedienst
 benötigte eine vollständige Neugestaltung der Infrastruktur, um das
 exponentielle Wachstum der Mitglieder und Komplexität der Plattform
 unterbringen zu können. Um dies anfänglich in Griff zu bekommen,
-migrierten sie ihre Daten zuerst von einer monolithischen[^1] auf eine
+migrierten sie ihre Daten zuerst von einer monolithischen<sup>1</sup> auf eine
 auf Microservices basierenden Anwendungsinfrastruktur. Mit Hilfe dieser
 Änderung war es **LinkedIn** möglich, die Such-, Profil-,
 Kommunikations- und anderen Plattformen effizienter zu gestalten und sie
