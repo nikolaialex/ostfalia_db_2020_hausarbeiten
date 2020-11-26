@@ -15,7 +15,7 @@ Email: n.jensen\@ostfalia.de
 
 Tel.: +49 5331-939-31550
 
-Inhaltsverzeichnis
+## Inhaltsverzeichnis
 
 [1 Einleitung 1](#einleitung)
 
@@ -51,3 +51,27 @@ Inhaltsverzeichnis
 13](#anwendung-von-apache-kafka-anhand-eines-unternehmens-beispiels)
 
 [8 Fazit 13](#fazit)
+
+[Literaturverzeichnis 13](#literaturverzeichnis)
+
+Abbildungsverzeichnis
+
+[Abbildung 1: VR-Brille (Quelle: (Lautsprecher Teufel GmbH, 2017))
+12](#_Toc42016156)
+
+[Abbildung 2: Walt-Disney-Methode (Padberg, 2010) -- eigene Nachbildung
+13](#_Toc42016157)
+
+Tabellenverzeichnis
+
+[Tabelle 1: Identifizierte Merkmale der Virtual Reality
+5](#_Ref42096638)
+
+[Tabelle 2: Einsatz von VR-Techniken 9](#_Ref41814816)
+
+# Einleitung
+
+Der \_\_\_\_\_\_kleine Einführung...einer Reihe einzigartiger Elemente,
+die eher einem Datenbankprotokoll als einem herkömmlichen
+Messagingsystem ähneln. In den folgenden Abschnitten werden einige
+Elemente des Entwurfs beschrieben.
