@@ -83,7 +83,7 @@ Vergleich zu traditioneller Middleware viele Konzepte vereint, um Daten
 schnell und in großen Mengen zu und von den Unternehmen zu
 transportieren, soll Gegenstand dieser Arbeit sein.
 
-In Kapitel 2 soll zuerst der geschichtliche Abriss sowie der Begriff
+In Kapitel 2(#geschichtlicher-abriss-von-apache-kafka) soll zuerst der geschichtliche Abriss sowie der Begriff
 Apache Kafka definiert werden, um aufzuzeigen, wo diese Open Source
 Software ansetzt. Anschließend werden in Kapitel 3 die Grundlagen und
 Kernkomponenten behandelt, um die vielfältigen Einsatzmöglichkeiten und
