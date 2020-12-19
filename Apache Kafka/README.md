@@ -282,7 +282,7 @@ Streaming-Frameworks, wie Spark, Storm, HBase oder Flink, um
 Streaming-Daten in Echtzeit aufzunehmen, zu analysieren und zu
 verarbeiten.
 
-![](media/image2.png){width="4.104166666666667in"
+![](media/image2.PNG){width="4.104166666666667in"
 height="3.8117016622922133in"}
 
 []{#_Toc59301051 .anchor}Abbildung : Data Ecosystem (eigene Darstellung
@@ -384,7 +384,7 @@ Nachrichten als abgelaufen markiert und folglich gelöscht. Für die
 Aufbewahrungskonfiguration benötigt dieses Verfahren eine jederzeit
 verfügbare Mindestmenge. (Neha Narkhede, 2017, S. 8)
 
-![](media/image3.png){width="5.895833333333333in"
+![](media/image3.PNG){width="5.895833333333333in"
 height="3.3020833333333335in"}
 
 []{#_Toc59301052 .anchor}Abbildung 3: Apache Kafka - Cluster
@@ -458,7 +458,7 @@ Betrieb für die Kafka-Bereitstellung aufrechthält. Anders als bei
 Standard-Failover-Replikationen, wird in einem Kafka-Cluster diese
 Funktionalität als Spiegelung bezeichnet. (Michael Carter, 2020)
 
-![](media/image4.png){width="4.885416666666667in"
+![](media/image4.PNG){width="4.885416666666667in"
 height="3.1458333333333335in"}
 
 []{#_Toc59301053 .anchor}Abbildung 4: Multiple Datacenter Architecture
