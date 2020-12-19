@@ -615,31 +615,57 @@ Insights, 2020).
 # Literaturverzeichnis  {#literaturverzeichnis .list-paragraph}
 
 Alley, G. (26. November 2018). *What is a Data Pipeline?* Von https://www.alooma.com/blog/what-is-a-data-pipeline abgerufen
+
 Apache Software Foundation . (2017). *Apache Kafka*. Von https://kafka.apache.org/downloads abgerufen
+
 Apache Software Foundation.(2017). *Kafka Apache Org*. Von https://kafka.apache.org/uses abgerufen
+
 Apache Software Foundation. (24. März 2020). *Apache Hadoop*. Von https://hadoop.apache.org/ abgerufen
-Cloudera, Inc. (29. Juni 2016).*Cloudera Documentation*. Von https://docs.cloudera.com/:https://docs.cloudera.com/documentation/kafka/1-2-x/topics/kafka.htmlabgerufen
+
+Cloudera, Inc. (29. Juni 2016).*Cloudera Documentation*. Von https://docs.cloudera.com/:https://docs.cloudera.com/documentation/kafka/1-2-x/topics/kafka.html abgerufen
+
 DataFlair Web Services Pvt Ltd. (2020). *Kafka Architecture and Its Fundamental Concepts*. Von https://data-flair.training/blogs/kafka-architecture/ abgerufen
+
 DataFlair Web Services Pvt Ltd. (2020). *Advantages and Disadvantages of Kafka*.Von https://data-flair.training/blogs/advantages-and-disadvantages-of-kafka/ abgerufen
+
 Gutierrez, D. (28. April 2016). *A Brief History of Kafka, LinkedIn's Messaging Platform*. Von Inside big data:https://insidebigdata.com/2016/04/28/a-brief-history-of-kafka-linkedins-messaging-platform/ abgerufen
+
 Haunts, S. (9. September 2015). *Rabbitmq Series Part 2: The AMQP Messaging Standard*. Von https://stephenhaunts.com/2015/09/09/rabbitmq-series-part-2-the-amqp-messaging-standard/ abgerufen
+
 HG Insights. (19. Dezember 2020). *Apache Kafka*. Von https://discovery.hgdata.com/product/apache-kafka abgerufen
+
 Jaiswal, S. (2018). *Kafka: Multiple Clusters*. Von https://www.javatpoint.com/apache-kafka-multiple-clusters abgerufen
+
 Johansson, L. (19. März 2020). *Part 1: Apache Kafka for beginners - What is Apache Kafka?* Von CloudKarafka: https://www.cloudkarafka.com/blog/2016-11-30-part1-kafka-for-beginners-what-is-apache-kafka.html abgerufen
+
 LinkedIn Corporation. (15. November 2020). *InMail-Nachrichten -- Übersicht*. Von https://www.linkedin.com/help/linkedin/answer/1584/inmail-overview?lang=de abgerufen
+
 Luber, D.-I. (. (5. Oktober 2018). *Definition: Was ist Apache Kafka?* Von https://www.bigdata-insider.de/was-ist-apache-kafka-a-763300/ abgerufen
+
 Mars, T. (2017).*JSON at Work: Practical Data Integration for the Web.* Sebastopol, CA 95472: O\'Reilly Media, Inc.
+
 Michael Carter.(16. Juni 2020). *Apache Kafka Architecture: A Complete Guide*. Von https://www.instaclustr.com/apache-kafka-architecture/ abgerufen 
+
 Microsoft Corporation. (6. August 2020). *Monolithische Anwendungen*. Von https://docs.microsoft.com/de-de/dotnet/architecture/containerized-lifecycle/design-develop-containerized-apps/monolithic-applications\#:\~:text=Eine%20monolithische%20Anwendung%20hat%20ihre,oder%20Bibliotheken%20als%20Komponenten%20auf. abgerufen
+
 Neha Narkhede, G. S. (2017). *Kafka: The Definitive Guide: Real-Time Data and Stream Processing at Scale.* United States of America: O\'Reilly Media.
+
 Rouse, M. (Mai 2020). *Remote Procedure Call(RPC)*. Von TechTarget: https://searchapparchitecture.techtarget.com/definition/Remote-Procedure-Call-RPC\#:\~:text=Remote%20Procedure%20Call%20(RPC)%20is,systems%20like%20a%20local%20system. abgerufen
-SAS Institute Inc. (16. August 2020). *Middle Tier*. Von https://documentation.sas.com/?cdcId=bicdc&cdcVersion=9.4&docsetId=biov&docsetTarget=p0wsyb97ii3u1wn11uphl9uvxzvz.htm&locale=en abgerufen
+
+SAS Institute Inc. (16. August 2020). *Middle Tier*. Von https://documentation.sas.com/cdcId=bicdc&cdcVersion=9.4&docsetId=biov&docsetTarget=p0wsyb97ii3u1wn11uphl9uvxzvz.htm&locale=en abgerufen
+
 Seigneurin, A. (02. August 2018). *Kafka tutorial \#4 - Avro and the Schema Registry*. Von https://aseigneurin.github.io/2018/08/02/kafka-tutorial-4-avro-and-schema-registry.html abgerufen
+
 The Apache Software Foundation. (03. Dezember 2020). *AVRO Apache Org*. Von http://avro.apache.org/docs/current/ abgerufen
+
 Tutorials Point (I) Pvt. Ltd. (2020). *Apache Kafka - Cluster Architecture*. Von https://www.tutorialspoint.com/apache_kafka/apache_kafka_cluster_architecture.htm abgerufen
+
 Tutorials Point (I) Pvt. Ltd. (4. November 2020). *Apache Kafka-Introduction*. Von https://www.tutorialspoint.com/apache_kafka/apache_kafka_introduction.htm abgerufen
+
 Wikimedia Foundation Inc. (12. September 2004). *Metadaten*. Von https://de.wikipedia.org/wiki/Metadaten abgerufen
+
 Wikimedia Foundation Inc. (27. September 2020). *Apache Software Foundation*. Von https://de.wikipedia.org/wiki/Apache_Software_Foundation abgerufen
+
 Wikimedia Foundation Inc. (14. Juni 2020). *Programmierschnittstelle*. Von https://de.wikipedia.org/wiki/Programmierschnittstelle abgerufen
 
 [^1]: „Eine **monolithische Anwendung** hat ihre Funktionalität ganz
