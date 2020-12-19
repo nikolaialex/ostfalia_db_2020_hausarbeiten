@@ -85,12 +85,12 @@ transportieren, soll Gegenstand dieser Arbeit sein.
 
 In Kapitel [2](#geschichtlicher-abriss-von-apache-kafka) soll zuerst der geschichtliche Abriss sowie der Begriff
 Apache Kafka definiert werden, um aufzuzeigen, wo diese Open Source
-Software ansetzt. Anschließend werden in Kapitel 3 die Grundlagen und
+Software ansetzt. Anschließend werden in Kapitel [3](#vorstellung-und-übersicht-von-apache-kafka) die Grundlagen und
 Kernkomponenten behandelt, um die vielfältigen Einsatzmöglichkeiten und
-die technischen Umsetzungsmöglichkeiten aufzuzeigen. Kapitel 4 geht dann
-auf die Kafka APIs sowie die Architektur von Apache Kafka ein. Kapitel 5
+die technischen Umsetzungsmöglichkeiten aufzuzeigen. Kapitel [4](#architektur-von-apache-kafka) geht dann
+auf die Kafka APIs sowie die Architektur von Apache Kafka ein. Kapitel [5](#anwendungsbeispiele-von-apache-kafka)
 beschreibt die Implementierung von Apache Kafka anhand zweier Beispiele.
-In Kapitel 6 wird das Datenformat Apache Avro definiert und die
+In Kapitel [6](#anwendung-von-apache-kafka-und-avro) wird das Datenformat Apache Avro definiert und die
 Zusammenarbeit von Kafka und Avro vorgestellt.
 
 # Geschichtlicher Abriss von Apache Kafka
