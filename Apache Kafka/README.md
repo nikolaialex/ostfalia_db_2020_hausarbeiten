@@ -15,43 +15,37 @@ Email: n.jensen\@ostfalia.de
 
 Tel.: +49 5331-939-31550
 
-## [1 Einleitung 1](#einleitung)
+## [1 Einleitung](#einleitung)
 
-[2 Geschichtlicher Abriss von Apache Kafka
-1](#geschichtlicher-abriss-von-apache-kafka)
+[2 Geschichtlicher Abriss von Apache Kafka](#geschichtlicher-abriss-von-apache-kafka)
 
-[3 Vorstellung und Übersicht von Apache Kafka
-3](#vorstellung-und-übersicht-von-apache-kafka)
+[3 Vorstellung und Übersicht von Apache Kafka](#vorstellung-und-übersicht-von-apache-kafka)
 
-[3.1 Grundlagen und Kernkomponenten 3](#grundlagen-und-kernkomponenten)
+[3.1 Grundlagen und Kernkomponenten](#grundlagen-und-kernkomponenten)
 
-[3.2 Nutzung von Kafka 5](#nutzung-von-kafka)
+[3.2 Nutzung von Kafka](#nutzung-von-kafka)
 
-[3.3 Technische Möglichkeiten 8](#technische-möglichkeiten)
+[3.3 Technische Möglichkeiten](#technische-möglichkeiten)
 
-[4 Architektur von Apache Kafka 8](#architektur-von-apache-kafka)
+[4 Architektur von Apache Kafka](#architektur-von-apache-kafka)
 
-[4.1 Apache Kafka Cluster Architektur
-8](#apache-kafka-cluster-architektur)
+[4.1 Apache Kafka Cluster Architektur](#apache-kafka-cluster-architektur)
 
-[4.2 Apache Kafka APIs 10](#apache-kafka-apis)
+[4.2 Apache Kafka APIs](#apache-kafka-apis)
 
-[4.3 Vorteile der Kafka Architekturen
-11](#vorteile-der-kafka-architekturen)
+[4.3 Vorteile der Kafka Architekturen](#vorteile-der-kafka-architekturen)
 
-[5 Anwendungsbeispiele von Apache Kafka
-12](#anwendungsbeispiele-von-apache-kafka)
+[5 Anwendungsbeispiele von Apache Kafka](#anwendungsbeispiele-von-apache-kafka)
 
-[5.1 Website activity tracking 12](#website-activity-tracking)
+[5.1 Website activity tracking](#website-activity-tracking)
 
-[5.2 Webshop 14](#webshop)
+[5.2 Webshop](#webshop)
 
-[6 Anwendung von Apache Kafka und Avro
-14](#anwendung-von-apache-kafka-und-avro)
+[6 Anwendung von Apache Kafka und Avro](#anwendung-von-apache-kafka-und-avro)
 
-[7 Fazit 16](#fazit)
+[7 Fazit](#fazit)
 
-[Literaturverzeichnis 16](#literaturverzeichnis)
+[Literaturverzeichnis](#literaturverzeichnis)
 
 
 Abbildungsverzeichnis
