@@ -15,66 +15,52 @@ Email: n.jensen\@ostfalia.de
 
 Tel.: +49 5331-939-31550
 
-## [1 Einleitung 1](#einleitung)
+## Inhaltsverzeichnis
+[1 Einleitung](#1-einleitung)
 
-[2 Geschichtlicher Abriss von Apache Kafka
-1](#geschichtlicher-abriss-von-apache-kafka)
+[2 Geschichtlicher Abriss von Apache Kafka](#2-geschichtlicher-abriss-von-apache-kafka)
 
-[3 Vorstellung und Übersicht von Apache Kafka
-3](#vorstellung-und-übersicht-von-apache-kafka)
+[3 Vorstellung und Übersicht von Apache Kafka](#3-vorstellung-und-übersicht-von-apache-kafka)
+   <br/>3.1 [Grundlagen und Kernkomponenten](#31-grundlagen-und-kernkomponenten)
+   <br/>3.2 [Nutzung von Kafka](#32-nutzung-von-kafka)
+   <br/>3.3 [Technische Möglichkeiten](#33-technische-möglichkeiten)
 
-[3.1 Grundlagen und Kernkomponenten 3](#grundlagen-und-kernkomponenten)
+[4 Architektur von Apache Kafka](#4-architektur-von-apache-kafka)
+   <br/>4.1 [Apache Kafka Cluster Architektur](#41-apache-kafka-cluster-architektur)
+   <br/>4.2 [Apache Kafka APIs](#42-apache-kafka-apis)
+   <br/>4.3 [Vorteile der Kafka Architekturen](#43-vorteile-der-kafka-architekturen)
 
-[3.2 Nutzung von Kafka 5](#nutzung-von-kafka)
+[5 Anwendungsbeispiele von Apache Kafka](#5-anwendungsbeispiele-von-apache-kafka)
+   <br/>5.1 [Website activity tracking](#51-website-activity-tracking)
+   <br/>5.2 [Webshop](#52-webshop)
 
-[3.3 Technische Möglichkeiten 8](#technische-möglichkeiten)
+[6 Anwendung von Apache Kafka und Avro](#6-anwendung-von-apache-kafka-und-avro)
 
-[4 Architektur von Apache Kafka 8](#architektur-von-apache-kafka)
+[7 Fazit](#7-fazit)
 
-[4.1 Apache Kafka Cluster Architektur
-8](#apache-kafka-cluster-architektur)
+[Literaturverzeichnis](#literaturverzeichnis)
 
-[4.2 Apache Kafka APIs 10](#apache-kafka-apis)
+[Fußnote](#fußnote)
 
-[4.3 Vorteile der Kafka Architekturen
-11](#vorteile-der-kafka-architekturen)
+<br/>Abbildungsverzeichnis
 
-[5 Anwendungsbeispiele von Apache Kafka
-12](#anwendungsbeispiele-von-apache-kafka)
+*[Abbildung 1](#abbildung-1): Message Broker (eigene Darstellung nach (Haunts, 2015))*
 
-[5.1 Website activity tracking 12](#website-activity-tracking)
+*Abbildung 2: [Data Ecosystem (eigene Darstellung nach (Neha Narkhede,
+2017, S. 12))](#abbildung-2)*
 
-[5.2 Webshop 14](#webshop)
+*Abbildung 3: [Apache Kafka - Cluster Architecture (Tutorials Point (I)
+Pvt. Ltd., 2020)](#abbildung-3)*
 
-[6 Anwendung von Apache Kafka und Avro
-14](#anwendung-von-apache-kafka-und-avro)
+*Abbildung 4: [Multiple Datacenter Architecture (Neha Narkhede, 2017, S.
+9)](#abbildung-4)*
 
-[7 Fazit 16](#fazit)
+*Abbildung 5: [Apache Kafka - Partitions Topics (Johansson, 2020)](#abbildung-5)*
 
-[Literaturverzeichnis 16](#literaturverzeichnis)
-
-
-Abbildungsverzeichnis
-
-[Abbildung 1: Message Broker (eigene Darstellung nach (Haunts, 2015))
-4](#_Toc59301050)
-
-[Abbildung 2: Data Ecosystem (eigene Darstellung nach (Neha Narkhede,
-2017, S. 12)) 7](#_Toc59301051)
-
-[Abbildung 3: Apache Kafka - Cluster Architecture (Tutorials Point (I)
-Pvt. Ltd., 2020) 10](#_Toc59301052)
-
-[Abbildung 4: Multiple Datacenter Architecture (Neha Narkhede, 2017, S.
-9) 12](#_Toc59301053)
-
-[Abbildung 5: Apache Kafka - Partitions Topics (Johansson, 2020)
-13](#_Toc59301054)
-
-[Abbildung 6: Apache Kafka Webshop (Johansson, 2020) 14](#_Toc59301055)
+*Abbildung 6: [Apache Kafka Webshop (Johansson, 2020)](#abbildung-6)*
 
 
-# Einleitung
+## 1. Einleitung
 
 Weltweit werden Unternehmen durch Daten in all ihren verschiedenen
 Verwaltungsakten bewegt und gesteuert. Datengewinnung, -verwaltung, und
@@ -89,24 +75,24 @@ Vergleich zu traditioneller Middleware viele Konzepte vereint, um Daten
 schnell und in großen Mengen zu und von den Unternehmen zu
 transportieren, soll Gegenstand dieser Arbeit sein.
 
-In Kapitel 2 soll zuerst der geschichtliche Abriss sowie der Begriff
+In Kapitel [2](#2-geschichtlicher-abriss-von-apache-kafka) soll zuerst der geschichtliche Abriss sowie der Begriff
 Apache Kafka definiert werden, um aufzuzeigen, wo diese Open Source
-Software ansetzt. Anschließend werden in Kapitel 3 die Grundlagen und
+Software ansetzt. Anschließend werden in Kapitel [3](#3-vorstellung-und-übersicht-von-apache-kafka) die Grundlagen und
 Kernkomponenten behandelt, um die vielfältigen Einsatzmöglichkeiten und
-die technischen Umsetzungsmöglichkeiten aufzuzeigen. Kapitel 4 geht dann
-auf die Kafka APIs sowie die Architektur von Apache Kafka ein. Kapitel 5
+die technischen Umsetzungsmöglichkeiten aufzuzeigen. Kapitel [4](#4-architektur-von-apache-kafka) geht dann
+auf die Kafka APIs sowie die Architektur von Apache Kafka ein. Kapitel [5](#5-anwendungsbeispiele-von-apache-kafka)
 beschreibt die Implementierung von Apache Kafka anhand zweier Beispiele.
-In Kapitel 6 wird das Datenformat Apache Avro definiert und die
+In Kapitel [6](#6-anwendung-von-apache-kafka-und-avro) wird das Datenformat Apache Avro definiert und die
 Zusammenarbeit von Kafka und Avro vorgestellt.
 
-# Geschichtlicher Abriss von Apache Kafka
+## 2. Geschichtlicher Abriss von Apache Kafka
 
 Der amerikanische geschäfts- und beschäftigungsorientierte Onlinedienst
 **LinkedIn** hat ursprünglich Apache Kafka entwickelt. **LinkedIn**
 benötigte eine vollständige Neugestaltung der Infrastruktur, um das
 exponentielle Wachstum der Mitglieder und die Komplexität der Plattform
 unterbringen zu können. Um dies initial in den Griff zu bekommen,
-migrierten sie ihre Daten zuerst von einer monolithischen[^1] auf eine
+migrierten sie ihre Daten zuerst von einer monolithischen[^[1](#monolithische-Anwendung)] auf eine
 auf Microservices basierenden Anwendungsinfrastruktur. Mit Hilfe dieser
 Änderung war es **LinkedIn** möglich, die Such-, Profil-,
 Kommunikations- und anderen Plattformen effizienter zu gestalten und sie
@@ -139,7 +125,7 @@ Betriebssystem gebunden. Kafka ist in Scala und Java geschrieben. Laut
 der offiziellen Apache Kafka Streaming-Plattform ist 2.6.0 die neueste
 Version. (Apache Software Foundation , 2017)
 
-# Vorstellung und Übersicht von Apache Kafka
+## 3. Vorstellung und Übersicht von Apache Kafka
 
 Bei einer Direktverbindung zwischen einer Datenquelle und einem
 Datenempfänger entsteht das Problem, dass Daten ganz oder teilweise
@@ -151,7 +137,7 @@ Fehlerzustellung entstehen kann. Es ist eine Zwischenspeicherung der
 Daten und entsprechende Übersetzungsvorbereitung für den Empfänger
 nötig, um solche Probleme umgehen zu können.
 
-## Grundlagen und Kernkomponenten
+### 3.1 Grundlagen und Kernkomponenten
 
 Bevor in die Apache Kafka Welt eingetaucht wird, ist es wichtig den
 Aspekt von „Publish/Subscribe" (Pub/Sub) Messaging zu betrachten.
@@ -169,11 +155,7 @@ an eine Warteschlange (Message Queue), von wo aus diese an den Empfänger
 Nachrichten (verschiedene Daten) an die richtigen Datenempfänger korrekt
 und sicher übermittelt werden. (Neha Narkhede, 2017, S. 1-4)
 
-![](media/image1.png){width="5.905555555555556in"
-height="1.6152777777777778in"}
-
-[]{#_Toc59301050 .anchor}Abbildung : Message Broker (eigene Darstellung
-nach (Haunts, 2015))
+<p align="left"><img src="media/image1.png" title="Message-Broker" width="100%" height="auto"><b>Abbildung 1: Message Broker (eigene Darstellung nach (Haunts, 2015))</b></p>
 
 Apache Kafka ist so ein Pub/Sub Nachrichten System, das entwickelt
 wurden ist, um Daten von einem/einer System/Application zu einem/einer
@@ -224,7 +206,7 @@ einige Vorteile von Kafka aufgeführt (Tutorials Point (I) Pvt. Ltd.,
     Messaging. Es behält eine stabile Leistung bei, selbst wenn viele
     Terabyte große Nachrichten gespeichert werden
 
-## Nutzung von Kafka
+### 3.2 Nutzung von Kafka
 
 Apache Kafka kann in vielen verschiedenen Anwendungsfällen benutzt
 werden. Kafka wird am häufigsten zum Streaming von Daten in Echtzeit in
@@ -243,15 +225,15 @@ andere Systeme verwendet. Bekannte Anwendungsfälle sind beispielsweise
     Aktivitätsnachrichten generiert und somit werden umfangreiche
     Aktivitätsverfolgungen benötigt.
 
--   Metriken -- Kafka dient auch oft zur Betriebsüberwachung, was das
+-   Metriken - Kafka dient auch oft zur Betriebsüberwachung, was das
     Aggregieren von Statistiken aus verteilten Anwendungen beinhält, um
     zentralisierte Feeds mit Betriebsdaten zu erstellen
 
--   Protokollaggregation -- Kafka sammelt physische Protokolldateien von
+-   Protokollaggregation - Kafka sammelt physische Protokolldateien von
     Servern und legt sie an einem zentralen Ort (bspw. Dateiserver) zur
     Verarbeitung ab.
 
--   Stream-Verarbeitung -- Kafka beschäftigt sich vorwiegend mit
+-   Stream-Verarbeitung - Kafka beschäftigt sich vorwiegend mit
     Streaming. Der Begriff wird aber auch in Zusammenhang mit der
     Zuordnung oder Reduzierung der Verarbeitung in Hadoop gebracht.
     Typischerweise verlässt sich Hadoop auf Aggregation von Daten über
@@ -270,7 +252,7 @@ andere Systeme verwendet. Bekannte Anwendungsfälle sind beispielsweise
     Benutzer, Bestellungen, Produkte usw. sein. Jedes Event beschreibt
     eine Statusänderung, die an der Entität aufgetreten ist.
 
--   Commit Log -- Ein Log ist im Wesentlichen eine Speicherzelle für
+-   Commit Log - Ein Log ist im Wesentlichen eine Speicherzelle für
     zeitliche gegliederte Einträge, wobei jeder Eintrag mit einer
     eindeutigen Eintragsnummer (Timestamp) als Primärschlüsse versehen
     wird. (Cloudera, Inc, 2016). Commit Log gibt die Möglichkeit, die
@@ -282,11 +264,8 @@ Streaming-Frameworks, wie Spark, Storm, HBase oder Flink, um
 Streaming-Daten in Echtzeit aufzunehmen, zu analysieren und zu
 verarbeiten.
 
-![](media/image2.png){width="4.104166666666667in"
-height="3.8117016622922133in"}
-
-[]{#_Toc59301051 .anchor}Abbildung : Data Ecosystem (eigene Darstellung
-nach (Neha Narkhede, 2017, S. 12))
+<p align="left"><img src="media/image2.PNG" title="Data-Ecosystem ">
+<br><b>Abbildung 2: Data Ecosystem (eigene Darstellung nach (Neha Narkhede, 2017, S. 12))</b></p>
 
 Das Kreislaufsystem für das Datenökosystem (Data Ecosystem) wird mit
 Hilfe von Apache Kafka bereitgestellt (siehe Abbildung 2). Diese stellt
@@ -301,7 +280,7 @@ aufgelöst werden. Somit müssen die Herausgeber sich keine weiteren
 Gedanken darüber machen, wer die Daten verwendet oder wie viele
 Anwendungen verwendet werden. (Neha Narkhede, 2017, S. 11)
 
-## Technische Möglichkeiten
+### 3.3 Technische Möglichkeiten
 
 Kafka wurde so konzipiert, sodass es als einheitliche Plattform für die
 Verarbeitung aller Echtzeit-Datenfeeds fungieren kann. Um dies zu
@@ -328,9 +307,9 @@ Java, ZooKeeper und Kafka Basic auf dem durchführenden Betriebssystem
 vorhanden sein. ZooKeeper wird in Kapitel 4 erklärt. (Tutorials Point
 (I) Pvt. Ltd., 2020)
 
-#  Architektur von Apache Kafka 
+## 4. Architektur von Apache Kafka 
 
-## Apache Kafka Cluster Architektur
+### 4.1 Apache Kafka Cluster Architektur
 
 Ein Cluster-Rechnerverbund stellt die Architektur von Apache Kafka dar.
 Ein Cluster in Sinne der Kafka-Cluster, besteht aus einer Vielzahl von
@@ -384,11 +363,8 @@ Nachrichten als abgelaufen markiert und folglich gelöscht. Für die
 Aufbewahrungskonfiguration benötigt dieses Verfahren eine jederzeit
 verfügbare Mindestmenge. (Neha Narkhede, 2017, S. 8)
 
-![](media/image3.png){width="5.895833333333333in"
-height="3.3020833333333335in"}
-
-[]{#_Toc59301052 .anchor}Abbildung 3: Apache Kafka - Cluster
-Architecture (Tutorials Point (I) Pvt. Ltd., 2020)
+<p align="left"><img src="media/image3.PNG" title="Cluster-Architecture" width="50%" height="auto">
+<br><b>Abbildung 3: Apache Kafka - Cluster Architecture (Tutorials Point (I) Pvt. Ltd., 2020)</b></p>
 
 Die Cluster Architecture von Apache Kafka hat 4 Hauptakteure. Zu den bis
 jetzt bereits erwähnten Broker, Producer und Consumer ist der
@@ -400,7 +376,7 @@ sein, was den Producer und den Consumer beim Treffen einer Entscheidung
 beeinflusst, ob sie ihre Aufgaben auf einen anderen Broker verlagern
 sollen. (Tutorials Point (I) Pvt. Ltd., 2020)
 
-## Apache Kafka APIs
+### 4.2 Apache Kafka APIs
 
 Für die Datenintegration und Stream-Verarbeitung hat Kafka fünf
 Kern-APIs zur Verfügung:
@@ -433,7 +409,7 @@ vorwiegend auf Java-Clients, wenn es sich um das Hauptprojekt handelt,
 ansonsten werden Open Source-Projekte zur Verfügung gestellt. (Apache
 Software Foundation, 2017)
 
-## Vorteile der Kafka Architekturen
+### 4.3 Vorteile der Kafka Architekturen
 
 Die verschiedenen Architekturen von Kafka bieten hohe Leistung,
 Skalierbarkeit, Zuverlässigkeit und Notfallwiederherstellung als vier
@@ -458,15 +434,12 @@ Betrieb für die Kafka-Bereitstellung aufrechthält. Anders als bei
 Standard-Failover-Replikationen, wird in einem Kafka-Cluster diese
 Funktionalität als Spiegelung bezeichnet. (Michael Carter, 2020)
 
-![](media/image4.png){width="4.885416666666667in"
-height="3.1458333333333335in"}
+<p align="left"><img src="media/image4.PNG" title="Multiple-Datacenter-Architecture">
+<br><b>Abbildung 4: Multiple Datacenter Architecture (Neha Narkhede, 2017, S. 9)</b></p>
 
-[]{#_Toc59301053 .anchor}Abbildung 4: Multiple Datacenter Architecture
-(Neha Narkhede, 2017, S. 9)
+## 5. Anwendungsbeispiele von Apache Kafka
 
-# Anwendungsbeispiele von Apache Kafka
-
-## Website activity tracking
+### 5.1 Website activity tracking
 
 LinkedIn's Hauptziel mit der Entwicklung von Kafka war die Verfolgung
 von Website-Aktivitäten, wie Suchen, Seitenaufrufe, Hochladen und
@@ -510,13 +483,11 @@ folgendermaßen aussehen:
 
 Folgende Darstellung bildet den beschriebenen Vorgang ab.
 
-> ![Kafka Broker](media/image5.png){width="5.905555555555556in"
-> height="3.08125in"}
+<p align="left"><img src="media/image5.png" title="Partitions-Topics">
+<br><b>Abbildung 5: Apache Kafka - Partitions Topics (Johansson, 2020)</b></p>
 
-[]{#_Toc59301054 .anchor}Abbildung 5: Apache Kafka - Partitions Topics
-(Johansson, 2020)
 
-## Webshop
+### 5.2 Webshop
 
 Folgendes Beispiel bezieht sich auf einen Webshop, der die
 Funktionalitäten für die Verfolgung von Website-Aktivitäten als Produkte
@@ -533,13 +504,10 @@ werden.
 
 Folgende Darstellung bildet den beschriebenen Vorgang ab:
 
-![Kafka web shop](media/image6.png){width="5.905555555555556in"
-height="3.4531244531933507in"}
+<p align="left"><img src="media/image6.png" title="Kafka-Webshop">
+<br><b>Abbildung 6: Apache Kafka Webshop (Johansson,2020)</b></p>
 
-[]{#_Toc59301055 .anchor}Abbildung 6: Apache Kafka Webshop (Johansson,
-2020)
-
-# Anwendung von Apache Kafka und Avro
+## 6. Anwendung von Apache Kafka und Avro
 
 Kafka in Kombination mit Avro bietet eine robuste, schnelle und
 schemabasierte Serialisierung von Daten mittels eines kompakten
@@ -584,7 +552,7 @@ Zusammenfassend bietet Avro (The Apache Software Foundation, 2020):
 -   Simple integration with dynamic languages." (The Apache Software
     Foundation, 2020)
 
-# Fazit
+## 7. Fazit
 
 Kafka zeigt vielfältige innovative Möglichkeiten der
 Echtzeit-Datenstromverwaltung für verschiedene Unternehmen auf. Kafka
@@ -612,36 +580,63 @@ Verarbeitung großer Datenmengen verwendet. Der Nutzerkreis erstreckt
 sich momentan auf 27.214 große Unternehmen, Tendenz steigend (HG
 Insights, 2020).
 
-# Literaturverzeichnis  {#literaturverzeichnis .list-paragraph}
+## Literaturverzeichnis
 
 Alley, G. (26. November 2018). *What is a Data Pipeline?* Von https://www.alooma.com/blog/what-is-a-data-pipeline abgerufen
+
 Apache Software Foundation . (2017). *Apache Kafka*. Von https://kafka.apache.org/downloads abgerufen
+
 Apache Software Foundation.(2017). *Kafka Apache Org*. Von https://kafka.apache.org/uses abgerufen
+
 Apache Software Foundation. (24. März 2020). *Apache Hadoop*. Von https://hadoop.apache.org/ abgerufen
-Cloudera, Inc. (29. Juni 2016).*Cloudera Documentation*. Von https://docs.cloudera.com/:https://docs.cloudera.com/documentation/kafka/1-2-x/topics/kafka.htmlabgerufen
+
+Cloudera, Inc. (29. Juni 2016).*Cloudera Documentation*. Von https://docs.cloudera.com/:https://docs.cloudera.com/documentation/kafka/1-2-x/topics/kafka.html abgerufen
+
 DataFlair Web Services Pvt Ltd. (2020). *Kafka Architecture and Its Fundamental Concepts*. Von https://data-flair.training/blogs/kafka-architecture/ abgerufen
+
 DataFlair Web Services Pvt Ltd. (2020). *Advantages and Disadvantages of Kafka*.Von https://data-flair.training/blogs/advantages-and-disadvantages-of-kafka/ abgerufen
+
 Gutierrez, D. (28. April 2016). *A Brief History of Kafka, LinkedIn's Messaging Platform*. Von Inside big data:https://insidebigdata.com/2016/04/28/a-brief-history-of-kafka-linkedins-messaging-platform/ abgerufen
+
 Haunts, S. (9. September 2015). *Rabbitmq Series Part 2: The AMQP Messaging Standard*. Von https://stephenhaunts.com/2015/09/09/rabbitmq-series-part-2-the-amqp-messaging-standard/ abgerufen
+
 HG Insights. (19. Dezember 2020). *Apache Kafka*. Von https://discovery.hgdata.com/product/apache-kafka abgerufen
+
 Jaiswal, S. (2018). *Kafka: Multiple Clusters*. Von https://www.javatpoint.com/apache-kafka-multiple-clusters abgerufen
+
 Johansson, L. (19. März 2020). *Part 1: Apache Kafka for beginners - What is Apache Kafka?* Von CloudKarafka: https://www.cloudkarafka.com/blog/2016-11-30-part1-kafka-for-beginners-what-is-apache-kafka.html abgerufen
+
 LinkedIn Corporation. (15. November 2020). *InMail-Nachrichten -- Übersicht*. Von https://www.linkedin.com/help/linkedin/answer/1584/inmail-overview?lang=de abgerufen
+
 Luber, D.-I. (. (5. Oktober 2018). *Definition: Was ist Apache Kafka?* Von https://www.bigdata-insider.de/was-ist-apache-kafka-a-763300/ abgerufen
+
 Mars, T. (2017).*JSON at Work: Practical Data Integration for the Web.* Sebastopol, CA 95472: O\'Reilly Media, Inc.
+
 Michael Carter.(16. Juni 2020). *Apache Kafka Architecture: A Complete Guide*. Von https://www.instaclustr.com/apache-kafka-architecture/ abgerufen 
+
 Microsoft Corporation. (6. August 2020). *Monolithische Anwendungen*. Von https://docs.microsoft.com/de-de/dotnet/architecture/containerized-lifecycle/design-develop-containerized-apps/monolithic-applications\#:\~:text=Eine%20monolithische%20Anwendung%20hat%20ihre,oder%20Bibliotheken%20als%20Komponenten%20auf. abgerufen
+
 Neha Narkhede, G. S. (2017). *Kafka: The Definitive Guide: Real-Time Data and Stream Processing at Scale.* United States of America: O\'Reilly Media.
+
 Rouse, M. (Mai 2020). *Remote Procedure Call(RPC)*. Von TechTarget: https://searchapparchitecture.techtarget.com/definition/Remote-Procedure-Call-RPC\#:\~:text=Remote%20Procedure%20Call%20(RPC)%20is,systems%20like%20a%20local%20system. abgerufen
-SAS Institute Inc. (16. August 2020). *Middle Tier*. Von https://documentation.sas.com/?cdcId=bicdc&cdcVersion=9.4&docsetId=biov&docsetTarget=p0wsyb97ii3u1wn11uphl9uvxzvz.htm&locale=en abgerufen
+
+SAS Institute Inc. (16. August 2020). *Middle Tier*. Von https://documentation.sas.com/cdcId=bicdc&cdcVersion=9.4&docsetId=biov&docsetTarget=p0wsyb97ii3u1wn11uphl9uvxzvz.htm&locale=en abgerufen
+
 Seigneurin, A. (02. August 2018). *Kafka tutorial \#4 - Avro and the Schema Registry*. Von https://aseigneurin.github.io/2018/08/02/kafka-tutorial-4-avro-and-schema-registry.html abgerufen
+
 The Apache Software Foundation. (03. Dezember 2020). *AVRO Apache Org*. Von http://avro.apache.org/docs/current/ abgerufen
+
 Tutorials Point (I) Pvt. Ltd. (2020). *Apache Kafka - Cluster Architecture*. Von https://www.tutorialspoint.com/apache_kafka/apache_kafka_cluster_architecture.htm abgerufen
+
 Tutorials Point (I) Pvt. Ltd. (4. November 2020). *Apache Kafka-Introduction*. Von https://www.tutorialspoint.com/apache_kafka/apache_kafka_introduction.htm abgerufen
+
 Wikimedia Foundation Inc. (12. September 2004). *Metadaten*. Von https://de.wikipedia.org/wiki/Metadaten abgerufen
+
 Wikimedia Foundation Inc. (27. September 2020). *Apache Software Foundation*. Von https://de.wikipedia.org/wiki/Apache_Software_Foundation abgerufen
+
 Wikimedia Foundation Inc. (14. Juni 2020). *Programmierschnittstelle*. Von https://de.wikipedia.org/wiki/Programmierschnittstelle abgerufen
 
+## Fußnote
 [^1]: „Eine **monolithische Anwendung** hat ihre Funktionalität ganz
     oder zum größten Teil innerhalb eines einzelnen Prozesses oder
     Containers und weist interne Schichten oder Bibliotheken als
