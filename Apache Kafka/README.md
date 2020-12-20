@@ -21,9 +21,9 @@ Tel.: +49 5331-939-31550
 [2 Geschichtlicher Abriss von Apache Kafka](#2-geschichtlicher-abriss-von-apache-kafka)
 
 [3 Vorstellung und Übersicht von Apache Kafka](#3-vorstellung-und-übersicht-von-apache-kafka)
-   <br/>[3.1 Grundlagen und Kernkomponenten](#3.1-grundlagen-und-kernkomponenten)
-   <br/>[3.2 Nutzung von Kafka](#3.2-nutzung-von-kafka)
-   <br/>[3.3 Technische Möglichkeiten](#3.3-technische-möglichkeiten)
+   <br/>3.1 [Grundlagen und Kernkomponenten](#31-grundlagen-und-kernkomponenten)
+   <br/>3.2 [Nutzung von Kafka](#32-nutzung-von-kafka)
+   <br/>3.3 [Technische Möglichkeiten](#33-technische-möglichkeiten)
 
 [4 Architektur von Apache Kafka](#4-architektur-von-apache-kafka)
    <br/>[4.1 Apache Kafka Cluster Architektur](#4.1-apache-kafka-cluster-architektur)
