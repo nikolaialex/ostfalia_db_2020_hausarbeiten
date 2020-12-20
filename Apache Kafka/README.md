@@ -21,19 +21,16 @@ Tel.: +49 5331-939-31550
 [2 Geschichtlicher Abriss von Apache Kafka](#2-geschichtlicher-abriss-von-apache-kafka)
 
 [3 Vorstellung und Übersicht von Apache Kafka](#3-vorstellung-und-übersicht-von-apache-kafka)
-
    <br/>[3.1 Grundlagen und Kernkomponenten](#3.1-grundlagen-und-kernkomponenten)
    <br/>[3.2 Nutzung von Kafka](#3.2-nutzung-von-kafka)
    <br/>[3.3 Technische Möglichkeiten](#3.3-technische-möglichkeiten)
 
 [4 Architektur von Apache Kafka](#4-architektur-von-apache-kafka)
-
    <br/>[4.1 Apache Kafka Cluster Architektur](#4.1-apache-kafka-cluster-architektur)
    <br/>[4.2 Apache Kafka APIs](#4.2-apache-kafka-apis)
    <br/>[4.3 Vorteile der Kafka Architekturen](#4.3-vorteile-der-kafka-architekturen)
 
 [5 Anwendungsbeispiele von Apache Kafka](#5-anwendungsbeispiele-von-apache-kafka)
-
    <br/>[5.1 Website activity tracking](#5.1-website-activity-tracking)
    <br/>[5.2 Webshop](#5.2-webshop)
 
@@ -46,20 +43,20 @@ Tel.: +49 5331-939-31550
 
 <br/>Abbildungsverzeichnis
 
-[Abbildung 1: Message Broker (eigene Darstellung nach (Haunts, 2015))](#abbildung-1:-message-broker-(eigene-darstellung-nach-(haunts,-2015)))
+[Abbildung 1: Message Broker (eigene Darstellung nach (Haunts, 2015))](#abbildung-1)
 
 [Abbildung 2: Data Ecosystem (eigene Darstellung nach (Neha Narkhede,
-2017, S. 12))](#_Toc59301051)
+2017, S. 12))](#abbildung-2)
 
 [Abbildung 3: Apache Kafka - Cluster Architecture (Tutorials Point (I)
-Pvt. Ltd., 2020)](#_Toc59301052)
+Pvt. Ltd., 2020)](#abbildung-3)
 
 [Abbildung 4: Multiple Datacenter Architecture (Neha Narkhede, 2017, S.
-9)](#_Toc59301053)
+9)](#abbildung-4)
 
-[Abbildung 5: Apache Kafka - Partitions Topics (Johansson, 2020)](#_Toc59301054)
+[Abbildung 5: Apache Kafka - Partitions Topics (Johansson, 2020)](#abbildung-5)
 
-[Abbildung 6: Apache Kafka Webshop (Johansson, 2020)](#_Toc59301055)
+[Abbildung 6: Apache Kafka Webshop (Johansson, 2020)](#abbildung-6)
 
 
 ## 1. Einleitung
@@ -77,14 +74,14 @@ Vergleich zu traditioneller Middleware viele Konzepte vereint, um Daten
 schnell und in großen Mengen zu und von den Unternehmen zu
 transportieren, soll Gegenstand dieser Arbeit sein.
 
-In Kapitel [2](#geschichtlicher-abriss-von-apache-kafka) soll zuerst der geschichtliche Abriss sowie der Begriff
+In Kapitel [2](#2-geschichtlicher-abriss-von-apache-kafka) soll zuerst der geschichtliche Abriss sowie der Begriff
 Apache Kafka definiert werden, um aufzuzeigen, wo diese Open Source
-Software ansetzt. Anschließend werden in Kapitel [3](#vorstellung-und-übersicht-von-apache-kafka) die Grundlagen und
+Software ansetzt. Anschließend werden in Kapitel [3](#3-vorstellung-und-übersicht-von-apache-kafka) die Grundlagen und
 Kernkomponenten behandelt, um die vielfältigen Einsatzmöglichkeiten und
-die technischen Umsetzungsmöglichkeiten aufzuzeigen. Kapitel [4](#architektur-von-apache-kafka) geht dann
-auf die Kafka APIs sowie die Architektur von Apache Kafka ein. Kapitel [5](#anwendungsbeispiele-von-apache-kafka)
+die technischen Umsetzungsmöglichkeiten aufzuzeigen. Kapitel [4](#4-architektur-von-apache-kafka) geht dann
+auf die Kafka APIs sowie die Architektur von Apache Kafka ein. Kapitel [5](#5-anwendungsbeispiele-von-apache-kafka)
 beschreibt die Implementierung von Apache Kafka anhand zweier Beispiele.
-In Kapitel [6](#anwendung-von-apache-kafka-und-avro) wird das Datenformat Apache Avro definiert und die
+In Kapitel [6](#6-anwendung-von-apache-kafka-und-avro) wird das Datenformat Apache Avro definiert und die
 Zusammenarbeit von Kafka und Avro vorgestellt.
 
 ## 2. Geschichtlicher Abriss von Apache Kafka
@@ -227,15 +224,15 @@ andere Systeme verwendet. Bekannte Anwendungsfälle sind beispielsweise
     Aktivitätsnachrichten generiert und somit werden umfangreiche
     Aktivitätsverfolgungen benötigt.
 
--   Metriken -- Kafka dient auch oft zur Betriebsüberwachung, was das
+-   Metriken - Kafka dient auch oft zur Betriebsüberwachung, was das
     Aggregieren von Statistiken aus verteilten Anwendungen beinhält, um
     zentralisierte Feeds mit Betriebsdaten zu erstellen
 
--   Protokollaggregation -- Kafka sammelt physische Protokolldateien von
+-   Protokollaggregation - Kafka sammelt physische Protokolldateien von
     Servern und legt sie an einem zentralen Ort (bspw. Dateiserver) zur
     Verarbeitung ab.
 
--   Stream-Verarbeitung -- Kafka beschäftigt sich vorwiegend mit
+-   Stream-Verarbeitung - Kafka beschäftigt sich vorwiegend mit
     Streaming. Der Begriff wird aber auch in Zusammenhang mit der
     Zuordnung oder Reduzierung der Verarbeitung in Hadoop gebracht.
     Typischerweise verlässt sich Hadoop auf Aggregation von Daten über
@@ -254,7 +251,7 @@ andere Systeme verwendet. Bekannte Anwendungsfälle sind beispielsweise
     Benutzer, Bestellungen, Produkte usw. sein. Jedes Event beschreibt
     eine Statusänderung, die an der Entität aufgetreten ist.
 
--   Commit Log -- Ein Log ist im Wesentlichen eine Speicherzelle für
+-   Commit Log - Ein Log ist im Wesentlichen eine Speicherzelle für
     zeitliche gegliederte Einträge, wobei jeder Eintrag mit einer
     eindeutigen Eintragsnummer (Timestamp) als Primärschlüsse versehen
     wird. (Cloudera, Inc, 2016). Commit Log gibt die Möglichkeit, die
@@ -637,6 +634,7 @@ Wikimedia Foundation Inc. (12. September 2004). *Metadaten*. Von https://de.wiki
 Wikimedia Foundation Inc. (27. September 2020). *Apache Software Foundation*. Von https://de.wikipedia.org/wiki/Apache_Software_Foundation abgerufen
 
 Wikimedia Foundation Inc. (14. Juni 2020). *Programmierschnittstelle*. Von https://de.wikipedia.org/wiki/Programmierschnittstelle abgerufen
+
 
 [^1]: „Eine **monolithische Anwendung** hat ihre Funktionalität ganz
     oder zum größten Teil innerhalb eines einzelnen Prozesses oder
