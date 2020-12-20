@@ -40,23 +40,24 @@ Tel.: +49 5331-939-31550
 
 [Literaturverzeichnis](#literaturverzeichnis)
 
+[Fußnote](#fußnote)
 
 <br/>Abbildungsverzeichnis
 
-Abbildung 1: [Message Broker](#abbildung-1) (eigene Darstellung nach (Haunts, 2015))
+*[Abbildung 1](#abbildung-1): Message Broker (eigene Darstellung nach (Haunts, 2015))*
 
-Abbildung 2: [Data Ecosystem (eigene Darstellung nach (Neha Narkhede,
-2017, S. 12))](#abbildung-2)
+*Abbildung 2: [Data Ecosystem (eigene Darstellung nach (Neha Narkhede,
+2017, S. 12))](#abbildung-2)*
 
-Abbildung 3: [Apache Kafka - Cluster Architecture (Tutorials Point (I)
-Pvt. Ltd., 2020)](#abbildung-3)
+*Abbildung 3: [Apache Kafka - Cluster Architecture (Tutorials Point (I)
+Pvt. Ltd., 2020)](#abbildung-3)*
 
-Abbildung 4: [Multiple Datacenter Architecture (Neha Narkhede, 2017, S.
-9)](#abbildung-4)
+*Abbildung 4: [Multiple Datacenter Architecture (Neha Narkhede, 2017, S.
+9)](#abbildung-4)*
 
-Abbildung 5: [Apache Kafka - Partitions Topics (Johansson, 2020)](#abbildung-5)
+*Abbildung 5: [Apache Kafka - Partitions Topics (Johansson, 2020)](#abbildung-5)*
 
-Abbildung 6: [Apache Kafka Webshop (Johansson, 2020)](#abbildung-6)
+*Abbildung 6: [Apache Kafka Webshop (Johansson, 2020)](#abbildung-6)*
 
 
 ## 1. Einleitung
@@ -91,7 +92,7 @@ Der amerikanische geschäfts- und beschäftigungsorientierte Onlinedienst
 benötigte eine vollständige Neugestaltung der Infrastruktur, um das
 exponentielle Wachstum der Mitglieder und die Komplexität der Plattform
 unterbringen zu können. Um dies initial in den Griff zu bekommen,
-migrierten sie ihre Daten zuerst von einer monolithischen[^1](#monolithische-Anwendung) auf eine
+migrierten sie ihre Daten zuerst von einer monolithischen[^[1](#monolithische-Anwendung)] auf eine
 auf Microservices basierenden Anwendungsinfrastruktur. Mit Hilfe dieser
 Änderung war es **LinkedIn** möglich, die Such-, Profil-,
 Kommunikations- und anderen Plattformen effizienter zu gestalten und sie
@@ -306,7 +307,7 @@ Java, ZooKeeper und Kafka Basic auf dem durchführenden Betriebssystem
 vorhanden sein. ZooKeeper wird in Kapitel 4 erklärt. (Tutorials Point
 (I) Pvt. Ltd., 2020)
 
-## 4.  Architektur von Apache Kafka 
+## 4. Architektur von Apache Kafka 
 
 ### 4.1 Apache Kafka Cluster Architektur
 
@@ -635,7 +636,7 @@ Wikimedia Foundation Inc. (27. September 2020). *Apache Software Foundation*. Vo
 
 Wikimedia Foundation Inc. (14. Juni 2020). *Programmierschnittstelle*. Von https://de.wikipedia.org/wiki/Programmierschnittstelle abgerufen
 
-
+## Fußnote
 [^1]: „Eine **monolithische Anwendung** hat ihre Funktionalität ganz
     oder zum größten Teil innerhalb eines einzelnen Prozesses oder
     Containers und weist interne Schichten oder Bibliotheken als
