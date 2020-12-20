@@ -26,13 +26,13 @@ Tel.: +49 5331-939-31550
    <br/>3.3 [Technische Möglichkeiten](#33-technische-möglichkeiten)
 
 [4 Architektur von Apache Kafka](#4-architektur-von-apache-kafka)
-   <br/>[4.1 Apache Kafka Cluster Architektur](#4.1-apache-kafka-cluster-architektur)
-   <br/>[4.2 Apache Kafka APIs](#4.2-apache-kafka-apis)
-   <br/>[4.3 Vorteile der Kafka Architekturen](#4.3-vorteile-der-kafka-architekturen)
+   <br/>4.1 [Apache Kafka Cluster Architektur](#41-apache-kafka-cluster-architektur)
+   <br/>4.2 [Apache Kafka APIs](#42-apache-kafka-apis)
+   <br/>4.3 [Vorteile der Kafka Architekturen](#43-vorteile-der-kafka-architekturen)
 
 [5 Anwendungsbeispiele von Apache Kafka](#5-anwendungsbeispiele-von-apache-kafka)
-   <br/>[5.1 Website activity tracking](#5.1-website-activity-tracking)
-   <br/>[5.2 Webshop](#5.2-webshop)
+   <br/>5.1 [Website activity tracking](#51-website-activity-tracking)
+   <br/>5.2 [Webshop](#52-webshop)
 
 [6 Anwendung von Apache Kafka und Avro](#6-anwendung-von-apache-kafka-und-avro)
 
@@ -43,20 +43,20 @@ Tel.: +49 5331-939-31550
 
 <br/>Abbildungsverzeichnis
 
-[Abbildung 1: Message Broker (eigene Darstellung nach (Haunts, 2015))](#abbildung-1)
+Abbildung 1: [Message Broker](#abbildung-1) (eigene Darstellung nach (Haunts, 2015))
 
-[Abbildung 2: Data Ecosystem (eigene Darstellung nach (Neha Narkhede,
+Abbildung 2: [Data Ecosystem (eigene Darstellung nach (Neha Narkhede,
 2017, S. 12))](#abbildung-2)
 
-[Abbildung 3: Apache Kafka - Cluster Architecture (Tutorials Point (I)
+Abbildung 3: [Apache Kafka - Cluster Architecture (Tutorials Point (I)
 Pvt. Ltd., 2020)](#abbildung-3)
 
-[Abbildung 4: Multiple Datacenter Architecture (Neha Narkhede, 2017, S.
+Abbildung 4: [Multiple Datacenter Architecture (Neha Narkhede, 2017, S.
 9)](#abbildung-4)
 
-[Abbildung 5: Apache Kafka - Partitions Topics (Johansson, 2020)](#abbildung-5)
+Abbildung 5: [Apache Kafka - Partitions Topics (Johansson, 2020)](#abbildung-5)
 
-[Abbildung 6: Apache Kafka Webshop (Johansson, 2020)](#abbildung-6)
+Abbildung 6: [Apache Kafka Webshop (Johansson, 2020)](#abbildung-6)
 
 
 ## 1. Einleitung
@@ -263,7 +263,7 @@ Streaming-Frameworks, wie Spark, Storm, HBase oder Flink, um
 Streaming-Daten in Echtzeit aufzunehmen, zu analysieren und zu
 verarbeiten.
 
-<p align="left"><img src="media/image2.PNG" title="Message-Broker">
+<p align="left"><img src="media/image2.PNG" title="Data-Ecosystem ">
 <br><b>Abbildung 2: Data Ecosystem (eigene Darstellung nach (Neha Narkhede, 2017, S. 12))</b></p>
 
 Das Kreislaufsystem für das Datenökosystem (Data Ecosystem) wird mit
@@ -362,7 +362,7 @@ Nachrichten als abgelaufen markiert und folglich gelöscht. Für die
 Aufbewahrungskonfiguration benötigt dieses Verfahren eine jederzeit
 verfügbare Mindestmenge. (Neha Narkhede, 2017, S. 8)
 
-<p align="left"><img src="media/image3.PNG" title="Message-Broker">
+<p align="left"><img src="media/image3.PNG" title="Cluster-Architecture" width="50%" height="auto">
 <br><b>Abbildung 3: Apache Kafka - Cluster Architecture (Tutorials Point (I) Pvt. Ltd., 2020)</b></p>
 
 Die Cluster Architecture von Apache Kafka hat 4 Hauptakteure. Zu den bis
@@ -579,7 +579,7 @@ Verarbeitung großer Datenmengen verwendet. Der Nutzerkreis erstreckt
 sich momentan auf 27.214 große Unternehmen, Tendenz steigend (HG
 Insights, 2020).
 
-## Literaturverzeichnis  {#literaturverzeichnis .list-paragraph}
+## Literaturverzeichnis
 
 Alley, G. (26. November 2018). *What is a Data Pipeline?* Von https://www.alooma.com/blog/what-is-a-data-pipeline abgerufen
 
