@@ -489,7 +489,7 @@ Die Community Edition von Neo4j ermöglicht eine schnelle Installation und ein s
 
 Die Stärke von Neo4j ist die einfache Traversierung von Graphen, dass im Vergleich zu relationalen Datenbanken eine erhebliche Minimierung des Aufwandes bei der Entwicklung zur Folge hat. Das ist möglich, weil die Graphen mit gerichteten Kanten eins zu eins in Neo4j umgesetzt werden können. Damit lassen sich dann auch komplexe Beziehungen einfacher darstellen und effektiv verwalten. Zudem bieten Graphdatenbanken, durch die Eigenschaften von Graphen eine sehr schnelle Lesegeschwindigkeit, das unabhängig von den enthalten Datenmenge gewährleistet ist. Außerdem bietet Neo4j durch seine Schemalosigkeit für die Datenmodellierung genug Flexibilität um mit ständig ändernden Anforderungen klar zu kommen. 
 
-Die eigens entwickelte Abfragesprache Cypher ermöglicht eine Java-basierte Plugin-Entwicklung und eine Object Graph Mapping (OGM) Nutzung. Dazu bietet Neo4j einen einfachen Datenimport an. Dazu ist Neo4j in der Lage ACID konforme Datenbanken zu stellen, die voll clusterfähig sind, was besonders das Unternehmen-Umfeld ansprechen soll.
+Die eigens entwickelte Abfragesprache Cypher ermöglicht eine Java-basierte Plugin-Entwicklung und eine Object Graph Mapping (OGM) Nutzung. Dazu bietet Neo4j einen einfachen Datenimport an. Außerdem ist Neo4j in der Lage ACID konforme Datenbanken zu stellen, die voll clusterfähig sind, was besonders das Unternehmen-Umfeld ansprechen soll.
 
 Zu beachten ist jedoch, dass durch eine fehlende Standardisierung von Graphendatenbanken, zum Beispiel bei der Abfragesprache Cypher von Neo4j auch eine stärke Bindung an die Datenbanktechnologie Neo4j miteingeht.
 
@@ -506,7 +506,7 @@ Zu beachten ist jedoch, dass durch eine fehlende Standardisierung von Graphendat
 - [9] skyridetim, „Neo4j Installation,“ [Online]. Available: https://www.geeksforgeeks.org/neo4j-installation/. [Zugriff am 27 Oktober 2020].
 - [10] S. Schönung, „Graphendatenbanken,“ 2012. [Online]. Available: https://www.christianbaun.de/SEM12/Dokumente/CLCP_SEM_SS2012_Graphendatenbanken_Ausarbeitung.pdf. [Zugriff am 26 Oktober 2020].
 - [11] Neo4j, Inc., „Neo4j docs - Property values,“ [Online]. Available: https://neo4j.com/docs/java-reference/current/java-embedded/property-values/index.html. [Zugriff am 27 Oktober 2020].
-- [12] C. Borowski, „Agilität statt Performanceprobleme: Die Graphendatenbank Neo4j,“ 29 September 2017. [Online]. Available: https://blogs.itemis.com/de/agilit%C3%A4t-statt-performanceprobleme-die-graphendatenbank-neo4j#:~:text=Neo4j%20ist%20ACID%2Df%C3%A4hig.&text=Neben%20mehreren%20Neo4j%2DInstanzen%2C%20die,die%20Skalierbarkeit%20des%20Gesamtsystems%20erreicht.. [Zugriff am 28 Oktober 2020].
+- [12] C. Borowski, „Agilität statt Performanceprobleme: Die Graphendatenbank Neo4j,“ 29 September 2017. [Online]. Available: https://blogs.itemis.com/de/agilit%C3%A4t-statt-performanceprobleme-die-graphendatenbank-neo4j. [Zugriff am 28 Oktober 2020].
 - [13] S. Luber, „Was ist Cypher?,“ [Online]. Available: https://www.bigdata-insider.de/was-ist-cypher-a-912813/. [Zugriff am 29 Oktober 2020].
 - [14] „Sprachstruktur,“ Information Systems Research Group, [Online]. Available: https://www.sql-nosql.org/de/cypher-tutorial. [Zugriff am 29 Oktober 2020].
 - [15] S. Schubert, „Einstieg in die Graphdatenbank Neo4j,“ [Online]. Available: https://www.informatik-aktuell.de/betrieb/datenbanken/einstieg-in-die-graphdatenbank-neo4j.html. [Zugriff am 27 Oktober 2020].
