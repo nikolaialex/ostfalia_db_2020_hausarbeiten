@@ -44,19 +44,12 @@ Die folgende Tabelle soll erklären, welche Anforderungen an Big Data-Systeme mi
 Eigenschaft | Beschreibung
 ------------|-------------
 Belastbarkeit und Fehlertoleranz	|Handling von Maschinenausfällen, Semantik/Konsistenz verteilter Datenbanken, Datendopplungen, paralleler Ausführungen
-
 Lesen und Aktualisieren mit geringen Latenzzeiten |	Geringe Latenzzeiten können implementiert werden: siehe Speedlayer
-
 Skalierbarkeit|	Bei der Lambda-Architektur sind alle drei Layer horizontal skalierbar, indem weitere Maschinen hinzugefügt werden
-
 Allgemeingültigkeit |	Funktionen sind allgemeingültig anwendbar
-
 Erweiterbarkeit |	Migrationen sollen schnell und einfach durchführbar sein
-
 A-hoc-Abfragen|	Beliebige Abfragen sollen möglich sein
-
 Minmaler Wartungsaufwand	|Dies wird erreicht, indem Komplexität aus den Kernkomponenten ausgelagert wird. Die Ausgaben von komplexen Komponenten sollten nach einiger Zeit ausgesondert werden
-
 Fehlerbehebung	| Wird ermöglicht, indem die Nachverfolgung jedes einzelnen Wertes möglich ist
 
 
