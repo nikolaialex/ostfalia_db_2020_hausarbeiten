@@ -12,15 +12,19 @@
 
 ## Inhalterverzeichnis
 1. [Einleitung](#einleitung)
-2. [Die Grundfunktionen](#die Grundfunktionen)
-3. [Beispiele für MapReduce](#beispiele für MapReduce)
-4. [Vor- und Nachteile](#vor- und Nachteile)
-5. [Hadoop](#hadoop)
-6. [Fazit](#fazit)
-7. [Literaturverzeichnis](#literaturverzeichnis)
+2. [Definition](#definition)
+3. [Die Grundfunktionen](#die Grundfunktionen)
+4. [Beispiele für MapReduce](#beispiele für MapReduce)
+5. [Vor- und Nachteile](#vor- und Nachteile)
+6. [Hadoop](#hadoop)
+7. [Fazit](#fazit)
+8. [Literaturverzeichnis](#literaturverzeichnis)
 
 
 ## Einleitung
+
+
+## Definition
 
 
 
