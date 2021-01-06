@@ -13,13 +13,13 @@
 ## Inhalterverzeichnis
 1. [Einleitung](#einleitung)
 2. [Definition](#definition)
-3. [Die Grundfunktionen](#die Grundfunktionen)
-3. [Einsatzfelder](#einsatzfelder)
-4. [Beispiele für MapReduce](#beispiele für MapReduce)
-5. [Vor- und Nachteile](#vor- und Nachteile)
-6. [Hadoop](#hadoop)
-7. [Fazit](#fazit)
-8. [Literaturverzeichnis](#literaturverzeichnis)
+3. [Die Grundfunktionen](#die-Grundfunktionen)
+4. [Einsatzfelder](#einsatzfelder)
+5. [Beispiele für MapReduce](#beispiele-für-MapReduce)
+6. [Vor- und Nachteile](#vor-und-Nachteile)
+7. [Hadoop](#hadoop)
+8. [Fazit](#fazit)
+9. [Literaturverzeichnis](#literaturverzeichnis)
 
 
 ## Einleitung
@@ -35,7 +35,8 @@ MapReduce ist ein von Google im Jahr 2004 entwickeltes Verfahren, mit dem sich g
 
 Die Grundfunktionen von MapReduce basieren auf den zwei Funktionen Map und Reduce, die nacheinander ausgeführt werden. Im ersten Schritt werden die Input-Daten in einzelne Segmente unterteilt die anschließend auf verschiedene Rechner verteilt werden. Die Datensegmente werden zu Key-Value-Paaren verarbeitet und für die Map-Funktion als Input bereitgestellt (Technische Hochschule Mittelhessen, 2015). „Die Map-Funktion nimmt die Eingabedaten von der Festplatte als -Paare, verarbeitet sie und generiert einen weiteren Satz an -Zwischenpaaren als Ausgabe. Die Reduce-Funktion nimmt ebenfalls Eingabedaten als -Paare und generiert -Paare als Ausgabe“ (Talend, 2021). Dadurch werden die Aufgaben in kleine parallelisierte Arbeitspakete aufgeteilt und anschließend wieder zusammengeführt. Das bedeutet, dass die Berechnungen parallel und zur selben Zeit laufen können und die Arbeitslast auf mehrere Rechner verteilt wird. Bei der Verarbeitung kommt zu den Phasen Map und Reduce noch die Shuffle Phase hinzu was auch in der nachfolgenden Abbildung 1 deutlich wird (Talend, 2021).
 
-
+<p align="left"><img src="images/Abbildung1_Funktionsweise_MapReduce.jpg" title="Funktionsweise_MapReduce" width="60%" height="auto">
+<br>Abbildung 1: Funktionsweise MapReduce (Wuttke, 2020)</p>
 
 ## Einsatzfelder
 
