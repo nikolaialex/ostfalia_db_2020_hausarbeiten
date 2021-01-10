@@ -2,11 +2,11 @@
 ### Ausarbeitung für das Modul Datenbanktechnologien
 ### Autoren
 
-| Name               | Matrikelnummer | Hochschule  |
-| :----------------- | :------------- | :---------  |
-| Selina Schneider   |                | Beuth Berlin|
-| Kristina Kölln     |                | Beuth Berlin|
-| Lars Bleul         | 869680         | Beuth Berlin|
+| Name               | Matrikelnummer | Hochschule   |
+| :----------------- | :------------- | :---------   |
+| Selina Schneider   | 902869         | Beuth Berlin |
+| Kristina Kölln     | 7011805        | HS Emden/Leer|
+| Lars Bleul         | 869680         | Beuth Berlin |
 
 ## Inhaltsverzeichnis
 [1 Einleitung]
