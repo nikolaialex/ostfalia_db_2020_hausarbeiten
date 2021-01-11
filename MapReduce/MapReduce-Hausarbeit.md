@@ -51,6 +51,14 @@ MapReduce wird oft im Big-Data-Umfeld verwendet. Dazu gehören beispielsweise Fi
 
 ## Hadoop
 
+Apache Hadoop ist ein auf Java basierendes Software Framework welches auf dem Map-Reduce Algorithmus basiert. Mit Hilfe dieser verteilten Big Data Plattform lassen sich große Datenmengen auf verteilten Systemen in hoher Geschwindigkeit verarbeiten. Dabei ist Hadoop eins der ersten Open Source Big Data System, gilt als Vorreiter der Big Date Ära und wurde bereits 2008 als Top Level Open Source Projekt eingestuft. Das Framework ist in der Lage sehr große Datenmengen zu speichern und anschließend mit hoher Geschwindigkeit verarbeiten zu können. Dies ist durch die verteile Architektur und die Parallelisierung möglich. Ein Hadoop Cluster setzt sich aus folgenden Komponenten zusammen: HDFS, YARN, MapReduce und einigen Erweiterungen. Dies wird in der Abbildung 2 verdeutlicht (Wuttke, 2020).
+
+<p align="left"><img src="images/Hadoop-Komponenten.jpg" title="Funktionsweise_MapReduce" width="60%" height="auto">
+<br>Abbildung 2: Hadoop Komponenten  (Wuttke, 2020)</p>
+
+Da MapReduce bereits in einem vorherigen Kapitel genauer betrachtet wurde, wird im nachfolgenden auf YARN und HDFS näher eingegangen. YARN steht für Yet Another Resource Negotiatior und ist der Ressource Manager von Hadoop. Er ist dafür zuständig die Ressourcen eines Hadoop Clusters zu verteilen.
+HDFS ist die Abkürzung für Hadoop Distributed File System welches auf große Datenmengen ausgelegt ist und Dateisysteme bis zu mehreren Millionen Dateien erstellen kann. „HDFS ist ein hochverfügbares, verteiltes Dateisystem zur Speicherung von sehr großen Datenmengen, welches in Clustern von Servern organisiert ist. .Dabei werden die Daten auf mehreren Rechnern (Nodes) innerhalb eines Clusters abgespeichert, das passiert in dem die Dateien in Datenblöcken mit fester Länge zerlegt und redundant auf den Knoten verteilt“ (Wuttke, 2020). Im Gegensatz zu klassischen Datenbanken legt Hadoop einzelne Files in dem Dateisystem ab. Das System arbeitet zudem in Clustern auf Servern und verwendet Masternodes, welche auch NameNodes genannt werden, und Datanodes (Wuttke, 2020)
+
 
 
 ## Fazit
