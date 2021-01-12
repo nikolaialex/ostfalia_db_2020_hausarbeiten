@@ -40,10 +40,10 @@ Nachfolgend ist eine einfache Datenstruktur abgebildet, um die strukturellen Unt
 
 Die Objekt-Attribute Vorname und Nachname können wie oben beschrieben eins zu eins als Tabellenreihe abgebildet werden. Jedoch sind im Tabellenschema Primärschlüssel vonnöten, um jede Reihe/jeden Datensatz in der Tabelle eindeutig identifizieren zu können. Um Verweise auf andere Tabellen herstellen zu können und damit Relationen auszudrücken, sind Fremdschlüssel vorgesehen.
 
-#### Shadow Information
+### Shadow Information
 Da Primärschlüssel per se im objektorientierten Schema nicht existieren, müssen diese Informationen hinzugefügt werden, um die Eindeutigkeit von Objekten auf Persistenz-Ebene sicher zu stellen. Zusätzlich müssen noch Timestamps oder Increment Counters hinzugefügt werden, um gleichzeitige Zugriffe auf das selbe Objekt zu verhindern (Zugriffssteuerung), oder Versionsnummern. All diese Informationen, welche über die regulären Daten des Objektes hinausgehen, werden **Schatteninformationen** genannt. Diese sind zwingend notwendig, um ein Objekt erfolgreich persistieren zu können.
 
-#### Mapping von Vererbung
+### Mapping von Vererbung
 Das Konzept der Vererbung ist prinzipiell nicht in relationalen Datenbanken vorhanden. Um diese Strukturen erfolgreich abzubilden, gibt es mehrere Möglichkeiten:
 
 **Abbildung der gesamten Klassenhierarchie auf eine Einzeltabelle:** Alle Attribute und Klassen werden in einer einzelnen Tabelle abgebildet. Simpelstes Verfahren. Schneller Datenzugriff, neue Klassen können schnell hinzugefügt werden, da nur neue Spalten erzeugt werden müssen. Für simple Klassenhierarchien zu empfehlen.  
@@ -51,7 +51,7 @@ Das Konzept der Vererbung ist prinzipiell nicht in relationalen Datenbanken vorh
 **Abbildung jeder Klasse in eine eigene Tabelle:** Die Basisklasse sowie Unterklassen werden je in einzelnen Tabellen abgebildet. Wenn viel Überlappung zwischen den Typen existiert oder diese häufig geändert werden.  
 **Abbildung der Klassen in eine generische Tabellen:** Es werden genau 5 Tabellen angelegt: Attribute, Instanzen, Klassen, Beziehungen, Attributwerte. Für sehr komplexe Anwendungen mit wenig Daten.  
 
-#### Mapping von Beziehungen
+### Mapping von Beziehungen
 Es gibt 3 grundlegend verschiedene Beziehungen, welche beim Mapping berücksichtigt werden müssen. Diese werden im Relationen-Modell anders implementiert als im Objekt-Modell. Ein prinzipieller Unterschied ist, dass das Relationen-Modell keine unidirektionalen Assoziationen kennt, all Beziehungen dort sind von Natur aus bidirektional [3].
 
 **0/1...0/1 (Null oder eins zu Null oder eins):** In Tabellen werden diese mithilfe von Fremdschlüsselverweisen in beiden Tabellen und ggf. Not-Null Bestimmungen realisiert. Wird im Objekt-Modell mit Referenzen zu Objekten sowie *Getter*- und *Setter*-Methoden implementiert.  
@@ -66,13 +66,13 @@ Weiterführende Themen beim Mapping stellen die Abbildung von **Class-Scopes** (
 Da die JPA nur eine Spezifikation ist, kann diese Objekte nicht von sich aus persistieren. Die von der Spezifikation vorgegebenen Regeln müssen implementiert werden. Für Java existieren viele solcher Frameworks, an dieser Stelle soll eine kurze Übersicht und Vergleich der populärsten Frameworks **Hibernate** und **EclipseLink** erläutert werden [9].  
 
 Grundsätzlich muss ein ORM-Framework folgende Leistungen zur Verfügung stellen:  
-- eine API für CRUD-Operationen  
-- eine API für Queries, welche sich auf Klassen und Attribute dieser Klassen bezieht
--   
+- eine API für CRUD-Operationen auf persistierten Objekten  
+- eine API oder Sprache für Queries, welche sich auf Klassen und deren Attribute anwenden lässt
+- ein Mapping der Metadaten zur Verfügung stellen
 
-[7]
+Es sollten außerdem weitere Optimierungsmechanismen vorhanden sein, wie beispielsweise **Lazy Loading** (welches entscheidet, ob auch zusätzlich die Subklasse zur Oberklasse geladen wird) und **Dirty Checking** (Wodurch Änderungen an einem Objekt automatisch in der DB gespeichert werden, wenn die Transaktion commited wird). [7]
 
-#### Hibernate  
+### Hibernate  
 Das 2001 erschienene Framework sitzt als zusätzliche Schicht zwischen Java und dem RDBMS und unterstützt eine Vielzahl von Datenbanksystemen, darunter *Oracle, PostgreSQL und MySQL*.  
 Zusätzlich unterstützt Hibernate gängige Java-Technologien wie *Maven und XDoclet Spring* [8].  
 Die Hauptaufgabe von Hibernate besteht im Abbilden/Mappen von Java-Objekten zu Relationen, dessen genereller Prozess oben ausführlich beschrieben wurde. Durch den Einsatz von Hibernate fällt für den Programmierer etwa 95% des Aufwandes von Persistenz-Aufgaben weg [8].
@@ -86,7 +86,7 @@ JPA nutzt die *javax.persistence* Klassen, um zu definieren, welche Klassen pers
 - Die *@SQLInsert*, *@SQLUpate* und  *@SQLDelete* Annotationen ermöglichen anpassbare CRUD Statements
 - Die *@Immutable* Annotation erlaubt unveränderliche Entitäten  
 
-#### EclipseLink
+### EclipseLink
 Wie auch Hibernate implementiert EclipseLink die notwendigen JPA-Regeln. Zusätzlich dazu untersützt aber auch weitere Persitenz-Standards wie *Java Architecture for XML Binding (JAXB)*,
 *Java Connector Architecture (JCA)* und *Service Data Objects (SDO)*.  
 
@@ -108,13 +108,11 @@ Sollte Performanz im Vordergrund stehen, so lohnt sich ein Vergleich der beiden 
 
 [11]
 
-
-
 ## Anbindung von JDBC und Unterschiede zu ORM Frameworks
 
 Wird auf ein ORM-Framework verzichtet, so ist der Programmierer in der Verantwortung, das Mapping der Klassen und Objete hin zur relationalen Datenbank selber herzustellen bzw. zu verwalten. Nachfolgend soll eine "klassische" Anbindung einer Datenbank mit **JDBC** und deren interne Verdrahtung mit der von **Hibernate** verglichen werden:
 
-#### Java Database Connectivity (JDBC)
+### Java Database Connectivity (JDBC)
 Die Schnittstelle/API JDBC bietet eine schnelle und einfache Anbindung an eine Datenbank und die Möglichkeit, Queries auf dieser auszuführen. JDBC ist in der JavaSE integriert und muss lediglich über
 
 ````java
@@ -175,11 +173,11 @@ c.close();
 ````
 
 Diese Methode einer einfachen READ-Operation ist simpel, ohne große Aufwände umzusetzen und hat den Vorteil, dass die Datenbank in ihrer Form und Struktur bestehen bleiben kann. Außerdem ist keine weitere Konfiguration erforderlich und wir müssen uns um kein Mapping kümmern, da wir über standardmäßige SQL-Queries auf die Daten zugreifen und diese auslesen.  
-Die Nachteile hierbei sind, dass bei größeren Projekten ein großer Overhead produziert wird, da jedes Query einzeln geschrieben werden muss und ein größerer Programmieraufwand vonnöten ist. Die Transaktionen müssen außerdem "hart kodiert" werden, was zu Problemen bei späteren Datenbankänderungen und Refactoring führen kann. Das entstehende `ResultSet` ist außerdem nicht serialisierbar, sodass es nicht über ein Netzwerk transportiert werden kann.  
+Die Nachteile hierbei sind, dass bei größeren Projekten ein großer Overhead produziert wird, da jedes Query einzeln geschrieben werden muss und ein größerer Programmieraufwand vonnöten ist. Die Transaktionen müssen außerdem "hart kodiert" werden, was zu Problemen bei späteren Datenbankänderungen und Refactoring führen kann. Das entstehende `ResultSet` ist außerdem nicht serialisierbar, sodass es nicht über ein Netzwerk transportiert werden kann. Die Notwendigkeit, `Connections` manuell aufzubauen und auch wieder schließen zu müssen, birgt Fehlerpotenzial.  
 
-#### Hibernate-Anbindung
+### Hibernate-Anbindung
 
-  
+
 
 ****
 
@@ -193,9 +191,9 @@ Die Nachteile hierbei sind, dass bei größeren Projekten ein großer Overhead p
 
 [6] Walking Techie (Hrsg.): Object Relational Impedance Mismatch. https://walkingtechie.blogspot.com/2017/12/object-relational-impedance-mismatch.html, Abruf: 10.01.2021
 
-[7] Tutorials Point (Hrsg.): Hibernate - ORM Overview. https://www.tutorialspoint.com/hibernate/orm_overview.html, Abruf: 12.01.2021
+[7] Tutorials Point (Hrsg.): Hibernate - ORM Overview. https://www.tutorialspoint.com/hibernate/orm_overview.htm, Abruf: 12.01.2021
 
-[8] Tutorials Point (Hrsg.): Hibernate - Overview. https://www.tutorialspoint.com/hibernate/hibernate_overview.html, Abruf: 12.01.2021
+[8] Tutorials Point (Hrsg.): Hibernate - Overview. https://www.tutorialspoint.com/hibernate/hibernate_overview.htm, Abruf: 12.01.2021
 
 [9] Baeldung (Hrsg.): The Difference Between JPA, Hibernate and EclipseLink. https://www.baeldung.com/jpa-hibernate-difference, Abruf: 12.01.2021
 
