@@ -45,20 +45,20 @@ Tel.: +49 5331-939-31550
 
 <br/>Abbildungsverzeichnis
 
-*[Abbildung 1](#abbildung-1): Message Broker (eigene Darstellung nach (Haunts, 2015))*
+*[Abbildung 1](media/image1.png "Message-Broker"): Message Broker (eigene Darstellung nach (Haunts, 2015))*
 
-*Abbildung 2: [Data Ecosystem (eigene Darstellung nach (Neha Narkhede,
-2017, S. 12))](#abbildung-2)*
+*[Abbildung 2](media/image2.PNG "Data-Ecosystem "): Data Ecosystem (eigene Darstellung nach (Neha Narkhede,
+2017, S. 12))*
 
-*Abbildung 3: [Apache Kafka - Cluster Architecture (Tutorials Point (I)
-Pvt. Ltd., 2020)](#abbildung-3)*
+*[Abbildung 3](media/image3.PNG "Cluster-Architecture"): Apache Kafka - Cluster Architecture (Tutorials Point (I)
+Pvt. Ltd., 2020)*
 
-*Abbildung 4: [Multiple Datacenter Architecture (Neha Narkhede, 2017, S.
-9)](#abbildung-4)*
+*[Abbildung 4](media/image4.PNG "Multiple-Datacenter-Architecture"): Multiple Datacenter Architecture (Neha Narkhede, 2017, S.
+9)*
 
-*Abbildung 5: [Apache Kafka - Partitions Topics (Johansson, 2020)](#abbildung-5)*
+*[Abbildung 5](media/image5.png "Partitions-Topics"): Apache Kafka - Partitions Topics (Johansson, 2020)*
 
-*Abbildung 6: [Apache Kafka Webshop (Johansson, 2020)](#abbildung-6)*
+*[Abbildung 6](media/image6.png "Kafka-Webshop"): Apache Kafka Webshop (Johansson, 2020)*
 
 
 ## 1. Einleitung
@@ -159,8 +159,7 @@ und sicher übermittelt werden. (Neha Narkhede, 2017, S. 1-4)
 <p align="left"><img src="media/image1.png" title="Message-Broker" width="100%" height="auto"><b>Abbildung 1: Message Broker (eigene Darstellung nach (Haunts, 2015))</b></p>
 
 Apache Kafka ist so ein Pub/Sub Nachrichten System, das entwickelt
-wurden ist, um Daten von einem/einer System/Application zu einem/einer
-anderen sicher und schnell zuzustellen. Sie ist skalierbar,
+wurden ist, um Daten von einer Anwendung zu einer anderen Anwendung sicher und schnell zuzustellen. Sie ist skalierbar,
 fehlertolerant und ermöglicht Datenspeicherung. Zusätzlich ermöglicht
 sie eine hohe Verfügbarkeit und Geschwindigkeit der Verarbeitung der
 gespeicherten Daten. Apache Kafka realisiert zusätzlich auch eine
@@ -320,7 +319,7 @@ Cluster der Vereinfachung der Arbeit der Producer und Consumer. So ein
 Verbund hat die Vorteile, dass Typen von Data isoliert werden können,
 mehrere Datacenter möglich sind und durch die Data Isolation die
 Sicherheitsmaßnahmen eingehalten werden können. Die Data Isolierung
-durch mehrere Cluster dient der Trennung verschiedener Data-Arten unter
+durch mehrere Cluster dient der Trennung verschiedener Datenarten unter
 verschiedenen Brokern. Daten werden in das Topic innerhalb des Clusters
 geschrieben und direkt in den Cluster eingelesen. Die wichtigsten
 Sicherheitsmaßnahmen von Kafka betreffen die Datenerhaltung. Um die
