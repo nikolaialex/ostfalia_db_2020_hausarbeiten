@@ -1,47 +1,97 @@
-# Repositories
+  # Repositories und Queries
 
-Die nächsten zwei folgenden Kapitel befassen sich mit den Themen Repositories und Queries in der Spring Data JPA - Umgebung. Um ein besseres Verständnis zu erlangen, was diese abstrakten Begriffe darstellen, sollen zuerst deren wichtigsten Eigenschaften allgemein vorgestellt werden und dann ihre Verwendung bzw. Implementierung in einem Beispielprojekt näher gebracht werden. Mithilfe von Code-Snippets sollen dann die wichtigsten Funktionen und ihre Bedeutung von Repositories und Queries verdeutlicht werden.
-
-Als erstes soll kurz das Projekt vorgestellt werden, das für den privaten Zweck entwickelt wurde und man auch auf der folgenden Seite aufrufen kann:
-
-https://vmd31558.contaboserver.net:8888/
+  Die nächsten zwei folgenden Kapitel befassen sich mit den Themen Repositories und Queries in der Spring Data JPA - Umgebung. Um ein besseres Verständnis zu erlangen, was diese abstrakten Begriffe darstellen, sollen zuerst deren wichtigsten Eigenschaften allgemein vorgestellt werden. Parallel zu diesen Eigenschaften soll immer wieder ihre Verwendung und Implementierung anhand von Code-Snippets verdeutlich werden, um einen besseren Bezug zu bekommen.
 
 
+  ## Funktion von Repositories
 
-**Kurzbeschreibung des Tools “MyBrokerage”:**
-
-Es handelt sich hier um eine Webappliakation, die zum Ziel hat, den Anwender über selbstdefinierte Aktienkursziele schnell zu informieren. Interessiert sich der Anwender nämlich für eine bestimmte Aktien, die im deutschen Wertpapierhandel über eine eindeutige Wertpapierkennnummer gehandelt wird, kann er bei Erreichen des von ihm vorgegeben Kurszieles darüber per Mail informiert werden. Zum Beispiel wird die Aktie der Firma Infineon, die auch im DAX gelistet ist, mit der WKN 623100 momentan um den Wert 31 Euro gehandelt. Der Anwender kann auf der Webseite eintragen, dass er nach Erreichen des Kurses 31,10 Euro oder Unterschreiten des Wertes von 29,90 Euro darüber informiert werden soll. Hierzu muss er erst einmal die Aktie mit seiner Wertpapierkennnummer(WKN) hinzufügen. Danach kann er die Kursziele definieren, für die er gerne eine Benachrichtigung erhalten möchte, siehe dazu die Anleitung der durchzuführenden Schitte anhand der unteren Grafik Abb. 1:
-
-1.  Hinzufügen einer Wertpapierkennnummer
-
-  1.1 WKN in Suchfeld eingeben
-
-  1.2 Button WKN Search drücken
-
-2.  Hinzufügen eines Kurszieles zur Benachrichtigung
-
-  2.1 Kursziel in Price to Observe eintragen
-
-  2.2 Mailadresse eintragen
-
-  2.3 Button Abschicken drücken
-
-3.  Darstellung aller Kusziele in einer Tabelle
+  Das Ziel der Spring Data Repository-Abstraktion besteht darin, die Menge an Boilerplate-Code, die zum Implementieren von Datenzugriffsschichten für verschiedene Persistenzspeicher erforderlich ist, erheblich zu reduzieren[1]. Dies ist eine Aussage, die Spring Data JPA und ihr Repository so besonders machen. Im Vergleich zum DAO-Pattern zur Persistierung von Entitäten, wird einem mittels des Repository-Musters quasi die Arbeit abgenommen. Spring Data JPA erleichtert dem Entwickler die Arbeit sehr. Hält er sich an die Implementierung des Repository nach den Spring JPA Regeln,sind es deutlich weniger Schritte, die er zu erfüllen hat, um das gleiche Ergebnis zu erlangen wie beim DAO-Pattern.
+  Im ersten Schritt soll kurz die Implementierung mittels DAO-Klassen erfolgen, danach per Spring Data JPA Repository. Dabei wird klar, wieviel mehr Code man schreiben muss und diese Arbeit von Spring Data JPA übernommenw wird.
 
 
+  **DAO-Pattern**
+
+  ***Entity-Class Stock***
+
+  ```Java
+
+  @Entity
+  @Table(name = "stocks")
+  public class Stock {
+
+      @Id
+      @GeneratedValue(strategy = GenerationType.AUTO)
+      private long id;
+
+  	private String wkn;
+
+      // standard constructors / setters / getters
+  }
+  ```
+
+  ***The DAO API***
+  ```Java
+  public interface StockDao<T> {
+
+      Optional<T> get(long id);
+
+      List<T> getAll();
+
+      void save(T t);
+
+      void update(T t, String[] params);
+
+      void delete(T t);
+  }
+  ```
+  ***The JpaStockDao Class***
+  ```Java
+  public class StockDAOImpl implements StockDAO<Stock> {
+
+      private EntityManager entityManager;
+
+      // standard constructors
+
+      @Override
+      public Optional<Stock> get(long id) {
+          return Optional.ofNullable(entityManager.find(Stock.class, id));
+      }
+
+      @Override
+      public List<Stock> getAll() {
+          Query query = entityManager.createQuery("SELECT e FROM Stock e");
+          return query.getResultList();
+      }
+
+      @Override
+      public void save(Stock stock) {
+          executeInsideTransaction(entityManager -> entityManager.persist(stock));
+      }
+
+      @Override
+      public void update(Stock stock, String[] params) {
+          stock.setWkn(Objects.requireNonNull(params[0], "WKN cannot be null"));
+          executeInsideTransaction(entityManager -> entityManager.merge(stock));
+      }
+
+      @Override
+      public void delete(Stock stock) {
+          executeInsideTransaction(entityManager -> entityManager.remove(stock));
+      }
+
+      private void executeInsideTransaction(Consumer<EntityManager> action) {
+          EntityTransaction tx = entityManager.getTransaction();
+          try {
+              tx.begin();
+              action.accept(entityManager);
+              tx.commit();
+          }
+          catch (RuntimeException e) {
+              tx.rollback();
+              throw e;
+          }
+      }
+  }
 
 
-![Hinzufügen eines Wertpapiers auf die Beobachtungsliste](./Abbildungsverzeichnis/Anleitung_zum_Anlegen_eines_Kuszieles_zur_Benachrichtigung.png)
-Repositories_1_1.png
-
-
-
-
-
-
-
-
-
-## Funktion von Repositories
-
-Das Ziel der Spring Data Repository-Abstraktion besteht darin, die Menge an Boilerplate-Code, die zum Implementieren von Datenzugriffsschichten für verschiedene Persistenzspeicher erforderlich ist, erheblich zu reduzieren[1].
+  ```
