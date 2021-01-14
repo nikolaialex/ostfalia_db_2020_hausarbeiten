@@ -73,21 +73,21 @@ public class Stock {
 
     @Override
     public void save(Stock stock) {
-        executeInsideTransaction(entityManager -> entityManager.persist(stock));
+        execute(em -> em.persist(stock));
     }
 
     @Override
     public void update(Stock stock, String[] params) {
         stock.setWkn(Objects.requireNonNull(params[0], "WKN cannot be null"));
-        executeInsideTransaction(action -> em.merge(stock));
+        execute(em -> em.merge(stock));
     }
 
     @Override
     public void delete(Stock stock) {
-        executeInsideTransaction(action -> em.remove(stock));
+        execute(em -> em.remove(stock));
     }
 
-    private void executeInsideTransaction(Consumer<EntityManager> action) {
+    private void execute(Consumer<EntityManager> action) {
         EntityTransaction tx = em.getTransaction();
         try {
             tx.begin();
@@ -100,5 +100,6 @@ public class Stock {
         }
     }
 }
+
 
   ```
