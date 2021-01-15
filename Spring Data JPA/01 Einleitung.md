@@ -162,6 +162,21 @@ public interface FilmeRepository extends JpaRepository<Film, String>{
 }
 
   ```
+  
+- Unterstützung von Abfrage-Methoden: Desweiteren ist es über Spring-Data-JPA möglich Datenbankabfragen auf Basis von Methodennamen zu generieren. Solange es sich nicht um zu komplexe Methoden handelt, ist es möglich eine Methode auf der Repository-Schnittstelle mit einem Namen zu definieren, der mit "find...By" beginnt. Spring analysiert anschließend den Namen der Methode und erstellt eine Abfrage. 
 
-## Übersicht
+Es folgt ein einfaches Beispiel, die eine Film-Entität mit einem bestimmten Titel lädt.
+
+***Abfrage-Methode durch findBy***
+  ```Java
+public interface FilmRepository extends CrudRepository<Film, Long>{
+	Film findByTitel(String titel);
+}
+
+  ```
+  
+  Spring erzeugt eine JPQL-Abfrage basierend auf den Methodennamen und setzt die bereitgestellten Methodenparameter als Bindungsparameterwerte.
+
+## Architektur
+
 ## Zusammenfassung
