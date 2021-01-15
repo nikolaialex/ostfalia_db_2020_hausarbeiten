@@ -36,7 +36,7 @@ Das **objektrelationale Mapping bzw. Abbildung** beschreibt den letzten Lösungs
 Die einfachste Abbildung einer Klasse zu einer Tabelle wäre eine direkte *eins-zu-eins-Abbildung*, das heißt, eine Klasse bzw. Objekt wird auf genau eine Tabelle im Datenbankschema gemappt, und jedes Attribut der Klasse wird durch eine Reihe in der Tabelle repräsentiert. Diese sehr einfache Abbildung ist jedoch, außer bei sehr simplen Datenbanken, selten zu erreichen.  
 Nachfolgend ist eine einfache Datenstruktur abgebildet, um die strukturellen Unterschiede zu verdeutlichen:  
 
-![](Abbildungsverzeichnis/2models.png)
+![](Abbildungsverzeichnis/2models.png =605x430)
 
 Die Objekt-Attribute Vorname und Nachname können wie oben beschrieben eins zu eins als Tabellenreihe abgebildet werden. Jedoch sind im Tabellenschema Primärschlüssel vonnöten, um jede Reihe/jeden Datensatz in der Tabelle eindeutig identifizieren zu können. Um Verweise auf andere Tabellen herstellen zu können und damit Relationen auszudrücken, sind Fremdschlüssel vorgesehen.
 
