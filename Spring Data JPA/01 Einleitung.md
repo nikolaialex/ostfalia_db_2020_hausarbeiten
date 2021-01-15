@@ -26,6 +26,18 @@ Produkte dieser Firmen sind:
 - Spring-Data-JPA
 
 Die Idee hinter JPA ist es also, ein ganz normales Java Objekt (POJO (Plaing Old Java Object) als relationales Datenbankobjekt zu speichern. 
+Wichtige Objekte der JPA sind:
+- EntityManagerFactory: Erstellt Instanzen vom Entity Manager
+- EntityManager: Erstellt Instanzen von Querys
+- Querys: Wird von den JPA-Providern zur Verfügung gestellt, um auf die Daten zuzugreifen.
+
+Das folgende Beispiel zeigt nun eine einfache Transaktion via JPA.
+Als Beispiel soll ein Spielfilm in einer Videothek als relationales Objekt definiert werden. 
+
+Der Film selbst ist ein einfaches POJO.
+Als Eigenschaften werden zur Übersichtlichkeit lediglich eine ID, der Titel und die Spieldauer angegeben. 
+
+
 
 
 ## Spring
