@@ -116,5 +116,52 @@ Spring bietet insgesamt 20 Module an, die individuell in das Projekt integriert 
 
 Einer der größten Vorteile des Spring-Frameworks ist der Verzicht auf plattformspezfische und nicht standardisierte Komponenten. Dadurch ist Spring im hohen Maße portabel und unabhängig von Applikationsservern. Es lässt sich somit problemlos als Meta-Framework einsetzen, in das sich weitere externe Komponenten oder Frameworks eingliedern lassen. 
 
+## Spring-Data-JPA
+Nachdem nun das Spring-Framework und die JPA kurz vorgestellt wurde, geht es nun um die Hauptthematik - die Spring Data JPA.
+Die Spring-Data-JPA baut auf die JPA auf und liefert noch weitere zusätzliche Funktionen. 
+
+- Vermeidung von "Boilerplate-Code": Die Spring-Data-JPA bietet ein Konzept mit der JPQL-Queries viel einfacher implementiert werden können. Queries sind normalerweise parametrisiert. Der Entwickler schreibt vor der Ausführung einer Query meistens eine Menge Code, um die einzelnen Parameter zu setzen. Ein klassisches Beispiel sieht so aus:
+
+***Einfache Datenbankabfrage ohne Spring Data JPA***
+  ```Java
+@Entity
+@NamedQuery(name="myQuery"), query = "SELECT f FROM Filme f where f.titel = :titel")
+public class Filme {
+	//....
+}
+
+public class FilmeRepository {
+	@PersistenceContext EntityManager entityManager;
+	
+	public List<Filme> findByTitel(String titel){
+		TypedQuery<Filme> film = getEntityManager().createNamedQuery("myQuery", Filme.class);
+		film.setParameter("titel", titel);
+		return.film.getResultList();
+	}
+}
+  ```
+Bei jeder Datenbankabfrage wird immer wieder eine Methode geschrieben, die eine Liste von Parametern entgegennimmt. Diese Parameter werden dann in die Query eingesetzt und anschließend wird die Query ausgeführt. Es wird deutlich, dass relativ "viel" Schreibarbeit von Nöten ist, um dieses Problem zu lösen. 
+
+Abhilfe schafft hier die Spring-Data-JPA, mithilfe dieser lässt sich der Quellcode viel kürzer und gleichzeitig eleganter formulieren:
+
+***Einfache Datenbankabfrage mit Spring Data JPA***
+  ```Java
+public interface FilmeRepository extends JpaRepository<Film, String>{
+	List<Film> findByTitel(String titel);
+}
+
+  ```
+  
+Bereits aus der Signatur einer Interface-Methode kann man den Namen des Query-Parameters ableiten. Spring liefert hier zur Laufzeit eine Implementierung, die die entsprechende Query aufbaut und ausführt. Somit sind viele Querys sehr schnell forumuliert. Es ist ebenfalls möglich diese Technik mit den allgemeinen Sortierungs- und Paginations-Aspekten zu kombinieren. 
+
+***Einbindung von Sortierungs- und Paginationsaspekten***
+  ```Java
+public interface FilmeRepository extends JpaRepository<Film, String>{
+	List<Film> findByTitel(String titel, Sort sort);
+	List<Film> findByTitel(String titel, Pageable paging);
+}
+
+  ```
+
 ## Übersicht
 ## Zusammenfassung
