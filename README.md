@@ -46,4 +46,9 @@ A-hoc-Abfragen|	Beliebige Abfragen sollen möglich sein
 Minmaler Wartungsaufwand	|Dies wird erreicht, indem Komplexität aus den Kernkomponenten ausgelagert wird. Die Ausgaben von komplexen Komponenten sollten nach einiger Zeit ausgesondert werden
 Fehlerbehebung	| Wird ermöglicht, indem die Nachverfolgung jedes einzelnen Wertes möglich ist
 
+# 7 Literaturverzeichnis
+ Schlüssel     | Veröffentlichung 
+ ------------- | --- 
+ **[Mar15]** | Marz, Warren. _Big Data: Principles and best practices of scalable real-time data system_. NY: Manning, 2015 | 
 
+------------
