@@ -1,6 +1,6 @@
-# 5 Repository und Queries
+# 5 Repository
 
-## 5.1.Einleitung
+## 5.1. Einleitung
 Die nächsten zwei folgenden Kapitel befassen sich mit den Themen Repository und Queries in der Spring Data JPA - Umgebung. Um ein besseres Verständnis zu erlangen, was diese abstrakten Begriffe darstellen, sollen deren wichtigsten Eigenschaften  vorgestellt und ihre Verwendung und Implementierung anhand von Code-Snippets verdeutlich werden, um einen besseren Bezug zu bekommen.
 
 Das Ziel der Spring Data Repository-Abstraktion besteht darin, die Menge an Boilerplate-Code, die zum Implementieren von Datenzugriffsschichten für verschiedene Persistenzspeicher erforderlich ist, erheblich zu reduzieren[1]. Diese Aussage ist absolut zutreffend, was Spring Data JPA und ihr Repository so besonders machen. Im Vergleich zum Data Access Object Pattern, das auch sehr gerne zur Persistierung von Entitäten genutzt wird, hat man mit Hilfe des Repository-Patterns sprichwörtlich ein viel leichteres Spiel. Spring Data JPA Repositories erleichtern nämlich dem Entwickler die Arbeit sehr. Mit der Implementierung des Repository sind es deutlich weniger Schritte, die er zu erfüllen hat, um das gleiche Ergebnis zu erlangen wie beim DAO-Pattern.
@@ -57,15 +57,13 @@ public class Stock implements Serializable {
 	}
 }
   ```
-#### DAO-Pattern
+#### DAO-Interface
 
 
 Das Interface StockDAO bildet die Verbindungsstelle zwischen Persistenz- und Modelschicht. Dadurch werden Entities, hier Objekte der Klasse Stock von der Persistenzschicht entkoppelt. Sie beinhaltet nur CRUD-Methoden(CREATE, READ, UPDATE and DELETE).
 
-Hier ist die DAO-API:
+***StockDAO-Interface***
 
-
-***The DAO API***
   ```Java
   public interface StockDao<T> {
 
@@ -80,7 +78,9 @@ Hier ist die DAO-API:
       void delete(T t);
   }
   ```
-  ***The JpaStockDao Class***
+
+***StockDao Class***
+
   ```Java
   public class StockDAOImpl implements StockDAO<Stock> {
 
@@ -184,7 +184,8 @@ Die Datei persistence.xml ist eine Konfigurationsdatei und hält unter anderem f
 
 ```
 
-### Operationen Ausführen
+#### Beispielprogramm für DAO-Pattern
+
 ```java
 public class DAOApp {
 
@@ -212,8 +213,12 @@ public class DAOApp {
 
 
 
-## JpaRepository
+## 5.3 Repository-Pattern
 
+### JPARepository
+
+
+Spring Data JPA bietet eine Reihe von Repository-Schnittstellen, die man nur erweitern müssen, um ein bestimmtes Repository für eines seiner Entitäten zu definieren. Wir entscheiden uns hier für das JPARepository. Diesem Interface fügen wir noch zwei Methoden hinzu.
 
 ### Interface StockRepository
 ```Java
@@ -226,10 +231,10 @@ public interface StockRepository extends JpaRepository<Stock, Long>{
 }
 
 ```
-<br>
-<br>
 
 ***application.properties***
+
+Das Gegenstück zur vorherigen Datei persistence.xml muss man in Spring Data JPA die Datei application.properties defineren. Auch sie besitzt alle Angaben zur Datenbank
 
 
 Die Datei application.properties ist eine Konfigurationsdatei in der Spring Umgebung und hält ebenfalls wie die persistence.xml DB-Daten bereit:
