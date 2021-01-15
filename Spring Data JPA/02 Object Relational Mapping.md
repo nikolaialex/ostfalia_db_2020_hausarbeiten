@@ -26,7 +26,7 @@ Bei genauerer Betrachtung ergeben sich 5 Probleme durch die konzeptionellen Unte
 
 Die folgende Abbildung verdeutlicht die Unterschiede beider Paradigmen auf andere Weise, und zwar auf verschiedenen Ebenen: der konzeptuellen, sprachlichen, schematischen und der Instanz-Ebene:  
 
-![test|100x100,50%](Abbildungsverzeichnis/mismatch.png) [5]
+![test|1210x860,75%](Abbildungsverzeichnis/mismatch.png) [5]
 
 Um all diesen Widersprüchen entgegen zu wirken, existieren verschiedene Lösungsansätze, beispielsweise können die Objekte und Klassen der Programmiersprache in einer *objektorientierten* statt relationalen Datenbank abgelegt werden. Dieser Ansatz ist einfach und direkt, kann aber zu Performance-Einbußen bei komplexen Datenabfragen führen. Weitere Möglichkeiten sind die Verwendung eines objektrelationalen Datenbanksystems (ORDBRMS) oder die Erweiterung der Programmiersprache um relationale Funktionen, was jedoch die Programmierung einschränken kann.  
 
