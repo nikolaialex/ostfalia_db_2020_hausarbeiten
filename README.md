@@ -1,3 +1,9 @@
+| Name               | Matrikelnummer | Hochschule  |
+| :----------------- | :------------- | :---------  |
+| Maike Naumann      | xxxxxxxx       | HS Emden/Leer |
+| Hanns-Peter Lucht  | 195782         | TH Lübeck   |
+
+
 ## Inhaltsverzeichnis
 
 1. Einleitung
