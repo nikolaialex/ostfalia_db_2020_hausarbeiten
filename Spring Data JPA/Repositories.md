@@ -5,27 +5,42 @@ Die nächsten zwei folgenden Kapitel befassen sich mit den Themen Repository und
 
 ## Repository
 
-Das Ziel der Spring Data Repository-Abstraktion besteht darin, die Menge an Boilerplate-Code, die zum Implementieren von Datenzugriffsschichten für verschiedene Persistenzspeicher erforderlich ist, erheblich zu reduzieren[1]. Dies ist eine Aussage, die Spring Data JPA und ihr Repository so besonders machen. Im Vergleich zum DAO-Pattern zur Persistierung von Entitäten, wird einem mit Hilfe des Repository-Musters die Arbeit sprichwörtlich abgenommen. Spring Data JPA erleichtert dem Entwickler die Arbeit sehr. Hält er sich an die Implementierung des Repository nach den Spring JPA Richtlinien, sind es deutlich weniger Schritte, die er zu erfüllen hat, um das gleiche Ergebnis zu erlangen wie beim DAO-Pattern.
-Im ersten Schritt soll auf die Implementierung zur Persisitierung mittels DAO-Klassen eingegangen werden, um danach das gleiche Ergebnis mittels Spring Data JPA Repository. Dabei soll verdeutlicht werden, wieviel mehr Code man schreiben muss und wieviel von Spring Data JPA automatisch übernommen wird.
+Das Ziel der Spring Data Repository-Abstraktion besteht darin, die Menge an Boilerplate-Code, die zum Implementieren von Datenzugriffsschichten für verschiedene Persistenzspeicher erforderlich ist, erheblich zu reduzieren[1]. Diese Aussage ist es, was Spring Data JPA und ihr Repository so besonders machen. Im Vergleich zum Data Access Object Pattern, das auch sehr gerne zur Persistierung von Entitäten genutzt wird, hat man mit Hilfe des Repository-Patterns sprichwörtlich viel leichteres Spiel. Spring Data JPA Repositories erleichtert nämlich dem Entwickler die Arbeit sehr. Mit der Implementierung des Repository sind es deutlich weniger Schritte, die er zu erfüllen hat, um das gleiche Ergebnis zu erlangen wie beim DAO-Pattern.
+Im ersten Teil dieses Kapitels soll kurz auf die Implementierung zur Persisitierung mittels DAO-Klassen eingegangen werden, um danach das gleiche Ergebnis mittels Spring Data JPA Repository herbeizuführen. Ziel ist es zu verdeutlichen, wo genau die Unterschiede liegen und wieviel weniger Code man schreiben muss, weil die Arbeit jetzt zum größten Teil von Spring Data JPA (im Hintergrund) übernommen wird.
 
 
-  **DAO-Pattern**
+### Unterschiede zwischen DAO-und Repository Pattern
 
-  ***Entity-Class Stock***
+Als erstes brauchen wir eine Entity-Klasse, sie bildet die Modelschicht. In unserem Beispiel besitzt die Entity-Klasse Stock neben ihrem Primärschlüssel *id* noch die Attribute *wkn*, das für die Wertpapierkennnummer der Aktie steht und der Firmenname.
+
+***Entity-Class Stock***
 
 ```Java
 @Entity
-@Table(name = "stocks")
-public class Stock {
+@Table(name = "STOCK")
+public class Stock implements Serializable {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+
+	private static final long serialVersionUID = 1L;
+
+	@Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
     /**
      * wkn Wertpapierkennnummer
      */
 	private String wkn;
+	private String companyName;
+
+	public Stock(){
+
+	};
+
+	public Stock(String wkn, String companyName) {
+		this .wkn = wkn;
+		this.companyName = companyName;
+	}
 
 	public String getWkn() {
 		return wkn;
@@ -34,10 +49,25 @@ public class Stock {
 	public void setWkn(String wkn) {
 		this.wkn = wkn;
 	}
+
+	public String getCompanyName() {
+		return companyName;
+	}
+
+	public void setCompanyName(String companyName) {
+		this.companyName = companyName;
+	}
 }
   ```
+#### DAO-Pattern
 
-  ***The DAO API***
+
+Das Interface StockDAO bildet die Verbindungsstelle zwischen Persistenz- und Modelschicht. Dadurch werden Entities, hier Objekte der Klasse Stock von der Persistenzschicht entkoppelt. Sie beinhaltet nur CRUD-Methoden(CREATE, READ, UPDATE and DELETE).
+
+Hier ist die DAO-API:
+
+
+***The DAO API***
   ```Java
   public interface StockDao<T> {
 
@@ -60,9 +90,17 @@ public class Stock {
 
     // standard constructors
 
+    public  StockDAOImpl() {
+		// TODO Auto-generated constructor stub
+    	EntityManagerFactory emfactory = Persistence.
+    		      createEntityManagerFactory( "myJPA" );
+    		      em = emfactory.
+    		      createEntityManager( );
+	}
+
     @Override
-    public Optional<Stock> get(long id) {
-        return Optional.ofNullable(em.find(Stock.class, id));
+    public Stock get(long id) {
+        return em.find(Stock.class, id);
     }
 
     @Override
@@ -78,7 +116,7 @@ public class Stock {
 
     @Override
     public void update(Stock stock, String[] params) {
-        stock.setWkn(Objects.requireNonNull(params[0], "WKN cannot be null"));
+    	stock.setCompanyName(Objects.requireNonNull(params[0], "Companyname can not be null"));
         execute(em -> em.merge(stock));
     }
 
@@ -86,6 +124,20 @@ public class Stock {
     public void delete(Stock stock) {
         execute(em -> em.remove(stock));
     }
+
+	@Override
+	public List<Stock> findByWkn(@PathVariable("wkn") String wkn) {
+		 Query query = em.createQuery("SELECT c FROM Stock c WHERE c.wkn='"+wkn+"'");
+		 List<Stock> list =query.getResultList();
+	     return list;
+	}
+
+	@Override
+	public List<Stock> findByCompanyName(String companyName) {
+		Query query = em.createQuery("SELECT c FROM Stock c WHERE c.wkn='"+companyName+"'");
+		List<Stock> list =query.getResultList();
+		return list;
+	}
 
     private void execute(Consumer<EntityManager> action) {
         EntityTransaction tx = em.getTransaction();
@@ -100,6 +152,120 @@ public class Stock {
         }
     }
 }
-
-
   ```
+***persistence.xml***
+
+Die Datei persistence.xml ist eine Konfigurationsdatei und hält unter anderem folgende Daten bereit:
+
+- Name der Persistence-Unit
+-  welche Klassen in der Datenbank gemappt werden sollen
+- DB- Verbindungsparameter
+etc.
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.1"
+	xmlns="http://xmlns.jcp.org/xml/ns/persistence"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence
+    http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+	<persistence-unit name="myJPA"
+		transaction-type="RESOURCE_LOCAL">
+		<class>de.volkan.brokerage.service.dao.Stock</class>
+		<properties>
+			<property name="javax.persistence.jdbc.url"
+				value="jdbc:h2:file:./database2" />
+			<property name="javax.persistence.jdbc.user" value="sa" />
+			<property name="javax.persistence.jdbc.password" value="" />
+			<property name="javax.persistence.jdbc.driver"
+				value="org.h2.Driver" />
+			<property name="hibernate.hbm2ddl.auto" value="create" />
+		</properties>
+	</persistence-unit>
+</persistence>
+
+```
+
+### Operationen Ausführen
+```java
+public class DAOApp {
+
+    private static StockDAO<Stock> jpaStockDao = new StockDAOImpl();
+
+    public static void main(String[] args) {
+
+    	jpaStockDao.save(new Stock("Infineon", "623100"));
+    	Stock stock1 = jpaStockDao.findByCompanyName("Infineon").get(0);
+        System.out.println(stock1);
+        stock1.setCompanyName("Royal Dutch");
+        stock1.setWkn( "A01ESR");
+        jpaStockDao.update(stock1);
+        jpaStockDao.save(new Stock("Deutsche Bank", "514000"));
+        jpaStockDao.delete(jpaStockDao.get(2));
+        jpaStockDao.getAll().forEach(stock -> System.out.println("Stockname:"+stock.getCompanyName()+ ", WKN: " + stock.getWkn()));
+        if(jpaStockDao.findByWkn("623100")!=null) {
+        	System.out.println("Company Deutsche Bank gefunden");
+        }
+    }
+}
+
+```
+
+
+
+
+## JpaRepository
+
+```Java
+@Repository
+@Service
+public interface StockRepository extends JpaRepository<Stock, Long>{
+
+	Stock findByWkn(String wkn);
+	Stock findByCompanyName(String companyName);
+}
+
+```
+
+application.properties
+
+```java
+#H2
+spring.h2.console.enabled=true
+spring.h2.console.path=/h2
+spring.datasource.url=jdbc:h2:file:./database2
+spring.datasource.username=sa
+spring.datasource.password=
+spring.datasource.driver-class-name=org.h2.Driver
+spring.jpa.hibernate.naming.physical-strategy=org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+```
+
+```java
+@SpringBootApplication
+public class SpringRepositoryApp {
+
+  private static final Logger log = LoggerFactory.getLogger(SpringRepositoryApp.class);
+
+  public static void main(String[] args) {
+    SpringApplication.run(SpringRepositoryApp.class);
+  }
+
+  @Bean
+  public CommandLineRunner demo(StockRepository repository) {
+    return (args) -> {
+    	repository.save(new Stock("Infineon", "623100"));
+    	Stock stock1 = repository.findByCompanyName("Infineon");
+        stock1.setCompanyName("Royal Dutch");
+        stock1.setWkn( "A01ESR");
+        repository.save(stock1);
+        repository.save(new Stock("Deutsche Bank", "514000"));
+        repository.delete(repository.findByCompanyName("Deutsche Bank"));
+        repository.findAll().forEach(stock -> System.out.println("Stockname:"+stock.getCompanyName()+ ", WKN: " + stock.getWkn()));
+        if(repository.findByWkn("623100")!=null) {
+        	System.out.println("Company Deutsche Bank gefunden");
+        }
+    };
+  }
+
+}
+```
