@@ -37,8 +37,56 @@ Als Beispiel soll ein Spielfilm in einer Videothek als relationales Objekt defin
 Der Film selbst ist ein einfaches POJO.
 Als Eigenschaften werden zur Übersichtlichkeit lediglich eine ID, der Titel und die Spieldauer angegeben. 
 
+***Entity "Film"***
+  ```Java
+@Entity
+@Table
+public class Film {
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private int id; 
+	private String titel;
+	private int spieldauer;
+	
+	public Film(int id, String title, int spieldauer) {
+		super();
+		this.id = id;
+		this.titel = title;
+		this.spieldauer = spieldauer;
+	}
 
+	//Getter & Setter	
+}
 
+  ```
+  
+Für die Definition der Entity ist die Annotation "@Entity" notwendig, mit der Annotation "@Table" wird gesagt, welche Tabelle mit dieser Entität erstellt werden soll.
+Mit der Annotation "@ID" wird festgelegt, dass die Spalte der ID als Primärschlüssel dienen soll. Der Zusatz "GeneratedValue(strategy = GenerationType.AUTO) gibt an, dass der Primärschlüssel automatisch generiert und hochgezählt werden soll. 
+
+Die kommende Klasse zeigt, wie solch ein "Film-Objekt" aus Java heraus in eine relationale Datenbank gespeichert wird.
+
+*** Persistierung eines Java-Objekts in eine relationale Datenbank ***
+  ```Java
+public class SpeichereFilm {
+	public static void main(String[] args) {
+		EntityManagerFactory factory = Persistence.createEntityManagerFactory("JPADemo");
+		
+		EntityManager entityManager = factory.createEntityManager();
+		entityManager.getTransaction().begin();
+		
+		Film film = new Film();
+		film.setTitel("Der Herr der Biere");
+		film.setSpieldauer(130);
+		
+		entityManager.persist(film);
+		entityManager.getTransaction().commit();
+		
+		entityManager.close();
+		factory.close();
+	}
+}
+  ```
 
 ## Spring
 ## Übersicht
