@@ -66,7 +66,7 @@ Mit der Annotation "@ID" wird festgelegt, dass die Spalte der ID als Primärschl
 
 Die kommende Klasse zeigt, wie solch ein "Film-Objekt" aus Java heraus in eine relationale Datenbank gespeichert wird.
 
-*** Persistierung eines Java-Objekts in eine relationale Datenbank ***
+***Persistierung eines Java-Objekts in eine relationale Datenbank***
   ```Java
 public class SpeichereFilm {
 	public static void main(String[] args) {
