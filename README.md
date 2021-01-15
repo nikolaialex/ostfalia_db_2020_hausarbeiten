@@ -1,9 +1,12 @@
-# Headline 1
-## Headline 2
-### Headline 3
-#### Headline 4
+## Inhaltsverzeichnis
 
-This is a *bold* text. This is _emphasized_. [Linktext!](http://google.com)
+1. Einleitung
+2. Grundlagen
+3. Architektur
+4. Technologien
+5. Vorteile (oder "Unterschiede zur Kappa-Architektur?)
+6. Fazit (oder "Unterschiede zur Kappa-Architektur?)
+7. Literaturverzeichnis
 
 Hallo Peter
 
@@ -11,25 +14,8 @@ Hallo Peter
 * Incident Monitoring im eCommerce
 * Analyse von Bilddaten 
 
-# Notizen
-## Layer und übliche Technologien
-### Data Ingestion Layer
-Technologien: Kafka  
-Komponenten/Aufgaben: Sammelt erstmal Daten
 
-### Speed Layer
-Technologien: Spark, Flink  
-Komponenten/Aufgaben: Verarbeitet Daten möglichst in Echtzeit, hält die Daten im RAM vor. 
-
-### Batch Layer
-Technologien: Hadoop  
-Komponenten/Aufgaben: Master Dataset, Data Processing, Fehlerbehebung des Speedlayers
-
-### Serving Layer
-Technologien: Cassandra, HBase  
-Komponenten/Aufgaben: Bereitstellung der aufbereiteten Daten
-
-### Allgemein 
+## Einleitung 
 Zunächst erklären, was das ist, was das kann usw. ---> https://www.datenbanken-verstehen.de/lexikon/lambda-architektur/ Gut für Info Einleitung
 Beispiel, warum für große Datenmengen diese Technologie von Vorteil ist. Warum würde z.B. keine relationale Datenbank reichen?
 
