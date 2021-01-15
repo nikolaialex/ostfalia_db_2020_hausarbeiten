@@ -49,6 +49,6 @@ Fehlerbehebung	| Wird ermöglicht, indem die Nachverfolgung jedes einzelnen Wert
 # 7 Literaturverzeichnis
  Schlüssel     | Veröffentlichung 
  ------------- | --- 
- **[Mar15]** | Marz, Warren. _Big Data: Principles and best practices of scalable real-time data system_. NY: Manning, 2015 | 
+ **[Mar15]** | Marz, Warren. _Big Data: Principles and best practices of scalable real-time data systems_. NY: Manning, 2015 | 
 
 ------------
