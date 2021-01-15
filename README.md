@@ -9,14 +9,16 @@
 ## Inhaltsverzeichnis
 
 1. Einleitung
-2. Grundlagen
-3. Architektur
-4. Technologien
-5. Vorteile (oder "Unterschiede zur Kappa-Architektur?)
-6. Fazit (oder "Unterschiede zur Kappa-Architektur?)
-7. Literaturverzeichnis
-
-Hallo Peter
+2. Architektur
+3. Grundlagen
+* Immutable Data
+* Stream Processing
+* Echtzeitdaten
+4. Batch Layer
+5. Serving Layer
+6. Speed Layer
+7. (Praktische Anwendungen/Vorteile) Gegenüberstellung mit inkrementellen Ansatz / Beispiele
+8. Literaturverzeichnis
 
 * Sensordaten zur Steuerung von Raketen (SpaceX) 
 * Incident Monitoring im eCommerce
@@ -42,8 +44,8 @@ Lesen und Aktualisieren mit geringen Latenzzeiten |	Geringe Latenzzeiten können
 Skalierbarkeit|	Bei der Lambda-Architektur sind alle drei Layer horizontal skalierbar, indem weitere Maschinen hinzugefügt werden
 Allgemeingültigkeit |	Funktionen sind allgemeingültig anwendbar
 Erweiterbarkeit |	Migrationen sollen schnell und einfach durchführbar sein
-A-hoc-Abfragen|	Beliebige Abfragen sollen möglich sein
-Minmaler Wartungsaufwand	|Dies wird erreicht, indem Komplexität aus den Kernkomponenten ausgelagert wird. Die Ausgaben von komplexen Komponenten sollten nach einiger Zeit ausgesondert werden
+Ad-hoc-Abfragen|	Beliebige Abfragen sollen möglich sein
+Minimaler Wartungsaufwand	|Dies wird erreicht, indem Komplexität aus den Kernkomponenten ausgelagert wird. Die Ausgaben von komplexen Komponenten sollten nach einiger Zeit ausgesondert werden
 Fehlerbehebung	| Wird ermöglicht, indem die Nachverfolgung jedes einzelnen Wertes möglich ist
 
 # 7 Literaturverzeichnis
