@@ -1,3 +1,5 @@
+# Big Data Anwendungen mit der Lambda-Architektur
+
 | Name               | Matrikelnummer | Hochschule  |
 | :----------------- | :------------- | :---------  |
 | Maike Naumann      | xxxxxxxx       | HS Emden/Leer |
