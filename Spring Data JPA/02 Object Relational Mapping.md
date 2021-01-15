@@ -26,7 +26,7 @@ Bei genauerer Betrachtung ergeben sich 5 Probleme durch die konzeptionellen Unte
 
 Die folgende Abbildung verdeutlicht die Unterschiede beider Paradigmen auf andere Weise, und zwar auf verschiedenen Ebenen: der konzeptuellen, sprachlichen, schematischen und der Instanz-Ebene:  
 
-![](Abbildungsverzeichnis/mismatch.png) [5]
+<img src="Abbildungsverzeichnis/mismatch.png" width="500"> [5]
 
 Um all diesen Widersprüchen entgegen zu wirken, existieren verschiedene Lösungsansätze, beispielsweise können die Objekte und Klassen der Programmiersprache in einer *objektorientierten* statt relationalen Datenbank abgelegt werden. Dieser Ansatz ist einfach und direkt, kann aber zu Performance-Einbußen bei komplexen Datenabfragen führen. Weitere Möglichkeiten sind die Verwendung eines objektrelationalen Datenbanksystems (ORDBRMS) oder die Erweiterung der Programmiersprache um relationale Funktionen, was jedoch die Programmierung einschränken kann.  
 
@@ -249,7 +249,7 @@ public class Studi {
 }
 ````
 
-Um nun das Query von oben nachzubauen, erstellen wir den `EntityManager`, der sich um Persistierungen von Einheiten kümmert. Das Query-Kriterium übergeben wir mit dem `CriteriaBuilder`, um die entsprechende "LIKE"-Anweisung aus dem Beispiel ausführen zu können:  
+Um nun das Query von oben nachzubauen, erstellen wir den `EntityManager`, der sich um Persistierungen von Einheiten kümmert. Das Query-Kriterium übergeben wir mit dem `CriteriaBuilder`, um die entsprechende "LIKE"-Anweisung aus dem Beispiel ausführen zu können. Beide Klassen sind Teil der *JPA Boostrapping API*, welche von Hibernate implementiert sind und daher genutzt werden können:  
 
 ````java
 public void testFindByCriteria(){
@@ -275,7 +275,11 @@ Die `List<Study> topics` enthält danach alle Einträge aus der Datenbank aus de
 Hibernate: select studi0_.matrnr as matrnr1_0_, studi0_.name as name2_0_ from studi studi0_ where studi0_.name=?
 ````
 
-*Anmerkung:* Wir hätten dieses Beispiel auch einfacher halten und stattdessen die in Hibernate integrierte **HQL-Language** nutzen können. Damit hätten wir aber im Kern keine wirkliche Änderung zum JDBC-Beispiel erreicht. Die Stärke dieser aufwändigeren Methode ist die Entfernung von SQL-internen Konstrukten und die reine Verwendung von Java-Facilities. Dadurch wird sauberer Java-Code erzeugt, in denen der Programmierer keine eigenen Querys erzeugen und pflegen muss.  
+*Anmerkung:* Wir hätten dieses Beispiel auch einfacher halten und stattdessen die in Hibernate integrierte **HQL-Language** nutzen können. Damit hätten wir aber im Kern keine wirkliche Änderung zum JDBC-Beispiel erreicht. Die Stärke dieser aufwändigeren Methode ist die Entfernung von SQL-internen Konstrukten und die reine Verwendung von Java-Facilities. Dadurch wird sauberer Java-Code erzeugt, in denen der Programmierer keine Queries selbst erzeugen und pflegen muss.  
+
+**Fazit:** Im direkten Vergleich der Datenbank-Anbindungen konnten wir feststellen, dass eine einfache Anbindung mit JDBC wesentlich weniger Aufwand erfordert und schnell zu Ergebnissen führt, insbesondere, wenn es sich um einige wenige, bereits bekannte SQL-Queries handelt.    
+Mit einem ORM-Framework ist von Seiten des Programmierers mehr Konfiguration und auch Implementierungsarbeit zu leisten. Eine der größten Vorteile ist jedoch die komplette Entbindung von der SQL-Syntax innerhalb des objektorientierten Codes: es könnten auf diese Weise **Queries dynamisch zusammengesetzt werden**, außerdem werden **Fehler oft bereits zur Kompilierungszeit erkannt**, und nicht erst zur Laufzeit. [12]  
+Ob die Überführung des relationalen Modells in ein Objektmodell und die Nutzung eines ORM-Mappers sinnvoll ist, hängt also in erster Linie mit der Komplexität des Projektes zusammen und muss individuell entschieden werden. Es ist hierbei vor Allem entscheidend, beide Paradigmen zu verstehen, um eine sichere und performante Software gewährleisten zu können.  
 
 ****
 [1] Thorben Janssen (Hrsg.): Getting Started With Hibernate. https://thorben-janssen.com/hibernate-getting-started/, Abruf: 14.01.2021
@@ -298,4 +302,6 @@ Hibernate: select studi0_.matrnr as matrnr1_0_, studi0_.name as name2_0_ from st
 
 [10] Baeldung (Hrsg.): Spring Persistence Tutorial. https://www.baeldung.com/persistence-with-spring-series, Abruf: 12.01.2021
 
-[11] JPA Performance Benchmark (Hrsg.): Comparison of Hibernate with MySQL server vs EclipseLink with MySQL server https://www.jpab.org/Hibernate/MySQL/server/EclipseLink/MySQL/server.html, Abruf: 12.01.2021
+[11] JPA Performance Benchmark (Hrsg.): Comparison of Hibernate with MySQL server vs EclipseLink with MySQL server. https://www.jpab.org/Hibernate/MySQL/server/EclipseLink/MySQL/server.html, Abruf: 12.01.2021
+
+[12] ObjectDB Software (Hrsg.): JPA Criteria API Queries. https://www.objectdb.com/java/jpa/query/criteria, Abruf: 15.01.2021
