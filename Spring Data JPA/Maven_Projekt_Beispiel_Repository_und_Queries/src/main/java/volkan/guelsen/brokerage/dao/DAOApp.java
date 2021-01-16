@@ -20,7 +20,7 @@ public class DAOApp {
         jpaStockDao.save(new Stock("Deutsche Bank", "514000"));
         jpaStockDao.delete(jpaStockDao.get(2));
         jpaStockDao.getAll().forEach(stock -> System.out.println("Stockname:"+stock.getCompanyName()+ ", WKN: " + stock.getWkn()));
-        if(jpaStockDao.findByWkn("A01ES")!=null) {
+        if(jpaStockDao.findByWkn("A01ESR1").size()>0) {
         	System.out.println("CompanyName gefunden durch WKN-Suche: " + jpaStockDao.findByWkn("A01ESR").get(0).getCompanyName());
         }
     }
