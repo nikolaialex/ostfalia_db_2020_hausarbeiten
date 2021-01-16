@@ -21,72 +21,17 @@ Zusammenfassend lässt sich sagen, dass die Java Persistance API eine Sammlung v
 - Eclipse.
 
 Produkte dieser Firmen sind:
-- Hibernate
-- EclipseLink
+- Hibernate 
+- EclipseLink 
 - Spring-Data-JPA
+
+Bei diesem Produkten handelt es sich um ORM-Frameworks für Java, welche in Kapitel 2 ausführlich erklärt werden.
 
 Die Idee hinter JPA ist es also, ein ganz normales Java Objekt (POJO (Plaing Old Java Object) als relationales Datenbankobjekt zu speichern. 
 Wichtige Objekte der JPA sind:
 - EntityManagerFactory: Erstellt Instanzen vom Entity Manager
 - EntityManager: Erstellt Instanzen von Querys
 - Querys: Wird von den JPA-Providern zur Verfügung gestellt, um auf die Daten zuzugreifen.
-
-Das folgende Beispiel zeigt nun eine einfache Transaktion via JPA.
-Als Beispiel soll ein Spielfilm in einer Videothek als relationales Objekt definiert werden. 
-
-Der Film selbst ist ein einfaches POJO.
-Als Eigenschaften werden zur Übersichtlichkeit lediglich eine ID, der Titel und die Spieldauer angegeben. 
-
-***Entity "Film"***
-  ```Java
-@Entity
-@Table
-public class Film {
-	
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	private int id; 
-	private String titel;
-	private int spieldauer;
-	
-	public Film(int id, String title, int spieldauer) {
-		super();
-		this.id = id;
-		this.titel = title;
-		this.spieldauer = spieldauer;
-	}
-
-	//Getter & Setter	
-}
-
-  ```
-  
-Für die Definition der Entity ist die Annotation "@Entity" notwendig, mit der Annotation "@Table" wird gesagt, welche Tabelle mit dieser Entität erstellt werden soll.
-Mit der Annotation "@ID" wird festgelegt, dass die Spalte der ID als Primärschlüssel dienen soll. Der Zusatz "GeneratedValue(strategy = GenerationType.AUTO) gibt an, dass der Primärschlüssel automatisch generiert und hochgezählt werden soll. 
-
-Die kommende Klasse zeigt, wie solch ein "Film-Objekt" aus Java heraus in eine relationale Datenbank gespeichert wird.
-
-***Persistierung eines Java-Objekts in eine relationale Datenbank***
-  ```Java
-public class SpeichereFilm {
-	public static void main(String[] args) {
-		EntityManagerFactory factory = Persistence.createEntityManagerFactory("JPADemo");
-		
-		EntityManager entityManager = factory.createEntityManager();
-		entityManager.getTransaction().begin();
-		
-		Film film = new Film();
-		film.setTitel("Der Herr der Biere");
-		film.setSpieldauer(130);
-		
-		entityManager.persist(film);
-		entityManager.getTransaction().commit();
-		
-		entityManager.close();
-		factory.close();
-	}
-}
-  ```
 
 ## Spring
 Das Spring-Framework ist ein sehr schlankes und quelloffenes Framework für Java. Das Framework soll den Programmierer bei der Java/JavaE - Entwicklung mittels Techniken wie der Dependency Injection, Templates und der aspektorientierten Programmierung unterstützen und somit leichteren und besser wartbaren Programmcode ermöglichen. Das Spring-Framework wird am häufigsten bei der Entwicklung von Web-Anwendungen genutzt, es kann allerdings für jede Art von Anwendungen genutzt werden. 
