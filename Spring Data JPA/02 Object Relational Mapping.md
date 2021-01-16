@@ -26,7 +26,7 @@ Bei genauerer Betrachtung ergeben sich 5 Probleme durch die konzeptionellen Unte
 
 Die folgende Abbildung verdeutlicht die Unterschiede beider Paradigmen auf andere Weise, und zwar auf verschiedenen Ebenen: der konzeptuellen, sprachlichen, schematischen und der Instanz-Ebene:  
 
-<img src="Abbildungsverzeichnis/mismatch.png" width="500"> [5]
+<img src="Abbildungen/mismatch.png" width="500"> [5]
 
 Um all diesen Widersprüchen entgegen zu wirken, existieren verschiedene Lösungsansätze, beispielsweise können die Objekte und Klassen der Programmiersprache in einer *objektorientierten* statt relationalen Datenbank abgelegt werden. Dieser Ansatz ist einfach und direkt, kann aber zu Performance-Einbußen bei komplexen Datenabfragen führen. Weitere Möglichkeiten sind die Verwendung eines objektrelationalen Datenbanksystems (ORDBRMS) oder die Erweiterung der Programmiersprache um relationale Funktionen, was jedoch die Programmierung einschränken kann.  
 
@@ -36,7 +36,7 @@ Das **objektrelationale Mapping bzw. Abbildung** beschreibt den letzten Lösungs
 Die einfachste Abbildung einer Klasse zu einer Tabelle wäre eine direkte *eins-zu-eins-Abbildung*, das heißt, eine Klasse bzw. Objekt wird auf genau eine Tabelle im Datenbankschema gemappt, und jedes Attribut der Klasse wird durch eine Reihe in der Tabelle repräsentiert. Diese sehr einfache Abbildung ist jedoch, außer bei sehr simplen Datenbanken, selten zu erreichen.  
 Nachfolgend ist eine einfache Datenstruktur abgebildet, um die strukturellen Unterschiede zu verdeutlichen:  
 
-![](Abbildungsverzeichnis/2models.png)
+![](Abbildungen/2models.png)
 
 Die Objekt-Attribute Vorname und Nachname können wie oben beschrieben eins zu eins als Tabellenreihe abgebildet werden. Jedoch sind im Tabellenschema Primärschlüssel vonnöten, um jede Reihe/jeden Datensatz in der Tabelle eindeutig identifizieren zu können. Um Verweise auf andere Tabellen herstellen zu können und damit Relationen auszudrücken, sind Fremdschlüssel vorgesehen.
 

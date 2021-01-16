@@ -21,5 +21,5 @@ Es handelt sich hier um eine [Webapplikation](https://vmd31558.contaboserver.net
 
 
 
-![Hinzufügen eines Wertpapiers auf die Beobachtungsliste](./Abbildungsverzeichnis/Anleitung_zum_Anlegen_eines_Kuszieles_zur_Benachrichtigung.png)
+![Hinzufügen eines Wertpapiers auf die Beobachtungsliste](Abbildungen/Anleitung_zum_Anlegen_eines_Kuszieles_zur_Benachrichtigung.png)
 Repositories_1_1.png
