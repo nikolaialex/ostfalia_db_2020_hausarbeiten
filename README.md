@@ -14,9 +14,9 @@
 * Immutable Data
 * Stream Processing
 * Echtzeitdaten
-4. Batch Layer
-5. Serving Layer
-6. Speed Layer
+4. Batch-Layer
+5. Serving-Layer
+6. Speed-Layer
 7. (Praktische Anwendungen/Vorteile) Gegenüberstellung mit inkrementellen Ansatz / Beispiele
 8. Literaturverzeichnis
 
@@ -51,6 +51,6 @@ Fehlerbehebung	| Wird ermöglicht, indem die Nachverfolgung jedes einzelnen Wert
 # 7 Literaturverzeichnis
  Schlüssel     | Veröffentlichung 
  ------------- | --- 
- **[Mar15]** | Marz, Warren. _Big Data: Principles and best practices of scalable real-time data systems_. NY: Manning, 2015 | 
+ **[Mar16]** | Marz, Warren. _Big Data: Entwicklung und Programmierung von Systemen für große Datenmengen und Einsatz der Lambda-Architektur_. Frechen: mitp-Verlag, 2016 | 
 
 ------------
