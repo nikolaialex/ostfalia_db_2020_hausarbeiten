@@ -184,7 +184,7 @@ Die Datei persistence.xml ist eine Konfigurationsdatei und hält unter anderem f
 
 ```
 
-#### Beispielprogramm für DAO-Pattern
+#### Einsatz des DAO-Patterns
 
 ```java
 public class DAOApp {
@@ -218,7 +218,7 @@ public class DAOApp {
 ### JPARepository
 
 
-Spring Data JPA bietet eine Reihe von Repository-Schnittstellen, die man nur erweitern müssen, um ein bestimmtes Repository für eines seiner Entitäten zu definieren. Wir entscheiden uns hier für das JPARepository. Diesem Interface fügen wir noch zwei Methoden hinzu.
+In diesem Kapitel sollen die Schritte und Komponenten gezeigt werdenm, die uns Spring Data JPA anbietet, um das gleiche Ergebnis wie im vorherigen Kapitel zu erreichen. Spring Data JPA bietet eine Reihe von Repository-Schnittstellen, die man nur erweitern muss. Wir entscheiden uns hier für das JPARepository, das Entitäten vom Typ Stock zugeordnet ist. Zusätzlich werden dem Interface noch zwei Methoden hinzugefügt.  
 
 ### Interface StockRepository
 ```Java
@@ -234,10 +234,7 @@ public interface StockRepository extends JpaRepository<Stock, Long>{
 
 ***application.properties***
 
-Das Gegenstück zur vorherigen Datei persistence.xml muss man in Spring Data JPA die Datei application.properties defineren. Auch sie besitzt alle Angaben zur Datenbank
-
-
-Die Datei application.properties ist eine Konfigurationsdatei in der Spring Umgebung und hält ebenfalls wie die persistence.xml DB-Daten bereit:
+Das Gegenstück zur Datei persistence.xml aus Kapitel 5.2 bildet in Spring Data JPA die Datei application.properties. Sie ist eine Konfigurationsdatei in der Spring Umgebung und hält ebenfalls wie die persistence.xml Informationen zur Datenbank bereit:
 
 - ~~Name der Persistence-Unit --> myJPA~~
 - ~~Klassen, die in die Datenbank gemappt werden sollen -->  Class Stock~~
@@ -254,6 +251,9 @@ spring.datasource.password=
 spring.datasource.driver-class-name=org.h2.Driver
 spring.jpa.hibernate.naming.physical-strategy=org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
 ```
+
+#### Einsatz des Repository-Patterns
+
 
 ```java
 @SpringBootApplication
@@ -284,3 +284,36 @@ public class SpringRepositoryApp {
 
 }
 ```
+
+## 5.4 Stärken der Spring-Data-JPA
+
+Die vorherigen Kapitel 5.3 und 5.4 haben die Unterschiede zwischen Spring Data JPA und DAO bzgl. der Verbindung zur Persistence-Layer-Schicht gezeigt. Während man im DAO-Pattern sich noch selbst darum kümmern muss, dass die Methoden für Datenbankoperationen ausgeschrieben werden, siehe Klasse *StockDAOImpl*, übernimmt dies Spring Data JPA für einen komplett, indem man lediglich das Interface *StockRepository*  implementiert, welches wiederum JpaRepository erweitert. Damit stehen einem auch schon alle Standard- Datenbankoperationen zur Verfügung für die Entität vom Typ Stock. Das bedeutet, dass Sie keine grundlegenden Lese- oder Schreibvorgänge mehr selbst implementieren müssen.Man erspart sich hier einfach viel Code und auch unnötige Fehler.
+Eine weitere komfortable Eigenschaft von Spring Data JPA ist die Bereitstellung von Datenbankabfragen basierend auf Methodennamen. Solange die Abfrage nicht zu komplex wird, muss man lediglich eine Methode  in der Repository-Schnittstelle mit einem Namen definieren, der mit find… By beginnt. Spring analysiert dann den Methodennamen und erstellt eine Abfrage dafür. Intern generiert Spring eine JPQL(Java Persistence Query Language)-Abfrage basierend auf dem Methodennamen, legt die angegebenen Methodenparameter als Bindungsparameterwerte fest, führt die Abfrage aus und gibt das Ergebnis zurück.[2]
+Dies haben wir im Interface StockRepository getan mit den Methoden findByWkn und findByCompanyName.
+Im Kapitel 5.2 hatten wir noch in der Klasse *StockDAOImpl* die Methoden und Queries selbst implementiren müssen, siehe unten stehenden Code-Snippet aus dieser Klasse.
+
+```Java
+public class StockDAOImpl implements StockDAO<Stock> {
+.
+.
+	@Override
+	public List<Stock> findByWkn(@PathVariable("wkn") String wkn) {
+		 Query query = em.createQuery("SELECT c FROM Stock c WHERE c.wkn='"+wkn+"'");
+		 List<Stock> list =query.getResultList();
+			 return list;
+	}
+
+	@Override
+	public List<Stock> findByCompanyName(String companyName) {
+		Query query = em.createQuery("SELECT c FROM Stock c WHERE c.wkn='"+companyName+"'");
+		List<Stock> list =query.getResultList();
+		return list;
+	}
+.
+.
+}
+```
+
+## Repositories
+
+Es gibt drei Interfaces, die man erweitern kann, um sein eigens Repository nutzen zu können

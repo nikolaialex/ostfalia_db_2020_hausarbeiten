@@ -28,7 +28,7 @@ public class SpringRepositoryApp {
   }
 
   @Bean
-  public CommandLineRunner demo(StockRepository repository) {
+  public CommandLineRunner demonstrateRepositoryMethods(StockRepository repository) {
     return (args) -> {
     	repository.save(new Stock("Infineon", "623100"));
     	Stock stock1 = repository.findByCompanyName("Infineon");
