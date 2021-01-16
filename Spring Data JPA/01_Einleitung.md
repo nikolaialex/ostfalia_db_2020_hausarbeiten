@@ -70,4 +70,3 @@ ToDo
 - Architekturbeschreibung
 - Geschichte wann wie von wem
 
-## Zusammenfassung
