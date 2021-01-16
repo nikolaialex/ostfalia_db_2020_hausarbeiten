@@ -178,7 +178,8 @@ public interface FilmRepository extends CrudRepository<Film, Long>{
   Spring erzeugt eine JPQL-Abfrage basierend auf den Methodennamen und setzt die bereitgestellten Methodenparameter als Bindungsparameterwerte.
 
 ## Architektur
-Bild wird ersetzt <img src="Abbildung/SpringDataJPAARchi.png" width="500"> [5] 
+
+<img src="Abbildung/SpringDataJPAARchi.png" width="500">
 
 - Architekturbeschreibung
 - Geschichte wann wie von wem
