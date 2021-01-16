@@ -179,7 +179,7 @@ public interface FilmRepository extends CrudRepository<Film, Long>{
 
 ## Architektur
 
-<img src="Abbildungen/SpringDataJPAARchi.png" width="500">
+<img src="Abbildungen/SpringDataJPAARchi.png" width="250">
 
 - Architekturbeschreibung
 - Geschichte wann wie von wem
