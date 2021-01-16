@@ -15,7 +15,7 @@
 
 ## Inhaltsverzeichnis
 01 [Einleitung](01 Einleitung.md )  
-02 Object Relational Mapping.md  
+02 [Object Relational Mappin](02_Object_Relational_Mapping.md)  
 04 Annotationen.md  
 40 minutes ago  
 05 Repository.md  
