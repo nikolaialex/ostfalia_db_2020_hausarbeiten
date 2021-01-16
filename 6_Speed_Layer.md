@@ -10,9 +10,9 @@ Unter Echtzeit verstehen wir hier wenige Millisekunden bis zu einigen Sekunden. 
 Da die Echtzeit-Views innerhalb von Millisekunden aktualisiert werden sollen, ist die Berechnung komplexer als die aus dem Batch-Layer bekannte Vorgehensweise die Views aus allen bekannten Daten neu zu berechnen. 
 Bei neuen Daten wird das Ergebnis der vorhergehenden View-Erzeugung wiederverwendet und aktualisiert. Diese _inkrementelle Berechnung_ ist effizient, aber auch komplex, da wahlfreies Lesen und Schreiben erforderlich sind und weiterhin Skalierbarkeit und Fehlertoleranz umgesetzt werden müssen. [Mar16, S. 246 ff.]
 
-### CAP-Theorem
-
 ### Wie sich Batch- und Speed-Layer ergänzen
 Batch- und Echtzeit-Views bilden ihre Inhalte auf dieselbe Art ab. Jedoch werden die Inhalte nicht immer auf dieselbe Art hergeleitet. Für den Batch-View sind die vollständigen Daten für die Berechnung bekannt, der Speed-View muss mit unvollständigen Daten berechnet und dann inkrementell aktualisiert werden. Häufig werden die Inhalte der Echtzeit-Views angenähert, da dies effizienter umgesetzt werden kann und meistens ausreichend ist. 
 
-Da alle Daten letztlich durch Batch- und Serving-Layer berechnet bzw. repräsentiert werden, werden die durch eine Näherung im Speed-Layer entstandenen Ungenauigkeiten fortlaufend korrigiert. Somit ist es möglich, Genauigkeit für schnellstmögliche Verfügbarkeit einzutauschen und dennoch akkurate Daten zu erhalten, nachdem diese durch den Batch-Layer verarbeitet wurden. [Mar16, S. 249]
+Da alle Daten letztlich durch Batch- und Serving-Layer berechnet bzw. repräsentiert werden, werden die durch eine Näherung im Speed-Layer entstandenen Ungenauigkeiten fortlaufend korrigiert. Somit ist es möglich, Genauigkeit für schnellstmögliche Verfügbarkeit einzutauschen und dennoch akkurate Daten zu erhalten, nachdem diese durch den Batch-Layer verarbeitet wurden (Eventual Accuracy). [Mar16, S. 249]
+
+Laut Nathan Marz ist die Verwendung inkrementeller Algorithmen, sowie veränderlicher Daten und Zustände die Hauptursache für Komplexität. [Mar11] Ein Vorteil der Lambda-Architektur ist die Isolation der nicht vermeidbaren Komplexität im Speed-Layer, ohne dass andere Komponenten des Systems davon beeinträchtigt werden.

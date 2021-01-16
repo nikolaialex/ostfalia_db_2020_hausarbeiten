@@ -17,8 +17,9 @@
 4. Batch-Layer
 5. Serving-Layer
 6. Speed-Layer
-7. (Praktische Anwendungen/Vorteile) Gegenüberstellung mit inkrementellen Ansatz / Beispiele
-8. Literaturverzeichnis
+7. Query-Layer
+8. (Praktische Anwendungen/Vorteile) Gegenüberstellung mit inkrementellen Ansatz / Beispiele
+9. Literaturverzeichnis
 
 * Sensordaten zur Steuerung von Raketen (SpaceX) 
 * Incident Monitoring im eCommerce
@@ -52,5 +53,6 @@ Fehlerbehebung	| Wird ermöglicht, indem die Nachverfolgung jedes einzelnen Wert
  Schlüssel     | Veröffentlichung 
  ------------- | --- 
  **[Mar16]** | Marz, Warren. _Big Data: Entwicklung und Programmierung von Systemen für große Datenmengen und Einsatz der Lambda-Architektur_. Frechen: mitp-Verlag, 2016 | 
+  **[Mar11]** | Nathan Marz. _[How to beat the CAP theorem](http://nathanmarz.com/blog/how-to-beat-the-cap-theorem.html)_. Abgerufen am 12.01.2021 | 
 
 ------------
