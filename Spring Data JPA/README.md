@@ -14,13 +14,15 @@
 
 
 ## Inhaltsverzeichnis
-01 [Einleitung](01_Einleitung.md)  
-02 [Object Relational Mapping](02_Object_Relational_Mapping.md)  
-03 [Anbindungen von Datenbanken](03_Anbindungen_von_Datenbanken.md)  
-04 Annotationen.md  
-05 Repository.md  
-06 Query Methods.md  
-07 Creating a custom repository.md  
-08 Schnittstellen.md  
-10 Literaturverzeichnis.md  
-11 Tabellenverzeichnis.md  
+[1. Einleitung](01_Einleitung.md)  
+[2. Object Relational Mapping](02_Object_Relational_Mapping.md)  
+[3. Anbindungen von Datenbanken](03_Anbindungen_von_Datenbanken.md)  
+[4. Annotationen](04_Annotationen.md)  
+[5. Repository](05_Repository.md)  
+[6. Query Methods](06_Query_Methods.md)  
+[7. Eigenes Repository erstellen](07_Eigenes_Repository_erstellen.md)  
+[8. Schnittstellen](08_Schnittstellen.md)  
+[9. Fazit](09_Fazit.md)  
+[10. Abbildungsverzeichnis](10_Abbildungsverzeichnis.md)  
+[11. Literaturverzeichnis](11_Literaturverzeichnis.md)  
+[12. Tabellenverzeichnis](12_Tabellenverzeichnis.md)  
