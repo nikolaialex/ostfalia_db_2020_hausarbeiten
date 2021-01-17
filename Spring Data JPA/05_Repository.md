@@ -285,6 +285,24 @@ public class SpringRepositoryApp {
 
 }
 ```
+Notiz:
+In dem oberen Beispiel wird das StockRepository-Objekt der Methode *demo* zur Laufzeit übergeben, das bereits vom Spring-Framework instanziiert wurde. Ein weiteres Beispiel für die Instanziierung des Repository-Objektes wäre über die Annotation @Autowired möglich, siehe unteres Beipsiel.
+```Java
+
+public class StockOperationsImpl{
+
+	@Autowired
+	StockRepository stockRepository;
+
+	public Stock getStockByWkn(String wkn) {
+		return stockRepository.findByWkn(wkn);
+	}
+
+	public synchronized List<Stock> getAllStocks() {
+		return stockRepository.findAll();
+	}
+}
+```
 
 
 ## 5.4 Vorteile von Spring-Data-JPA
