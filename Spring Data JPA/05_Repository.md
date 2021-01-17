@@ -1,10 +1,10 @@
 # 5 Repository
 
 ## 5.1. Einleitung
-Die nächsten zwei folgenden Kapitel befassen sich mit den Themen Repository und Queries in der Spring Data JPA - Umgebung. Um ein besseres Verständnis zu erlangen, was diese abstrakten Begriffe darstellen, sollen deren wichtigsten Eigenschaften  vorgestellt und ihre Verwendung und Implementierung anhand von Code-Snippets verdeutlich werden, um einen besseren Bezug zu bekommen.
+Die nächsten zwei folgenden Kapitel befassen sich mit den Themen Repository und Queries in der Spring Data JPA - Umgebung. Um ein besseres Verständnis zu erlangen, was diese abstrakten Begriffe darstellen, sollen deren wichtigsten Eigenschaften vorgestellt und ihre Verwendung und Implementierung anhand von Code-Snippets verdeutlich werden, um einen besseren Bezug zu bekommen.
 
-Das Ziel der Spring Data Repository-Abstraktion besteht darin, die Menge an Boilerplate-Code, die zum Implementieren von Datenzugriffsschichten für verschiedene Persistenzspeicher erforderlich ist, erheblich zu reduzieren[1]. Diese Aussage ist absolut zutreffend, was Spring Data JPA und ihr Repository so besonders machen. Im Vergleich zum Data Access Object Pattern, das auch sehr gerne zur Persistierung von Entitäten genutzt wird, hat man mit Hilfe des Repository-Patterns sprichwörtlich ein viel leichteres Spiel. Spring Data JPA Repositories erleichtern nämlich dem Entwickler die Arbeit sehr. Mit der Implementierung des Repository sind es deutlich weniger Schritte, die er zu erfüllen hat, um das gleiche Ergebnis zu erlangen wie beim DAO-Pattern.
-In Kapitel 5.2 soll auf die Implementierung zur Persisitierung mittels des DAO-Patterns eingegangen werden, da es in der Vergangenheit große Verwendung fand. Danach soll im nächsten Kapitel 5.3 das gleiche Ergebnis mittels Spring Data JPA Repository erzielt werden. Ziel ist es, zu verdeutlichen, wo genau die Unterschiede aber auch Gemeinsamkeiten liegen, die in Kapitel 5.4 genauer beschrieben werden, und im Besonderen wieviel weniger Code man schreiben muss, weil die Arbeit jetzt zum größten Teil von Spring Data JPA (im Hintergrund) übernommen wird. Spring Data JPA findet immer mehr Anklang und wir möchten gerne zeigen, warum dies so ist. Die in Kapitel 5.2 und 5.3 aufgeführten Code-Beispiele sind in unserem Projekt abgelegt unter [Projektcodes/repository_and_queries](./Projektcodes/repository_and_queries)
+"*Das Ziel der Spring Data Repository-Abstraktion besteht darin, die Menge an Boilerplate-Code, die zum Implementieren von Datenzugriffsschichten für verschiedene Persistenzspeicher erforderlich ist, erheblich zu reduzieren.*"[1]. Diese Aussage ist absolut zutreffend, was Spring Data JPA und ihr Repository so besonders machen. Es wird nämlich vermieden, an mehreren Stellen mit geringen bis keinen Abweichungen wiederholt den gleichen Code zu verwenden. Im Vergleich zum Data Access Object Pattern, wo genau dies passiert und das auch sehr gerne zur Persistierung von Entitäten genutzt wird, hat man mit Hilfe des Repository-Patterns sprichwörtlich ein viel leichteres Spiel und genau dies umgesetzt.Spring Data JPA Repositories erleichtern nämlich dem Entwickler die Arbeit sehr. Mit der Implementierung des Repository sind es deutlich weniger Schritte, die er zu erfüllen hat, um das gleiche Ergebnis zu erlangen wie beim DAO-Pattern. Wiederholender Code entsteht erst gar nicht.
+In Kapitel 5.2 soll auf die Implementierung zur Persisitierung mittels des DAO-Patterns eingegangen werden, da es in der Vergangenheit große Verwendung fand. Danach soll im nächsten Kapitel 5.3 das gleiche Ergebnis mittels Spring Data JPA Repository erzielt werden. Ziel ist es, zu verdeutlichen, wo genau die Unterschiede aber auch Gemeinsamkeiten liegen, die dann in Kapitel 5.4 genauer behandelt werden, und im Besonderen wieviel weniger Code man schreiben muss, weil die Arbeit jetzt zum größten Teil von Spring Data JPA (im Hintergrund) übernommen wird. Spring Data JPA findet immer mehr Anklang und wir möchten gerne zeigen, warum dies so ist. Die in Kapitel 5.2 und 5.3 aufgeführten Code-Beispiele sind in unserem Projekt abgelegt unter [Projektcodes/repository_and_queries](./Projektcodes/repository_and_queries)
 
 Das Kapitel 5.5 "JPARepository" befasst sich dann ausführlich mit dem Thema Repository in Spring Data JPA und benennt dessen Bestandteile. Kapitel 6 befasst sich dann ausführlich mit dem Thema Queries.
 
@@ -290,7 +290,8 @@ public class SpringRepositoryApp {
 ## 5.4 Vorteile von Spring-Data-JPA
 
 Die vorherigen Kapitel 5.3 und 5.4 haben die Unterschiede zwischen Spring Data JPA und DAO bzgl. der Verbindung zur Persistence-Layer-Schicht gezeigt. Während man im DAO-Pattern sich noch selbst darum kümmern muss, dass die Methoden für Datenbankoperationen ausgeschrieben werden, siehe Klasse *StockDAOImpl*, übernimmt dies Spring Data JPA komplett, indem man lediglich das Interface *StockRepository*  implementiert, welches wiederum um JpaRepository erweitert werden muss. Damit stehen einem auch schon alle Standarddatenbankoperationen zur Verfügung für die Entität vom Typ Stock. Das bedeutet, dass Sie keine grundlegenden Lese- oder Schreibvorgänge mehr selbst implementieren müssen.  Den Teil der Programmierung zur Erzeugung eines Objekts vom Typ EntityManagerFactory und die damit verbundenen Aufrufe der Operationen *persist, merge, remove, update und createQuery* werden jetzt von Spring Data JPA im Hintergrund automatisch ausgeführt. Hier gibt der Entwickler eindeutig einen Teil seiner ehemals selbstentwickelten Programmierung auf und vertraut ganz auf Spring Data JPA. Man erspart sich hier einfach viel Code und auch unnötige Fehler.
-Eine weitere komfortable Eigenschaft von Spring Data JPA ist die Bereitstellung von Datenbankabfragen basierend auf Methodennamen so genannte Query-Methods, siehe auch Kaiptel 6. Solange die Abfrage nicht zu komplex wird, muss man lediglich eine Methode  in der Repository-Schnittstelle mit einem Namen definieren, der mit find… By beginnt. Spring analysiert dann den Methodennamen und erstellt eine Abfrage dafür. Intern generiert Spring eine JPQL(Java Persistence Query Language)-Abfrage basierend auf dem Methodennamen, legt die angegebenen Methodenparameter als Bindungsparameterwerte fest, führt die Abfrage aus und gibt das Ergebnis zurück.[2]
+
+"*Eine weitere komfortable Eigenschaft von Spring Data JPA ist die Bereitstellung von Datenbankabfragen basierend auf Methodennamen, so genannten Query-Methods, siehe auch Kaiptel 6. Solange die Abfrage nicht zu komplex wird, muss man lediglich eine Methode  in der Repository-Schnittstelle mit einem Namen definieren, der mit find… By beginnt. Spring analysiert dann den Methodennamen und erstellt eine Abfrage dafür. Intern generiert Spring eine JPQL(Java Persistence Query Language)-Abfrage basierend auf dem Methodennamen, legt die angegebenen Methodenparameter als Bindungsparameterwerte fest, führt die Abfrage aus und gibt das Ergebnis zurück.*"[2]
 Dies haben wir im Interface StockRepository getan mit den Methoden findByWkn und findByCompanyName.
 Im Kapitel 5.2 hatten wir noch in der Klasse *StockDAOImpl* die Methoden und Queries selbst implementieren müssen, siehe unten stehenden Code-Snippet aus dieser Klasse.
 
@@ -320,50 +321,56 @@ Die Vorzüge von
 
 ## Repositories in Spring Data JPA
 
-Es gibt drei Interfaces, die man erweitern kann, um sein eigens Repository nutzen zu können
+Im vorherigen Kapitel wurde bereits kurz darauf hingewiesen, dass unser Repository *StockRepository*
+lediglich um das Interface JPARepository erweitert werden musste, um dann alle gängigen Datenbankoperationen ausführen zu können. Dieses Kapitel soll zeigen, welche weiteren Interfaces hier eine wichtige Rolle spielen, welche Methoden sie liefern und in welcher Abhängigkeit sie zueinander stehen. Das folgende Klassendiagramm zeigt die Beziehungen zueinander. Danach wollen wir mit dem Hauptinterface *Repository* beginnen.
 
-Das folgende Diagramm zeigt die Vererbung untereinander.
 
 ![Klassendiagramm](./Abbildungen/Klassendiagramm_Repository.jpg)
 
+Abb. Klassendiagramm vom Interface Repository
+
+
+### Interface Repository
+
+"Die zentrale Schnittstelle in der Spring Data-Repository-Abstraktion ist Repository. Die zu verwaltende Domänenklasse sowie der ID-Typ der Domänenklasse sind als Typargumente erforderlich. Diese Schnittstelle fungiert in erster Linie als Markierungsschnittstelle, um die Typen zu erfassen, mit denen gearbeitet werden soll, und um Ihnen dabei zu helfen, Schnittstellen zu finden, die diese erweitern. Die CrudRepository-Schnittstelle bietet ausgefeilte CRUD-Funktionen für die zu verwaltende Entitätsklasse.[3]
+
+
+##
+```Java
+public interface Repository<T, ID> {
+}
+```
 
 ## Interface CrudRepository
 
 ```java
 public interface CrudRepository<T, ID> extends Repository<T, ID> {
 
-	<S extends T> S save(S entity);														(1)		
-	<S extends T> Iterable<S> saveAll(Iterable<S> entities);	(2)
-	Optional<T> findById(ID id);															(3)
-	boolean existsById(ID id);																(4)
-	Iterable<T> findAll();																		(5)
-	Iterable<T> findAllById(Iterable<ID> ids);								(6)
-	long count();																							(7)
-	void deleteById(ID id);																		(8)
-	void delete(T entity);																		(9)
-	void deleteAll(Iterable<? extends T> entities);						(10)
-	void deleteAll();																					(11)
+	<S extends T> S save(S entity);                         //(1)		
+	<S extends T> Iterable<S> saveAll(Iterable<S> entities);//(2)
+	Optional<T> findById(ID id);                            //(3)
+	boolean existsById(ID id);                              //(4)
+	Iterable<T> findAll();                                  //(5)
+	Iterable<T> findAllById(Iterable<ID> ids);              //(6)
+	long count();                                           //(7)
+	void deleteById(ID id);                                 //(8)
+	void delete(T entity);                                  //(9)
+	void deleteAll(Iterable<? extends T> entities);         //(10)
+	void deleteAll();                                       //(11)
 }
 ```
 
 1. Speichert die vorgegebene Entität.
-
-2. Gibt die Entität zurück anhand der vorgegeben ID.
-
-3. Returns all entities.
-
-4
-
-Returns the number of entities.
-
-5
-
-Deletes the given entity.
-
-6
-
-Indicates whether an entity with the given id exists.
-
+2. Speichert alle Entitäten.
+3. Gibt die Entität zurück anhand ihrer ID.
+4. Liefert, ob die Entität exisitiert anhand vorgegebener ID.
+5. Liefert alle Objekte der Entity-Class.
+6. Liefert alle Objekte der Entity-Class anhand der vorgegebenen IDs.
+7. Liefert die Anzahl aller Entitäten.
+8. Löscht die Entität anhand der vorgegebenen ID.
+9. Löscht die übergeben Entität.
+10. Löscht alle vorgegebenen Entitäten.
+11. Löscht alle Entzitäten des vorgebenen Repositories.
 
 
 ## Interface PagingAndSortingRepository
@@ -371,22 +378,51 @@ Indicates whether an entity with the given id exists.
 ```java
 public interface PagingAndSortingRepository<T, ID> extends CrudRepository<T, ID> {
 
-	Iterable<T> findAll(Sort sort);										(1)
-	Page<T> findAll(Pageable pageable);								(2)
+	Iterable<T> findAll(Sort sort);                         //(1)
+	Page<T> findAll(Pageable pageable);                     //(2)
 }
 ```
+1. Liefert alle Entitäten sortiert zurück anhand des vorgegeben Objetes Sort.
+2. Liefert ein Objekt vom Typ Page, das die Restriktionen vom Objekt Pageable erfüllt.
 
+## JpaRepository
 
+```Java
+public interface JpaRepository<T, ID> extends PagingAndSortingRepository<T, ID>, QueryByExampleExecutor<T> {
 
+	List<T> findAll();                                            //(1)
+	List<T> findAll(Sort sort);                                   //(2)
+	List<T> findAllById(Iterable<ID> ids);                        //(3)
+	<S extends T> List<S> saveAll(Iterable<S> entities);          //(4)
+	void flush();                                                 //(5)
+	<S extends T> S saveAndFlush(S entity);                       //(6)
+	void deleteInBatch(Iterable<T> entities);                     //(7)
+	void deleteAllInBatch();                                      //(8)
+	T getOne(ID id);                                              //(9)
+	@Override
+	<S extends T> List<S> findAll(Example<S> example);            //(10)
+	@Override
+	<S extends T> List<S> findAll(Example<S> example, Sort sort); //(11)
+}
 
 ```
+1. siehe CrudRepository#findAll()
+2. siehe PagingAndSortingRepository#findAll
+3. siehe CrudRepository#findAll
+4. siehe CrudRepository#save
+5. Löscht alle ausstehenden Änderungen in der Datenbank.
+6. Speichert eine Entität und löscht Änderungen sofort.
+7. Löscht die angegebenen Entitäten in einem Stapelaufruf mit einer einzigen Query.
+8. Löscht die angegebenen Entitäten in einem Stapelaufruf.
+9. Liefert eine Referenz der Entität mit der vorgebenen ID
+10. Liefert alle Entitäten mit dem vorgegebenem Typ Example.
+11. Liefert alle Entitäten mit den vorgegebenem Typen Example und Sort.
 
 
-Interface Repository<T,ID>
-Interface CrudRepository<T,ID>
 
 
-Interface PagingAndSortingRepository<T,ID>
+
+
 
 ****
 [1] docs.spring.io(Online, übersetzt aus dem Englischen),https://docs.spring.io/spring-data/data-commons/docs/1.6.1.RELEASE/reference/html/repositories.html, Zugriff am 09.01.2021
