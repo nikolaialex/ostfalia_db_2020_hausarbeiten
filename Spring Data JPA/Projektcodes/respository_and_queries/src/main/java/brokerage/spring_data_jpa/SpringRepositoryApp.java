@@ -1,4 +1,4 @@
-package volkan.guelsen.brokerage.spring_data_jpa;
+package brokerage.spring_data_jpa;
 
 
 
@@ -13,12 +13,12 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import volkan.guelsen.brokerage.model.Stock;
-import volkan.guelsen.brokerage.spring_data_jpa.StockRepository;
+import brokerage.model.Stock;
+import brokerage.spring_data_jpa.StockRepository;
 
 
 @SpringBootApplication
-@EntityScan("volkan.guelsen.brokerage.*") 
+@EntityScan("brokerage.*") 
 public class SpringRepositoryApp {
 
   private static final Logger log = LoggerFactory.getLogger(SpringRepositoryApp.class);
@@ -33,13 +33,13 @@ public class SpringRepositoryApp {
     	repository.save(new Stock("Infineon", "623100"));
     	Stock stock1 = repository.findByCompanyName("Infineon");
         stock1.setCompanyName("Royal Dutch");
-        stock1.setWkn( "A01ESR");
+        stock1.setWkn( "A0ER6S");
         repository.save(stock1);
         repository.save(new Stock("Deutsche Bank", "514000"));
         repository.delete(repository.findByCompanyName("Deutsche Bank"));
         repository.findAll().forEach(stock -> System.out.println("Stockname:"+stock.getCompanyName()+ ", WKN: " + stock.getWkn()));
-        if(repository.findByWkn("A01ES")!=null) {
-        	System.out.println("CompanyName gefunden durch WKN-Suche: " + repository.findByWkn("A01ESR").getCompanyName());
+        if(repository.findByWkn("A0ER6S")!=null) {
+        	System.out.println("CompanyName gefunden über WKN-Suche: " + repository.findByWkn("A0ER6S").getCompanyName());
         }
     };
   }

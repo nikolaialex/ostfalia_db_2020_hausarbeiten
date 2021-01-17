@@ -1,4 +1,4 @@
-package volkan.guelsen.brokerage.dao;
+package brokerage.dao;
 
 import java.util.List;
 import java.util.Objects;
@@ -13,7 +13,7 @@ import javax.persistence.Query;
 
 import org.springframework.web.bind.annotation.PathVariable;
 
-import volkan.guelsen.brokerage.model.Stock;
+import brokerage.model.Stock;
 
 public class StockDAOImpl implements StockDAO<Stock> {
     

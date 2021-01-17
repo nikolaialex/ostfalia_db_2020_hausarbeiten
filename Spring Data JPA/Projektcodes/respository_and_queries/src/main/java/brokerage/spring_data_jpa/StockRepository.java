@@ -1,4 +1,4 @@
-package volkan.guelsen.brokerage.spring_data_jpa;
+package brokerage.spring_data_jpa;
 
 import java.util.Optional;
 
@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 
-import volkan.guelsen.brokerage.model.Stock;
+import brokerage.model.Stock;
 
 
 

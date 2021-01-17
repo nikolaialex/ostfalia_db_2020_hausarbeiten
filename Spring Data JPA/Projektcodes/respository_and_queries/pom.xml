@@ -9,8 +9,8 @@
 		<artifactId>spring-boot-starter-parent</artifactId>
 		<version>2.0.0.RELEASE</version>
 	</parent>
-	<groupId>de.volkan</groupId>
-	<artifactId>brokerage.dao</artifactId>
+	<groupId>group_spring_data_jpa</groupId>
+	<artifactId>brokerage</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 

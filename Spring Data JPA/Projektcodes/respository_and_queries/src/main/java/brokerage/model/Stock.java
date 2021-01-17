@@ -1,4 +1,4 @@
-package volkan.guelsen.brokerage.model;
+package brokerage.model;
 import java.io.Serializable;
 
 import javax.persistence.Entity;

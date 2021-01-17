@@ -1,4 +1,4 @@
-package volkan.guelsen.brokerage.dao;
+package brokerage.dao;
 
 import java.util.List;
 import java.util.Optional;
