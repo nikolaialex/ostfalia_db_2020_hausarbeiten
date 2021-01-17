@@ -317,12 +317,10 @@ public class StockDAOImpl implements StockDAO<Stock> {
 .
 }
 ```
-Die Vorzüge von
 
 ## Repositories in Spring Data JPA
 
-Im vorherigen Kapitel wurde bereits kurz darauf hingewiesen, dass unser Repository *StockRepository*
-lediglich um das Interface JPARepository erweitert werden musste, um dann alle gängigen Datenbankoperationen ausführen zu können. Dieses Kapitel soll zeigen, welche weiteren Interfaces hier eine wichtige Rolle spielen, welche Methoden sie liefern und in welcher Abhängigkeit sie zueinander stehen. Das folgende Klassendiagramm zeigt die Beziehungen zueinander. Danach wollen wir mit dem Hauptinterface *Repository* beginnen.
+Im vorherigen Kapitel wurde bereits kurz darauf hingewiesen, dass unser Repository *StockRepository* lediglich um das Interface JPARepository erweitert werden musste, um dann alle gängigen Datenbankoperationen ausführen zu können. Dieses Kapitel soll zeigen, welche weiteren Interfaces hier eine wichtige Rolle spielen, welche Methoden sie liefern und in welcher Abhängigkeit sie zueinander stehen. Das folgende Klassendiagramm zeigt die Beziehungen zueinander. Danach wollen wir mit dem Hauptinterface *Repository* beginnen.
 
 
 ![Klassendiagramm](./Abbildungen/Klassendiagramm_Repository.jpg)
@@ -332,16 +330,18 @@ Abb. Klassendiagramm vom Interface Repository
 
 ### Interface Repository
 
-"Die zentrale Schnittstelle in der Spring Data-Repository-Abstraktion ist Repository. Die zu verwaltende Domänenklasse sowie der ID-Typ der Domänenklasse sind als Typargumente erforderlich. Diese Schnittstelle fungiert in erster Linie als Markierungsschnittstelle, um die Typen zu erfassen, mit denen gearbeitet werden soll, und um Ihnen dabei zu helfen, Schnittstellen zu finden, die diese erweitern. Die CrudRepository-Schnittstelle bietet ausgefeilte CRUD-Funktionen für die zu verwaltende Entitätsklasse.[3]
+"*Die zentrale Schnittstelle in der Spring Data-Repository-Abstraktion ist Repository. Die zu verwaltende Domänenklasse sowie der ID-Typ der Domänenklasse sind als Typargumente erforderlich. Diese Schnittstelle fungiert in erster Linie als Markierungsschnittstelle, um die Typen zu erfassen, mit denen gearbeitet werden soll, und um Ihnen dabei zu helfen, Schnittstellen zu finden, die diese erweitern.*"[3]
 
-
-##
 ```Java
 public interface Repository<T, ID> {
 }
 ```
 
-## Interface CrudRepository
+In unserem Beispiel entspricht die oben beschriebene Klasse Stock der Domänenklasse. Der ID-Typ ist hier vom Typ Long, da der primäre Schlüssel bzw das Attribut id der Entitätsklasse Stock vom primitiven Datentypen long ist.
+
+### Interface CrudRepository
+
+Die CrudRepository-Schnittstelle bietet CRUD-Funktionen für die zu verwaltende Entitätsklasse.
 
 ```java
 public interface CrudRepository<T, ID> extends Repository<T, ID> {
@@ -375,6 +375,8 @@ public interface CrudRepository<T, ID> extends Repository<T, ID> {
 
 ## Interface PagingAndSortingRepository
 
+Dieses Interface bietet zwei Methoden zum Paginieren und Sortieren von Datensätzen.
+
 ```java
 public interface PagingAndSortingRepository<T, ID> extends CrudRepository<T, ID> {
 
@@ -385,7 +387,18 @@ public interface PagingAndSortingRepository<T, ID> extends CrudRepository<T, ID>
 1. Liefert alle Entitäten sortiert zurück anhand des vorgegeben Objetes Sort.
 2. Liefert ein Objekt vom Typ Page, das die Restriktionen vom Objekt Pageable erfüllt.
 
+#### Beispiel
+```Java
+Page<Stocj> allStocksSortedByCompanyName = stockRepository.findAll(Sort.by("companyName"));
+
+/**Dadurch wird eine Anforderung für die erste Seite mit 5 Elementen ge,liefert,
+die nach Wertpapierkennnummer wkn (aufsteigend) sortiert ist.*/
+Pageable sortedByWKNAsc = PageRequest.of(0, 5, Sort.by("wkn").ascending());
+```
+
 ## JpaRepository
+
+JPARepository erbt alle Methoden der oben genannten Repositories und erweitert sie um folgende:
 
 ```Java
 public interface JpaRepository<T, ID> extends PagingAndSortingRepository<T, ID>, QueryByExampleExecutor<T> {
@@ -418,12 +431,7 @@ public interface JpaRepository<T, ID> extends PagingAndSortingRepository<T, ID>,
 10. Liefert alle Entitäten mit dem vorgegebenem Typ Example.
 11. Liefert alle Entitäten mit den vorgegebenem Typen Example und Sort.
 
-
-
-
-
-
-
 ****
-[1] docs.spring.io(Online, übersetzt aus dem Englischen),https://docs.spring.io/spring-data/data-commons/docs/1.6.1.RELEASE/reference/html/repositories.html, Zugriff am 09.01.2021
-[2]Spring Data JPA Methodennamen(Online, übersetzt aus dem Englischen), https://thorben-janssen.com/what-is-spring-data-jpa-and-why-should-you-use-it/, Zugriff am 16.01.2021
+[1] Working with Spring Data Repositories(Online, übersetzt aus dem Englischen),https://docs.spring.io/spring-data/data-commons/docs/1.6.1.RELEASE/reference/html/repositories.html, Zugriff am 09.01.2021
+[2]Reasons to use Spring Data JPA(Online, übersetzt aus dem Englischen), https://thorben-janssen.com/what-is-spring-data-jpa-and-why-should-you-use-it/, Zugriff am 16.01.2021
+[3] 4. Working with Spring Data Repositories(Online, übersetzt aus dem Englischen),https://docs.spring.io/spring-data/jpa/docs/current/reference/html/#repositories, Zugriff am 17.01.2021
