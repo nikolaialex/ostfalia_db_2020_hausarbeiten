@@ -52,7 +52,7 @@ Fehlerbehebung	| Wird ermöglicht, indem die Nachverfolgung jedes einzelnen Wert
 # 7 Literaturverzeichnis
  Schlüssel     | Veröffentlichung 
  ------------- | --- 
- **[Mar16]** | Marz, Warren. _Big Data: Entwicklung und Programmierung von Systemen für große Datenmengen und Einsatz der Lambda-Architektur_. Frechen: mitp-Verlag, 2016 | 
+ **[Mar16]** | Nathan Marz und James Warren. _Big Data: Entwicklung und Programmierung von Systemen für große Datenmengen und Einsatz der Lambda-Architektur_. Frechen: mitp-Verlag, 2016 | 
   **[Mar11]** | Nathan Marz. _[How to beat the CAP theorem](http://nathanmarz.com/blog/how-to-beat-the-cap-theorem.html)_. Abgerufen am 12.01.2021 | 
 
 ------------
