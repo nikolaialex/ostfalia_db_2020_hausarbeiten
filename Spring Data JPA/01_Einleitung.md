@@ -62,7 +62,7 @@ Spring bietet insgesamt 20 Module an, die individuell in das Projekt integriert 
 Einer der größten Vorteile des Spring-Frameworks ist der Verzicht auf plattformspezfische und nicht standardisierte Komponenten. Dadurch ist Spring im hohen Maße portabel und unabhängig von Applikationsservern. Es lässt sich somit problemlos als Meta-Framework einsetzen, in das sich weitere externe Komponenten oder Frameworks eingliedern lassen. 
 
 ## Spring-Data-JPA
-Nachdem nun das Spring-Framework und die JPA kurz vorgestellt wurde, geht es nun um die Hauptthematik - die Spring Data JPA.
+Spring-Data-JPA ist die Weiterentwicklung der OpenSource Bibliothek "Hades", welche von Oliver Gierke entwickelt wurde. Oliver Gierke war bis zum Jahre 2010 als Software Architekt bei dem Unternehmen Synyx tätig, bevor er zu SpringSource gewechselt ist. Die Zukunft seines Hades-Projekts hat er sich gesichert, wodurch die Bibliothek in Spring Data integriert wurde.  
 
 <img src="Abbildungen/SpringDataJPAARchi.png" width="350">
 
