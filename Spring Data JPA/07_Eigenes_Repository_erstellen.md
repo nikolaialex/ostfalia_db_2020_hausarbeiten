@@ -31,7 +31,7 @@ public class MyRepository implements CustomRepository {
 }
 
 ```
-<a name="1"></a>
+
 ## Alle Repositories anpassen
 Eine weitere Möglichkeit um ein Repository zu erweitern, liegt darin ein grundlegendes Repository-Interface zu definieren, auf dem alle verwendeten Repositories basieren.
 
@@ -58,13 +58,48 @@ public class CustomRepositoryImpl<T, ID extends Serializable> extends SimpleJpaR
 }
 ```
 
-Außerdem wird eine eigene Implementierung eines Repository-Factory-Beans benötigt.
+Entsprechend dem normalen Verhalten von Spring wird für jedes Repository-Interface automatisch eine Implementierung erzeugt. Da das erstellt `CustomRepository`-Interface jedoch in diesem Fall kein 
+eigenes Repository darstellt, sondern lediglich andere Repositories auf diesem Interface basieren sollen, muss durch die `@NoRepository` Annotation verhindert werden, dass Spring für dieses Interface
+automatisch eine Implementierung erzeugt.  
+  
+Da das erstellte `CustomRepository`-Interface als Grundlage für alle weiteren erstellen Repositories dienen soll ist es notwendig, die standardmäßig verwendete Repository-Factory mit einer eigenen
+Implementierung zu überschreiben. Zu diesem Zweck wird eine eigene `RepositoryFactoryBean`-Klasse erstellt:
 
 ```java
-public class MyRepositoryFactoryBean<R extends JpaRepository<T, I>, T, I extends Serializable> extends JpaRepositoryFactoryBean<R, T, I> {
+public class CustomRepositoryFactoryBean<R extends JpaRepository<T, I>, T, I extends Serializable> extends JpaRepositoryFactoryBean<R, T, I> {
     
+    protected RepositoryFactorySupport createRepositoryFactory(EntityManager entityManager) {
+        return new CustomRepositoryFactory(entityManager);
+    }
+
+    private static class CustomRepositoryFactory<T, I extends Serializable> extends JpaRepositoryFactory {
+
+        private EntityManager entityManager;
+
+        public CustomRepositoryFactory(EntityManager entityManager) {
+            super(entityManager);
+            this.entityManager = entityManager;
+        }
+
+        protected Object getTargetRepository(RepositoryMetadata metadata) {
+            return new CustomRepositoryImpl<T, I>((Class<T>) metadata.getDomainClass(), entityManager);
+        }
+
+        protected Class<?> getRepositoryBaseClass(RepositoryMetadata metadata) {
+            return CustomRepository.class;
+        }
+    }
 }
 ```
+
+Um die neue Repository-Factory zu verwenden, muss diese nun nur noch in der Konfigurationsklasse innerhalb der `@EnableJpaRepositores` Annotation referenziert werden:
+```java
+@Configuration
+@EnableJpaRepositories(repositoryFactoryBeanClass = CustomRepositoryFactoryBean.class)
+public class ConfigurationClass{}
+```
+
+
 
 ---
 
