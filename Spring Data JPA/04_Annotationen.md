@@ -1,10 +1,10 @@
-# Annotationen
+# 4. Annotationen
 
 Spring Data erlaubt es durch seine Abstraktionsschicht mithilfe von Annotationen die Business-Logik von der unterliegenden Art der Persistierung zu trennen.
 Annotationen können sowohl auf der Klassenebene als auch auf der Methoden-, Feld- oder Parameterebene angewendet werden.
 Die wichtigsten Annotationen werden an dieser Stelle vorgestellt und knapp erläutert.
 
-## Grundlegende Spring Data Annotationen
+## 4.1 Wichtige Annotationen
 
 ### @SpringBootApplication  
 
@@ -82,110 +82,20 @@ Die Annotation verfügt über weitere Konfigurationsmöglichkeiten, um das Verha
 Außerdem lässt sich ein Timeout für die durchzuführende Operation bestimmen, `Rollback`-Regeln festlegen sowie eine `readOnly`-Flag setzen.
 
 
-### @NoRepositoryBean und @Repository
+### @Repository und @NoRepositoryBean
 
 ```java
+@Repository
+interface MyChildRepository extends MyBaseRepository<Thing, Long>{}
+
 @NoRepositoryBean
 interface MyBaseRepository<T, ID extends Serializable> extends CrudRepository<T, ID> {
     Optional<T> findById(ID id);
 }
-
-@Repository
-interface MyChildRepository extends MyBaseRepository<Thing, Long>{}
 ```
+Durch die `@Repository` Annotation wird aus einem Interface zur Laufzeit ein RepositoryBean generiert.  
 Die `@NoRepositoryBean` Annotation sorgt dafür, dass auf Basis des annotierten Interfaces, welches ein Spring Data Repository erweitert, kein Bean erstellt wird.
 Dies ist besonders dann nützlich, wenn alle eigenen Repositories auf einem `BaseRepository` basieren sollen: Nur für die Repositories, die auf dem `BaseRepository` basieren, werden Beans erzeugt.
-Durch die `@Repository` Annotation wird aus einem Interface zur Laufzeit ein RepositoryBean generiert.
-
-## Model Annotationen
-
-Spring Data bietet neben den bereits vorgestellten Annotationen, die sich hauptsächlich auf die Konfiguration der Anwendung beziehen, ebenfalls ein Reihe von hilfreichen Annotationen, die es erlauben
-Modellklassen zu konfigurieren, dass sie unabhängig von der unterliegenden Implementierung sind.
-
-### @Id
-```java
-public class TestData {
-    @Id
-    Long id;
-}
-```
-Die `@Id` Annotation sorgt dafür, dass das annotierte Feld als Primärschlüssel gespeichert wird.
-
-### @Transient
-```java
-public class TestData {
-    @Transient
-    int randomField;
-}
-```
-Durch Verwendung der `@Transient` Annotation wird das annotierte Feld weder aus der Datenbank gelesen, noch in diese geschrieben. 
-
-### Kontrollieren der Modellklassen
-
-Die Annotationen `@CreatedBy`, `@LastModifiedBy`, `@CreatedDate` und `@LastModifiedDate` ermöglichen es, die annotierten Felder automatisch durch Spring mit den korrekten Werten füllen zu lassen.
-```java
-public class TestData {
-    @CreatedBy
-    User createdBy;
-    
-    @LastModifiedBy
-    User lastModifiedBy;
-    
-    @CreatedDate
-    Date createdDate;
-    
-    @LastModifiedDate
-    Date lastModifiedDate;
-}
-```
-
-## Wichtige Spring Data JPA Annotationen
-
-### @Entity
-```java
-@Entity
-public class User {
-    @Id
-    private Long id;
-    
-    protected User(){}
-    
-    public User(Long id){
-        this.id = id;
-    }
-    
-    public Long getId(){
-        return this.id;
-    }
-}
-```
-Durch die `@Entity` Annotation lässt sich eine JPA Entität erzeugen, die in der Datenbank gespeichert werden kann. JPA benötigt einen leeren Constructor, weshalb jede mit `@Entity` annotierte Klasse einen leeren Default-Constructor vorweisen muss.
-
-### @GeneratedValue
-```java
-@Entity
-public class User {
-    @Id
-    @GeneratedValue
-    private Long id;
-    
-    protected User(){}
-    
-    public User(Long id){
-        this.id = id;
-    }
-    
-    public Long getId(){
-        return this.id;
-    }
-}
-```
-Die `@GeneratedValue` Annotation kann genutzt werden, um zu bestimmen, nach welcher Strategie der Primärschlüssel generiert wird.
-Zu diesem Zweck gibt es vier Möglichkeiten:
-- GenerationType.AUTO (Default) lässt die Persistenzschicht automatisch eine Strategie wählen. Für die meistverbreiteten Datenbanken wird GenerationType.SEQUENCE gewählt 
-- GenerationType.IDENTITY verwendet ein automatisches Inkrement einer Spalte, um eine eindeutige ID zu erzeugen.
-- GenerationType.SEQUENCE nutzt eine Datenbanksequenz, um einen neuen Wert für das Feld zu ermitteln
-- GenerationType.TABLE simuliert eine Datenbanksequenz, bremst allerdings durch pessimistisches Sperren das System aus
 
 ### @Query und @Param
 ```java
@@ -195,9 +105,9 @@ public class UserRepository extends MyBaseRepository{
     Collection<User> getUsers();
 }
 ```
-Mit der `@Query` Annotation lassen sich Repository Methoden JPQL (Java Persistence Query Language) Aufrufe zuweisen. 
-In Kombination mit der `@Params` Annotation lassen sich auf diese Weise komplexe Queries aufbauen, die abhängig von den Parametern der 
-annotierten Methode sind.
+Mit der `@Query` Annotation lassen sich Repository Methoden JPQL (Java Persistence Query Language) Aufrufen zuweisen.
+In Kombination mit der `@Params` Annotation lassen sich auf diese Weise komplexe Queries aufbauen, die abhängig von den Parametern der
+annotierten Methode sind. 
 
 ```java
 @Repository
@@ -281,7 +191,7 @@ public class UserRepository extends MyBaseRepository{
     void setUsername(@Param("id") long id, @Param("name") String name);
 }
 ```
-Damit eine Repository-Methode Daten in der Datenbank modifizieren kann, muss diese mit der `@Modifying` Annotation versehen werden. 
+Damit eine Repository-Methode Daten in der Datenbank modifizieren kann, muss diese mit der `@Modifying` Annotation versehen werden.
 
 
 ### @EnableJpaRepositories
@@ -293,4 +203,134 @@ public class JPAConfig {
 }
 ```
 Um JPA Repositories nutzen zu können, muss eine Konfigurationsklasse mit der `@EnabledJpaRepositories` Annotation annotiert werden.
-Ausgehend von der annotierten Konfigurationsklasse wird Spring nach Repositories suchen. Durch den Parameter `basePackage`lässt sich dieses Verhalten jedoch anpassen.  
+Ausgehend von der annotierten Konfigurationsklasse wird Spring nach Repositories suchen. Durch den Parameter `basePackage`lässt sich dieses Verhalten jedoch anpassen.
+
+
+## 4.2 Model Annotationen
+
+Spring Data bietet neben den bereits vorgestellten Annotationen, die sich hauptsächlich auf die Konfiguration der Anwendung beziehen, ebenfalls eine Reihe von hilfreichen Annotationen an, die es erlauben
+Modellklassen zu konfigurieren, sodass diese unabhängig von der unterliegenden Implementierung sind.  
+
+### @Entity
+```java
+@Entity
+public class User {
+    @Id
+    private Long id;
+    
+    protected User(){}
+    
+    public User(Long id){
+        this.id = id;
+    }
+    
+    public Long getId(){
+        return this.id;
+    }
+}
+```
+Durch die `@Entity` Annotation lässt sich eine JPA Entity erzeugen, die in der Datenbank gespeichert werden kann. Eine Klasse, die mit `@Entity` annotiert wurde, stellt eine Tabelle innerhalb der Datenbank dar, wobei jede Instanz der Klasse einen Eintrag innerhalb dieser Tabelle widerspiegelt.  
+Von der Struktur her ist eine Entity-Klasse mit einem POJO zu vergleichen, wobei die Entity-Klasse durch die nachfolgend erklärten Annotationen erweitert werden kann.
+JPA benötigt einen leeren Constructor, weshalb jede mit `@Entity` annotierte Klasse einen leeren Default-Constructor vorweisen muss.  
+
+### @Id und @GeneratedValue
+```java
+@Entity
+public class User {
+    @Id
+    @GeneratedValue
+    private Long id;
+
+    protected User(){}
+}
+```
+Die `@Id` Annotation sorgt dafür, dass das annotierte Feld als Primärschlüssel gespeichert wird. Die `@Id` Annotation wird von der `@Entity` Annotation zwingend vorausgesetzt.  
+Durch Verwendung der `@GeneratedValue` Annotation kann bestimmt werden nach welcher Strategie der Primärschlüssel automatisch generiert wird.
+Zu diesem Zweck gibt es vier Möglichkeiten:
+- GenerationType.AUTO (Default) lässt die Persistenzschicht automatisch eine Strategie wählen. Für die meistverbreiteten Datenbanken wird GenerationType.SEQUENCE gewählt
+- GenerationType.IDENTITY verwendet ein automatisches Inkrement einer Spalte, um eine eindeutige ID zu erzeugen.
+- GenerationType.SEQUENCE nutzt eine Datenbanksequenz, um einen neuen Wert für das Feld zu ermitteln
+- GenerationType.TABLE simuliert eine Datenbanksequenz, bremst allerdings durch pessimistisches Sperren das System aus
+
+### @Table
+```java
+@Entity
+@Table(name="UserData")
+public class User {
+    @Id
+    @GeneratedValue
+    private Long id;
+
+    protected User(){}
+}
+```
+Für den Fall, dass der Name der mit `@Entity` annotierten Klasse nicht mit dem Namen der repräsentierten Tabelle übereinstimmt, lässt sich die Klasse zusätzlich mit der `@Table` Annotation versehen, die eine erweiterte Konfiguration des Mappings erlaubt. Durch den Parameter `name` lässt sich ein beliebiger Tabellenname für die Entity verwenden und der Parameter `schema` erlaubt eine weitere Spezifikation, um problemlos mehrere Schemata verwenden zu können.
+
+### Column
+```java
+@Entity
+@Table(name="UserData")
+public class User {
+    @Id
+    @GeneratedValue
+    @Column(name="User_ID")
+    private Long id;
+
+    protected User(){}
+}
+```
+Ähnlich wie die `@Table` Annotation erlaubt es die `@Column` Annotation weitere Informationen über die referenzierte Spalte bereitzustellen. Neben dem `name` Parameter, der den Namen der Spalte in der Tabelle auf der Datenbank angibt, lassen sich durch die weiteren Parameter `length`, `nullable` oder `unique` die entsprechenden Spalteneigenschaften bestimmen.  
+
+### @Transient
+
+```java
+@Entity
+@Table(name = "UserData")
+public class User {
+    @Id
+    @GeneratedValue
+    @Column(name = "User_ID")
+    private Long id;
+
+    protected User() {
+    }
+
+    @Transient
+    private int randomField; 
+}
+```
+Durch Verwendung der `@Transient` Annotation wird das annotierte Feld weder aus der Datenbank gelesen, noch in diese geschrieben. Das Feld wird dementsprechend nicht persistiert. Diese Annotation ist besonders hilfreich, wenn eine Entity-Klasse um weitere Funktionen erweitert werden soll, die für die Erweiterungen verwendeten Felder jedoch nicht in der Datenbanktabelle vorhanden sind. 
+
+### @CreatedBy, @CreatedDate, @LastModifiedBy und @LastModifiedDate
+
+Die Annotationen `@CreatedBy`, `@LastModifiedBy`, `@CreatedDate` und `@LastModifiedDate` ermöglichen es, die annotierten Felder automatisch durch Spring mit den korrekten Werten füllen zu lassen.
+```java
+@Entity
+@Table(name = "UserData")
+public class User {
+    @Id
+    @GeneratedValue
+    @Column(name = "User_ID")
+    private Long id;
+
+    protected User() {
+    }
+
+    @CreatedBy
+    User createdBy;
+
+    @LastModifiedBy
+    User lastModifiedBy;
+
+    @CreatedDate
+    Date createdDate;
+
+    @LastModifiedDate
+    Date lastModifiedDate; 
+}
+```
+
+---
+
+- https://www.baeldung.com/spring-data-annotations  
+- https://www.baeldung.com/jpa-entities

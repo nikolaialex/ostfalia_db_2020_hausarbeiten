@@ -31,7 +31,7 @@ public class MyRepository implements CustomRepository {
 }
 
 ```
-
+<a name="1"></a>
 ## Alle Repositories anpassen
 Eine weitere Möglichkeit um ein Repository zu erweitern, liegt darin ein grundlegendes Repository-Interface zu definieren, auf dem alle verwendeten Repositories basieren.
 
@@ -40,10 +40,18 @@ public interface CustomRepository<T, ID extends Serializable> extends JpaReposit
     void customMethod();
 }
 ```
-Alle eigens definierten JpaRepositories müssen nun anstatt des normalen Repository-Interfaces das CustomRepository erweitern.
+Alle eigens definierten JpaRepositories müssen nun anstatt des normalen Repository-Interfaces die Implementierung des CustomRepository-Interfaces erweitern:
 
 ```java
-public class MyRepository<T, ID extends Serializable> extends SimpleJpaRepository<T, ID> implements CustomRepository {
+public class CustomRepositoryImpl<T, ID extends Serializable> extends SimpleJpaRepository<T, ID> implements CustomRepository {
+
+    private EntityManager entityManager;
+    
+    public CustomRepositoryImpl(Class<T> domainClass, EntityManager entityManager) {
+        super(domainClass, entityManager);
+        this.entityManager = entityManager;
+    }
+    
     public void customMethod(){
         //Custom stuff
     }
@@ -58,3 +66,6 @@ public class MyRepositoryFactoryBean<R extends JpaRepository<T, I>, T, I extends
 }
 ```
 
+---
+
+- https://docs.spring.io/spring-data/data-commons/docs/1.6.1.RELEASE/reference/html/repositories.html
