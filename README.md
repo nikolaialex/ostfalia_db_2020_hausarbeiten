@@ -49,7 +49,7 @@ Ad-hoc-Abfragen|	Beliebige Abfragen sollen möglich sein
 Minimaler Wartungsaufwand	|Dies wird erreicht, indem Komplexität aus den Kernkomponenten ausgelagert wird. Die Ausgaben von komplexen Komponenten sollten nach einiger Zeit ausgesondert werden
 Fehlerbehebung	| Wird ermöglicht, indem die Nachverfolgung jedes einzelnen Wertes möglich ist
 
-# 7 Literaturverzeichnis
+# 9 Literaturverzeichnis
  Schlüssel     | Veröffentlichung 
  ------------- | --- 
  **[Mar16]** | Nathan Marz und James Warren. _Big Data: Entwicklung und Programmierung von Systemen für große Datenmengen und Einsatz der Lambda-Architektur_. Frechen: mitp-Verlag, 2016 | 
