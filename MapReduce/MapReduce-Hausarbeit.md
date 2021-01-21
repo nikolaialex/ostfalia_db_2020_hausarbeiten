@@ -26,6 +26,7 @@
 
 „In einem datengetriebenen Markt sammeln Algorithmen und Anwendungen rund um die Uhr Informationen zu Personen, Prozessen, Systemen und Organisationen. Das Ergebnis ist eine gigantische Datenflut, die täglich zunimmt. Die Herausforderung besteht nun darin, diese massiven Datenmengen schnell und effizient zu verarbeiten, ohne dass wertvolle Erkenntnisse verlorengehen“ (Talend, 2021).
 Für dieses Szenario kommt das Programmiermodell MapReduce ins Spiel, da es aufgrund seiner Fähigkeit Terabytes an Daten aufzuteilen und parallel zu verarbeiten, bekannt geworden ist. MapReduce ist eine Kernkomponente des Hadoop-Frameworks und wird für den Zugriff auf Big Data im Hadoop File System (HDFS) verwendet (Talend, 2021). Deshalb wird das Thema MapReduce in dieser Arbeit näher betrachtet.
+
 In Kapitel 2 und 3 wird als erstes der Begriff MapReduce definiert und die Grundfunktionen dargestellt. Kapitel 4 und 5 gehen auf die Einsatzfelder und Beispiele für MapReduce ein…..
 
 
