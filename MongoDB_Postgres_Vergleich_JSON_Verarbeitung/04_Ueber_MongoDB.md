@@ -2,7 +2,7 @@
 
 ## 4. Über MongoDB
 
-
++++Platz für Content+++
 
 [Weiter](05_Vergleich_der_JSON_Verarbeitung.md)
 
