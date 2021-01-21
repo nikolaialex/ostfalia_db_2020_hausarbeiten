@@ -14,17 +14,23 @@ Erstellt von:
 
 ## Inhaltsverzeichnis
 
-* [Motivation](01_Motivation.md)
-* [Über JSON](02_Ueber_JSON.md)
-* [Über PostgreSQL](03_Ueber_PostgreSQL.md)
-* [Über MongoDB](04_Ueber_MongoDB.md)
-* [Vergleich der JSON Verarbeitung](05_Vergleich_von_MongoDB_und_PostgreSQL.md)
-* [Über PostgreSQL](06_Fazit.md)
-* [Über PostgreSQL](07_Literaturverzeichnis.md)
+1. [Motivation](01_Motivation.md)
 
+2. [ Über JSON](02_Ueber_JSON.md)
 
+3. [Über PostgreSQL](03_Ueber_PostgreSQL.md)
 
-[Zum nächsten Kapitel](02_Ueber_JSON.md)
+4. [Über MongoDB](04_Ueber_MongoDB.md)
+
+5. [Vergleich der JSON Verarbeitung](05_Vergleich_von_MongoDB_und_PostgreSQL.md)
+
+6. [Über PostgreSQL](06_Fazit.md)
+
+7. [Über PostgreSQL](07_Literaturverzeichnis.md)
+
+   
+
+[Weiter](02_Ueber_JSON.md)
 
 
 

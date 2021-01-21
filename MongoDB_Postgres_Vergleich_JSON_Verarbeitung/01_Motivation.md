@@ -1,10 +1,12 @@
-## Motivation
+[Zurück](00_Inhaltsverzeichnis.md)
+
+## 1. Motivation
 
 
 
 
 
-[Zum nächsten Kapitel](02_Ueber_JSON.md)
+[Weiter](02_Ueber_JSON.md)
 
 
 
