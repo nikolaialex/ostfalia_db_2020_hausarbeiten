@@ -9,6 +9,14 @@
 | Corinna Schnögl     | 897102 | Beuth Hochschule für Technik Berlin  |
 | Susanne Mitschke |         |   |
 
+### Betreut durch:
+
+Prof. Dr.-Ing. Nils Jensen und Nicolai Alex
+
+### Abgabedatum:
+
+25.01.2021
+
 
 ## Inhalterverzeichnis
 1. [Einleitung](#einleitung)
