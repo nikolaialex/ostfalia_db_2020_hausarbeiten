@@ -2,9 +2,7 @@
 
 ## 1. Motivation
 
-
-
-
++++Platz für Content+++
 
 [Weiter](02_Ueber_JSON.md)
 

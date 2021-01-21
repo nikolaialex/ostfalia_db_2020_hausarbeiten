@@ -2,7 +2,7 @@
 
 ## 6. Fazit
 
-
++++Platz für Content+++
 
 [Weiter](07_Literaturverzeichnis.md)
 
