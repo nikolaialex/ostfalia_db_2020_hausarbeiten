@@ -3,7 +3,7 @@
 ## 2. Über JSON
 
 <p align="center">
-<img width="200" src="https://iconape.com/wp-content/png_logo_vector/json-logo.png">
+<img width="200" src="img/JSON_160px.png">
 </p>
 
 
@@ -73,7 +73,7 @@ Wichtig für die Flexibilität von JSON ist, diese Elemente können ineinander v
 Natürlich werden in Programmiersprachen und Datenbanken immer mehr Datentypen benötigt, als diese Basiselemente liefern können. Und so werden dort entsprechende Erweiterungen/Lösungen implementiert, um auch diese speichern/verarbeiten zu können, aber es ist gut, dass diese nicht in JSON an sich mit aufgenommen werden. Denn nur so behält es seine einfache Struktur, die es so erfolgreich gemacht hat.
 
 <p align="center">
-<img width="600" src="https://www.json.org/img/value.png">
+<img width="600" src="img/JSON-Elemente.png">
 </p>
 
 
