@@ -106,7 +106,8 @@ Wie bei Postgres spielt auch bei MongoDB die Indexierung eine wichtige Rolle. Si
 <img width="800" src="img/Index2.png">
 </p>
 <p align="center">
-Abbildung 5: Neues Projekt Set-Up
+Abbildung 5: Darstellung einer Query, die passende Dokumente auswählt und sortiert mit Hilfe eines Index<br>
+(Quelle:  https://docs.mongodb.com/manual/indexes/)
 </p>
 
 
