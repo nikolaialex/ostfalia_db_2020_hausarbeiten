@@ -6,7 +6,7 @@
 <img width="500" src="img/postgresql-logo.png">
 </p>
 <p align="center">
-Abbildung 2: Logo von PostgreSQL<br>
+Abbildung 3: Logo von PostgreSQL<br>
 (Quelle:  https://www.computersnyou.com/4281/setup-postgresql-ubuntudabian-quick-tip/)
 </p>
 
@@ -77,3 +77,4 @@ Der Erfolg von Postgres zeigt sich auch im Kreis der großen Nutzer. Wie bereits
 
 
 [Weiter](04_Ueber_MongoDB.md)
+

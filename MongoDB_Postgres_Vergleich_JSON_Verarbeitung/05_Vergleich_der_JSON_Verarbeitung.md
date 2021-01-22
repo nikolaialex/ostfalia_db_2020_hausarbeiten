@@ -103,7 +103,15 @@ Wie bei Postgres spielt auch bei MongoDB die Indexierung eine wichtige Rolle. Si
 
 
 
-![Darstellung einer Query, die passende Dokumente auswählt und sortiert mit Hilfe eines Index](img/index.png "Darstellung einer Query, die passende Dokumente auswählt und sortiert mit Hilfe eines Index.")
+<p align="center">
+<img width="800" src="img/index.png">
+</p>
+<p align="center">
+Abbildung 5: Darstellung einer Query, die passende Dokumente auswählt und sortiert mit Hilfe eines Index<br>
+(Quelle:  https://docs.mongodb.com/manual/indexes/)
+</p>
+
+
 
 
 
@@ -168,6 +176,8 @@ Gut zu sehen ist, dass mit den Tabellen ein großes Spektrum von Größen abgede
 | PostgreSQL 9.6.6 | 71   | JSONB format  |
 
 Es fällt deutlich auf, dass MongoDB fast nur die Hälfte des Speicherplatzes benötigt, wie Postgres. Darin spiegelt sich einer der großen Vorteile von dokumentenorientierten Datenbanken wieder, weil diese aufgrund der nicht nötigen Tabellenstruktur Speicherplatz sparen.
+
+
 
 ##### Test Abfrageperformance
 
@@ -243,8 +253,6 @@ Wie weiter oben schon erwähnt, konnte MongoDB die gleiche Datenmenge in etwa de
 Bei den Abfragegeschwindigkeiten ergab sich ein nicht so eindeutiges Bild. Postgres zeigte meistens eine schlechtere Performance. Bei den Bedingungen “warmer Cache” und mit Indexierung konnte Postgres Mongo DB jedoch tatsächlich schlagen, mit 30ms vs 71ms. Es ist nicht das erste Mal, dass dies bei Tests festgestellt wird und seitdem wurde bei MongoDB viel getan, um hier besser zu werden. In der Tat hat MongoDB Postgres in den meisten Cases geschlagen. Aber es bleibt dennoch spannend. Es gibt Cases, in denen eine nicht-dokumentenorientierte DB eine Datenbank, die dokumentenorientiert ist und nativ mit JSON arbeitet, in der Verarbeitung von JSON schlagen kann. In seinem Fazit betont Pardi, dass diese Testergebnisse keinen endgültigen Gewinner zeigen, da sich je nach Anwendungsfall für beide Seiten Vor- und Nachteile ergeben. Die endgültige Performance ergibt sich für jeden Anwendungsfall neu. Ein weiteres Kriterium ist auch immer die Menge der einbezogenen Parameter. Pardi gibt selbst an, dass ihre Ergebnisse nur auf sehr wenigen Parametern beruhen. Hier ließe sich sicher noch mehr mit einbeziehen. Aber es muss im Endeffekt immer eine Abwägung getroffen werden, was noch sinnvollerweise mit einzubeziehen ist, und was nicht.
 
 
-
-
 ### Projekterfahrungsbericht eines großen, internationalen Automobilherstellers: Von MongoDB zu Postgres via AWS Glue*
 
 Im Zeitalter der Digitalisierung setzt auch ein Branchenriese aus der Automobilindustrie auf die Entwicklung eines digitalen Vertriebskanals. Ziel ist die Erstellung einer digitalen Plattform, die den Vertragspartnern und Händlern weltweit einheitliche Webshop Funktionalitäten bietet im Marken Look-and-Feel. In diesem Rahmen arbeiten viele Entwickler in kleinen Teams an der Realisierung sogenannter Feature Apps, die als Microservices verstanden werden können. Im folgenden betrachten wir die Projektumsetzung und Datenbankentscheidungen eines dieser Teams genauer. Das Team entwickelt eine Recommendation-Engine, die Produktempfehlungen anzeigt.
@@ -271,16 +279,25 @@ Nach dem ersten Release der Feature App wurde schnell klar, dass die Trainings- 
 
 
 
-![Funktionsweise von Redshift](img/Redshift_Nodes.png "Funktionsweise von Redshift")
+
+<p align="center">
+<img width="800" src="img/Redshift_Nodes.png">
+</p>
+<p align="center">
+Abbildung 6: Funktionsweise von Redshift
+</p>
 
 
 
 Um auf der CAP Zugang zu den Daten zu haben, bedarf es daher einen Umzug von MongoDB zur relationalen Datenbank Postgres. Um die Dokumente aus der MongoDB in eine lesbare Tabellenform umzuwandeln mit der Postgres arbeiten kann, hat sich das Team eine Lösung einfallen lassen. Dazu kommt AWS Glue ins Spiel. Glue ist ein Crawler, mit dem Spaltennamen, Datentypen oder die Anzahl der im Data Lake gespeicherten Datenpunkte extrahiert werden können. In diesem Sinne kann Glue als verwalteter ETL-Service betrachtet werden, der als geplanter Job konfiguriert und regelmäßig ausführbar ist. Das neue Set-Up sieht wie folgt aus.
 
 
-
-![Neues Projekt Set-Up](img/projektset_up.png "Neues Projekt Set-Up")
-
+<p align="center">
+<img width="800" src="img/projektset_up.png">
+</p>
+<p align="center">
+Abbildung 7: Neues Projekt Set-Up
+</p>
 
 
 Mit dieser Lösung ist es dem Team gelungen die anfängliche Lösung mit MongoDB, in der sie mit vielen Unsicherheiten umgehen und doch schnell lieferfähig sein mussten und daher auf die Flexibilität der Datenbank angewiesen waren, mit zunehmender Projektreife weiterzuentwickeln. An dem Punkt, an dem Analytics gefordert wurde, die Datenmodelle ausgereift und zugänglich waren, wurde es nötig umzudenken. Und anstelle eines kompletten Wechseln, der automatisch auch einen Change Request wie beispielsweise die neue Orchestrierung der Requests an einen geänderten Endpunkt an andere Teams beinhaltete, hat man einen Weg gefunden sein bestehenden Set-Up umzuwandeln und mit wenigen weiteren Tools auch für die neuen Anforderungen auszurüsten.

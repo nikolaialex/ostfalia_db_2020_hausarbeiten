@@ -10,8 +10,13 @@ Immer wieder kommt es zu Datenmodellen, wo sowohl SQL- und NoSQL-Datenbanken par
 
 Auch im Bereich Analytics kommt man um den Einsatz einer relationalen Datenbank kaum herum. Analytics vergleicht Daten und trifft auf diesen Auswertungen Aussagen darüber, wie sich definierte Key Performance Indikatoren (KPIs) entwickeln. Dies kann im zeitlichen Bezug stehen oder auch im direkten Vergleich mit anderen Faktoren wie verschiedene Webseiten, Kampagnen, Zielgruppen etc. Um diese Vergleichbarkeit zu schaffen und sich außerhalb der eigenen Unternehmens an branchenweiten Benchmarks zu orientieren, ist es unumgänglich ein klar definiertes Datenschema als Grundlage zu haben. Nur so kann sichergestellt werden, dass jede Dimension das gleiche Verständnis der standardisierten Metriken hat und Äpfel nicht mit Birnen verglichen werden.
 
-![Analytics_Dashboard](img/webtrekk_analytics.png "Auszug aus einem Analytics Dashboard")
-
+<p align="center">
+<img width="800" src="img/webtrekk_analytics.png">
+</p>
+<p align="center">
+Abbildung 8: Auszug aus einem Analytics Dashboard<br>
+(Quelle:  https://suite.webtrekk.com/)
+</p>
 
 
 Wird Postgres konkret in Erwägung gezogen, geht es um die Frage JSON oder JSONB und welche Indexierung. JSONB ist hier aufgrund des vollen Supports an Funktionen und Full-Text-Search eigentlich immer die bessere Wahl, es sei denn der Use Case erfordert explizit, dass die Daten nur im Original JSON Format gespeichert werden und dauerhaft nur wenig komplexe Abfragen zu erwarten sind. Der Punkt Indexierung hält wiederum einen Punkt bereit, der für JSONB spricht. Die Wahl von GIN-Index ist nur hier möglich und bietet erhebliche Vorteile, was die Performance angeht. Nur, wer sehr knapp unterwegs ist, was Speicherplatz angeht, muss hier wissen, dass der Index merkbar zusätzlichen Speicherplatz benötigt. Aber, wer die Wahl für Postgres trifft, hat auch noch dafür Platz, weil er höchstwahrscheinlich nicht nach einer besonders platzsparenden DB sucht.
