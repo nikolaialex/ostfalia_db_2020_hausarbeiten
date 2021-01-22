@@ -29,11 +29,11 @@ Die Entstehungsgeschichte von JSON ist in der Hinsicht besonders, dass die Techn
 
 ```yaml
 <html><head><script> 
-document.domain = 'fudco';  
-parent.session.receive(    
-{ to: "session," do: "test,"     
-text: "Hello world" }  
-)
+	document.domain = 'fudco';  
+		parent.session.receive(    
+		{ to: "session," do: "test,"     
+      text: "Hello world" }  
+    )
 </script></head></html>
 ```
 [3]
