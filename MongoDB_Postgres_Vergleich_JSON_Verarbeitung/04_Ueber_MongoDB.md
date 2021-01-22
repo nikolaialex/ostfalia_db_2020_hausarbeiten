@@ -2,7 +2,7 @@
 
 ## 4. Über MongoDB
 
-![MongoDB_Logo](img/Users/herbefen/Downloads)
+![MongoDB_Logo](img/MongoDB_Logo.png "MongoDB Logo")
 
 ### Überblick
 
@@ -29,13 +29,14 @@ Jede dieser Varianten ist mit jedem Betriebssystem vollständig kompatibel. Mong
 
 ### Wichtige Features
 
-Unterstützung von flexiblen und dynamischen Schemas
-akzeptiert Werte in Form von Arrays und verschachtelten Objekten
-Filterung und Sortierung nach beliebigen Datenfeldern
-Unterstützung von Aggregation und weiteren modernen Anwendungsfällen (z.B. Textsuche oder geobasierter Suche)
-vollständige ACID-Transaktionen
-Unterstützung von JOINs in Abfragen
-es gibt zwei statt einem Beziehungstypen: verweisbasiert und eingebettet 
+- Unterstützung von flexiblen und dynamischen Schemas
+- akzeptiert Werte in Form von Arrays und verschachtelten Objekten
+- Filterung und Sortierung nach beliebigen Datenfeldern
+- Unterstützung von Aggregation und weiteren modernen Anwendungsfällen (z.B. Textsuche oder geobasierter Suche)
+- vollständige ACID-Transaktionen
+- Unterstützung von JOINs in Abfragen
+- es gibt zwei statt einem Beziehungstypen: verweisbasiert und eingebettet 
+
 [12]
 
 MongoDB skaliert horizontal unter der Verwendung von horizontaler Fragmentierung. Hierbei wird ein Fragmentierungsschlüssel festgelegt, der definiert, wie die Daten in der Ansammlung verteilt werden. So können die Daten in Bereiche aufgeteilt und über mehrere Instanzen verteilt werden. [14]
