@@ -1,40 +1,13 @@
 # Einführung in Spring Data JPA
 ## Allgemeines
-Im Laufe der letzten Jahre erfreut sich das Spring Framework immer größerer Beliebtheit. Das Framework wird besonders häufig bei der Erstellung von umfangreichen Unternehmensanwendungen benutzt, in welchen eine Vielzahl von Daten verarbeitet (abgefragt, gespeichert und aktualisiert) werden. Insbesondere die Arbeit an der Persistenzsschicht gestaltet sich ohne die Unterstützung von Frameworks äußerst schwierig. In dieser Ausarbeitung geht es um eine Bibliothek, die hierbei Abhilfe schafft. Die Rede ist von der "Spring Data JPA". 
+Das Spring Framework erfreut sich im Laufe der letzten Jahre zunehmender Beliebtheit. Es wird sehr häufig bei der Erstellung umfangreicher Softwareanwendungen benutzt, in welchen eine große Menge an Daten verarbeitet (abgefragt, gespeichert, gelöscht und aktualisiert) werden. Vor allem unterstützt das Framework die Arbeit an der Persistenzschicht. Im Rahmen dieser Ausarbeit wird eine Bibliothek vorgestellt, die dem Entwickler sehr viel Arbeit abnehmen kann - die Rede ist von "Spring Data JPA".
 
-Spring Data JPA ist einer der Hauptbestandteile des Springframeworks und bietet eine abstrakte Datenzugriffsschicht, welche einige generische Methoden zum Zugriff auf die Daten hat. Nimmt man den namensgebenden Titel auseinander, besteht er aus drei Teilen:
+Spring Data JPA gehört zu den Hauptbestandteilen des Springframeworks und bietet eine abstrakte Datenzugriffsschicht, welche ein Vielzahl generischer Methoden zum Datenzugriff beinhaltet. 
 
-- Spring (Spring Data JPA ist ein Hauptbestandteil des Springframeworks)
-- Data 
-- JPA (Es baut auf die Java-Persistance-API auf)
-
-Doch was ist Spring und die Java Persistance API(JPA) eigentlich?
-
-## JPA
-Innerhalb von Java-Enterprise-Applikationen werden massenhaft Operationen auf Datenbanken durchgeführt und gleichzeitig große Mengen an Daten bearbeitet. Um solch eine Datenbankanbindung zu schreiben, benötigt man viele Zeilen Code, wenn man die Anbindung selbst entwickeln möchte. Es gibt allerdings auch die Möglichkeit sich der Funktionen des berühmten Frameworks "Spring" zu bedienen". Spring stellt beispielsweise die Java Persistance API (JPA) zur Verfügung. Hierbei handelt es sich um ein Interface, welches den Aufwand reduziert, der für die Kommunikation mit der Datenbank anfällt. 
-
-Die Objekte des Java Programms werden hierbei mit den relationalen Modellen verbunden und hier wird die eigentliche Herausforderung sichtbar. Während die relationalen Objekte der Datenbank in Tabellenform daherkommen, wird das Objekt im Java Code mit etlichen Attributen dargestellt. 
-
-Zusammenfassend lässt sich sagen, dass die Java Persistance API eine Sammlung von Klassen und Methoden ist, mit dem Ziel die Daten in die Datenbank zu speichern/persistieren. Für diese Datenbankdienste gibt es verschiedene Anbieter wie zum Beispiel:
-- Oracle
-- Redhat
-- Eclipse.
-
-Produkte dieser Firmen sind:
-- Hibernate 
-- EclipseLink 
-- Spring-Data-JPA
-
-Bei diesem Produkten handelt es sich um ORM-Frameworks für Java, welche in Kapitel 2 ausführlich erklärt werden.
-
-Die Idee hinter JPA ist es also, ein ganz normales Java Objekt (POJO (Plaing Old Java Object) als relationales Datenbankobjekt zu speichern. 
-Wichtige Objekte der JPA sind:
-- EntityManagerFactory: Erstellt Instanzen vom Entity Manager
-- EntityManager: Erstellt Instanzen von Querys
-- Querys: Wird von den JPA-Providern zur Verfügung gestellt, um auf die Daten zuzugreifen.
+Bevor die Spring Data JPA ausführlich vorgestellt wird, wird zuvor ein kurzer Überblick über das allgemeine Spring-Framework, sowie der JPA gegeben.
 
 ## Spring
-Das Spring-Framework ist ein sehr schlankes und quelloffenes Framework für Java. Das Framework soll den Programmierer bei der Java/JavaE - Entwicklung mittels Techniken wie der Dependency Injection, Templates und der aspektorientierten Programmierung unterstützen und somit leichteren und besser wartbaren Programmcode ermöglichen. Das Spring-Framework wird am häufigsten bei der Entwicklung von Web-Anwendungen genutzt, es kann allerdings für jede Art von Anwendungen genutzt werden. 
+Bei dem Spring-Framework handelt es sich um ein schlankes und quelloffenes Framework für Java-Anwendungen. Das Framework soll den Programmierer bei der Java/JavaE - Entwicklung mittels Techniken wie der Dependency Injection, Templates und der aspektorientierten Programmierung unterstützen und somit leichteren und besser wartbaren Programmcode ermöglichen. Das Spring-Framework wird am häufigsten bei der Entwicklung von Web-Anwendungen genutzt, es kann allerdings für jede Art von Anwendungen genutzt werden. 
 
 Spring wird typischerweise als "Lightweigt" - Framework für Java-Anwendungen betitelt, da keinerlei Anpassungen am Quellcode notwendig sind, um von den vielzählien Vorteilen zu profitieren. Durch den Einsatz des Frameworks erhält man eine leistungsstarke Grundstruktur, die kaum verändert werden muss, dies macht es möglich das die Entwickler sich komplett auf die eigentliche Business-Logik konzentrieren können. 
 
@@ -60,6 +33,31 @@ Spring bietet insgesamt 20 Module an, die individuell in das Projekt integriert 
 - Test: Abschließend beinhaltet Spring noch die Test-Kategorie. Die Module stellen die Funktionalität der Komponenten der gecodeten Java-Anwendung sicher. 
 
 Einer der größten Vorteile des Spring-Frameworks ist der Verzicht auf plattformspezfische und nicht standardisierte Komponenten. Dadurch ist Spring im hohen Maße portabel und unabhängig von Applikationsservern. Es lässt sich somit problemlos als Meta-Framework einsetzen, in das sich weitere externe Komponenten oder Frameworks eingliedern lassen. 
+
+
+## JPA
+Innerhalb von Java-Enterprise-Applikationen werden massenhaft Operationen auf Datenbanken durchgeführt und gleichzeitig große Mengen an Daten bearbeitet. Um solch eine Datenbankanbindung zu schreiben, benötigt man viele Zeilen Code, wenn man die Anbindung selbst entwickeln möchte. Es gibt allerdings auch die Möglichkeit sich der Funktionen des berühmten Frameworks "Spring" zu bedienen". Spring stellt beispielsweise die Java Persistance API (JPA) zur Verfügung. Hierbei handelt es sich um ein Interface, welches den Aufwand reduziert, der für die Kommunikation mit der Datenbank anfällt. 
+
+Die Objekte des Java Programms werden hierbei mit den relationalen Modellen verbunden und hier wird die eigentliche Herausforderung sichtbar. Während die relationalen Objekte der Datenbank in Tabellenform daherkommen, wird das Objekt im Java Code mit etlichen Attributen dargestellt. 
+
+Zusammenfassend lässt sich sagen, dass die Java Persistance API eine Sammlung von Klassen und Methoden ist, mit dem Ziel die Daten in die Datenbank zu speichern/persistieren. Für diese Datenbankdienste gibt es verschiedene Anbieter wie zum Beispiel:
+- Oracle
+- Redhat
+- Eclipse.
+
+Produkte dieser Firmen sind:
+- Hibernate 
+- EclipseLink 
+- Spring-Data-JPA
+
+Bei diesem Produkten handelt es sich um ORM-Frameworks für Java, welche in Kapitel 2 ausführlich erklärt werden.
+
+Die Idee hinter JPA ist es also, ein ganz normales Java Objekt (POJO (Plaing Old Java Object) als relationales Datenbankobjekt zu speichern. 
+Wichtige Objekte der JPA sind:
+- EntityManagerFactory: Erstellt Instanzen vom Entity Manager
+- EntityManager: Erstellt Instanzen von Querys
+- Querys: Wird von den JPA-Providern zur Verfügung gestellt, um auf die Daten zuzugreifen.
+
 
 ## Spring-Data-JPA
 Spring-Data-JPA ist die Weiterentwicklung der OpenSource Bibliothek "Hades", welche von Oliver Gierke entwickelt wurde. Oliver Gierke war bis zum Jahre 2010 als Software Architekt bei dem Unternehmen Synyx tätig, bevor er zu SpringSource gewechselt ist. Die Zukunft seines Hades-Projekts hat er sich gesichert, wodurch die Bibliothek in Spring Data integriert wurde.  
