@@ -27,7 +27,7 @@ Die Entstehung von Postgres ist eng verknüpft mit der Universität Berkeley in 
 
 Ab 1994 kam es für Postgres zu mehreren entscheidenden Veränderungen. Zuerst ist da die Integration eines SQL-Interpreters. [8] Bis dahin hatte Postgres den Query Language Interpreter “POSTQUEL” verwendet. In diesem Zug wurde außerdem das Client-Programm für den Zugriff “monitor” durch “psql” ersetzt. [8] Diese neue Version trug den Namen Postgres95, die dann erstmals Open-Source verfügbar gemacht wurde, was einen weiteren wichtigen Schritt darstellte. 1996 wurde dann schließlich der bis heute bestehende Name PostgreSQL eingeführt, der die Unterstützung von SQL klar macht. [8]
 
-Seitdem wurde Postgres stetig weiterentwickelt, wobei zum einen immer neue Funktionen hinzugefügt wurden. Mittlerweile wird PostgreSQL über 30 Jahre lang weiterentwickelt und das System scheint weiter an Popularität zu gewinnen. Bei einer stackoverflow Umfrage 2019 wurde Postgres zur zeit populärsten Datenbanktechnologie nach dem erstplatzierten MySQL gewählt. [7]
+Seitdem wurde Postgres stetig weiterentwickelt, wobei zum einen immer neue Funktionen hinzugefügt wurden. Mittlerweile wird PostgreSQL über 30 Jahre lang weiterentwickelt und das System scheint weiter an Popularität zu gewinnen. Bei einer Stackoverflow Umfrage 2019 wurde Postgres zur zweit populärsten Datenbanktechnologie nach MySQL gewählt. [7]
 
 
 
