@@ -11,7 +11,14 @@ Bei dem Spring-Framework handelt es sich um ein schlankes und quelloffenes Frame
 
 Das Framework soll den Programmierer bei der Java/JavaE - Entwicklung mittels Techniken wie der Dependency Injection, Templates und der aspektorientierten Programmierung unterstützen und somit leichteren und besser wartbaren Programmcode ermöglichen. Das Spring-Framework wird am häufigsten bei der Entwicklung von Web-Anwendungen genutzt, es kann allerdings für jede Art von Anwendungen genutzt werden. 
 
-Spring wird typischerweise als "Lightweigt" - Framework für Java-Anwendungen betitelt, da keinerlei Anpassungen am Quellcode notwendig sind, um von den vielzählien Vorteilen zu profitieren. Durch den Einsatz des Frameworks erhält man eine leistungsstarke Grundstruktur, die kaum verändert werden muss, dies macht es möglich das die Entwickler sich komplett auf die eigentliche Business-Logik konzentrieren können. 
+Spring wird typischerweise als "Lightweigt" - Framework für Java-Anwendungen betitelt, da keinerlei Anpassungen am Quellcode notwendig sind, um von den vielzählien Vorteilen zu profitieren. Durch den Einsatz des Frameworks erhält man eine leistungsstarke Grundstruktur, die kaum verändert werden muss, dies macht es möglich das die Entwickler sich komplett auf die eigentliche Business-Logik konzentrieren können.
+
+Spring besteht aus einigen Projekten, eines dieser Projekte ist Spring Data. Die Datenbank-Module von Spring Data bieten Unterstützung mit nahezu allen gängigen Datenbanktechnologien. Spring Data stellt folgende Datenbankmodule zur Verfügung:
+
+- Spring Data JPA: Verbindung mit relationalen Datenbanken
+- Spring Data MongoDB: Verbindung mit einer Mongo document database.
+- Spring Data Neo4j: Verbindung mit einer Neo4j Graph-Datenbank.
+- Spring Data Redis: Verbindung zu einem Redis key-value store.
 
 ### Vorteile des Spring-Frameworks
 - Dependency Injection: Mittels der Dependency Injection wird jegliche Konfiguration aller Abhängigkeiten aus dem eigentlichen "Business"-Quellcode ferngehalten. Dadurch wird der Code schlanker und ist leichter zu warten.
