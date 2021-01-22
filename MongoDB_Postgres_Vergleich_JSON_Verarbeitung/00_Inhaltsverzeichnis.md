@@ -24,9 +24,9 @@ Erstellt von:
 
 5. [Vergleich der JSON Verarbeitung](05_Vergleich_von_MongoDB_und_PostgreSQL.md)
 
-6. [Über PostgreSQL](06_Fazit.md)
+6. [Fazit](06_Fazit.md)
 
-7. [Über PostgreSQL](07_Literaturverzeichnis.md)
+7. [Literaturverzeichnis](07_Literaturverzeichnis.md)
 
    
 
