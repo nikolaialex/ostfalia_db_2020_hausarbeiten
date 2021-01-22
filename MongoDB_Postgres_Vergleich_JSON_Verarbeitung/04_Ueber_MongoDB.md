@@ -2,7 +2,13 @@
 
 ## 4. Über MongoDB
 
-![MongoDB_Logo](img/MongoDB_Logo.png "MongoDB Logo")
+<p align="center">
+<img width="500" src="img/MongoDB_Logo.png">
+</p>
+<p align="center">
+Abbildung 4: Logo von MongoDB<br>
+(Quelle:  https://www.mongodb.com/brand-resources)
+</p>
 
 ### Überblick
 
