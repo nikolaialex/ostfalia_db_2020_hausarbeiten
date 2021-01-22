@@ -2,10 +2,14 @@
 
 ## 2. Über JSON
 
-![JSON_Logo](img/JSON_160px.png "JSON Logo")
+<p align="center">
+<img width="200" src="https://iconape.com/wp-content/png_logo_vector/json-logo.png">
+</p>
 
-<p align="center">Abbildung 1: JSON Logo<br>
-(Quelle: https://www.cleanpng.com/png-json-svg-761162/)
+
+<p align="center">
+Abbildung 1: JSON Logo<br>
+(Quelle: https://iconape.com/wp-content/png_logo_vector/json-logo.png)
 </p>
 
 
@@ -25,11 +29,11 @@ Die Entstehungsgeschichte von JSON ist in der Hinsicht besonders, dass die Techn
 
 ```yaml
 <html><head><script> 
-	document.domain = 'fudco';  
-	parent.session.receive(    
-		{ to: "session," do: "test,"     
-		text: "Hello world" }  
-	)
+document.domain = 'fudco';  
+parent.session.receive(    
+{ to: "session," do: "test,"     
+text: "Hello world" }  
+)
 </script></head></html>
 ```
 [3]
@@ -68,7 +72,15 @@ Wichtig für die Flexibilität von JSON ist, diese Elemente können ineinander v
 
 Natürlich werden in Programmiersprachen und Datenbanken immer mehr Datentypen benötigt, als diese Basiselemente liefern können. Und so werden dort entsprechende Erweiterungen/Lösungen implementiert, um auch diese speichern/verarbeiten zu können, aber es ist gut, dass diese nicht in JSON an sich mit aufgenommen werden. Denn nur so behält es seine einfache Struktur, die es so erfolgreich gemacht hat.
 
-![JSON Element Typen](img/JSON-Elemente.png)
+<p align="center">
+<img width="600" src="https://www.json.org/img/value.png">
+</p>
+
+
+<p align="center">
+Abbildung 2: JSON Element Typen<br>
+(Quelle: https://www.json.org/img/value.png)
+</p>
 
 
 
