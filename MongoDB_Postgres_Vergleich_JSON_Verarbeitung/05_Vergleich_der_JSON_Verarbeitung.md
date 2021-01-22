@@ -116,7 +116,48 @@ MongoDB bietet folgende Indextypen an:
 
 ### Tests und Erfahrungsbericht
 
-+++ Platz für Content+++
+In den bisherigen Kapiteln haben wir die Stärken und Schwächen von JSON, Postgres und MongoDB theoretisch betrachtet. Deshalb sollen jetzt praktische Tests und ein Erfahrungsbericht besprochen werden, die aufzeigen, wie sich die Technologien unter diesen Bedingungen schlagen.
+
+#### Performance Test MongoDB vs. PostgreSQL bei Portvita 
+
+Das im Folgenden beschriebene Testszenario wurde von Fabio Pardi und Kollegen bei der Firma Portvita durchgeführt. [5] Netterweise haben sie ihre Erkenntnisse in einem [Blog Post](https://portavita.github.io/2018-10-31-blog_A_JSON_use_case_comparison_between_PostgreSQL_and_MongoDB/) zur Verfügung gestellt. 
+
+Zu Beginn beschreibt Pardi die Motivation für den Test. Portvita arbeitet in seinen Projekten sowohl mit MongoDB als auch Postgres und bei dem Start eines Projekts kam die Frage auf, welche Datenbank besser geeignet wäre. Dabei zeigte sich, dass sie keinen direkten Performancevergleich der beiden Datenbanken vorliegen hatten. So war die Idee für ihren Test geboren. Genauer eingegrenzt wurde der Test auf einen Vergleich von: Abfrageausführung und Speicherplatzverbrauch.
+
+##### Test Setup
+
+Pardi beschreibt ausführlich das Test Setup, um das Verfahren transparent zu machen und um zu zeigen, wie die Vergleichbarkeit der Testergebnisse hergestellt wird.
+
+- Es wurde eine virtuelle Maschine mit CentOS 6.8 verwendet.
+- Das Setup ermöglichte schreibgeschützte Benchmarks.
+- Alle Tests wurden mehrfach wiederholt und Durchschnittswerte verwendet.
+- Als Daten wurden anonymisierte Echtdaten von Portvita im FHIR Format verwendet (Portvita ist im Bereich Health Care tätig. Es geht um Krankenakten. Portvita wollte natürlich primär die Performance der DB’s für ihren eigenen Use Case testen. FHIR steht für Healthcare Interoperability Resources.)
+- Die für den Test verwendeten Datenbankabfragen basieren ebenfalls auf Abfragen, die Portvita bereits innerhalb ihrer Projekte verwendet.
+- Auf der Testmaschine wurden sog. “Vanilla Versions” von MongoDB und Postgres installiert. Die DB’s sind also in ihren Standardversionen, ohne customizations getestet worden.
+
+Hier eine Übersicht der Daten, wie sie in Tabellenform für den Test vorlagen:
+
+| Relation | Schema | Total size |
+| -------- | ------ | ---------- |
+| m_table  | fhir2  | 36 GB      |
+| x_table  | fhir2  | 24 GB      |
+| MY_table | fhir2  | 1413 MB    |
+| x_table  | fhir3  | 981 MB     |
+| k_table  | fhir3  | 937 MB     |
+| q_table  | fhir2  | 827 MB     |
+| w_table  | fhir3  | 713 MB     |
+| r_table  | fhir2  | 601 MB     |
+| w_table  | fhir2  | 499 MB     |
+| c_table  | fhir2  | 398 MB     |
+| MY_table | fhir3  | 38 MB      |
+| z_table  | fhir3  | 648 kB     |
+Gut zu sehen ist, dass mit den Tabellen ein großes Spektrum von Größen abgedeckt wurde, sowie die FHIR Formatversionen 2 und 3 verwendet wurden.
+
+
+
+
+
+
 
 ### Projekterfahrungsbericht eines großen, internationalen Automobilherstellers: Von MongoDB zu Postgres via AWS Glue*
 
