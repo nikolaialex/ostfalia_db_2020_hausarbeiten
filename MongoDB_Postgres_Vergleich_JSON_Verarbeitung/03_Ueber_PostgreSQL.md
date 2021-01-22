@@ -76,10 +76,5 @@ Der Erfolg von Postgres zeigt sich auch im Kreis der großen Nutzer. Wie bereits
 
 
 
-<p align="center">
-<img width="500" src="img/MongoDB_Logo.png">
-</p>
-<p align="center">
-Abbildung 4: Logo von MongoDB<br>
-(Quelle:  https://www.mongodb.com/brand-resources)
-</p>
+[Weiter](04_Ueber_MongoDB.md)
+
