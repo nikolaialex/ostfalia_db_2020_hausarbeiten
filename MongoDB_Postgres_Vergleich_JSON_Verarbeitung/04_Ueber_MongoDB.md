@@ -24,7 +24,7 @@ Ein Beispiel: In einer Praxis sollen die Patientenakten digitalisiert werden. Je
 
 Eine effizientere Methode, die den modernen Applikationen von Nutzen sein soll, ist MongoDB. Horowitz, Ryan und Merriman entwickelten eine Datenbank, die kein einheitliches Schema benötigt, sondern die Daten in einem Dokument ablegt, welches unterschiedlich viele Datenfelder beinhalten kann. Die Erstveröffentlichung der MongoDB fand 2009 statt und schlug große Wellen in der Technologiebranche. [10] Mittlerweile hat MongoDB 17.000 Kunden in über 100 Ländern und die Datenplattform wurde über 90 Millionen Mal heruntergeladen (Stand Oktober 2020). [13] 
 
-Bis zum 15.Oktober 2018 wurde MongoDB als OpenSource veröffentlicht und wird seitdem unter einer Server Side Public License vertrieben. [12]
+Bis zum 15. Oktober 2018 wurde MongoDB als OpenSource veröffentlicht und wird seitdem unter einer Server Side Public License vertrieben. [12]
 
 MongoDB ist in mehreren Varianten verfügbar:
 

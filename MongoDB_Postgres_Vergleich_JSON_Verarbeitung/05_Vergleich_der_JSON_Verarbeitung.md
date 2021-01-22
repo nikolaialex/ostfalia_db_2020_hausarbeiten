@@ -8,8 +8,7 @@ Wir haben in den vorhergehenden Kapiteln einen allgemeinen Eindruck von JSON, Mo
 
 ### Verarbeitung von JSON in Postgres
 
-Wenn es um die Verarbeitung von JSON in Postgres geht, kommt man nicht um die Differenzierung zwischen JSON und JSONB in Postgres herum. Wie im Kapitel über Postgres schon kurz beschrieben, wurde mit PostgreSQL-9.2 zuerst das reine JSON-Format in Postgres eingeführt. Das bedeutet die native Unterstützung für das eigentliche JSON Format. Allerdings sind die damit verbundenen formatierten Textdateien für leistungsintensive Abfragen, wie sie in Datenbanken oft benötigt werden, nicht besonders gut geeignet. [9] Suchvorgänge und damit 
-sind dabei wichtige Themen, die uns hier noch weiter begleiten werden. Das reine JSON-Format unterstützt nur die klassische B-Tree Indexierung, was heute für schnelle und effiziente Suchvorgänge nicht mehr das Optimum ist. [9]
+Wenn es um die Verarbeitung von JSON in Postgres geht, kommt man nicht um die Differenzierung zwischen JSON und JSONB in Postgres herum. Wie im Kapitel über Postgres schon kurz beschrieben, wurde mit PostgreSQL-9.2 zuerst das reine JSON-Format in Postgres eingeführt. Das bedeutet die native Unterstützung für das eigentliche JSON Format. Allerdings sind die damit verbundenen formatierten Textdateien für leistungsintensive Abfragen, wie sie in Datenbanken oft benötigt werden, nicht besonders gut geeignet. [9] Suchvorgänge und damit Indexierungen sind dabei wichtige Themen, die uns hier noch weiter begleiten werden. Das reine JSON-Format unterstützt nur die klassische B-Tree Indexierung, was heute für schnelle und effiziente Suchvorgänge nicht mehr das Optimum ist. [9]
 Mit PostgreSQL-9.4 wurde deshalb JSONB eingeführt. Es ist eine Erweiterung des JSON Datentyps, die die JSON Daten im Binärformat speichert. JSONB erweitert die Möglichkeiten zur Arbeit mit JSON-Daten und Suche in den JSON-Daten. Die initiale Eingabe ist aufgrund der nötigen Konvertierung etwas langsamer als bei reinem JSON, aber ab dann ist die Verarbeitung deutlich schneller, da die Dateien nicht jedes Mal wieder geparst werden müssen. [11] Damit ist JSONB klar die präferierte Methode zur Arbeit mit JSON in Postgres.
 
 
@@ -37,7 +36,7 @@ dbt3=#
 
 [9]
 
-Mit der gleichen Eingabe bei einer Tabelle in JSONB, funktioniert die Abfrage. Das ist nur ein sehr simples Beispiel, aber zeigt bei wie kleinen Dingen die Vorteile von JSONB anfangen.
+Mit der gleichen Eingabe bei einer Tabelle in JSONB, funktioniert die Abfrage. Das ist nur ein sehr simples Beispiel, aber zeigt auf wo die Vorteile von JSONB anfangen.
 
 
 
@@ -249,7 +248,7 @@ Wie weiter oben schon erwähnt, konnte MongoDB die gleiche Datenmenge in etwa de
 Bei den Abfragegeschwindigkeiten ergab sich ein nicht so eindeutiges Bild. Postgres zeigte meistens eine schlechtere Performance. Bei den Bedingungen “warmer Cache” und mit Indexierung konnte Postgres Mongo DB jedoch tatsächlich schlagen, mit 30ms vs 71ms. Es ist nicht das erste Mal, dass dies bei Tests festgestellt wird und seitdem wurde bei MongoDB viel getan, um hier besser zu werden. In der Tat hat MongoDB Postgres in den meisten Cases geschlagen. Aber es bleibt dennoch spannend. Es gibt Cases, in denen eine nicht-dokumentenorientierte DB eine Datenbank, die dokumentenorientiert ist und nativ mit JSON arbeitet, in der Verarbeitung von JSON schlagen kann. In seinem Fazit betont Pardi, dass diese Testergebnisse keinen endgültigen Gewinner zeigen, da sich je nach Anwendungsfall für beide Seiten Vor- und Nachteile ergeben. Die endgültige Performance ergibt sich für jeden Anwendungsfall neu. Ein weiteres Kriterium ist auch immer die Menge der einbezogenen Parameter. Pardi gibt selbst an, dass ihre Ergebnisse nur auf sehr wenigen Parametern beruhen. Hier ließe sich sicher noch mehr mit einbeziehen. Aber es muss im Endeffekt immer eine Abwägung getroffen werden, was noch sinnvollerweise mit einzubeziehen ist, und was nicht.
 
 
-### Projekterfahrungsbericht eines großen, internationalen Automobilherstellers: Von MongoDB zu Postgres via AWS Glue*
+### Projekterfahrungsbericht eines großen, internationalen Automobilherstellers: Von MongoDB zu Postgres via AWS Glue [^1]
 
 Im Zeitalter der Digitalisierung setzt auch ein Branchenriese aus der Automobilindustrie auf die Entwicklung eines digitalen Vertriebskanals. Ziel ist die Erstellung einer digitalen Plattform, die den Vertragspartnern und Händlern weltweit einheitliche Webshop Funktionalitäten bietet im Marken Look-and-Feel. In diesem Rahmen arbeiten viele Entwickler in kleinen Teams an der Realisierung sogenannter Feature Apps, die als Microservices verstanden werden können. Im folgenden betrachten wir die Projektumsetzung und Datenbankentscheidungen eines dieser Teams genauer. Das Team entwickelt eine Recommendation-Engine, die Produktempfehlungen anzeigt.
 
@@ -297,6 +296,10 @@ Abbildung 7: Neues Projekt Set-Up
 
 
 Mit dieser Lösung ist es dem Team gelungen die anfängliche Lösung mit MongoDB, in der sie mit vielen Unsicherheiten umgehen und doch schnell lieferfähig sein mussten und daher auf die Flexibilität der Datenbank angewiesen waren, mit zunehmender Projektreife weiterzuentwickeln. An dem Punkt, an dem Analytics gefordert wurde, die Datenmodelle ausgereift und zugänglich waren, wurde es nötig umzudenken. Und anstelle eines kompletten Wechseln, der automatisch auch einen Change Request wie beispielsweise die neue Orchestrierung der Requests an einen geänderten Endpunkt an andere Teams beinhaltete, hat man einen Weg gefunden sein bestehenden Set-Up umzuwandeln und mit wenigen weiteren Tools auch für die neuen Anforderungen auszurüsten.
+
+
+
+[^1]: Dieser Projektbericht stammt aus den Erfahrungswerten, den einer der Autoren in seiner beruflichen Laufbahn gesammelt hat.
 
 
 [Weiter](06_Fazit.md)

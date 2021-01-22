@@ -16,7 +16,8 @@ Abbildung 1: Logo von JSON<br>
 
 ### Überblick
 
-JSON (JavaScript Object Notation) ist ein Open Source Datenaustauschformat, das für Menschen einfach zu lesen, zu schreiben und für Maschinen einfach zu parsen und zu generieren ist. Es basiert auf einer Untermenge von JavaScript. Bei JSON handelt es sich um ein Textformat, das komplett unabhängig von Programmiersprachen ist. [1] Parser und Generatoren existieren für die meisten verbreiteten Programmiersprachen. JSON hat sich in den letzten Jahren als “das Format” für Datenübertragung im Web etabliert und damit XML aus dieser Position verdrängt. [3] Das liegt besonders an JSON’s schlanker Struktur und einfacher Lesbarkeit. JSON wurde ursprünglich Anfang der 2000er Jahren von Douglas Crockford spezifiziert. Erstmals standardized wurde es dann in 2013, als ECMA-404. Seit Ende 2017 wird es durch zwei unterschiedliche, inhaltlich aber gleiche, Standards spezifiziert – RFC 8259 sowie weiterhin durch ECMA-404. [3] 
+JSON (JavaScript Object Notation) ist ein Open Source Datenaustauschformat, das für Menschen einfach zu lesen, zu schreiben und für Maschinen einfach zu parsen und zu generieren ist. Es basiert auf einer Untermenge von JavaScript. Bei JSON handelt es sich um ein Textformat, das komplett unabhängig von Programmiersprachen ist. [1] Parser und Generatoren existieren für die meisten verbreiteten Programmiersprachen. JSON hat sich in den letzten Jahren als “das Format” für Datenübertragung im Web etabliert und damit XML aus dieser Position verdrängt. [3] Dies liegt besonders an der schlanker Struktur und einfacher Lesbarkeit. JSON wurde ursprünglich Anfang der 2000er Jahren von Douglas Crockford spezifiziert. Erstmals standardtisiert wurde es dann in 2013, als ECMA-404. 
+Seit Ende 2017 wird es durch zwei unterschiedliche, inhaltlich aber gleiche, Standards spezifiziert – RFC 8259 sowie weiterhin durch ECMA-404. [3] 
 
 
 
