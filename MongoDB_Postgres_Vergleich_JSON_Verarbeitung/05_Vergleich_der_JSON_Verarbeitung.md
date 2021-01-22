@@ -103,10 +103,10 @@ Mit der Verwendung von BSON schafft es MongoDB, das im Web gebräuchliche Datenf
 Wie bei Postgres spielt auch bei MongoDB die Indexierung eine wichtige Rolle. Sie ermöglicht den schnellen Zugriff auf ein Feld in der Datenbank und verbessert damit die Effizienz der Lese-Operatoren. Ohne den Index führt MongoDB einen Collection Scan durch, der alle Dokumente in einer Collection nach dem passenden Query Statement durchsucht. Der Index speichert ein spezielles Datenfeld oder ein Set von Datenfeldern, geordnet nach dem Wert des Feldes bzw. der Felder. [18]
 
 <p align="center">
-<img width="800" src="img/projektset_up.png">
+<img width="800" src="img/Index2.png">
 </p>
 <p align="center">
-Abbildung 7: Neues Projekt Set-Up
+Abbildung 5: Neues Projekt Set-Up
 </p>
 
 
