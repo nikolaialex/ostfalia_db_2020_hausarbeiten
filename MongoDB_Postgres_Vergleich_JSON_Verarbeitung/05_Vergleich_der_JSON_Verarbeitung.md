@@ -248,7 +248,7 @@ Wie weiter oben schon erwähnt, konnte MongoDB die gleiche Datenmenge in etwa de
 Bei den Abfragegeschwindigkeiten ergab sich ein nicht so eindeutiges Bild. Postgres zeigte meistens eine schlechtere Performance. Bei den Bedingungen “warmer Cache” und mit Indexierung konnte Postgres Mongo DB jedoch tatsächlich schlagen, mit 30ms vs 71ms. Es ist nicht das erste Mal, dass dies bei Tests festgestellt wird und seitdem wurde bei MongoDB viel getan, um hier besser zu werden. In der Tat hat MongoDB Postgres in den meisten Cases geschlagen. Aber es bleibt dennoch spannend. Es gibt Cases, in denen eine nicht-dokumentenorientierte DB eine Datenbank, die dokumentenorientiert ist und nativ mit JSON arbeitet, in der Verarbeitung von JSON schlagen kann. In seinem Fazit betont Pardi, dass diese Testergebnisse keinen endgültigen Gewinner zeigen, da sich je nach Anwendungsfall für beide Seiten Vor- und Nachteile ergeben. Die endgültige Performance ergibt sich für jeden Anwendungsfall neu. Ein weiteres Kriterium ist auch immer die Menge der einbezogenen Parameter. Pardi gibt selbst an, dass ihre Ergebnisse nur auf sehr wenigen Parametern beruhen. Hier ließe sich sicher noch mehr mit einbeziehen. Aber es muss im Endeffekt immer eine Abwägung getroffen werden, was noch sinnvollerweise mit einzubeziehen ist, und was nicht.
 
 
-### Projekterfahrungsbericht eines großen, internationalen Automobilherstellers: Von MongoDB zu Postgres via AWS Glue [^1]
+### Projekterfahrungsbericht eines großen, internationalen Automobilherstellers: Von MongoDB zu Postgres via AWS Glue*
 
 Im Zeitalter der Digitalisierung setzt auch ein Branchenriese aus der Automobilindustrie auf die Entwicklung eines digitalen Vertriebskanals. Ziel ist die Erstellung einer digitalen Plattform, die den Vertragspartnern und Händlern weltweit einheitliche Webshop Funktionalitäten bietet im Marken Look-and-Feel. In diesem Rahmen arbeiten viele Entwickler in kleinen Teams an der Realisierung sogenannter Feature Apps, die als Microservices verstanden werden können. Im folgenden betrachten wir die Projektumsetzung und Datenbankentscheidungen eines dieser Teams genauer. Das Team entwickelt eine Recommendation-Engine, die Produktempfehlungen anzeigt.
 
@@ -297,9 +297,9 @@ Abbildung 7: Neues Projekt Set-Up
 
 Mit dieser Lösung ist es dem Team gelungen die anfängliche Lösung mit MongoDB, in der sie mit vielen Unsicherheiten umgehen und doch schnell lieferfähig sein mussten und daher auf die Flexibilität der Datenbank angewiesen waren, mit zunehmender Projektreife weiterzuentwickeln. An dem Punkt, an dem Analytics gefordert wurde, die Datenmodelle ausgereift und zugänglich waren, wurde es nötig umzudenken. Und anstelle eines kompletten Wechseln, der automatisch auch einen Change Request wie beispielsweise die neue Orchestrierung der Requests an einen geänderten Endpunkt an andere Teams beinhaltete, hat man einen Weg gefunden sein bestehenden Set-Up umzuwandeln und mit wenigen weiteren Tools auch für die neuen Anforderungen auszurüsten.
 
+______________________
 
-
-[^1]: Dieser Projektbericht stammt aus den Erfahrungswerten, den einer der Autoren in seiner beruflichen Laufbahn gesammelt hat.
+*Dieser Projektbericht stammt aus den Erfahrungswerten, den einer der Autoren in seiner beruflichen Laufbahn gesammelt hat.
 
 
 [Weiter](06_Fazit.md)
