@@ -163,6 +163,82 @@ Gut zu sehen ist, dass mit den Tabellen ein großes Spektrum von Größen abgede
 | PostgreSQL 9.6.6 | 66    | JSON format  |
 | PostgreSQL 9.6.6 | 71   | JSONB format  |
 
+Es fällt deutlich auf, dass MongoDB fast nur die Hälfte des Speicherplatzes benötigt, wie Postgres. Darin spiegelt sich schön einer der großen Vorteile von dokumentenorientierten Datenbanken wider, weil diese aufgrund der nicht nötigen Tabellenstruktur Speicherplatz sparen.
+
+##### Test Abfrageperformance
+
+Für den Vergleich der Abfrageperformance wurden MongoDB 4 und Postgres 10.5 verglichen. Für eine valide Benchmark wurden einheitliche Queries für beide DBs definiert, die folgend noch gezeigt werden. In den Tests wurde sowohl die Performance mit “kaltem” und “warmem” Cache als auch mit und ohne Indexierung erfasst. Folgend Query und Query Plan für Postgres.
+
+1. **Postgres Query:**
+```yaml
+SELECT * FROM fhir3.MY_table, jsonb_array_elements(data -> 'Content_Array') j WHERE data  @> '{ "MarriageDate": "2012-03-03" }' AND j @> '{"Catalog_id": "A.B.C.D", "value": "3wukr" }';
+```
+
+2. **Postgres Query Plan:**
+```yaml
+Nested Loop  (cost=0.01..25360.33 rows=3913 width=64)
+   ->  Seq Scan on MY_table  (cost=0.00..17495.20 rows=3913 width=32)
+         Filter: ((data ->> 'MarriageDate'::text) = '2012-03-03'::text)
+   ->  Function Scan on jsonb_array_elements j  (cost=0.01..2.00 rows=1 width=32)
+       Filter: (((value ->> 'Catalog_id'::text) = 'A.B.C.D'::text) AND ((value ->> 'value'::text) = '3wukr'::text))
+```
+
+Es wurde dann eine Reihe von Tests durchgeführt. Das Optimum von 0.544 ms wurde mit mit folgenden Settings erreicht:
+
+- JSONB Format
+- GIN-Indexierung
+- warmer Cache
+
+Folgend Query und Query Plan für MongoDB:
+
+1. **MongoDB Query:**
+```yaml
+db.fhir3.MY_table.find({ "MarriageDate": "2012-03-03", "Content_Array" : { "$elemMatch" : { "$and" : [ { "Catalog_id" : "A.B.C.D"} , { "value" : "3wukr"}]}}})
+```
+
+2. **MongoDB Query Plan:**
+```yaml
+data planner:
+"winningPlan" : {
+"stage" : "FETCH",
+"filter" : {"Content_Array" : {"$elemMatch" : {"$and" : [
+{"Catalog_id" : {"$eq" : "A.B.C.D"}},
+{"value" : {"$eq" : "3wukr"}}
+]
+}}},
+"inputStage" : {"stage" : "IXSCAN",
+"keyPattern" : {"MarriageDate" : 1},
+"indexName" : "MarriageDate_1",
+"isMultiKey" : false,
+"isUnique" : false,
+"isSparse" : false,
+"isPartial" : false,
+"indexVersion" : 1,
+"direction" : "forward",
+"indexBounds" : {"MarriageDate" : ["[\"2012-03-03\", \"2012-03-03\"]"]}}},
+```
+
+
+
+Wie bei Postgres wurde wieder eine Reihe von Tests durchgeführt. Das Optimum wurde mit “warmem” Cache und Indexierung (B-Tree) erreicht. Das Ergebnis wird. als 0.x? ms angegeben, denn leider kann das log bei Werten und 1 ms wohl keinen genauen Wert ausgeben.
+
+##### Testergebnis Abfragegeschwindigkeit:
+| **Database**  | **Conditions** | **Cold Cache (ms)** | **Warm Cache (ms)** |
+| ------------- | -------------- | ------------------- | ------------------- |
+| Postgres 10.5 | No Index       | 711                 | 30                  |
+| Postgres 10.5 | Indexed        | 121                 | 0.544               |
+| Mongo 4.0     | No Index       | 147                 | 71                  |
+| Mongo 4.0     | Indexed        | 40                  | 0.x?                |
+
+
+
+##### Testfazit
+
+Wie weiter oben schon erwähnt, konnte MongoDB die gleiche Datenmenge in etwa der Hälfte des Speicherplatzes unterbringen, die Postgres benötigt. Wenn also Speicherplatz eine kritische Größe darstellt, kann dies ein entscheidendes Argument für MongoDB werden.
+
+Bei den Abfragegeschwindigkeiten ergab sich ein nicht so eindeutiges Bild. Postgres zeigte meistens eine schlechtere Performance. Bei den Bedingungen “warmer Cache” und mit Indexierung konnte Postgres Mongo DB jedoch tatsächlich schlagen, mit 30ms vs 71ms. Es ist nicht das erste Mal, dass dies bei Tests festgestellt wird und seitdem wurde bei MongoDB viel getan, um hier besser zu werden. In der Tat hat MongoDB Postgres ja in den meisten Cases geschlagen. Aber es bleibt dennoch spannend, dass es Cases gibt, wo eine nicht-dokumentenorientierte DB eine Datenbank, die dokumentenorientiert ist und nativ mit JSON arbeit in der Verarbeitung von JSON schlagen kann.In seinem Fazit betont Pardi, dass diese Testergebnisse keinen endgültigen Gewinner zeigen, da sich je nach Anwendungsfall für beide Seiten Vor- und Nachteile ergeben. Die endgültige Performance ergibt sich für jeden Anwendungsfall neu. Die Frage ist auch immer die Menge der einbezogenen Parameter. Pardi gibt selbst an, dass ihre Ergebnisse nur auf sehr wenigen Parametern beruhen. Hier ließe sich sicher noch mehr mit einbeziehen. Aber es muss im Endeffekt immer eine Abwägung getroffen werden, was noch sinnvollerweise mit einzubeziehen ist, und was nicht.
+
+
 
 
 
