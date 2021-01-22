@@ -103,7 +103,7 @@ Mit der Verwendung BSON schafft es MongoDB das im Web gebräuchlichste Datenform
 
 Wie bei Postgres spielt auch bei MongoDB die Indexierung eine wichtige Rolle. Sie ermöglicht den schnellen Zugriff auf ein Feld in der Datenbank und verbessern damit die Effizienz der Lese-Operatoren. Ohne den Index führt MongoDB einen Collection Scan durch, der alle Dokumente in einer Collection nach dem passenden Query Statement durchsucht. Der Index speichert ein spezielles Datenfeld oder ein Set von Datenfeldern, geordnet nach dem Wert des Feldes bzw. der Felder. [18]
 
-![Darstellung einer Query, die passende Dokumente auswählt und sortiert mit Hilfe eines Index](/Users/herbefen/Desktop)
+![Darstellung einer Query, die passende Dokumente auswählt und sortiert mit Hilfe eines Index](img/index.png "Darstellung einer Query, die passende Dokumente auswählt und sortiert mit Hilfe eines Index.")
 
 MongoDB bietet folgende Indextypen an: 
 1. Single Field Index
