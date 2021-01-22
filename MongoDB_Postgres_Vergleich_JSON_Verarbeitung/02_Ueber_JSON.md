@@ -8,7 +8,7 @@
 
 
 <p align="center">
-Abbildung 1: JSON Logo<br>
+Abbildung 1: Logo von JSON<br>
 (Quelle: https://iconape.com/json-logo-icon-svg-png.html)
 </p>
 
@@ -82,6 +82,7 @@ Natürlich werden in Programmiersprachen und Datenbanken immer mehr Datentypen b
 Abbildung 2: JSON Element Typen<br>
 (Quelle: https://www.json.org)
 </p>
+
 
 
 
