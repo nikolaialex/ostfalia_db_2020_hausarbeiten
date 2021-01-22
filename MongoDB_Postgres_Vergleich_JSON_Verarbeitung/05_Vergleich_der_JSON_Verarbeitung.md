@@ -165,6 +165,8 @@ Gut zu sehen ist, dass mit den Tabellen ein großes Spektrum von Größen abgede
 
 Es fällt deutlich auf, dass MongoDB fast nur die Hälfte des Speicherplatzes benötigt, wie Postgres. Darin spiegelt sich schön einer der großen Vorteile von dokumentenorientierten Datenbanken wider, weil diese aufgrund der nicht nötigen Tabellenstruktur Speicherplatz sparen.
 
+
+
 ##### Test Abfrageperformance
 
 Für den Vergleich der Abfrageperformance wurden MongoDB 4 und Postgres 10.5 verglichen. Für eine valide Benchmark wurden einheitliche Queries für beide DBs definiert, die folgend noch gezeigt werden. In den Tests wurde sowohl die Performance mit “kaltem” und “warmem” Cache als auch mit und ohne Indexierung erfasst. Folgend Query und Query Plan für Postgres.
