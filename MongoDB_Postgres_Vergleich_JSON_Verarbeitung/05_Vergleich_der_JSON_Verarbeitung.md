@@ -142,7 +142,7 @@ Für die Umsetzung eines ersten Prototypens einer Recommendation-Engine entschie
 
 Nach dem ersten Release der Feature App wurde schnell klar, dass die Trainings- und Skalierungsmöglichkeiten auf Serenity zu limitiert für die Projektvision sind. Hinzu kam der Wunsch einer Auswertungsmöglichkeit für die Profitabilität der Feature App. Aus diesem Grund wurde das ursprüngliche Set-Up neu überarbeitet. Neben der Service Umgebung Serenity hat der Automobilhersteller eine weitere AWS Instanz entwickelt, die zukünftig als Data Lake und Data Warehouse fungieren soll: die Cloud Analytics Plattform (CAP). Ziel ist es hier alle relevanten Daten für die Zwecke Analytics, Personalisierung und Data Science zu sammeln und verfügbar zu machen.Das Projektteam entschied sich für einen Umzug der Machine Learning Modelle auf die CAP. Hier gelten die Beschränkungen von Serenity nicht mehr und es kann an einer Skalierung gearbeitet werden. Allerdings stellte der Umzug das Team auch vor eine Herausforderung, denn die Daten, die in der MongoDB gespeichert sind müssen ebenfalls auf die CAP transferiert werden. Auf der CAP wird Redshift genutzt. Redshift ist eine SQL-kompatible Data Warehouse Lösung von AWS, die auf Postgres basiert.
 
-![Funktionsweise von Redshift](img/Users/herbefen/Downloads)
+![Funktionsweise von Redshift](img/Redshift_Nodes.png "Funktionsweise von Redshift")
 
 
 
@@ -150,7 +150,7 @@ Um auf der CAP Zugang zu den Daten zu haben, bedarf es daher einen Umzug von Mon
 
 
 
-![Neues Projekt Set-Up](img/Users/herbefen/Downloads)
+![Neues Projekt Set-Up](img/projektset_up.png "Neues Projekt Set-Up")
 
 
 
