@@ -151,9 +151,17 @@ Hier eine Übersicht der Daten, wie sie in Tabellenform für den Test vorlagen:
 | c_table  | fhir2  | 398 MB     |
 | MY_table | fhir3  | 38 MB      |
 | z_table  | fhir3  | 648 kB     |
+
 Gut zu sehen ist, dass mit den Tabellen ein großes Spektrum von Größen abgedeckt wurde, sowie die FHIR Formatversionen 2 und 3 verwendet wurden.
 
+##### Testergebnis Speicherplatzverbrauch
 
+| Type of data  | Disk Space (GB) | Notes |
+| ------------  | --------------- | ----- |
+| Exported JSON files | 106       |       |
+| MongoDB | 36                    |       |
+| PostgreSQL 9.6.6 | 66    | JSON format  |
+| PostgreSQL 9.6.6 | 71   | JSONB format  |
 
 
 
