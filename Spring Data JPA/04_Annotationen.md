@@ -22,6 +22,7 @@ kommt bei der zugrundeliegenden Anwendungsklasse zum Einsatz.
 - Die `@Configuration` Annotation legt die annotierte Klasse als Quelle für Bean-Definitionen innerhalb des Anwendungskontextes fest.
 - Die `@EnableAutoConfiguration` Annotation sorgt dafür, dass anhand von bestimmten Einstellungen automatisch Beans erzeugt werden.
 - Die `@ComponentScan` Annotation bewirkt, dass Spring ausgehend von dem Package der Anwendungsklasse nach weiteren Komponenten, Konfigurationen und Services sucht.  
+  
 [22]
 
 ### @Bean
@@ -52,7 +53,7 @@ public class MyApplication {
 ```
 
 Die `@Bean` Annotation wird auf Methodenebene verwendet, um Beans anhand von der annotierten Methode zu erzeugen. 
-Während die `JavaConfig` durchgeführt wird, wird die annotierte Methode ausgeführt und der return-Wert als Bean im Anwendungskontext registriert.
+Während die `JavaConfig` durchgeführt wird, wird die annotierte Methode ausgeführt und der return-Wert als Bean im Anwendungskontext registriert.  
 [22]
 
 ### @EnableTransactionManagement
@@ -65,7 +66,8 @@ public class MyConfiduration {
 }
 ```
 Die `@EnableTransactionManagement` Annotation stellt die Voraussetzung für die nachfolgende `@Transactional` Annotation dar.
-Sie wird auf Klassenebene an einer Konfigurationsklasse angewandt und sorgt dafür, dass das manuelle Steuern von Transaktionen möglich wird.
+Sie wird auf Klassenebene an einer Konfigurationsklasse angewandt und sorgt dafür, dass das manuelle Steuern von Transaktionen möglich wird.  
+[24]
 
 ### @Transactional
 ```java
@@ -81,7 +83,7 @@ public class MyClass {
 ```
 Die `@Transactional` Annotation erlaubt es, das transaktionale Verhalten einer Methode oder - sofern die Annotation auf Klassenebene angewandt wird - aller Methoden einer Klasse zu konfigurieren.
 Die Annotation verfügt über weitere Konfigurationsmöglichkeiten, um das Verhalten zu beeinflussen. Neben dem `Propagation Type` lässt sich auch das `Isolation Level` der Transaktion definieren.
-Außerdem lässt sich ein Timeout für die durchzuführende Operation bestimmen, `Rollback`-Regeln festlegen sowie eine `readOnly`-Flag setzen.
+Außerdem lässt sich ein Timeout für die durchzuführende Operation bestimmen, `Rollback`-Regeln festlegen sowie eine `readOnly`-Flag setzen.  
 [16]  
 
 
@@ -258,6 +260,7 @@ Zu diesem Zweck gibt es vier Möglichkeiten:
 - GenerationType.IDENTITY verwendet ein automatisches Inkrement einer Spalte, um eine eindeutige ID zu erzeugen.
 - GenerationType.SEQUENCE nutzt eine Datenbanksequenz, um einen neuen Wert für das Feld zu ermitteln
 - GenerationType.TABLE simuliert eine Datenbanksequenz, bremst allerdings durch pessimistisches Sperren das System aus  
+  
 [17]
 
 ### @Table
@@ -341,9 +344,3 @@ public class User {
 }
 ```
 [16]
-
----
-
-[16] https://www.baeldung.com/spring-data-annotations  
-[17] https://www.baeldung.com/jpa-entities
-[22] https://spring.io/guides/gs/accessing-data-jpa/
