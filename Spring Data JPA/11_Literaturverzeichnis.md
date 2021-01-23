@@ -25,7 +25,7 @@
 //05  
 [18] Working with Spring Data Repositories(Online, übersetzt aus dem Englischen),https://docs.spring.io/spring-data/data-commons/docs/1.6.1.RELEASE/reference/html/repositories.html, Zugriff am 09.01.2021  
 [19]Reasons to use Spring Data JPA(Online, übersetzt aus dem Englischen), https://thorben-janssen.com/what-is-spring-data-jpa-and-why-should-you-use-it/, Zugriff am 16.01.2021  
-[20] 4. Working with Spring Data Repositories(Online, übersetzt aus dem Englischen),https://docs.spring.io/spring-data/jpa/docs/current/reference/html/#repositories, Zugriff am 17.01.2021  
+[20] Working with Spring Data Repositories(Online, übersetzt aus dem Englischen),https://docs.spring.io/spring-data/jpa/docs/current/reference/html/#repositories, Zugriff am 17.01.2021  
 //06  
 [21] Using Named Parameters(Online, übersetzt aus dem Englischen),https://docs.spring.io/spring-data/jpa/docs/current/reference/html/#jpa.named-parameters, Zugriff am 18.01.2021  
 //07  

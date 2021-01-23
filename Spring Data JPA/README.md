@@ -32,7 +32,7 @@
 5.2 [DAO Pattern](05_Repository.md#52-dao-pattern)  
 5.3 [Repository Pattern](05_Repository.md#53-repository-pattern)  
 5.4 [Vorteile von Spring Data JPA](05_Repository.md#54-vorteile-von-spring-data-jpa)    
-5.5 [Repository](05_Repository.md#55-repositories-in-spring-data-jpa)  
+5.5 [Repositories in Spring Data JPA](05_Repository.md#55-repositories-in-spring-data-jpa)  
 5.5.1 [Interface Repository](05_Repository.md#551-interface-repository)  
 5.5.2 [Interface CrudRepository](05_Repository.md#552-interface-crudrepository)  
 5.5.3 [Interface PagingAndSortingRepository](05_Repository.md#553-interface-pagingandsortingrepository)  
