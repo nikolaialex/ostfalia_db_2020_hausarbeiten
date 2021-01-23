@@ -29,9 +29,9 @@
 [20] Spring.io (Hrsg.): Working with Spring Data Repositories(Online, übersetzt aus dem Englischen),https://docs.spring.io/spring-data/jpa/docs/current/reference/html/#repositories, Zugriff am 17.01.2021  
 //06  
 [21] Spring.io (Hrsg.): Using Named Parameters(Online, übersetzt aus dem Englischen),https://docs.spring.io/spring-data/jpa/docs/current/reference/html/#jpa.named-parameters, Zugriff am 18.01.2021  
-//04
+//04  
 [22] Spring.io (Hrsg.): Accessing Data with JPA. https://spring.io/guides/gs/accessing-data-jpa/
 //08  
 [23] Spring.io (Hrsg.): Query Methods. https://docs.spring.io/spring-data/jpa/docs/current/reference/html/#jpa.query-methods  
-//04
+//04  
 [24] Spring.io (Hrsg.): JPA Repositories. https://docs.spring.io/spring-data/jpa/docs/1.5.0.RELEASE/reference/html/jpa.repositories.html
