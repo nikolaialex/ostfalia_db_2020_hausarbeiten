@@ -414,7 +414,7 @@ die nach Wertpapierkennnummer wkn (aufsteigend) sortiert ist.*/
 Pageable sortedByWKNAsc = PageRequest.of(0, 5, Sort.by("wkn").ascending());
 ```
 
-### 5.5.4 JpaRepository
+### 5.5.4 JPARepository
 
 JPARepository erbt alle Methoden der oben genannten Repositories und erweitert sie um folgende:
 
