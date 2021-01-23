@@ -29,7 +29,7 @@
 4.2 [Model Annotationen](04_Annotationen.md#42-model-annotationen)
 5. [Repository](05_Repository.md)  
 5.1 [Einleitung](05_Repository.md#51-einleitung)  
-5.2 [DAO Pattern](05_Repository.md#52-dao-pattern)
+5.2 [DAO Pattern](05_Repository.md#52-dao-pattern)  
 5.3 [Repository Pattern](05_Repository.md#53-repository-pattern)  
 5.4 [Vorteile von Spring Data JPA](05_Repository.md#54-vorteile-von-spring-data-jpa)    
 5.5 [JPARepository](05_Repository.md#55-jparepository)  
