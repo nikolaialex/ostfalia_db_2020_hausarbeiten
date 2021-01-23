@@ -3,7 +3,7 @@
 //01  
 [1] //Ferry    
 //02  
-[2] Spring Data JPA Methodennamen(Online, übersetzt aus dem Englischen), https://thorben-janssen.com/what-is-spring-data-jpa-and-why-should-you-use-it/, Zugriff am 16.01.2021    
+[2] Thorben Janssen (Hrsg.): Spring Data JPA Methodennamen(Online, übersetzt aus dem Englischen), https://thorben-janssen.com/what-is-spring-data-jpa-and-why-should-you-use-it/, Zugriff am 16.01.2021    
 [3] Thorben Janssen (Hrsg.): Getting Started With Hibernate. https://thorben-janssen.com/hibernate-getting-started/, Abruf: 14.01.2021  
 [4] Hibernate (Hrsg.): What is Object/Relational Mapping? https://hibernate.org/orm/what-is-an-orm/, Abruf: 10.01.2021  
 [5] Ambysoft Inc (Hrsg.): Mapping Objects to Relational Databases: O/R Mapping In Detail. http://www.agiledata.org/essays/mappingObjects.html, Abruf: 10.01.2021    
@@ -23,12 +23,13 @@
 [16] Baeldung (Hrsg.): Spring Data Annotations. https://www.baeldung.com/spring-data-annotations    
 [17] Baeldung (Hrsg.): Defining JPA Entities. https://www.baeldung.com/jpa-entities  
 //05+07  
-[18] Working with Spring Data Repositories(Online, übersetzt aus dem Englischen),https://docs.spring.io/spring-data/data-commons/docs/1.6.1.RELEASE/reference/html/repositories.html, Zugriff am 09.01.2021
+[18] Spring.io (Hrsg.): Working with Spring Data Repositories(Online, übersetzt aus dem Englischen),https://docs.spring.io/spring-data/data-commons/docs/1.6.1.RELEASE/reference/html/repositories.html, Zugriff am 09.01.2021
 //05  
-[19] Reasons to use Spring Data JPA(Online, übersetzt aus dem Englischen), https://thorben-janssen.com/what-is-spring-data-jpa-and-why-should-you-use-it/, Zugriff am 16.01.2021  
-[20] 4. Working with Spring Data Repositories(Online, übersetzt aus dem Englischen),https://docs.spring.io/spring-data/jpa/docs/current/reference/html/#repositories, Zugriff am 17.01.2021  
+[19] Thorben Janssen (Hrsg.): Reasons to use Spring Data JPA(Online, übersetzt aus dem Englischen), https://thorben-janssen.com/what-is-spring-data-jpa-and-why-should-you-use-it/, Zugriff am 16.01.2021  
+[20] Spring.io (Hrsg.): Working with Spring Data Repositories(Online, übersetzt aus dem Englischen),https://docs.spring.io/spring-data/jpa/docs/current/reference/html/#repositories, Zugriff am 17.01.2021  
 //06  
-[21] Using Named Parameters(Online, übersetzt aus dem Englischen),https://docs.spring.io/spring-data/jpa/docs/current/reference/html/#jpa.named-parameters, Zugriff am 18.01.2021  
+[21] Spring.io (Hrsg.): Using Named Parameters(Online, übersetzt aus dem Englischen),https://docs.spring.io/spring-data/jpa/docs/current/reference/html/#jpa.named-parameters, Zugriff am 18.01.2021  
 //04
-[22] Accessing Data with JPA. https://spring.io/guides/gs/accessing-data-jpa/
+[22] Spring.io (Hrsg.): Accessing Data with JPA. https://spring.io/guides/gs/accessing-data-jpa/
 //08  
+[23] Spring.io (Hrsg.): Query Methods. https://docs.spring.io/spring-data/jpa/docs/current/reference/html/#jpa.query-methods

@@ -16,7 +16,7 @@ LessThan|findByAgeLessThan|… where x.age < ?1
 LessThanEqual|findByAgeLessThanEqual|… where x.age <= ?1
 OrderBy|findByAgeOrderByLastnameDesc|… where x.age = ?1 order by x.lastname desc
 
-Tabelle 6-1 *Schlüsselwörter innerhalb des Methodennamens*
+Tabelle 6-1 *Schlüsselwörter innerhalb des Methodennamens* [23]
 
 
 
