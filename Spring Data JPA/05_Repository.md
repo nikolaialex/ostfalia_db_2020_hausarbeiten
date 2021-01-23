@@ -6,7 +6,7 @@ Die nächsten zwei folgenden Kapitel befassen sich mit den Themen Repository und
 "*Das Ziel der Spring Data Repository-Abstraktion besteht darin, die Menge an Boilerplate-Code, die zum Implementieren von Datenzugriffsschichten für verschiedene Persistenzspeicher erforderlich ist, erheblich zu reduzieren.*"[18]. Diese Aussage ist absolut zutreffend, was Spring Data JPA und ihr Repository so besonders machen. Es wird nämlich vermieden, an mehreren Stellen mit geringen bis keinen Abweichungen wiederholt den gleichen Code zu verwenden. Im Vergleich zum Data Access Object Pattern, wo genau dies passiert und das auch sehr gerne zur Persistierung von Entitäten genutzt wird, hat man mit Hilfe des Repository-Patterns sprichwörtlich ein viel leichteres Spiel und genau dies umgesetzt.Spring Data JPA Repositories erleichtern nämlich dem Entwickler die Arbeit sehr. Mit der Implementierung des Repository sind es deutlich weniger Schritte, die er zu erfüllen hat, um das gleiche Ergebnis zu erlangen wie beim DAO-Pattern. Wiederholender Code entsteht erst gar nicht.
 In Kapitel 5.2 soll auf die Implementierung zur Persisitierung mittels des DAO-Patterns eingegangen werden, da es in der Vergangenheit große Verwendung fand. Danach soll im nächsten Kapitel 5.3 das gleiche Ergebnis mittels Spring Data JPA Repository erzielt werden. Ziel ist es, zu verdeutlichen, wo genau die Unterschiede aber auch Gemeinsamkeiten liegen, die dann in Kapitel 5.4 genauer behandelt werden, und im Besonderen wieviel weniger Code man schreiben muss, weil die Arbeit jetzt zum größten Teil von Spring Data JPA (im Hintergrund) übernommen wird. Spring Data JPA findet immer mehr Anklang und wir möchten gerne zeigen, warum dies so ist. Die in Kapitel 5.2 und 5.3 aufgeführten Code-Beispiele sind in unserem Projekt abgelegt unter [Projektcodes/repository_and_queries](./Projektcodes/repository_and_queries)
 
-Das Kapitel 5.5 "JPARepository" befasst sich dann ausführlich mit dem Thema Repository in Spring Data JPA und benennt dessen Bestandteile. Kapitel 6 befasst sich dann ausführlich mit dem Thema Queries.
+Das Kapitel 5.5 [Repositories in Spring Data JPA](05_Repository.md#55-repositories-in-spring-data-jpa) befasst sich ausführlich mit dem Thema Interfaces in Spring Data JPA, Kapitel 6 mit [Query Methods](06_Query_Methods.md).
 
 
 ## 5.2 DAO Pattern
@@ -414,7 +414,7 @@ die nach Wertpapierkennnummer wkn (aufsteigend) sortiert ist.*/
 Pageable sortedByWKNAsc = PageRequest.of(0, 5, Sort.by("wkn").ascending());
 ```
 
-### 5.5.4 JPARepository
+### 5.5.4 Interface JPARepository
 
 JPARepository erbt alle Methoden der oben genannten Repositories und erweitert sie um folgende:
 
