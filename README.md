@@ -14,7 +14,7 @@
 * Immutable Data
 * Stream Processing
 * Echtzeitdaten
-4. Batch-Layer
+4. [Batch-Layer](4_Batch_Layer.md)
 5. [Serving-Layer](5_Serving_Layer.md)
 6. [Speed-Layer](6_Speed_Layer.md)
 7. [Query-Layer](7_Query_Layer.md)
