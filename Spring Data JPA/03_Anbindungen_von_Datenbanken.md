@@ -170,8 +170,3 @@ Hibernate: select studi0_.matrnr as matrnr1_0_, studi0_.name as name2_0_ from st
 **Fazit:** Im direkten Vergleich der Datenbank-Anbindungen konnten wir feststellen, dass eine einfache Anbindung mit JDBC wesentlich weniger Aufwand erfordert und schnell zu Ergebnissen führt, insbesondere, wenn es sich um einige wenige, bereits bekannte SQL-Queries handelt.
 Mit einem ORM-Framework ist von Seiten des Programmierers mehr Konfiguration und auch Implementierungsarbeit zu leisten. Eine der größten Vorteile ist jedoch die komplette Entbindung von der SQL-Syntax innerhalb des objektorientierten Codes: es könnten auf diese Weise **Queries dynamisch zusammengesetzt werden**, außerdem werden **Fehler oft bereits zur Kompilierungszeit erkannt**, und nicht erst zur Laufzeit. [12]
 Ob die Überführung des relationalen Modells in ein Objektmodell und die Nutzung eines ORM-Mappers sinnvoll ist, hängt also in erster Linie mit der Komplexität des Projektes zusammen und muss individuell entschieden werden. Es ist hierbei vor Allem entscheidend, beide Paradigmen zu verstehen, um eine sichere und performante Software gewährleisten zu können.
-
-****
-[13] JPA Performance Benchmark (Hrsg.): Comparison of Hibernate with MySQL server vs EclipseLink with MySQL server. https://www.jpab.org/Hibernate/MySQL/server/EclipseLink/MySQL/server.html, Abruf: 12.01.2021
-
-[14] ObjectDB Software (Hrsg.): JPA Criteria API Queries. https://www.objectdb.com/java/jpa/query/criteria, Abruf: 15.01.2021

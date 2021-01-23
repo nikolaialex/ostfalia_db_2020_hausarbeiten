@@ -332,5 +332,5 @@ public class User {
 
 ---
 
-- https://www.baeldung.com/spring-data-annotations  
-- https://www.baeldung.com/jpa-entities
+[15] https://www.baeldung.com/spring-data-annotations  
+[16] https://www.baeldung.com/jpa-entities

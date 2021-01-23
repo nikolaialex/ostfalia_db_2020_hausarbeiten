@@ -108,24 +108,3 @@ Sollte Performanz im Vordergrund stehen, so lohnt sich ein Vergleich der beiden 
 | JPA DB Operationen   | geringfügig besser |  |
 
 [13]
-
-****
-[3] Thorben Janssen (Hrsg.): Getting Started With Hibernate. https://thorben-janssen.com/hibernate-getting-started/, Abruf: 14.01.2021
-
-[4] Hibernate (Hrsg.): What is Object/Relational Mapping? https://hibernate.org/orm/what-is-an-orm/, Abruf: 10.01.2021
-
-[5] Ambysoft Inc (Hrsg.): Mapping Objects to Relational Databases: O/R Mapping In Detail. http://www.agiledata.org/essays/mappingObjects.html, Abruf: 10.01.2021
-
-[6] Ambysoft Inc (Hrsg.): The Object-Relational Impedance Mismatch. http://www.agiledata.org/essays/impedanceMismatch.html, Abruf: 10.01.2021
-
-[7] Chris Ireland (Hrsg.): Impedance Mismatch? http://impedancemismatch.com/page1/page1.html, Abruf: 10.01.2021
-
-[8] Walking Techie (Hrsg.): Object Relational Impedance Mismatch. https://walkingtechie.blogspot.com/2017/12/object-relational-impedance-mismatch.html, Abruf: 10.01.2021
-
-[9] Tutorials Point (Hrsg.): Hibernate - ORM Overview. https://www.tutorialspoint.com/hibernate/orm_overview.htm, Abruf: 12.01.2021
-
-[10] Tutorials Point (Hrsg.): Hibernate - Overview. https://www.tutorialspoint.com/hibernate/hibernate_overview.htm, Abruf: 12.01.2021
-
-[11] Baeldung (Hrsg.): The Difference Between JPA, Hibernate and EclipseLink. https://www.baeldung.com/jpa-hibernate-difference, Abruf: 12.01.2021
-
-[12] Baeldung (Hrsg.): Spring Persistence Tutorial. https://www.baeldung.com/persistence-with-spring-series, Abruf: 12.01.2021

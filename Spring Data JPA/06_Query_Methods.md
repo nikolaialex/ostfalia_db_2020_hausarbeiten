@@ -61,7 +61,7 @@ Die Methode heißt zwar in diesem Beispiel *findByXXX*, aber sie führt exakt de
 
 ## Named Parameters
 
-"*Standardmäßig verwendet Spring Data JPA die positionsbasierte Parameterbindung, wie in allen vorhergehenden Beispielen beschrieben. Dies macht Abfragemethoden beim Refactoring bezüglich der Parameterposition etwas fehleranfällig. Um dieses Problem zu beheben, können Sie die Annotation @Param verwenden, um einem Methodenparameter einen konkreten Namen zu geben und den Namen in der Abfrage zu binden, wie im folgenden Beispiel gezeigt*"[4]:
+"*Standardmäßig verwendet Spring Data JPA die positionsbasierte Parameterbindung, wie in allen vorhergehenden Beispielen beschrieben. Dies macht Abfragemethoden beim Refactoring bezüglich der Parameterposition etwas fehleranfällig. Um dieses Problem zu beheben, können Sie die Annotation @Param verwenden, um einem Methodenparameter einen konkreten Namen zu geben und den Namen in der Abfrage zu binden, wie im folgenden Beispiel gezeigt*"[21]:
 ```java
 
 public interface StockRepository extends JpaRepository<Stock, Long> {
@@ -71,7 +71,3 @@ public interface StockRepository extends JpaRepository<Stock, Long> {
                                  @Param("companyName") String companyName);
 }
 ```
-
-
-****
-[4] Using Named Parameters(Online, übersetzt aus dem Englischen),https://docs.spring.io/spring-data/jpa/docs/current/reference/html/#jpa.named-parameters, Zugriff am 18.01.2021

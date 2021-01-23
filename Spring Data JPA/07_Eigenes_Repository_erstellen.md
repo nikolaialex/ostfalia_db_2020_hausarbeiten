@@ -103,4 +103,4 @@ public class ConfigurationClass{}
 
 ---
 
-- https://docs.spring.io/spring-data/data-commons/docs/1.6.1.RELEASE/reference/html/repositories.html
+[1] https://docs.spring.io/spring-data/data-commons/docs/1.6.1.RELEASE/reference/html/repositories.html
