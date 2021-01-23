@@ -73,9 +73,18 @@ Wichtige Objekte der JPA sind:
 
 
 ## Spring-Data-JPA
+
+BAUSTELLE
+
 Spring-Data-JPA ist die Weiterentwicklung der OpenSource Bibliothek "Hades", welche von Oliver Gierke entwickelt wurde. Oliver Gierke war bis zum Jahre 2010 als Software Architekt bei dem Unternehmen Synyx tätig, bevor er zu SpringSource gewechselt ist. Die Zukunft seines Hades-Projekts hat er sich gesichert, wodurch die Bibliothek in Spring Data integriert wurde.  
 
 <img src="Abbildungen/SpringDataJPAARchi.png" width="350">
 
+Die Abbildung zeigt das Zusammenspiel der verschiedenen Komponenten. Die Application stellt die Java Klasse dar, welche die verschiedensten Eigenschaften und Funktionen beinhaltet. Die Daten werden über die JPA-Schnittstelle angefragt, wodurch die Zuordnung und die Übertragung von Objekten zu Datenbankeinträgen vereinfacht wird. 
+
+
+zeigt eine Relationale Datenbank auf die über die Java Database Connectivity (JDBC) zugegriffen wird. Die DJBC ist eine treiberbasiert arbeitende Datenbankschnittstelle für Java. Die API erlaubt es auf die verschiedensten Datenbanken zuzugreifen und SQL-Anweisungen ausfzuführen. 
+
+Hiberate ist ein ORM-Framework (vgl. Kapitel "ORM-Frameworks"), welches ermöglicht gewöhnliche Objekte aus Java Klassen in relationale Datenbanken zu speichern. 
 
 
