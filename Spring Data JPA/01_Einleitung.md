@@ -2,7 +2,7 @@
 ## 1.1 Allgemeines
 Das Spring Framework erfreut sich im Laufe der letzten Jahre zunehmender Beliebtheit. Es wird sehr häufig bei der Erstellung umfangreicher Softwareanwendungen benutzt, in welchen eine große Menge an Daten verarbeitet (abgefragt, gespeichert, gelöscht und aktualisiert) werden. Vor allem unterstützt das Framework die Arbeit an der Persistenzschicht. Im Rahmen dieser Ausarbeit wird eine Bibliothek vorgestellt, die dem Entwickler sehr viel Arbeit abnehmen kann - die Rede ist von "Spring Data JPA".
 
-Spring Data JPA gehört zu den Hauptbestandteilen des Springframeworks und bietet eine abstrakte Datenzugriffsschicht, welche ein Vielzahl generischer Methoden zum Datenzugriff beinhaltet. 
+Spring Data JPA gehört zu den Hauptbestandteilen des Springframeworks und bietet eine abstrakte Datenzugriffsschicht, welche eine Vielzahl generischer Methoden zum Datenzugriff beinhaltet. 
 
 Bevor die Spring Data JPA ausführlich vorgestellt wird, wird zuvor ein kurzer Überblick über das allgemeine Spring-Framework, sowie der JPA gegeben.
 
@@ -63,7 +63,7 @@ Produkte dieser Firmen sind:
 - EclipseLink 
 - Spring-Data-JPA
 
-Bei diesem Produkten handelt es sich um ORM-Frameworks für Java, welche in Kapitel 2 ausführlich erklärt werden.
+Bei diesem Produkten handelt es sich um [Object Relational Mapping (ORM)](02_Object_Relational_Mapping.md)-Frameworks für Java, welche in Kapitel 2 ausführlich erklärt werden.
 
 Die Idee hinter JPA ist es also, ein ganz normales Java Objekt (POJO (Plaing Old Java Object) als relationales Datenbankobjekt zu speichern. 
 Wichtige Objekte der JPA sind:
