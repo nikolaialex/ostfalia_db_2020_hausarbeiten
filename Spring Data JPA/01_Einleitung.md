@@ -13,12 +13,16 @@ Das Framework soll den Programmierer bei der Java/JavaE - Entwicklung mittels Te
 
 Spring wird typischerweise als "Lightweigt" - Framework für Java-Anwendungen betitelt, da keinerlei Anpassungen am Quellcode notwendig sind, um von den vielzählien Vorteilen zu profitieren. Durch den Einsatz des Frameworks erhält man eine leistungsstarke Grundstruktur, die kaum verändert werden muss, dies macht es möglich das die Entwickler sich komplett auf die eigentliche Business-Logik konzentrieren können.
 
-Spring besteht aus einigen Projekten, eines dieser Projekte ist Spring Data. Die Datenbank-Module von Spring Data bieten Unterstützung mit nahezu allen gängigen Datenbanktechnologien. Spring Data stellt folgende Datenbankmodule zur Verfügung:
+Innerhalb des Spring-Frameworks existieren eine Vielzahl von Projekten, welche für die unterschiedlichsten Problemstellungen Lösungen zur Verfügung stellen. Hierbei ist beispielsweise das Messaging, die Unterstützung für alle möglichen Formen von Datenbanken, Webapplikationen, Sicherheitsfunktionalitäten und vieles mehr zu nennen. Mittels des Spring Initializrs können diese Frameworks und Libraries individuell heruntergeladen werden. Durch diese Methodik erhält der Anwender ein vorkonfiguriertes Anwendungsgerüst, mit welchem er in nur kurzer Zeit eine lauffähige Software erstellen kann. 
+
+Eines dieser Projekte innerhalb von Spring ist Spring Data. Spring Data beinhaltet Datenbank-Module, welche alle gängigen Datentechnologien unterstützen. Das Projekt ist selbst aufgeteilt in die folgenden Module:
 
 - Spring Data JPA: Verbindung mit relationalen Datenbanken
 - Spring Data MongoDB: Verbindung mit einer Mongo document database.
 - Spring Data Neo4j: Verbindung mit einer Neo4j Graph-Datenbank.
 - Spring Data Redis: Verbindung zu einem Redis key-value store.
+
+Spring Data JPA wird im Rahmen dieser Hausarbeit ausführlich behandelt, für alle anderen Module wird auf die Fachliteratur hingewiesen.
 
 ### Vorteile des Spring-Frameworks
 - Dependency Injection: Mittels der Dependency Injection wird jegliche Konfiguration aller Abhängigkeiten aus dem eigentlichen "Business"-Quellcode ferngehalten. Dadurch wird der Code schlanker und ist leichter zu warten.
