@@ -1,4 +1,4 @@
-# 7. Ein eigenes Repository erstellen
+# 7. Repositories anpassen
 
 Unter bestimmten Bedingungen kann es sinnvoll sein, ein eigenes Verhalten für Repositories zu implementieren.
 Um dieses Ziel zu erreichen, bietet Spring Data zwei Ansätze. Zum einen lässt sich das Verhalten eines einzelnen Repositories anpassen und 
