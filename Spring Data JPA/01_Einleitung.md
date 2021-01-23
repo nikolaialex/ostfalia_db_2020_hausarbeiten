@@ -77,7 +77,5 @@ Spring-Data-JPA ist die Weiterentwicklung der OpenSource Bibliothek "Hades", wel
 
 <img src="Abbildungen/SpringDataJPAARchi.png" width="350">
 
-ToDo
-- Architekturbeschreibung
-- Geschichte wann wie von wem
+
 
