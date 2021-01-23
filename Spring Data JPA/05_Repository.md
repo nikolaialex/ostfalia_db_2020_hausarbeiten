@@ -1,6 +1,6 @@
-# 5 Repository
+# 5. Repository
 
-## 5.1. Einleitung
+## 5.1 Einleitung
 Die nächsten zwei folgenden Kapitel befassen sich mit den Themen Repository und Queries in der Spring Data JPA - Umgebung. Um ein besseres Verständnis zu erlangen, was diese abstrakten Begriffe darstellen, sollen deren wichtigsten Eigenschaften vorgestellt und ihre Verwendung und Implementierung anhand von Code-Snippets verdeutlich werden, um einen besseren Bezug zu bekommen.
 
 "*Das Ziel der Spring Data Repository-Abstraktion besteht darin, die Menge an Boilerplate-Code, die zum Implementieren von Datenzugriffsschichten für verschiedene Persistenzspeicher erforderlich ist, erheblich zu reduzieren.*"[1]. Diese Aussage ist absolut zutreffend, was Spring Data JPA und ihr Repository so besonders machen. Es wird nämlich vermieden, an mehreren Stellen mit geringen bis keinen Abweichungen wiederholt den gleichen Code zu verwenden. Im Vergleich zum Data Access Object Pattern, wo genau dies passiert und das auch sehr gerne zur Persistierung von Entitäten genutzt wird, hat man mit Hilfe des Repository-Patterns sprichwörtlich ein viel leichteres Spiel und genau dies umgesetzt.Spring Data JPA Repositories erleichtern nämlich dem Entwickler die Arbeit sehr. Mit der Implementierung des Repository sind es deutlich weniger Schritte, die er zu erfüllen hat, um das gleiche Ergebnis zu erlangen wie beim DAO-Pattern. Wiederholender Code entsteht erst gar nicht.
@@ -414,7 +414,7 @@ die nach Wertpapierkennnummer wkn (aufsteigend) sortiert ist.*/
 Pageable sortedByWKNAsc = PageRequest.of(0, 5, Sort.by("wkn").ascending());
 ```
 
-## JpaRepository
+## 5.5 JpaRepository
 
 JPARepository erbt alle Methoden der oben genannten Repositories und erweitert sie um folgende:
 

@@ -1,4 +1,4 @@
-# Anbindung von JDBC im Vergleich zu ORM Frameworks
+# 3. Anbindung von JDBC im Vergleich zu ORM Frameworks
 
 Wird auf ein ORM-Framework verzichtet, so ist der Programmierer in der Verantwortung, das Mapping der Klassen und Objete hin zur relationalen Datenbank selber herzustellen bzw. zu verwalten. Nachfolgend soll eine "klassische" Anbindung einer Datenbank mit **JDBC** und deren interne Verdrahtung mit der von **Hibernate** verglichen werden:
 

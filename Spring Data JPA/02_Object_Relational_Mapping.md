@@ -1,9 +1,9 @@
-# Object Relational Mapping
+# 2. Object Relational Mapping
 Viele moderne Business-Anwendungen verwenden objektorientierte Programmiersprachen in Verbindung mit relationalen Datenbanken. Objekte aus der Anwendung werden hierbei über die Laufzeit des Programms hinaus in einer Datenbank abgelegt, um diese für einen späteren Zugriff verfügbar zu machen. Dieser Vorgang wird Persistieren genannt. Die Java Persistence API (JPA) ist eine Schnittstelle, um die Übertragung von Objekten zu Tabellen zu vereinfachen und zu standardisieren.
 
 Diese Schnittstelle ist notwendig, da Objekte und Relationen grundsätzlich verschiedene Paradigmen besitzen und von Natur aus nicht gut miteinander vereinbar sind. Es müssen so genannte "Mappings" eingesetzt werden, um Objekte auf Relationen abzubilden und umgekehrt. Um die objektrelationalen Mapper bereitzustellen, existieren für Java mehrere Frameworks und Bibliotheken, wie beispielsweise Hibernate und EclipseLink. Diese Frameworks implementieren die von der Spezifikation JPA vorgegebenen Richtlinien und Regeln [11].
 
-## Die objektrelationale Unverträglichkeit
+## 2.1 Die objektrelationale Unverträglichkeit
 Objektorientierte Programmiersprachen basieren auf Konzepten des Software Engineerings und bilden Daten in Form von Objekten ab, welche miteinander verbunden sind. Relationale Datenbanken wiederum basieren auf mathematischen Prinzipien, mithilfe der relationalen Algebra werden die Daten in Tabellenform repräsentiert. Dieser grundlegende Unterschied beider Konzepte wird allgemein als objektrelationale Unverträglichkeit (engl. "Object-Relational Impedance Mismatch") bezeichnet.
 
 Bereits am Beispiel von Datentypen werden die Unterschiede beider Konzepte deutlich:  
@@ -32,7 +32,7 @@ Um all diesen Widersprüchen entgegen zu wirken, existieren verschiedene Lösung
 
 Das **objektrelationale Mapping bzw. Abbildung** beschreibt den letzten Lösungsansatz: Hier wird eine weitere Schicht zwischen den Daten und der Anwendung hergestellt, welche Objekte und Tabellen miteinander kompatibel macht und verknüpft. Dadurch können sowohl die Programmiersprache als auch die Datenbank in ihrer Form bestehen bleiben.  
 
-## Objektrelationale Abbildung
+## 2.2 Objektrelationale Abbildung
 Die einfachste Abbildung einer Klasse zu einer Tabelle wäre eine direkte *eins-zu-eins-Abbildung*, das heißt, eine Klasse bzw. Objekt wird auf genau eine Tabelle im Datenbankschema gemappt, und jedes Attribut der Klasse wird durch eine Reihe in der Tabelle repräsentiert. Diese sehr einfache Abbildung ist jedoch, außer bei sehr simplen Datenbanken, selten zu erreichen.  
 Nachfolgend ist eine einfache Datenstruktur abgebildet, um die strukturellen Unterschiede zu verdeutlichen:  
 
@@ -63,7 +63,7 @@ Vorsicht ist zu genießen bei **Ordered Collections**, beispielsweise in einer B
 
 Weiterführende Themen beim Mapping stellen die Abbildung von **Class-Scopes** (Geltungsbereichen von Klassen), **rekursiven Beziehungen** (Objekte, welche beliebig viele Referenzen auf Objekte desselben Typs besitzen können), sowie **Performance-Tuning** dar.  
 
-## Frameworks für Objektrelationale Abbildungen  
+## 2.3 Frameworks für Objektrelationale Abbildungen  
 Da die JPA nur eine Spezifikation ist, kann diese Objekte nicht von sich aus persistieren. Die von der Spezifikation vorgegebenen Regeln müssen implementiert werden. Für Java existieren viele solcher Frameworks, an dieser Stelle soll eine kurze Übersicht und Vergleich der populärsten Frameworks **Hibernate** und **EclipseLink** erläutert werden [11].  
 
 Grundsätzlich muss ein ORM-Framework folgende Leistungen zur Verfügung stellen:  

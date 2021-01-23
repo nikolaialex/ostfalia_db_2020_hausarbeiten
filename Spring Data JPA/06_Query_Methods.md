@@ -1,4 +1,4 @@
-# Query Methods
+# 6. Query Methods
 
 ## Query abgeleitet vom Methodennamen
 

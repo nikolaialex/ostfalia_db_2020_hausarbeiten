@@ -1,10 +1,10 @@
-# Ein eigenes Repository erstellen
+# 7. Ein eigenes Repository erstellen
 
 Unter bestimmten Bedingungen kann es sinnvoll sein, ein eigenes Verhalten für Repositories zu implementieren.
 Um dieses Ziel zu erreichen, bietet Spring Data zwei Ansätze. Zum einen lässt sich das Verhalten eines einzelnen Repositories anpassen und 
 zum anderen das Verhalten aller Repositories.
 
-## Einzelnes Repository anpassen
+## 7.1 Einzelnes Repository anpassen
 
 Ein einzelnes Repository lässt sich durch die Definition von Methoden oder Feldern in Interfaces erweitern.
 
@@ -32,7 +32,7 @@ public class MyRepository implements CustomRepository {
 
 ```
 
-## Alle Repositories anpassen
+## 7.2 Alle Repositories anpassen
 Eine weitere Möglichkeit um ein Repository zu erweitern, liegt darin ein grundlegendes Repository-Interface zu definieren, auf dem alle verwendeten Repositories basieren.
 
 ```java
