@@ -336,7 +336,7 @@ public class StockDAOImpl implements StockDAO<Stock> {
 }
 ```
 
-## Repositories in Spring Data JPA
+## 5.5 Repositories in Spring Data JPA
 
 Im vorherigen Kapitel wurde bereits kurz darauf hingewiesen, dass unser Repository *StockRepository* lediglich um das Interface JPARepository erweitert werden musste, um dann alle gängigen Datenbankoperationen ausführen zu können. Dieses Kapitel soll zeigen, welche weiteren Interfaces hier eine wichtige Rolle spielen, welche Methoden sie liefern und in welcher Abhängigkeit sie zueinander stehen. Das folgende Klassendiagramm zeigt die Beziehungen zueinander. Danach wollen wir mit dem Hauptinterface *Repository* beginnen.
 
@@ -346,7 +346,7 @@ Im vorherigen Kapitel wurde bereits kurz darauf hingewiesen, dass unser Reposito
 Abb. Klassendiagramm vom Interface Repository
 
 
-### Interface Repository
+### 5.5.1 Interface Repository
 
 "*Die zentrale Schnittstelle in der Spring Data-Repository-Abstraktion ist Repository. Die zu verwaltende Domänenklasse sowie der ID-Typ der Domänenklasse sind als Typargumente erforderlich. Diese Schnittstelle fungiert in erster Linie als Markierungsschnittstelle, um die Typen zu erfassen, mit denen gearbeitet werden soll, und um Ihnen dabei zu helfen, Schnittstellen zu finden, die diese erweitern.*"[3]
 
@@ -357,7 +357,7 @@ public interface Repository<T, ID> {
 
 In unserem Beispiel entspricht die oben beschriebene Klasse Stock der Domänenklasse. Der ID-Typ ist hier vom Typ Long, da der primäre Schlüssel bzw das Attribut id der Entitätsklasse Stock vom primitiven Datentypen long ist.
 
-### Interface CrudRepository
+### 5.5.2 Interface CrudRepository
 
 Die CrudRepository-Schnittstelle bietet CRUD-Funktionen für die zu verwaltende Entitätsklasse.
 
@@ -391,7 +391,7 @@ public interface CrudRepository<T, ID> extends Repository<T, ID> {
 11. Löscht alle Entzitäten des vorgebenen Repositories.
 
 
-## Interface PagingAndSortingRepository
+### 5.5.3 Interface PagingAndSortingRepository
 
 Dieses Interface bietet zwei Methoden zum Paginieren und Sortieren von Datensätzen.
 
@@ -414,7 +414,7 @@ die nach Wertpapierkennnummer wkn (aufsteigend) sortiert ist.*/
 Pageable sortedByWKNAsc = PageRequest.of(0, 5, Sort.by("wkn").ascending());
 ```
 
-## 5.5 JpaRepository
+### 5.5.4 JpaRepository
 
 JPARepository erbt alle Methoden der oben genannten Repositories und erweitert sie um folgende:
 
