@@ -36,7 +36,7 @@
 5.5.1 [Interface Repository](05_Repository.md#551-interface-repository)  
 5.5.2 [Interface CrudRepository](05_Repository.md#552-interface-crudrepository)  
 5.5.3 [Interface PagingAndSortingRepository](05_Repository.md#553-interface-pagingandsortingrepository)  
-5.5.4 [Interface JPARepository](05_Repository.md#554-jparepository)
+5.5.4 [Interface JPARepository](05_Repository.md#554-interface-jparepository)
 6. [Query Methods](06_Query_Methods.md)
 7. [Eigenes Repository erstellen](07_Eigenes_Repository_erstellen.md)  
 7.1 [Einzelnes Repository anpassen](07_Eigenes_Repository_erstellen.md#71-einzelnes-repository-anpassen)  
