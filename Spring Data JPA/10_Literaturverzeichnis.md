@@ -32,4 +32,6 @@
 //04
 [22] Spring.io (Hrsg.): Accessing Data with JPA. https://spring.io/guides/gs/accessing-data-jpa/
 //08  
-[23] Spring.io (Hrsg.): Query Methods. https://docs.spring.io/spring-data/jpa/docs/current/reference/html/#jpa.query-methods
+[23] Spring.io (Hrsg.): Query Methods. https://docs.spring.io/spring-data/jpa/docs/current/reference/html/#jpa.query-methods  
+//04
+[24] Spring.io (Hrsg.): JPA Repositories. https://docs.spring.io/spring-data/jpa/docs/1.5.0.RELEASE/reference/html/jpa.repositories.html

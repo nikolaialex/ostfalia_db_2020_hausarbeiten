@@ -346,7 +346,7 @@ Im vorherigen Kapitel wurde bereits kurz darauf hingewiesen, dass unser Reposito
 Abb. Klassendiagramm vom Interface Repository
 
 
-### 5.5.1 Interface Repository
+### Interface Repository
 
 "*Die zentrale Schnittstelle in der Spring Data-Repository-Abstraktion ist Repository. Die zu verwaltende Domänenklasse sowie der ID-Typ der Domänenklasse sind als Typargumente erforderlich. Diese Schnittstelle fungiert in erster Linie als Markierungsschnittstelle, um die Typen zu erfassen, mit denen gearbeitet werden soll, und um Ihnen dabei zu helfen, Schnittstellen zu finden, die diese erweitern.*"[20]
 
@@ -357,7 +357,7 @@ public interface Repository<T, ID> {
 
 In unserem Beispiel entspricht die oben beschriebene Klasse Stock der Domänenklasse. Der ID-Typ ist hier vom Typ Long, da der primäre Schlüssel bzw das Attribut id der Entitätsklasse Stock vom primitiven Datentypen long ist.
 
-### 5.5.2 Interface CrudRepository
+### Interface CrudRepository
 
 Die CrudRepository-Schnittstelle bietet CRUD-Funktionen für die zu verwaltende Entitätsklasse.
 
@@ -391,7 +391,7 @@ public interface CrudRepository<T, ID> extends Repository<T, ID> {
 11. Löscht alle Entzitäten des vorgebenen Repositories.
 
 
-### 5.5.3 Interface PagingAndSortingRepository
+### Interface PagingAndSortingRepository
 
 Dieses Interface bietet zwei Methoden zum Paginieren und Sortieren von Datensätzen.
 
@@ -414,7 +414,7 @@ die nach Wertpapierkennnummer wkn (aufsteigend) sortiert ist.*/
 Pageable sortedByWKNAsc = PageRequest.of(0, 5, Sort.by("wkn").ascending());
 ```
 
-### 5.5.4 Interface JPARepository
+### Interface JPARepository
 
 JPARepository erbt alle Methoden der oben genannten Repositories und erweitert sie um folgende:
 
@@ -437,7 +437,7 @@ public interface JpaRepository<T, ID> extends PagingAndSortingRepository<T, ID>,
 }
 
 ```
-1. siehe CrudRepository#findAll()
+1. siehe CrudRepository#findAll()  
 2. siehe PagingAndSortingRepository#findAll
 3. siehe CrudRepository#findAll
 4. siehe CrudRepository#save

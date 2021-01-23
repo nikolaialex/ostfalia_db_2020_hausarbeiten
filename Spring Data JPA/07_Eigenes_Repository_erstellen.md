@@ -17,7 +17,7 @@ public interface CustomRepository {
 ```
 
 Ein solches Interface kann von dem eigentlichen Repository-Interface vererbt werden, um dieses um die gewünschten Funktionalitäten zu erweitern.
-Alternativ ist es auch möglich, dass die Implementierung des Interfaces dieses implementiert. [18]
+Alternativ ist es auch möglich, dass die Implementierung des Interfaces dieses implementiert.
 
 ```java
 public interface MyRepository extends CrudRepository, CustomRepository {
@@ -31,6 +31,7 @@ public class MyRepository implements CustomRepository {
 }
 
 ```
+[18]
 
 ## 7.2 Alle Repositories anpassen
 Eine weitere Möglichkeit um ein Repository zu erweitern, liegt darin ein grundlegendes Repository-Interface zu definieren, auf dem alle verwendeten Repositories basieren. [18]
@@ -64,7 +65,7 @@ eigenes Repository darstellt, sondern lediglich andere Repositories auf diesem I
 automatisch eine Implementierung erzeugt.  [18]
   
 Da das erstellte `CustomRepository`-Interface als Grundlage für alle weiteren erstellen Repositories dienen soll ist es notwendig, die standardmäßig verwendete Repository-Factory mit einer eigenen
-Implementierung zu überschreiben. Zu diesem Zweck wird eine eigene `RepositoryFactoryBean`-Klasse erstellt: [18]
+Implementierung zu überschreiben. Zu diesem Zweck wird eine eigene `RepositoryFactoryBean`-Klasse erstellt:
 
 ```java
 public class CustomRepositoryFactoryBean<R extends JpaRepository<T, I>, T, I extends Serializable> extends JpaRepositoryFactoryBean<R, T, I> {
@@ -93,6 +94,7 @@ public class CustomRepositoryFactoryBean<R extends JpaRepository<T, I>, T, I ext
 }
 ```
 [18]  
+
 Um die neue Repository-Factory zu verwenden, muss diese nun nur noch in der Konfigurationsklasse innerhalb der `@EnableJpaRepositores` Annotation referenziert werden: 
 ```java
 @Configuration
