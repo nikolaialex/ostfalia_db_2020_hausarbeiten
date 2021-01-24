@@ -13,3 +13,5 @@ Ein Vorschlag, um die Software für die unterschiedlichen Layer einfacher vorzuh
 
 ### Kappa-Architektur
 Eine von Jay Kreps vorgeschlagene Modifikation der Lambda-Architektur ist das Weglassen des Batch-Layers, so dass die Erzeugung der Views ausschließlich durch Stream-Processing (Speed-Layer) geschieht. Durch diese Änderung würde die hohe Komplexität der Lambda Architektur reduziert werden. Kreps schlägt vor. Stream-Processing-Systeme so weit auszunutzen oder zu verbessern, dass diese nicht mehr mit Batch-Processing-Systemen kombiniert werden müssen. Für diesen Ansatz wurde der Name Kappa-Architektur vorgeschlagen.
+
+[< 7. Query-Layer](7_Query_Layer.md) | [9. Literaturverzeichnis >](9_Literaturverzeichnis.md)
