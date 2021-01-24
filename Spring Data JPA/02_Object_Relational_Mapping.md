@@ -28,6 +28,8 @@ Die folgende Abbildung verdeutlicht die Unterschiede beider Paradigmen auf ander
 
 <img src="Abbildungen/mismatch.png" width="500">
 
+Abb. Object Relational Mismatch
+
 Um all diesen Widersprüchen entgegen zu wirken, existieren verschiedene Lösungsansätze, beispielsweise können die Objekte und Klassen der Programmiersprache in einer *objektorientierten* statt relationalen Datenbank abgelegt werden. Dieser Ansatz ist einfach und direkt, kann aber zu Performance-Einbußen bei komplexen Datenabfragen führen. Weitere Möglichkeiten sind die Verwendung eines objektrelationalen Datenbanksystems (ORDBRMS) oder die Erweiterung der Programmiersprache um relationale Funktionen, was jedoch die Programmierung einschränken kann.  
 
 Das **objektrelationale Mapping bzw. Abbildung** beschreibt den letzten Lösungsansatz: Hier wird eine weitere Schicht zwischen den Daten und der Anwendung hergestellt, welche Objekte und Tabellen miteinander kompatibel macht und verknüpft. Dadurch können sowohl die Programmiersprache als auch die Datenbank in ihrer Form bestehen bleiben.  
@@ -38,6 +40,7 @@ Nachfolgend ist eine einfache Datenstruktur abgebildet, um die strukturellen Unt
 
 ![](Abbildungen/2models.png)
 
+Abb. Paradigmen-Vergleich
 
 Die Objekt-Attribute Vorname und Nachname können wie oben beschrieben eins zu eins als Tabellenreihe abgebildet werden. Jedoch sind im Tabellenschema Primärschlüssel vonnöten, um jede Reihe/jeden Datensatz in der Tabelle eindeutig identifizieren zu können. Um Verweise auf andere Tabellen herstellen zu können und damit Relationen auszudrücken, sind Fremdschlüssel vorgesehen.
 
