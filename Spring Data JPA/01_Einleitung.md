@@ -1,6 +1,6 @@
 # 1. Einführung in Spring Data JPA
 ## 1.1 Allgemeines
-Das Spring Framework erfreut sich im Laufe der letzten Jahre zunehmender Beliebtheit. Es wird sehr häufig bei der Erstellung umfangreicher Softwareanwendungen benutzt, in welchen eine große Menge an Daten verarbeitet (abgefragt, gespeichert, gelöscht und aktualisiert) werden. Vor allem unterstützt das Framework die Arbeit an der Persistenzschicht. Im Rahmen dieser Ausarbeit wird eine Bibliothek vorgestellt, die dem Entwickler sehr viel Arbeit abnehmen kann - die Rede ist von "Spring Data JPA".
+Das Spring Framework erfreut sich im Laufe der letzten Jahre zunehmender Beliebtheit. Es wird sehr häufig bei der Erstellung umfangreicher Softwareanwendungen benutzt, in welchen eine große Menge an Daten verarbeitet (abgefragt, gespeichert, gelöscht und aktualisiert) werden. Vor allem unterstützt das Framework die Arbeit an der Persistenzschicht. Im Rahmen dieser Ausarbeitung wird eine Bibliothek vorgestellt, die dem Entwickler sehr viel Arbeit abnehmen kann - die Rede ist von "Spring Data JPA".
 
 Spring Data JPA gehört zu den Hauptbestandteilen des Springframeworks und bietet eine abstrakte Datenzugriffsschicht, welche eine Vielzahl generischer Methoden zum Datenzugriff beinhaltet. 
 
