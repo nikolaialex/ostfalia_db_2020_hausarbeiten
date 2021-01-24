@@ -343,7 +343,7 @@ Im vorherigen Kapitel wurde bereits kurz darauf hingewiesen, dass unser Reposito
 
 ![Klassendiagramm](./Abbildungen/Klassendiagramm_Repository.jpg)
 
-Abb. Klassendiagramm vom Interface Repository
+Abb. 5-1 *Klassendiagramm vom Interface Repository*
 
 
 ### Interface Repository
