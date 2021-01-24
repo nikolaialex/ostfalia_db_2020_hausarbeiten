@@ -1,6 +1,7 @@
 # 11. Literaturverzeichnis
 
 [1] Walls, Craig (2019): Spring im Einsatz
+//02
 [2] Thorben Janssen (Hrsg.): Spring Data JPA Methodennamen(Online, übersetzt aus dem Englischen), https://thorben-janssen.com/what-is-spring-data-jpa-and-why-should-you-use-it/, Zugriff am 16.01.2021    
 [3] Thorben Janssen (Hrsg.): Getting Started With Hibernate. https://thorben-janssen.com/hibernate-getting-started/, Abruf: 14.01.2021  
 [4] Hibernate (Hrsg.): What is Object/Relational Mapping? https://hibernate.org/orm/what-is-an-orm/, Abruf: 10.01.2021  
