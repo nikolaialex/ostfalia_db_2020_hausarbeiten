@@ -40,7 +40,7 @@ Nachfolgend ist eine einfache Datenstruktur abgebildet, um die strukturellen Unt
 
 ![](Abbildungen/2models.png)
 
-Abb. Paradigmen-Vergleich
+Abb. Strukturelle Unterschiede
 
 Die Objekt-Attribute Vorname und Nachname können wie oben beschrieben eins zu eins als Tabellenreihe abgebildet werden. Jedoch sind im Tabellenschema Primärschlüssel vonnöten, um jede Reihe/jeden Datensatz in der Tabelle eindeutig identifizieren zu können. Um Verweise auf andere Tabellen herstellen zu können und damit Relationen auszudrücken, sind Fremdschlüssel vorgesehen.
 
