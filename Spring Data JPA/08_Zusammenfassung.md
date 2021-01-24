@@ -1,4 +1,4 @@
-# 9. Zusammenfassung
+# 8. Zusammenfassung
 
 Spring Data JPA erleichtert es erheblich Anwendungen zu erstellen, die auf die Java Persistence API setzen. Zum einen 
 reduziert Spring Data JPA die Menge von sich wiederholendem Code, der zur Implementierung notwendig ist, zum anderen bietet

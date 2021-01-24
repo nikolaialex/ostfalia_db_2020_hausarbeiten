@@ -1,4 +1,4 @@
-# 11. Literaturverzeichnis
+# 10. Literaturverzeichnis
 [1] W. Craig (2019): Spring im Einsatz. Hanser, Seite 26.  
 [2] T. Janssen (Hrsg.): Spring Data JPA Methodennamen(Online, übersetzt aus dem Englischen), https://thorben-janssen.com/what-is-spring-data-jpa-and-why-should-you-use-it/, Abruf am 16.01.2021  
 [3] T. Janssen (Hrsg.): Getting Started With Hibernate. https://thorben-janssen.com/hibernate-getting-started/, Abruf: 14.01.2021  
