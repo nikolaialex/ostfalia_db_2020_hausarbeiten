@@ -9,3 +9,5 @@
  **[ApS20]** | Apache Foundation. http://storm.apache.org/releases/current/Concepts.html
  **[Cou15]** | Johnson, Shane. [Lambda Architecture with NoSQL](https://blog.couchbase.com/lamda-architecture-and-beyond-with-nosql/). Abgerufen am 23.01.2021
 ------------
+
+[< 8. Diskussion](8_Diskussion.md) | [Deckblatt >](README.md)

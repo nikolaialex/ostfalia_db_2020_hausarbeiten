@@ -20,3 +20,5 @@ Erweiterbarkeit |	Migrationen sollen schnell und einfach durchführbar sein
 Ad-hoc-Abfragen|	Beliebige Abfragen sollen möglich sein (wenn auch mit suboptimaler Performance)
 Minimaler Wartungsaufwand	| Komplexität aus den Kernkomponenten wird ausgelagert. Die Ausgaben von komplexen Komponenten sollten nach einiger Zeit ausgesondert werden
 Fehlerbehebung	| Wird ermöglicht, indem die Nachverfolgung jedes einzelnen Wertes möglich ist
+
+[< Deckblatt](README.md) | [2. Architektur >](2_Architektur.md)

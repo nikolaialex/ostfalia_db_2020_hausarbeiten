@@ -5,3 +5,5 @@ Die Lambda-Architektur führt zwei Datenflusspfade ein: Der eine Pfad ermöglich
 Die generelle Architektur ist in Abb. !todo dargestellt. Aus einer Rohdatenquelle werden die Daten auf die zwei Datenflusspfade aufgeteilt. Während der schnelle Pfad die Daten fast in Echtzeit aufbereitet und zur Verfügung stellt, kann der langsame Pfad eine genaue Berechnung vornehmen, bevor die Ergebnisse verfügbar gemacht werden.
 
 Die Ergebnisse beider Pfade werden anschließend zusammengeführt, wodurch sowohl sehr alte Daten als auch sehr aktuelle Daten abgefragt werden können.
+
+[< 1. Einleitung](1_Einleitung.md) | [3. Grundlagen >](3_Grundlagen.md)

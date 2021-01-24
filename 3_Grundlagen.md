@@ -17,3 +17,5 @@ Batch Processing bedeutet im Kontrast zum Stream Processing eine Offline-Datenve
 ### Echtzeitdaten
 
 Unter Echtzeitdaten versteht man in der Lambda-Architektur eine geringe Latenzzeit von Rohdaten bis zu verarbeiteten Daten, die aus Anfragen an das System resultieren. Harte Echtzeitanforderungen sind hiermit explizit nicht gemeint.
+
+[< 2. Architektur](2_Architektur.md) | [4. Batch-Layer >](4_Batch_Layer.md)

@@ -26,3 +26,5 @@ Durch die Verteilung des Serving-Layer auf mehrere Maschinen und die unveränder
 ### Umsetzung des Serving-Layers
 
 Der Serving-Layer kann in der Praxis auf vielfältige Weise umgesetzt werden. Es lassen sich hierfür grundsätzlich viele NoSQL-Datenbanksysteme verwenden, die auf Verteilung ausgelegt sind. Hierzu gehören insbesondere dokumentbasierte Datenbanken oder verteilte Key-Value-Stores. Die herkömmliche Datenbank kann hierbei entweder komplett als Serving-Layer dienen, oder durch eigene Softwarekomponenten ergänzt werden, um beispielsweise eine Denormalisierung zu ermöglichen [Cou15].
+
+[< 4. Batch-Layer](4_Batch_Layer.md) | [6. Speed-Layer >](6_Speed_Layer.md)

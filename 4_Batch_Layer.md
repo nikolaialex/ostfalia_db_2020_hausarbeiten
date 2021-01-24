@@ -72,3 +72,5 @@ Es existieren einige Abstraktionsmodelle und viele verschiedene konkrete Impleme
 Ein typisches Beispiel für den Nutzen dieser Abstraktion ist ein Join. Wenn mittels MapReduce zwei Tabellen zusammengefügt werden sollen, ist viel manuelle Arbeit nötig: Die Eingabe-Tabellen müssen in der *Map*-Funktion identifiziert und separat behandelt und in der *Reduce*-Funktion müssen die Spalten passend kombiniert werden. Hierbei können bei manueller Implementierung auf MapReduce-Ebene leicht Fehler passieren. Eine Abstraktion erlaubt die Ausführung mittels eines einzigen vordefinierten Join-Verarbeitungsschritts, ganz ähnlich wie in SQL bei relationalen Datenbanken.
 
 Typische Beispiele für Abstraktionsschichten sind domänenspezifische Sprachen wie *Pig Latin* (in Hadoop integriert) oder *Cascalog* (auf Hadoop aufsetzend). Andere Systeme wie *Apache Hive* setzen sogar auf einen SQL-Dialekt, womit die Daten weitgehend wie mit einer relationalen Datenbank verarbeitet werden können.
+
+[< 3. Grundlagen](3_Grundlagen.md) | [5. Serving-Layer >](5_Serving_Layer.md)

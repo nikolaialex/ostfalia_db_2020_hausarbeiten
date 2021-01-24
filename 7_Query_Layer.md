@@ -12,3 +12,5 @@ Die Views müssen dementsprechend so strukturiert sein, dass die Vereinigung im 
 ### Query-Layer als Teil der Applikation
 
 Da die Anforderungen des Query-Layers stark applikationsspezifisch, datenmodellspezifisch und kaum generalisierbar sind, wird der Query-Layer in der Lambda-Architektur nicht immer als Teil der feststehenden Komponenten angesehen. Vielmehr ist es komplett Aufgabe der Applikation, zu entscheiden, ob Daten aus dem Speed-Layer oder aus dem Serving-Layer gelesen werden sollen, und wie diese Daten dann kombiniert werden müssen.
+
+[< 6. Speed-Layer](6_Speed_Layer.md) | [8. Diskussion >](8_Diskussion.md)

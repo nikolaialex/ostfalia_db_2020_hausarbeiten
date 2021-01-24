@@ -57,3 +57,5 @@ Der Speed-Layer bildet sich einerseits aus einer Technologie für die Verarbeitu
 Für die Implementierung des Speed-Layers werden Frameworks für Stream-Processing und Cluster-Computing eingesetzt. Einige dieser Projekte werden von der Apache Software Foundation betreut und weiterentwickelt, darunter Apache Storm, Apache Samza, Apache Spark und Apache Flink. Neben den Projekten der Apache Foundation werden auch häufig Lösungen von Microsoft (Azure Stream Analytics) oder Google (Cloud Dataflow) eingesetzt.
 
 Die berechneten Views werden in hochskalierbaren NoSQL-Datenbanken wie z.B. Apache Cassandra gespeichert.
+
+[< 5. Serving-Layer](5_Serving_Layer.md) | [7. Query-Layer >](7_Query_Layer.md)
