@@ -1,21 +1,21 @@
 # 1. Einführung in Spring Data JPA
 ## 1.1 Allgemeines
-Das Spring Framework erfreut sich im Laufe der letzten Jahre zunehmender Beliebtheit. Es wird sehr häufig bei der Erstellung umfangreicher Softwareanwendungen benutzt, in welchen eine große Menge an Daten verarbeitet (abgefragt, gespeichert, gelöscht und aktualisiert) werden. Vor allem unterstützt das Framework die Arbeit an der Persistenzschicht. Im Rahmen dieser Ausarbeit wird eine Bibliothek vorgestellt, die dem Entwickler sehr viel Arbeit abnehmen kann - die Rede ist von "Spring Data JPA".
+Das Spring Framework erfreut sich im Laufe der letzten Jahre zunehmender Beliebtheit. Es wird sehr häufig bei der Erstellung umfangreicher Softwareanwendungen benutzt, in welchen eine große Menge an Daten verarbeitet (abgefragt, gespeichert, gelöscht und aktualisiert) werden. Vor allem aber unterstützt das Framework die Arbeit an der Persistenzschicht. Im Rahmen dieser Ausarbeitung wird eine Bibliothek vorgestellt, die dem Entwickler sehr viel Arbeit abnehmen kann - die Rede ist von "Spring Data JPA".
 
-Spring Data JPA gehört zu den Hauptbestandteilen des Springframeworks und bietet eine abstrakte Datenzugriffsschicht, welche eine Vielzahl generischer Methoden zum Datenzugriff beinhaltet. 
+Spring Data JPA gehört zu den Hauptbestandteilen des Sprin-Frameworks und bietet eine abstrakte Datenzugriffsschicht, welche eine Vielzahl generischer Methoden zum Datenzugriff beinhaltet. 
 
-Bevor die Spring Data JPA ausführlich vorgestellt wird, wird zuvor ein kurzer Überblick über das allgemeine Spring-Framework, sowie der JPA gegeben.
+Bevor die Spring Data JPA ausführlich behandelt wird, wird zuvor ein kurzer Überblick über das Spring-Framework, sowie der JPA gegeben.
 
-## 1.2 Spring
-Bei dem Spring-Framework handelt es sich um ein schlankes und quelloffenes Framework für Java-Anwendungen. Die erste Version von Spring wurde im Jahr 2002 von dem australischen Programmierer Rod Johnson entwickelt. Er suchte nach einem Weg Businessapplikcationen auf möglichst einfache und schnelle Weise programmierern zu können und diese flexibel, leicht wart- und modifizierbar und einfach erweiterbar zu halten. 
+## 1.2 Spring-Framework
+Bei dem Spring-Framework handelt es sich um ein schlankes und quelloffenes Framework für Java-Anwendungen. Die erste Version von Spring wurde im Jahr 2002 von dem australischen Programmierer Rod Johnson entwickelt. Er suchte nach einem Weg Businessapplikationen auf möglichst einfache und schnelle Weise programmieren zu können und diese leicht wart- und modifizierbar zu halten.
 
-Das Framework soll den Programmierer bei der Java/JavaE - Entwicklung mittels Techniken wie der Dependency Injection, Templates und der aspektorientierten Programmierung unterstützen und somit leichteren und besser wartbaren Programmcode ermöglichen. Das Spring-Framework wird am häufigsten bei der Entwicklung von Web-Anwendungen genutzt, es kann allerdings für jede Art von Anwendungen genutzt werden. 
+Das Framework soll den Programmierer bei der Java/JavaEE - Entwicklung mittels Techniken wie der Dependency Injection, Templates und der aspektorientierten Programmierung unterstützen und somit leichteren und besser wartbaren Programmcode ermöglichen. Das Spring-Framework wird am häufigsten bei der Entwicklung von Web-Anwendungen genutzt, es kann allerdings für jede Art von Anwendungen genutzt werden. 
 
 Spring wird typischerweise als "Lightweigt" - Framework für Java-Anwendungen betitelt, da keinerlei Anpassungen am Quellcode notwendig sind, um von den vielzählien Vorteilen zu profitieren. Durch den Einsatz des Frameworks erhält man eine leistungsstarke Grundstruktur, die kaum verändert werden muss, dies macht es möglich das die Entwickler sich komplett auf die eigentliche Business-Logik konzentrieren können.
 
-Innerhalb des Spring-Frameworks existieren eine Vielzahl von Projekten, welche für die unterschiedlichsten Problemstellungen Lösungen zur Verfügung stellen. Hierbei ist beispielsweise das Messaging, die Unterstützung für alle möglichen Formen von Datenbanken, Webapplikationen, Sicherheitsfunktionalitäten und vieles mehr zu nennen. Mittels des Spring Initializrs können diese Frameworks und Libraries individuell heruntergeladen werden. Durch diese Methodik erhält der Anwender ein vorkonfiguriertes Anwendungsgerüst, mit welchem er in nur kurzer Zeit eine lauffähige Software erstellen kann. 
+Innerhalb des Spring-Frameworks existieren eine Vielzahl von Projekten, welche für die unterschiedlichsten Problemstellungen Lösungen zur Verfügung stellen. Hierbei ist beispielsweise das Messaging, die Unterstützung für alle möglichen Formen von Datenbanken, Webapplikationen, Sicherheitsfunktionalitäten und vieles mehr zu nennen. Mittels des Spring Initializers können diese Frameworks und Libraries individuell heruntergeladen werden. Durch diese Methodik erhält der Anwender ein vorkonfiguriertes Anwendungsgerüst, mit welchem er in nur kurzer Zeit eine lauffähige Software erstellen kann. 
 
-Eines dieser Projekte innerhalb von Spring ist Spring Data. Spring Data beinhaltet Datenbank-Module, welche alle gängigen Datentechnologien unterstützen. Das Projekt ist selbst aufgeteilt in die folgenden Module:
+Eines dieser Projekte innerhalb von Spring ist Spring Data. Spring Data beinhaltet Datenbank-Module, welche alle gängigen Datentechnologien unterstützen. Das Projekt ist in folgende Module untergliedert:
 
 - Spring Data JPA: Verbindung mit relationalen Datenbanken
 - Spring Data MongoDB: Verbindung mit einer Mongo document database.
@@ -51,7 +51,7 @@ Einer der größten Vorteile des Spring-Frameworks ist der Verzicht auf plattfor
 
 
 ## 1.3 JPA
-Innerhalb von Java-Enterprise-Applikationen werden massenhaft Operationen auf Datenbanken durchgeführt und gleichzeitig große Mengen an Daten bearbeitet. Um solch eine Datenbankanbindung zu schreiben, benötigt man viele Zeilen Code, wenn man die Anbindung selbst entwickeln möchte. Es gibt allerdings auch die Möglichkeit sich der Funktionen des berühmten Frameworks "Spring" zu bedienen". Spring stellt beispielsweise die Java Persistance API (JPA) zur Verfügung. Hierbei handelt es sich um ein Interface, welches den Aufwand reduziert, der für die Kommunikation mit der Datenbank anfällt. 
+Innerhalb von Java-Enterprise-Applikationen werden massenhaft Operationen auf Datenbanken durchgeführt und gleichzeitig große Mengen an Daten bearbeitet. Um solch eine Datenbankanbindung zu schreiben, benötigt man viele Zeilen Code, wenn man die Anbindung selbst entwickeln möchte. Das eben vorgestellte Springframework stellt hierfür die Java Persistance API (JPA) zur Verfügung. Hierbei handelt es sich um ein Interface, welches den Aufwand reduziert, der für die Kommunikation mit der Datenbank anfällt. 
 
 Die Objekte des Java Programms werden hierbei mit den relationalen Modellen verbunden und hier wird die eigentliche Herausforderung sichtbar. Während die relationalen Objekte der Datenbank in Tabellenform daherkommen, wird das Objekt im Java Code mit etlichen Attributen dargestellt. 
 
