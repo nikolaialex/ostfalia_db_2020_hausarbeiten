@@ -22,3 +22,6 @@ Die Möglichkeit den Serving-Layer genau an die Anforderungen der gestellten Abf
 Sind für den Serving-Layer neue Batch-Views verfügbar, so werden diese im Hintergrund geladen. Sobald der Ladevorgang abgeschlossen ist, wechseln die Datenbankserver des Serving-Layer zur neuen Version und löschen die alte.
 
 Durch die Verteilung des Serving-Layer auf mehrere Maschinen und die unveränderbaren Daten ist der Serving-Layer fehlertolerant. Sollte es dennoch zu Fehlern kommen, so kann aus den Stammdaten des Batch-Layers der Datenbestand des Serving-Layers neuberechnet und unkompliziert ersetzt werden. 
+
+### Übliche Technologien
+Als Datenbanken im Serving-Layer werden i.d.R. hochskalierbare und parallelisierbare NoSQL-Datenbanken wie ElephantDB, Voldemort oder Apache HBase eingesetzt. 
