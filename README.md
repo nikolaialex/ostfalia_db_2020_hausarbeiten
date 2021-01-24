@@ -18,7 +18,7 @@
 5. [Serving-Layer](5_Serving_Layer.md)
 6. [Speed-Layer](6_Speed_Layer.md)
 7. [Query-Layer](7_Query_Layer.md)
-8. (Praktische Anwendungen/Vorteile) Gegenüberstellung mit inkrementellen Ansatz / Beispiele
+8. [Diskussion](8_Diskussion.md)
 9. Literaturverzeichnis
 
 * Sensordaten zur Steuerung von Raketen (SpaceX) 
