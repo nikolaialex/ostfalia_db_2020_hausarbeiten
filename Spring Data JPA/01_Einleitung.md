@@ -75,15 +75,11 @@ Wichtige Objekte der JPA sind:
 
 
 ## 1.4 Spring-Data-JPA
-Spring-Data-JPA ist die Weiterentwicklung der OpenSource Bibliothek "Hades", welche von Oliver Gierke entwickelt wurde. [15] Oliver Gierke war bis zum Jahre 2010 als Software Architekt bei dem Unternehmen Synyx tätig, bevor er zu SpringSource gewechselt ist. Die Zukunft seines Hades-Projekts hat er sich gesichert, wodurch die Bibliothek in Spring Data integriert wurde.  
+Spring-Data-JPA ist die Weiterentwicklung der OpenSource Bibliothek "Hades", welche von Oliver Gierke entwickelt wurde. Oliver Gierke war bis zum Jahre 2010 als Software Architekt bei dem Unternehmen Synyx tätig, bevor er zu SpringSource gewechselt ist. Die Zukunft seines Hades-Projekts hat er sich gesichert, wodurch die Bibliothek in Spring Data integriert wurde.  
 
 <img src="Abbildungen/SpringDataJPAARchi.png" width="350">
 
-Die Abbildung zeigt das Zusammenspiel der verschiedenen Komponenten. Die Application stellt eine Sammlung von Java Klassen dar, mit den verschiedensten Eigenschaften und Funktionen. Die Daten der Java-Klasse werden über JPA oder über Spring Data JPA über die Repositories durch den Entity Manager angefragt. 
+Die Abbildung zeigt das Zusammenspiel der verschiedenen Komponenten. Die Application stellt eine Sammlung von Java Klassen dar, mit den verschiedensten Eigenschaften und Funktionen. Die Daten der Java-Klasse werden über JPA oder über Spring Data JPA über die Repositories durch den Entity Manager angefragt. Die JPA ist allerdings lediglich eine Spezifikation, weswegen sie die Objekte nicht von sich selbst aus persistieren kann. Die von der Spezifikation vorgegebenen Regeln müssen implementiert werden - hierbei kommen ORM-Frameworks wie Hibernate zum Einsatz. Über die Java Database Connectivity (JDBC) wird auf die relationale Datenbank zugegriffen. Die JDBC ist eine treiberbasiert, arbeitende Datenbankschnittstelle für Java. Die API erlaubt es auf die verschiedensten Datenbanken zuzugreifen und SQL-Anweisungen auszuführen.
 
-
-zeigt eine Relationale Datenbank auf die über die Java Database Connectivity (JDBC) zugegriffen wird. Die DJBC ist eine treiberbasiert arbeitende Datenbankschnittstelle für Java. Die API erlaubt es auf die verschiedensten Datenbanken zuzugreifen und SQL-Anweisungen ausfzuführen. 
-
-Hiberate ist ein ORM-Framework (vgl. Kapitel "ORM-Frameworks"), welches ermöglicht gewöhnliche Objekte aus Java Klassen in relationale Datenbanken zu speichern. 
 
 
