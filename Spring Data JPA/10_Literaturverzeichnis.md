@@ -19,8 +19,8 @@
 //01  
 [15] BigData Insider (Hrsg.): Was ist JDBC? https://www.bigdata-insider.de/was-ist-jdbc-java-database-connectivity-a-727518, Zugriff am 24.01.2021  
 //04  
-[16] Baeldung (Hrsg.): Spring Data Annotations. https://www.baeldung.com/spring-data-annotations    
-[17] Baeldung (Hrsg.): Defining JPA Entities. https://www.baeldung.com/jpa-entities  
+[16] Baeldung (Hrsg.): Spring Data Annotations. https://www.baeldung.com/spring-data-annotations, Abruf: 29.12.2020  
+[17] Baeldung (Hrsg.): Defining JPA Entities. https://www.baeldung.com/jpa-entities ,Abruf: 29.12.2020  
 //05+07  
 [18] Spring.io (Hrsg.): Working with Spring Data Repositories(Online, übersetzt aus dem Englischen),https://docs.spring.io/spring-data/data-commons/docs/1.6.1.RELEASE/reference/html/repositories.html, Zugriff am 09.01.2021
 //05  
@@ -29,8 +29,8 @@
 //06  
 [21] Spring.io (Hrsg.): Using Named Parameters(Online, übersetzt aus dem Englischen),https://docs.spring.io/spring-data/jpa/docs/current/reference/html/#jpa.named-parameters, Zugriff am 18.01.2021  
 //04  
-[22] Spring.io (Hrsg.): Accessing Data with JPA. https://spring.io/guides/gs/accessing-data-jpa/
+[22] Spring.io (Hrsg.): Accessing Data with JPA. https://spring.io/guides/gs/accessing-data-jpa/, Abruf: 29.12.2020  
 //08  
 [23] Spring.io (Hrsg.): Query Methods. https://docs.spring.io/spring-data/jpa/docs/current/reference/html/#jpa.query-methods  
 //04  
-[24] Spring.io (Hrsg.): JPA Repositories. https://docs.spring.io/spring-data/jpa/docs/1.5.0.RELEASE/reference/html/jpa.repositories.html
+[24] Spring.io (Hrsg.): JPA Repositories. https://docs.spring.io/spring-data/jpa/docs/1.5.0.RELEASE/reference/html/jpa.repositories.html, Abruf: 29.12.2020  
