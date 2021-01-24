@@ -9,7 +9,7 @@
 ## Inhaltsverzeichnis
 
 1. Einleitung
-2. Architektur
+2. [Architektur](4_Architektur.md)
 3. Grundlagen
 * Immutable Data
 * Stream Processing
