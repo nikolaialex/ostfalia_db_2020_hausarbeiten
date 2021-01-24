@@ -25,7 +25,9 @@ Eines dieser Projekte innerhalb von Spring ist Spring Data. Spring Data beinhalt
 Spring Data JPA wird im Rahmen dieser Hausarbeit ausführlich behandelt, für alle anderen Module wird auf die Fachliteratur hingewiesen.
 
 ### Vorteile des Spring-Frameworks
-- Dependency Injection: Mittels der Dependency Injection wird jegliche Konfiguration aller Abhängigkeiten aus dem eigentlichen "Business"-Quellcode ferngehalten. Dadurch wird der Code schlanker und ist leichter zu warten. [1]
+An dieser Stelle soll eine kurze Auflistung über die Vorteile der Nutzung des Spring-Frameworks gegeben werden. [1]
+
+- Dependency Injection: Mittels der Dependency Injection wird jegliche Konfiguration aller Abhängigkeiten aus dem eigentlichen "Business"-Quellcode ferngehalten. Dadurch wird der Code schlanker und ist leichter zu warten. 
 
 - Aspektorientierte Programmierung: AOP erlaubt die Strukturierung von Zusammenhängen, die komponentenübergreifend bestehen. Dadurch lässt sich der eigentliche Programmablauf sauberer von anderen Aspekten (z.B. Validierung, Fehlerbehandlung) trennen und das Projekt kann modularer aufgebaut werden.
 
