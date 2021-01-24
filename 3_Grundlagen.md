@@ -1,8 +1,10 @@
 ## Grundlagen
 
+Einige Begrifflichkeiten spielen bei der Lambda-Architektur eine besondere Rolle. Die wichtigsten Begriffe werden in Folge erklärt.
+
 ### Immutable Data
 
-Ein grundlegender Ansatz ist die Verwendung von *unveränderlichen Daten* (immutable data) bzw. *nur anhängenden* (append only) Datenstrukturen. Dies erleichtert die Verteilung und Parallelisierung von Berechnungen, da keine Synchronisation und Koordination des Zugriffes notwendig ist. Der Ansatz ist angelehnt an die funktionale Programmierung. Immutable oder Append-Only Data findet prinzpiell bei der Lambda-Architektur in vielen Aspekten Anwendung.
+Ein grundlegender Ansatz ist die Verwendung von *unveränderlichen Daten* (immutable data) bzw. *nur anhängenden* (append only) Datenstrukturen. Dies erleichtert die Verteilung und Parallelisierung von Berechnungen, da keine Synchronisation und Koordination des Zugriffes notwendig ist. Der Ansatz ist angelehnt an die funktionale Programmierung. Immutable oder Append-Only Data findet prinzipiell bei der Lambda-Architektur in vielen Aspekten Anwendung.
 
 ### Stream Processing
 

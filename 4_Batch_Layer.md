@@ -2,7 +2,7 @@
 
 Der Batch-Layer verwaltet den Stammdatensatz und führt Berechnungen auf den Stammdaten durch, um gewünschte Abfragen auf die Daten mit verringertem Ressourcenaufwand zur Laufzeit zu ermöglichen. Die Verarbeitung erfolgt typischerweise parallelisiertund verteilt. Es können daher auch aufwändige Analysen mit Querverweisen auf andere Daten durchgeführt werden. Damit ist der Batch-Layer oft der Kern der Lambda-Architektur.
 
-Insbesondere besteht die Funktionalität des Batch-Layers darin, sogenannte Batch-Views regelmäßig zu berechnen, die auf die zu erwartenden Anfragen angepasst sind. Diese Batch-Views werden dann durch den Serving Layer indiziert und verarbeitet, um Abfragen mit geringem Aufwand durchzuführen. Da die Batch-Views nur mit hoher Latenz aktualisiert werden können, muss es einen Sonderweg für kürzlich hinzugekommene Daten geben. Dieser findet sich in der Lambda-Architektur im Speed-Layer und dessen Live-Views.
+Insbesondere besteht die Funktionalität des Batch-Layers darin, sogenannte Batch-Views per Batch Processing regelmäßig zu berechnen, die auf die zu erwartenden Anfragen angepasst sind. Diese Batch-Views werden dann durch den Serving Layer indiziert und verarbeitet, um Abfragen mit geringem Aufwand durchzuführen. Da die Batch-Views nur mit hoher Latenz aktualisiert werden können, muss es einen Sonderweg für kürzlich hinzugekommene Daten geben. Dieser findet sich in der Lambda-Architektur im Speed-Layer und dessen Live-Views.
 
 ### Verwaltung der Stammdaten
 

@@ -31,4 +31,5 @@
  **[Ben14]** | Günther Bengel. _Grundkurs Verteilte Systeme_. Wiesbaden: Springer Fachmedien, 2014 | 
  **[Rao19]** | Rao et al. _The Big Data System, Components, Tools, and Technologies: A Survey._ In: Knowledge and Information Systems 60 (3). Seiten 1165–1245. 2019 |
  **[ApS20]** | Apache Foundation. http://storm.apache.org/releases/current/Concepts.html
+ **[Cou15]** | Johnson, Shane. [Lambda Architecture with NoSQL](https://blog.couchbase.com/lamda-architecture-and-beyond-with-nosql/). Abgerufen am 23.01.2021
 ------------

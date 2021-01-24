@@ -1,4 +1,4 @@
-### Architektur
+## Architektur
 
 Die Lambda-Architektur führt zwei Datenflusspfade ein, der eine Pfad ermöglicht eine genaue, aber langsame Verarbeitung und ein schneller Pfad, welcher Daten in Echtzeit analysiert, dafür aber ggfs. die Genauigkeit der Ergebnisse opfert. (!todo ZoinerTejada o. J.)
 
