@@ -42,10 +42,14 @@ Ein nützlicheres Design ist eine einzelne Warteschlange, die es mehreren Abnehm
 
 Um dieses Problem zu lösen, werden die Nachrichten nicht mehr ad-hoc aus der Warteschlange gelöscht, sondern die Warteschlange hält alle Nachrichten für einen zugesicherten Zeitraum vor und es liegt in der Verantwortung der Abnehmer, die bereits verarbeiteten Nachrichten nicht erneut anzufragen. 
 
-Da alle Nachrichten für eine zugesicherte Zeit in der Warteschlange vorhanden sind, können die Abnehmer im Falle eines Fehlers die Nachrichten in der Reihenfolge ihres Auftretens erneut verarbeiten. Dies ist bei einer Warteschlange mit einem Abnehmer nicht möglich, zudem hat eine Warteschlange mit mehreren Abnehmern keine Nachteile gegenüber einer Warteschlange mit einem Abnehmer. Daher ist die Verwendung einer Warteschlange mit mehreren Abnehmern empfehlenswert (z.B. Apache Kafka).  
+Da alle Nachrichten für eine zugesicherte Zeit in der Warteschlange vorhanden sind, können die Abnehmer im Falle eines Fehlers die Nachrichten in der Reihenfolge ihres Auftretens erneut verarbeiten. Dies ist bei einer Warteschlange mit einem Abnehmer nicht möglich, zudem hat eine Warteschlange mit mehreren Abnehmern keine Nachteile gegenüber einer Warteschlange mit einem Abnehmer. Daher ist die Verwendung einer Warteschlange mit mehreren Abnehmern empfehlenswert (z.B. Apache Kafka).
 
-#### Streamverarbeitung
-Das Storm Modell beschreibt den Ablauf der Datenverarbeitung als einen gerichteten azyklischen Graphen, der als Topologie bezeichnet wird. In dem Graphen repräsentiert jeder Knoten eine Operation und jede Kante repräsentiert den Datenfluss zwischen den Operationen.[Rao19]
+#### Stream-Processing
+Stream-Processing ist die Verarbeitung der kontinuierlich eingehenden Ereignisse in nahezu Echtzeit, d.h. anders als bei dem Batch-Processing werden die Ereignisse nicht erst angesammelt. Im Kontext "Big Data" kann Echtzeit wenige Millisekunden bis zu einigen Minuten bedeuten. 
+
+Um Unterschiedliche Operationen während des Stream-Processing zu realisieren, können die Abnehmer oder auch _Worker_ einer Warteschlange wiederum Nachrichten in weiteren Warteschlangen einreihen. So kann der Verarbeitungsablauf auf unterschiedliche Worker verteilt und durch Warteschlangen miteinander verbunden werden. Dieser Ansatz ist komplex, da jede Warteschlange verwaltet und überwacht werden muss. Soll der Ablauf der Operationen geändert werden, müssen zwischengeschaltete Wartschlangen zunächst leer sein. Zudem erzeugt die Übertragung der Ereignisse über mehrere Warteschlangen eine Latenz.[Mar16, S. 271]
+
+Um die Probleme des Ansatzes mit mehreren Warteschlangen zu vermeiden, hat sich eine Abstraktion in Form des Storm-Modells etabliert. Es beschreibt den Ablauf der Datenverarbeitung als einen gerichteten azyklischen Graphen, der als Topologie bezeichnet wird. In dem Graphen repräsentiert jeder Knoten eine Operation und jede Kante repräsentiert den Datenfluss zwischen den Operationen.[Rao19] Wesentlicher Bestandteil des Storm-Modells sind _Streams_. Ein Stream ist eine endlose Sequenz von _Tupeln_, wobei ein Tupel eine Liste von Werten ist. Ein _Spout_ ist die Quelle eines Streams in einer Topologie. Die Operationen (filtern, aggregieren, zusammenfügen, Kommunikation mit Datenbanken) werden durch _Bolts_ repräsentiert.[ApS20] Eine Topologie ist verbindet Spouts und Bolts und legt fest, wie die Tupel eine Storm-Anwendung durchlaufen. Eine konkrete Instanz eines Bolts oder Spouts wird _Task_ genannt und ein Task wird parallel ausgeführt und kann auf mehrere Maschinen verteilt werden.[Mar16, S. 274]
 
 ### Übliche Technologien
 Der Speed-Layer bildet sich einerseits aus einer Technologie für die Verarbeitung der Echtzeitdaten (Stream-Processing) und andererseits aus einer Datenbank, welche die berechneten Views speichert und verfügbar macht.  
@@ -53,6 +57,3 @@ Der Speed-Layer bildet sich einerseits aus einer Technologie für die Verarbeitu
 Für die Implementierung des Speed-Layers werden Frameworks für Stream-Processing und Cluster-Computing eingesetzt. Einige dieser Projekte werden von der Apache Software Foundation betreut und weiterentwickelt, darunter Apache Storm, Apache Samza, Apache Spark und Apache Flink. Neben den Projekten der Apache Foundation werden auch häufig Lösungen von Microsoft (Azure Stream Analytics) oder Google (Cloud Dataflow) eingesetzt.
 
 Die berechneten Views werden in hochskalierbaren NoSQL-Datenbanken wie z.B. Apache Cassandra gespeichert. 
-
-### Apache Storm
-Apache Storm ist eine Implementierung des Storm-Modells. 
