@@ -1,10 +1,10 @@
 # 5. Repository
 
 ## 5.1 Einleitung
-Die nächsten zwei folgenden Kapitel befassen sich mit den Themen Repository und Queries in der Spring Data JPA - Umgebung. Um ein besseres Verständnis zu erlangen, was diese abstrakten Begriffe darstellen, sollen deren wichtigsten Eigenschaften vorgestellt und ihre Verwendung und Implementierung anhand von Code-Snippets verdeutlich werden, um einen besseren Bezug zu bekommen.
+Die nächsten zwei folgenden Kapitel befassen sich mit den Themen Repository und Query Methods in der Spring Data JPA - Umgebung. Um ein besseres Verständnis zu erlangen, was diese abstrakten Begriffe bedeuten, sollen deren wichtigsten Eigenschaften vorgestellt und ihre Verwendung und Implementierung anhand von Code-Snippets verdeutlicht werden.
 
 "*Das Ziel der Spring Data Repository-Abstraktion besteht darin, die Menge an Boilerplate-Code, die zum Implementieren von Datenzugriffsschichten für verschiedene Persistenzspeicher erforderlich ist, erheblich zu reduzieren.*"[18]. Diese Aussage ist absolut zutreffend, was Spring Data JPA und ihr Repository so besonders machen. Es wird nämlich vermieden, an mehreren Stellen mit geringen bis keinen Abweichungen wiederholt den gleichen Code zu verwenden. Im Vergleich zum Data Access Object Pattern, wo genau dies passiert und das auch sehr gerne zur Persistierung von Entitäten genutzt wird, hat man mit Hilfe des Repository-Patterns sprichwörtlich ein viel leichteres Spiel und genau dies umgesetzt.Spring Data JPA Repositories erleichtern nämlich dem Entwickler die Arbeit sehr. Mit der Implementierung des Repository sind es deutlich weniger Schritte, die er zu erfüllen hat, um das gleiche Ergebnis zu erlangen wie beim DAO-Pattern. Wiederholender Code entsteht erst gar nicht.
-In Kapitel 5.2 soll auf die Implementierung zur Persisitierung mittels des DAO-Patterns eingegangen werden, da es in der Vergangenheit große Verwendung fand. Danach soll im nächsten Kapitel 5.3 das gleiche Ergebnis mittels Spring Data JPA Repository erzielt werden. Ziel ist es, zu verdeutlichen, wo genau die Unterschiede aber auch Gemeinsamkeiten liegen, die dann in Kapitel 5.4 genauer behandelt werden, und im Besonderen wieviel weniger Code man schreiben muss, weil die Arbeit jetzt zum größten Teil von Spring Data JPA (im Hintergrund) übernommen wird. Spring Data JPA findet immer mehr Anklang und wir möchten gerne zeigen, warum dies so ist. Die in Kapitel 5.2 und 5.3 aufgeführten Code-Beispiele sind in unserem Projekt abgelegt unter [Projektcodes/repository_and_queries](./Projektcodes/repository_and_queries)
+In Kapitel 5.2 soll auf die Implementierung zur Persistierung mittels des DAO-Patterns eingegangen werden, da es in der Vergangenheit große Verwendung fand. Danach soll im nächsten Kapitel 5.3 das gleiche Ergebnis mittels Spring Data JPA Repository erzielt werden. Ziel ist es, zu verdeutlichen, wo genau die Unterschiede aber auch Gemeinsamkeiten liegen, die dann in Kapitel 5.4 genauer behandelt werden, und im Besonderen wieviel weniger Code man schreiben muss, weil die Arbeit jetzt zum größten Teil von Spring Data JPA (im Hintergrund) übernommen wird. Spring Data JPA findet immer mehr Anklang und wir möchten gerne zeigen, warum dies so ist. Die in Kapitel 5.2 und 5.3 aufgeführten Code-Beispiele sind in unserem Projekt abgelegt unter [Projektcodes/repository_and_queries](./Projektcodes/repository_and_queries)
 
 Das Kapitel 5.5 [Repositories in Spring Data JPA](05_Repository.md#55-repositories-in-spring-data-jpa) befasst sich ausführlich mit dem Thema Interfaces in Spring Data JPA, Kapitel 6 mit [Query Methods](06_Query_Methods.md).
 
@@ -219,7 +219,7 @@ public class DAOApp {
 ### Spring Data JPARepository
 
 
-In diesem Kapitel sollen die Schritte und Komponenten gezeigt werdenm, die uns Spring Data JPA anbietet, um das gleiche Ergebnis wie im vorherigen Kapitel zu erreichen. Spring Data JPA bietet eine Reihe von Repository-Schnittstellen, die man nur erweitern muss. Wir entscheiden uns hier für das JPARepository, das Entitäten vom Typ Stock zugeordnet ist. Zusätzlich werden dem Interface noch zwei Methoden hinzugefügt.  
+In diesem Kapitel sollen die Schritte und Komponenten gezeigt werden, die uns Spring Data JPA anbietet, um das gleiche Ergebnis wie im vorherigen Kapitel zu erreichen. Spring Data JPA bietet eine Reihe von Repository-Schnittstellen, die man nur erweitern muss. Wir entscheiden uns hier für das JPARepository, das Entitäten vom Typ Stock zugeordnet ist. Zusätzlich werden dem Interface noch zwei Methoden hinzugefügt.  
 
 ### Interface StockRepository
 ```Java
@@ -307,7 +307,7 @@ public class StockOperationsImpl{
 
 ## 5.4 Vorteile von Spring-Data-JPA
 
-Die vorherigen Kapitel 5.3 und 5.4 haben die Unterschiede zwischen Spring Data JPA und DAO bzgl. der Verbindung zur Persistence-Layer-Schicht gezeigt. Während man im DAO-Pattern sich noch selbst darum kümmern muss, dass die Methoden für Datenbankoperationen ausgeschrieben werden, siehe Klasse *StockDAOImpl*, übernimmt dies Spring Data JPA komplett, indem man lediglich das Interface *StockRepository*  implementiert, welches wiederum um JpaRepository erweitert werden muss. Damit stehen einem auch schon alle Standarddatenbankoperationen zur Verfügung für die Entität vom Typ Stock. Das bedeutet, dass Sie keine grundlegenden Lese- oder Schreibvorgänge mehr selbst implementieren müssen.  Den Teil der Programmierung zur Erzeugung eines Objekts vom Typ EntityManagerFactory und die damit verbundenen Aufrufe der Operationen *persist, merge, remove, update und createQuery* werden jetzt von Spring Data JPA im Hintergrund automatisch ausgeführt. Hier gibt der Entwickler eindeutig einen Teil seiner ehemals selbstentwickelten Programmierung auf und vertraut ganz auf Spring Data JPA. Man erspart sich hier einfach viel Code und auch unnötige Fehler.
+Die vorherigen Kapitel 5.3 und 5.4 haben die Unterschiede zwischen Spring Data JPA und DAO bzgl. der Verbindung zur Persistence-Layer-Schicht gezeigt. Während man im DAO-Pattern sich noch selbst darum kümmern musste, dass die Methoden für Datenbankoperationen ausgeschrieben werden, siehe Klasse *StockDAOImpl*, übernimmt dies Spring Data JPA komplett, indem man lediglich das Interface *StockRepository*  implementiert, welches wiederum um JpaRepository erweitert werden muss. Damit stehen einem auch schon alle Standarddatenbankoperationen zur Verfügung für die Entität vom Typ Stock. Das bedeutet, dass Sie keine grundlegenden Lese- oder Schreibvorgänge mehr selbst implementieren müssen.  Den Teil der Programmierung zur Erzeugung eines Objekts vom Typ EntityManagerFactory und die damit verbundenen Aufrufe der Operationen *persist, merge, remove, update und createQuery* werden jetzt von Spring Data JPA im Hintergrund automatisch ausgeführt. Hier gibt der Entwickler eindeutig einen Teil seiner ehemals selbstentwickelten Programmierung auf und vertraut ganz auf Spring Data JPA. Man erspart sich hier einfach viel Code und auch unnötige Fehler.
 
 "*Eine weitere komfortable Eigenschaft von Spring Data JPA ist die Bereitstellung von Datenbankabfragen basierend auf Methodennamen, so genannten Query-Methods, siehe auch Kaiptel 6. Solange die Abfrage nicht zu komplex wird, muss man lediglich eine Methode  in der Repository-Schnittstelle mit einem Namen definieren, der mit find… By beginnt. Spring analysiert dann den Methodennamen und erstellt eine Abfrage dafür. Intern generiert Spring eine JPQL(Java Persistence Query Language)-Abfrage basierend auf dem Methodennamen, legt die angegebenen Methodenparameter als Bindungsparameterwerte fest, führt die Abfrage aus und gibt das Ergebnis zurück.*"[19]
 Dies haben wir im Interface StockRepository getan mit den Methoden findByWkn und findByCompanyName.
@@ -355,11 +355,11 @@ public interface Repository<T, ID> {
 }
 ```
 
-In unserem Beispiel entspricht die oben beschriebene Klasse Stock der Domänenklasse. Der ID-Typ ist hier vom Typ Long, da der primäre Schlüssel bzw das Attribut id der Entitätsklasse Stock vom primitiven Datentypen long ist.
+In unserem Beispiel entspricht die oben beschriebene Klasse Stock der Domänenklasse. Der ID-Typ ist hier vom Typ Long, da der primäre Schlüssel bzw. das Attribut *id* der Entity-Klasse Stock vom primitiven Datentypen long ist.
 
 ### Interface CrudRepository
 
-Die CrudRepository-Schnittstelle bietet CRUD-Funktionen für die zu verwaltende Entitätsklasse.
+Die CrudRepository-Schnittstelle bietet CRUD-Funktionen für die zu verwaltende Entity-Klasse.
 
 ```java
 public interface CrudRepository<T, ID> extends Repository<T, ID> {

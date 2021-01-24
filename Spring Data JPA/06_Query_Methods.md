@@ -1,6 +1,6 @@
 # 6. Query Methods
 
-## Query abgeleitet vom Methodennamen
+## Abgeleitet vom Methodennamen
 
 In diesem Kapitel möchten wir gerne zeigen, welche Möglichkeiten Spring Data JPA einem bietet, Queries bzw. Datenbankabfragen auf Entitäten zu definieren. Beginnen möchten wir mit dem Beispiel aus Kapitel 5.4. Mit Hilfe von Schlüsselwörtern und Klassenattributen *companyName* und *wkn* war es uns möglich, im Repository genau die Methoden *findByWkn* und *findByCompanyName* zu definieren. Spring Data JPA übersetzt dann diese Methodennamen in die Java eigene Persist Query Language JPQL und liefert uns das gewünschte Ergebnis zurück, hier war es jeweils ein Objekt vom Typ *Stock*.
 Die folgende Tabelle zeigt einige weitere Beispiele, wie schnell und einfach es ist, solche Methoden im Repository-Interface zu implementieren:
