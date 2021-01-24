@@ -1,14 +1,14 @@
 ## Grundlagen
 
-Einige Begrifflichkeiten spielen bei der Lambda-Architektur eine besondere Rolle. Die wichtigsten Begriffe werden in Folge erklärt.
+Einige Begrifflichkeiten spielen bei der Lambda-Architektur eine besondere Rolle. Die wichtigsten Begriffe werden im Folgenden erklärt.
 
 ### Immutable Data
 
-Ein grundlegender Ansatz ist die Verwendung von *unveränderlichen Daten* (immutable data) bzw. *nur anhängenden* (append only) Datenstrukturen. Dies erleichtert die Verteilung und Parallelisierung von Berechnungen, da keine Synchronisation und Koordination des Zugriffes notwendig ist. Der Ansatz ist angelehnt an die funktionale Programmierung. Immutable oder Append-Only Data findet prinzipiell bei der Lambda-Architektur in vielen Aspekten Anwendung.
+Ein grundlegender Ansatz ist die Verwendung von *unveränderlichen Daten* (immutable data) bzw. *nur anhängenden* (append-only) Datenstrukturen. Dies erleichtert die Verteilung und Parallelisierung von Berechnungen, da keine Synchronisation und Koordination des Zugriffes notwendig ist. Der Ansatz ist angelehnt an die funktionale Programmierung. Das Konzept Immutable Data bzw. Append-Only Data findet prinzipiell bei der Lambda-Architektur in vielen Aspekten Anwendung.
 
 ### Stream Processing
 
-Stream Processing bedeutet, dass Daten dann verarbeitet werden, wie sie aufgezeichnet werden. Aus Ereignissen und Datenpunkten resultierende Eingaben werden nahezu in Echtzeit verarbeitet. Die Motivation dahinter liegt darin begründet, dass häufig zeitnahe Analyseergebnisse erforderlich sind. Stream Processing findet im Speed-Layer der Lambda-Architektur Anwendung.
+Stream Processing bedeutet, dass Daten verarbeitet werden, während sie aufgezeichnet werden. Aus Ereignissen und Datenpunkten resultierende Eingaben werden nahezu in Echtzeit verarbeitet. Die Motivation dahinter liegt darin begründet, dass häufig zeitnahe Analyseergebnisse erforderlich sind. Stream Processing findet im Speed-Layer der Lambda-Architektur Anwendung.
 
 ### Batch Processing
 
