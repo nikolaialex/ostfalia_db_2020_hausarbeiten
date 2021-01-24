@@ -67,7 +67,11 @@ Ein Nachteil des MapReduce-Ansatzes ist eine schlechte praktische Umsetzbarkeit 
 
 ### Abstraktion von MapReduce-Programmen
 
-Es existieren einige Abstraktionsmodelle und viele verschiedene konkrete Implementierungen von Berechnungsmodellen auf Basis von MapReduce. Ein populäres Abstraktionsmodell ist hierbei das Pipe-Diagramm. Hierbei wird die Datenverarbeitung als eine Abfolge von abstrakten Operationen aufgefasst, beispielsweise Funktionsanwendung, Aggregation, Filterung, Joins und so weiter. Die Verarbeitungsschritte basieren hierbei jeweils auf Tupeln an Daten, die als Eingabe verwendet werden und auch ausgegeben werden. Durch Kombination dieser Schritte lassen sich komplexe Berechnungen einerseits elegant formulieren und andererseits auf eine Abfolge an konkreten MapReduce-Schritten übersetzen.
+Es existieren einige Abstraktionsmodelle und viele verschiedene konkrete Implementierungen von Berechnungsmodellen auf Basis von MapReduce. Ein populäres Abstraktionsmodell ist hierbei das Pipe-Diagramm (vgl. Abb. 2). Hierbei wird die Datenverarbeitung als eine Abfolge von abstrakten Operationen aufgefasst, beispielsweise Funktionsanwendung, Aggregation, Filterung, Joins und so weiter. Die Verarbeitungsschritte basieren hierbei jeweils auf Tupeln an Daten, die als Eingabe verwendet werden und auch ausgegeben werden. Durch Kombination dieser Schritte lassen sich komplexe Berechnungen einerseits elegant formulieren und andererseits auf eine Abfolge an konkreten MapReduce-Schritten übersetzen.
+
+![Pipe-Diagramm](img/pipe_diagramm.svg)
+
+Abb. 2: Ein beispielhaftes Pipe-Diagramm.
 
 Ein typisches Beispiel für den Nutzen dieser Abstraktion ist ein Join. Wenn mittels MapReduce zwei Tabellen zusammengefügt werden sollen, ist viel manuelle Arbeit nötig: Die Eingabe-Tabellen müssen in der *Map*-Funktion identifiziert und separat behandelt und in der *Reduce*-Funktion müssen die Spalten passend kombiniert werden. Hierbei können bei manueller Implementierung auf MapReduce-Ebene leicht Fehler passieren. Eine Abstraktion erlaubt die Ausführung mittels eines einzigen vordefinierten Join-Verarbeitungsschritts, ganz ähnlich wie in SQL bei relationalen Datenbanken.
 
