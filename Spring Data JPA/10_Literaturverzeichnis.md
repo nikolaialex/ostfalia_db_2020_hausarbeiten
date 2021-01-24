@@ -1,12 +1,12 @@
 # 11. Literaturverzeichnis
-[1] W. Craig (2019): Spring im Einsatz, Hanser, Seite 26.  
+[1] W. Craig (2019): Spring im Einsatz. Hanser, Seite 26.  
 //02  
-[2] Thorben Janssen (Hrsg.): Spring Data JPA Methodennamen(Online, übersetzt aus dem Englischen), https://thorben-janssen.com/what-is-spring-data-jpa-and-why-should-you-use-it/, Abruf am 16.01.2021    
-[3] Thorben Janssen (Hrsg.): Getting Started With Hibernate. https://thorben-janssen.com/hibernate-getting-started/, Abruf: 14.01.2021  
+[2] T. Janssen (Hrsg.): Spring Data JPA Methodennamen(Online, übersetzt aus dem Englischen), https://thorben-janssen.com/what-is-spring-data-jpa-and-why-should-you-use-it/, Abruf am 16.01.2021    
+[3] T. Janssen (Hrsg.): Getting Started With Hibernate. https://thorben-janssen.com/hibernate-getting-started/, Abruf: 14.01.2021  
 [4] Hibernate (Hrsg.): What is Object/Relational Mapping? https://hibernate.org/orm/what-is-an-orm/, Abruf: 10.01.2021  
 [5] Ambysoft Inc (Hrsg.): Mapping Objects to Relational Databases: O/R Mapping In Detail. http://www.agiledata.org/essays/mappingObjects.html, Abruf: 10.01.2021    
 [6] Ambysoft Inc (Hrsg.): The Object-Relational Impedance Mismatch. http://www.agiledata.org/essays/impedanceMismatch.html, Abruf: 10.01.2021  
-[7] Chris Ireland (Hrsg.): Impedance Mismatch? http://impedancemismatch.com/page1/page1.html, Abruf: 10.01.2021  
+[7] C. Ireland (Hrsg.): Impedance Mismatch? http://impedancemismatch.com/page1/page1.html, Abruf: 10.01.2021  
 [8] Walking Techie (Hrsg.): Object Relational Impedance Mismatch. https://walkingtechie.blogspot.com/2017/12/object-relational-impedance-mismatch.html, Abruf: 10.01.2021  
 [9] Tutorials Point (Hrsg.): Hibernate - ORM Overview. https://www.tutorialspoint.com/hibernate/orm_overview.htm, Abruf: 12.01.2021  
 [10] Tutorials Point (Hrsg.): Hibernate - Overview. https://www.tutorialspoint.com/hibernate/hibernate_overview.htm, Abruf: 12.01.2021  
@@ -23,7 +23,7 @@
 //05+07  
 [18] Spring.io (Hrsg.): Working with Spring Data Repositories(Online, übersetzt aus dem Englischen),https://docs.spring.io/spring-data/data-commons/docs/1.6.1.RELEASE/reference/html/repositories.html, Abruf am 09.01.2021
 //05  
-[19] Thorben Janssen (Hrsg.): Reasons to use Spring Data JPA(Online, übersetzt aus dem Englischen), https://thorben-janssen.com/what-is-spring-data-jpa-and-why-should-you-use-it/, Abruf am 16.01.2021  
+[19] T. Janssen (Hrsg.): Reasons to use Spring Data JPA(Online, übersetzt aus dem Englischen), https://thorben-janssen.com/what-is-spring-data-jpa-and-why-should-you-use-it/, Abruf am 16.01.2021  
 [20] Spring.io (Hrsg.): Working with Spring Data Repositories(Online, übersetzt aus dem Englischen),https://docs.spring.io/spring-data/jpa/docs/current/reference/html/#repositories, Abruf am 17.01.2021  
 //06  
 [21] Spring.io (Hrsg.): Using Named Parameters(Online, übersetzt aus dem Englischen),https://docs.spring.io/spring-data/jpa/docs/current/reference/html/#jpa.named-parameters, Abruf am 18.01.2021  
