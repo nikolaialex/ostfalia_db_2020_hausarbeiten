@@ -1,15 +1,15 @@
 # 1. Einführung in Spring Data JPA
 ## 1.1 Allgemeines
-Das Spring Framework erfreut sich im Laufe der letzten Jahre zunehmender Beliebtheit. Es wird sehr häufig bei der Erstellung umfangreicher Softwareanwendungen benutzt, in welchen eine große Menge an Daten verarbeitet (abgefragt, gespeichert, gelöscht und aktualisiert) werden. Vor allem unterstützt das Framework die Arbeit an der Persistenzschicht. Im Rahmen dieser Ausarbeitung wird eine Bibliothek vorgestellt, die dem Entwickler sehr viel Arbeit abnehmen kann - die Rede ist von "Spring Data JPA".
+Das Spring Framework erfreut sich im Laufe der letzten Jahre zunehmender Beliebtheit. Es wird sehr häufig bei der Erstellung umfangreicher Softwareanwendungen benutzt, in welchen eine große Menge an Daten verarbeitet (abgefragt, gespeichert, gelöscht und aktualisiert) werden. Vor allem aber unterstützt das Framework die Arbeit an der Persistenzschicht. Im Rahmen dieser Ausarbeitung wird eine Bibliothek vorgestellt, die dem Entwickler sehr viel Arbeit abnehmen kann - die Rede ist von "Spring Data JPA".
 
-Spring Data JPA gehört zu den Hauptbestandteilen des Springframeworks und bietet eine abstrakte Datenzugriffsschicht, welche eine Vielzahl generischer Methoden zum Datenzugriff beinhaltet. 
+Spring Data JPA gehört zu den Hauptbestandteilen des Sprin-Frameworks und bietet eine abstrakte Datenzugriffsschicht, welche eine Vielzahl generischer Methoden zum Datenzugriff beinhaltet. 
 
-Bevor die Spring Data JPA ausführlich vorgestellt wird, wird zuvor ein kurzer Überblick über das allgemeine Spring-Framework, sowie der JPA gegeben.
+Bevor die Spring Data JPA ausführlich behandelt wird, wird zuvor ein kurzer Überblick über das Spring-Framework, sowie der JPA gegeben.
 
-## 1.2 Spring
-Bei dem Spring-Framework handelt es sich um ein schlankes und quelloffenes Framework für Java-Anwendungen. Die erste Version von Spring wurde im Jahr 2002 von dem australischen Programmierer Rod Johnson entwickelt. Er suchte nach einem Weg Businessapplikcationen auf möglichst einfache und schnelle Weise programmierern zu können und diese flexibel, leicht wart- und modifizierbar und einfach erweiterbar zu halten. 
+## 1.2 Spring-Framework
+Bei dem Spring-Framework handelt es sich um ein schlankes und quelloffenes Framework für Java-Anwendungen. Die erste Version von Spring wurde im Jahr 2002 von dem australischen Programmierer Rod Johnson entwickelt. Er suchte nach einem Weg Businessapplikationen auf möglichst einfache und schnelle Weise programmieren zu können und diese leicht wart- und modifizierbar zu halten.
 
-Das Framework soll den Programmierer bei der Java/JavaE - Entwicklung mittels Techniken wie der Dependency Injection, Templates und der aspektorientierten Programmierung unterstützen und somit leichteren und besser wartbaren Programmcode ermöglichen. Das Spring-Framework wird am häufigsten bei der Entwicklung von Web-Anwendungen genutzt, es kann allerdings für jede Art von Anwendungen genutzt werden. 
+Das Framework soll den Programmierer bei der Java/JavaEE - Entwicklung mittels Techniken wie der Dependency Injection, Templates und der aspektorientierten Programmierung unterstützen und somit leichteren und besser wartbaren Programmcode ermöglichen. Das Spring-Framework wird am häufigsten bei der Entwicklung von Web-Anwendungen genutzt, es kann allerdings für jede Art von Anwendungen genutzt werden. 
 
 Spring wird typischerweise als "Lightweigt" - Framework für Java-Anwendungen betitelt, da keinerlei Anpassungen am Quellcode notwendig sind, um von den vielzählien Vorteilen zu profitieren. Durch den Einsatz des Frameworks erhält man eine leistungsstarke Grundstruktur, die kaum verändert werden muss, dies macht es möglich das die Entwickler sich komplett auf die eigentliche Business-Logik konzentrieren können.
 
