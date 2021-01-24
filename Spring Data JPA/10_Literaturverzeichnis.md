@@ -1,7 +1,7 @@
 # 11. Literaturverzeichnis
 
-[1] Walls, Craig (2019): Spring im Einsatz
-//02
+[1] Walls, Craig (2019): Spring im Einsatz  
+//02  
 [2] Thorben Janssen (Hrsg.): Spring Data JPA Methodennamen(Online, übersetzt aus dem Englischen), https://thorben-janssen.com/what-is-spring-data-jpa-and-why-should-you-use-it/, Zugriff am 16.01.2021    
 [3] Thorben Janssen (Hrsg.): Getting Started With Hibernate. https://thorben-janssen.com/hibernate-getting-started/, Abruf: 14.01.2021  
 [4] Hibernate (Hrsg.): What is Object/Relational Mapping? https://hibernate.org/orm/what-is-an-orm/, Abruf: 10.01.2021  
@@ -17,7 +17,7 @@
 [13] JPA Performance Benchmark (Hrsg.): Comparison of Hibernate with MySQL server vs EclipseLink with MySQL server. https://www.jpab.org/Hibernate/MySQL/server/EclipseLink/MySQL/server.html, Abruf: 12.01.2021    
 [14] ObjectDB Software (Hrsg.): JPA Criteria API Queries. https://www.objectdb.com/java/jpa/query/criteria, Abruf: 15.01.2021  
 //01  
-[15] BigData Insider (Hrsg.): Was ist JDBC? https://www.bigdata-insider.de/was-ist-jdbc-java-database-connectivity-a-727518, Zugriff am 24.01.2021
+[15] BigData Insider (Hrsg.): Was ist JDBC? https://www.bigdata-insider.de/was-ist-jdbc-java-database-connectivity-a-727518, Zugriff am 24.01.2021  
 //04  
 [16] Baeldung (Hrsg.): Spring Data Annotations. https://www.baeldung.com/spring-data-annotations    
 [17] Baeldung (Hrsg.): Defining JPA Entities. https://www.baeldung.com/jpa-entities  
