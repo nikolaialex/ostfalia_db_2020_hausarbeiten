@@ -4,7 +4,7 @@ Der Batch-Layer verwaltet den Stammdatensatz und führt Berechnungen auf den Sta
 
 Insbesondere besteht die Funktionalität des Batch-Layers darin, sogenannte Batch-Views regelmäßig zu berechnen, die auf die zu erwartenden Anfragen angepasst sind. Diese Batch-Views werden dann durch den Serving Layer indiziert und verarbeitet, um Abfragen mit geringem Aufwand durchzuführen. Da die Batch-Views nur mit hoher Latenz aktualisiert werden können, muss es einen Sonderweg für kürzlich hinzugekommene Daten geben. Dieser findet sich in der Lambda-Architektur im Speed-Layer und dessen Live-Views.
 
-### Verwaltung der Stammdatensatzes
+### Verwaltung der Stammdaten
 
 Typischerweise wird der Stammdatensatz in der Lambda-Architektur innerhalb des Batch-Layers lokalisiert. Neue Daten, die in das System eingefügt werden sollen, werden im Batch Layer zum Stammdatensatz zusammengeführt. Ebenso können Korrekturen an den Stammdaten erfolgen. Die Lokalisierung der Stammdaten und die Zusammenführung mit neuen Daten innerhalb des Batch Layers hilft insbesondere dabei, bei Bedarf eine inkrementelle Verarbeitung neuer Daten zu ermöglichen.
 
@@ -20,9 +20,9 @@ Eine Aggregation ist beispielsweise ein Zugriffszähler: wenn die Stammdaten all
 
 Oft ist es nicht möglich, *alle* Daten vorherzuberechnen, da der mögliche Speicherplatz begrenzt ist. Daher ist es in der Praxis nötig, einen Kompromiss zu finden, sodass Daten teilweise in Batch-Views vorberechnet werden und teilweise innerhalb des Serving-Layers durch Echtzeitberechnungen zu den erwünschten Abfrageergebnissen ergänzt werden.
 
-#### Neuberechnungen oder inkrementelle Berechnungen
+#### Neuberechnung oder inkrementelle Berechnung
 
-Eine wichtige Designentscheidung bei der Implementierung der Berechnungen besteht darin, zu wählen, ob die Daten in jedem Durchlauf der Berechnungen komplett neu erstellt werden sollen, oder ob sie inkrementell erweitert werden sollen. Auf den ersten Blick erscheint eine inkrementelle Berechnung in jedem Falle besser, da die Performance höher ist. Aber inkrementelle Berechnungen sind nicht in jedem Falle vorteilhaft oder überhaupt möglich. Hierbei gilt es mehrere Aspekte zu beachten:
+Eine wichtige Designentscheidung bei der Implementierung der Berechnungen besteht darin, zu wählen, ob die Daten in jedem Durchlauf komplett neu erstellt werden sollen, oder ob sie inkrementell durch die neuen Daten erweitert werden sollen. Auf den ersten Blick erscheint eine inkrementelle Berechnung in jedem Falle besser, da die Performance prinzipiell höher ist. Aber inkrementelle Berechnungen sind nicht in jedem Falle vorteilhaft oder überhaupt möglich. Hierbei gilt es mehrere Aspekte zu beachten:
 
 * Allgemeine Anwendbarkeit
 
@@ -30,7 +30,7 @@ Eine wichtige Designentscheidung bei der Implementierung der Berechnungen besteh
 
 * Fehlertoleranz
 
-  Neuberechnungen sind fehlertolerant: wenn Fehler in den Stammdaten vorliegen, werden diese bei jeder Neuberechnung berücksichtigt. Zudem können beliebige Änderungen an den Berechnungen leicht angewendet werden. Bei inkrementeller Berechnung gestaltet sich dies oft schwierig oder unmöglich. Im Zweifelsfall muss eine Fehlerkorrektur bei inkrementeller Berechnung manuell eingepflegt werden, oder eine komplette Neuberechnung angestoßen werden.
+  Neuberechnungen sind fehlertolerant: wenn Fehler in den Stammdaten vorliegen, werden Korrekturen bei jeder Neuberechnung berücksichtigt. Zudem können beliebige Änderungen an den Berechnungen leicht umgesetzt werden. Bei inkrementeller Berechnung gestaltet sich dies oft schwierig oder unmöglich. Im Zweifelsfall muss eine Fehlerkorrektur bei inkrementeller Berechnung manuell eingepflegt werden, oder eine komplette Neuberechnung angestoßen werden.
 
 * Performance
 
@@ -42,28 +42,33 @@ Insgesamt ist eine Neuberechnung mit geringer Komplexität verbunden und robuste
 
 Ein wichtiger Aspekt bei der Konzeption eines Systems auf Basis der Lambda-Architektur ist die Skalierbarkeit. Genau wie eine verteilte und ggf. redundante Vorhaltung der Stammdaten muss auch die Verarbeitung der Daten zu Batch-Views verteilt und fehlertolerant durchgeführt werden.
 
-Es geht hier verschiedene Möglichkeiten, Frameworks und Verfahren, aber als wichtiger Baustein auf niedrigster Ebene hat sich hier das MapReduce-Berechnungsmodell etabliert. MapReduce ist ein einfacher Berechnungsmodell, das auf zwei Funktionen zur Umformung und Aggregation von Daten setzt.
+Es geht hier verschiedene Möglichkeiten, Frameworks und Verfahren, aber als wichtiger Baustein auf niedrigster Ebene hat sich hier das MapReduce-Berechnungsmodell etabliert. MapReduce ist ein einfaches Berechnungsmodell, das auf zwei Funktionen zur Umformung und Aggregation von Daten setzt. MapReduce wurde von Google für die Indizierung der Google-Suchmaschine konzipiert und war eins der ersten Systeme für verteilte Berechnungen im Petabyte-Bereich. Das Funktionsmodell von MapReduce setzt sich folgendermaßen zusammen:
 
-* Die *Map*-Funktion wird auf jeden Datensatz der Stammdaten angewendet und erzeugt aus ihnen beliebige Key-Value-Paare von neuen Daten. Hierbei können prinzipiell beliebige Datenverarbeitungsschritte angewendet werden, beispielsweise die o.g. Machine-Learning-Modelle angewendet werden.
+* Die Stammdaten werden für eine Parallelisierung und Verteilung in Blöcke aufgeteilt.
 
-* Die *Reduce*-Funktion erhält als Eingabe jeweils alle von der *Map*-Funktion erstellten Values mit gleichen Key und kann auf diese Value-Listen Aggregationsschritte anwenden, um wiederum neue Datensätze zu erstellen.
+* Eine *Map*-Funktion wird auf die Blöcke der Stammdaten angewendet und erzeugt aus ihnen beliebige Key-Value-Paare von neuen Daten. Hierbei können prinzipiell beliebige Datenverarbeitungsschritte angewendet werden, beispielsweise die o.g. Machine-Learning-Modelle angewendet werden.
 
-Dabei können die Daten für die *Map*-Funktion beliebig verteilt werden und die Daten für die *Reduce*-Funktion anhand der Keys der Key-Value-Paare verteilt werden. Eine Fehlertoleranz ist ebenfalls einfach umsetzbar.
+* In der sogenannten *Shuffle*-Phase werden die resultierenden Datensätze entsprechend ihrer Keys sortiert und wieder in Blöcke aufgeteilt.
 
-Übertragen auf unser Beispiel der Aggregation der Zugriffszahlen pro Stund für Web-Analytics könnte mit MapReduce eine mögliche Implementierung folgendermaßen aussehen:
+* Eine *Reduce*-Funktion erhält als Eingabe jeweils die von der *Map*-Funktion erstellten Values mit gleichem Key und kann auf diese Value-Listen Aggregationsschritte anwenden, um wiederum neue Datensätze zu erstellen.
 
-* Die *Map*-Funktion rundet den Zeitstempel eines Zugriffs auf jede Stunde. Das Value des Key-Value-Paares kann einfach ein konstanter Wert sein.
-* Die *Value*-Funktion zählt die Anzahl der Values für jeden Key zusammen und speichert die Summe als neuen Datensatz.
+* Die Ausgaben der *Reduce*-Durchläufe werden zusammengefasst und abgespeichert.
 
-Ein Nachteil des MapReduce-Ansatzes ist eine schlechte praktische Umsetzbarkeit für komplexe Datenverarbeitunsabläufe. MapReduce ist eine Low-Level-Primitive, die es nicht erlaubt, komplexe Verarbeitungsschritte wie beispielsweise Joins, sauber und elegant zu formulieren. Daher haben sich in der Praxis domänenspezifische Sprachen und Abstraktionen etabliert, um die Datenverarbeitung zur Erzeugung von Batch-Views zu formulieren.
+Diese Struktur erlaubt eine Skalierung ohne besondere Hürden. Eine Fehlertoleranz ist ebenfalls einfach umsetzbar, beispielsweise für den Fall von Serverausfällen oder abgebrochenen Berechnungen wegen Ressourcenknappheit. Trotz dieser offensichtlichen Einfachheit dieses Berechnungsmodells hat sich herausgestellt, dass sich damit fast alle möglichen Verarbeitungs- und Umformungsmöglichkeiten von Daten effizient modellieren lassen.
 
-### Abstraktion mittels Pipe-Diagrammen
+Übertragen auf unser Beispiel der Aggregation der Zugriffszahlen pro Stunde für Web-Analytics könnte mit MapReduce eine mögliche Implementierung folgendermaßen aussehen:
 
-- Abstraktionsebene für Batch-Berechnungen, die das Modellieren erleichtert
-- Definition und Beispiele
-- Ausführung mittels MapReduce
+* Die *Map*-Funktion rundet den Zeitstempel eines Zugriffs auf jede Stunde und generiert für jede Eingabedatensatz einen neuen Datensatz, wobei der Key die gerundete Uhrzeit ist. Das Value des Key-Value-Paares kann einfach ein konstanter Wert sein.
+* Die *Reduce*-Funktion zählt die Anzahl der Values für jeden Key und speichert die Summe für jeden Key als neuen Datensatz.
 
-### Anwendung in der Praxis
+Damit erhält man als Ausgabe die gewünschten Zugriffszahlen in einem neuen Datenbank-View.
 
-- DSLs für Pipe-Verarbeitung wie z.B. Cascalog
-- Alternative Verarbeitungsmodelle
+Ein Nachteil des MapReduce-Ansatzes ist eine schlechte praktische Umsetzbarkeit für komplexe Datenverarbeitungsabläufe. MapReduce ist eine Low-Level-Primitive, die es nicht erlaubt, komplexe Verarbeitungsschritte und Verarbeitungsketten, wie beispielsweise für Joins nötig, sauber und elegant zu formulieren. Daher haben sich in der Praxis domänenspezifische Sprachen und Abstraktionen etabliert, um die Datenverarbeitung zur Erzeugung von Batch-Views zu formulieren.
+
+### Abstraktion von MapReduce-Programmen
+
+Es existieren einige Abstraktionsmodelle und viele verschiedene konkrete Implementierungen von Berechnungsmodellen auf Basis von MapReduce. Ein populäres Abstraktionsmodell ist hierbei das Pipe-Diagramm. Hierbei wir die Datenverarbeitung als ein Abfolge von abstrakten Operationen aufgefasst, beispielsweise Funktionsanwendung, Aggregation, Filterung, Joins und so weiter. Die Verarbeitungsschritte basieren hierbei jeweils auf Tupeln an Daten, die als Eingabe verwendet werden und auch ausgegeben werden. Durch Kombination dieser Schritte lassen sich komplexe Berechnungen einerseits elegant formulieren und andererseits auf eine Abfolge an konkreten MapReduce-Schritten übersetzen.
+
+Ein typisches Beispiel für den Nutzen dieser Abstraktion ist ein Join. Wenn mittels MapReduce zwei Tabellen zusammengefügt werden sollen, ist viel manuelle Arbeit nötig: die Eingabe-Tabellen müssen in der *Map*-Funktion identifiziert und separat behandelt werden und in der *Reduce*-Funktion müssen die Spalten passend kombiniert werden. Hierbei können bei manueller Implementierung auf MapReduce-Ebene leicht Fehler passieren. Eine Abstraktion erlaubt die Ausführung mittels eines einzigen vordefinierten Join-Verarbeitungsschritts, ganz ähnlich wie in SQL bei relationalen Datenbanken.
+
+Typische Beispiele für Abstraktionsschichten sind domänenspezifische Sprachen wie *Pig Latin* (in Hadoop integriert) oder *Cascalog* (auf Hadoop aufsetzend). Andere Systeme wie *Apache Hive* setzen sogar auf einen SQL-Dialekt, womit die Daten weitgehend wie mit einer relationalen Datenbank verarbeitet werden können.
