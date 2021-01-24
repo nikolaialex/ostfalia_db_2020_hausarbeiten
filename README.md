@@ -9,7 +9,7 @@
 ## Inhaltsverzeichnis
 
 1. Einleitung
-2. [Architektur](4_Architektur.md)
+2. [Architektur](2_Architektur.md)
 3. [Grundlagen](3_Grundlagen.md)
 4. [Batch-Layer](4_Batch_Layer.md)
 5. [Serving-Layer](5_Serving_Layer.md)
