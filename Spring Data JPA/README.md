@@ -37,7 +37,7 @@
 7. [Repositories anpassen](07_Repositories_anpassen.md)  
 7.1 [Einzelnes Repository anpassen](07_Repositories_anpassen.md#71-einzelnes-repository-anpassen)  
 7.2 [Alle Repositories anpassen](07_Repositories_anpassen.md#72-alle-repositories-anpassen)
-8. [Fazit](08_Fazit.md)  
+8. [Zusammenfassung](08_Zusammenfassung.md)  
 9. [Abbildungsverzeichnis](09_Abbildungsverzeichnis.md)  
 10. [Literaturverzeichnis](10_Literaturverzeichnis.md)  
 11. [Tabellenverzeichnis](11_Tabellenverzeichnis.md)  
