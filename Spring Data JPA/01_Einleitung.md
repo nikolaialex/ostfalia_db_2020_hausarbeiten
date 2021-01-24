@@ -82,6 +82,8 @@ Spring-Data-JPA ist die Weiterentwicklung der OpenSource Bibliothek "Hades", wel
 
 <img src="Abbildungen/SpringDataJPAARchi.png" width="350">
 
+Abb. 1-1 *Spring Data JPA Architektur*
+
 Die Abbildung zeigt das Zusammenspiel der verschiedenen Komponenten. Die Application stellt eine Sammlung von Java Klassen dar, mit den verschiedensten Eigenschaften und Funktionen. Die Daten der Java-Klasse werden über JPA oder über Spring Data JPA über die Repositories durch den Entity Manager angefragt. Die JPA ist allerdings lediglich eine Spezifikation, weswegen sie die Objekte nicht von sich selbst aus persistieren kann. Die von der Spezifikation vorgegebenen Regeln müssen implementiert werden - hierbei kommen ORM-Frameworks wie Hibernate zum Einsatz. Über die Java Database Connectivity (JDBC) wird auf die relationale Datenbank zugegriffen. Die JDBC ist eine treiberbasiert, arbeitende Datenbankschnittstelle für Java. [15] Die API erlaubt es auf die verschiedensten Datenbanken zuzugreifen und SQL-Anweisungen auszuführen.
 
 
