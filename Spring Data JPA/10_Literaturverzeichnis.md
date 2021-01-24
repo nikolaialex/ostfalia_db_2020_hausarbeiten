@@ -16,7 +16,7 @@
 [13] JPA Performance Benchmark (Hrsg.): Comparison of Hibernate with MySQL server vs EclipseLink with MySQL server. https://www.jpab.org/Hibernate/MySQL/server/EclipseLink/MySQL/server.html, Abruf: 12.01.2021    
 [14] ObjectDB Software (Hrsg.): JPA Criteria API Queries. https://www.objectdb.com/java/jpa/query/criteria, Abruf: 15.01.2021  
 //01  
-[15]    //Ferry  
+[15] BigData Insider (Hrsg.): Was ist JDBC? https://www.bigdata-insider.de/was-ist-jdbc-java-database-connectivity-a-727518, Zugriff am 24.01.2021
 //04  
 [16] Baeldung (Hrsg.): Spring Data Annotations. https://www.baeldung.com/spring-data-annotations    
 [17] Baeldung (Hrsg.): Defining JPA Entities. https://www.baeldung.com/jpa-entities  
