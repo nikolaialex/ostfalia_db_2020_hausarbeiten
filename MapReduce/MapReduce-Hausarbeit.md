@@ -8,6 +8,7 @@
 | :----------------- | :------------- | :--------- |
 | Corinna Schnögl    | 897102   | Beuth Hochschule für Technik Berlin  |
 | Susanne Dittrich geb. Mitschke   | 20082904 | TH Brandenburg   |
+
 Table: Autoren
 
 ### Betreut durch:
@@ -24,29 +25,29 @@ Prof. Dr.-Ing. Nils Jensen und Nicolai Alex
 2. [Definition](#definition)
 3. [Einsatzfelder](#einsatzfelder)
 4. [Die Grundfunktionen](#die-grundfunktionen)
-4.1. [Map](#map)
-4.2. [Shuffle and Sort](#shuffle-and-sort)
-4.3. [Reduce](#reduce)
+<br/>4.1. [Map](#map)
+<br/>4.2. [Shuffle and Sort](#shuffle-and-sort)
+<br/>4.3. [Reduce](#reduce)
 5. [Anwendungsbeispiel](#anwendungsbeispiel)
-5.1. [Einlesen der Daten](#einlesen-der-unstrukturierten-daten)
-5.2. [Erzeugen von Schlüssel-Wertpaaren](#erzeugen-von-schlüssel-wertpaaren)
-5.3. [Gruppieren der Schlüssel-Wertpaare](#gruppieren-der-schlüssel-wertpaare)
-5.4. [Berechnung der Ergebnisse](#berechnung-der-ergebnisse)
-5.5. [Ausgabe der Ergebnisse](#ausgabe-der-ergebnisse)
+<br/>5.1. [Einlesen der Daten](#einlesen-der-unstrukturierten-daten)
+<br/>5.2. [Erzeugen von Schlüssel-Wertpaaren](#erzeugen-von-schlüssel-wertpaaren)
+<br/>5.3. [Gruppieren der Schlüssel-Wertpaare](#gruppieren-der-schlüssel-wertpaare)
+<br/>5.4. [Berechnung der Ergebnisse](#berechnung-der-ergebnisse)
+<br/>5.5. [Ausgabe der Ergebnisse](#ausgabe-der-ergebnisse)
 6. [Hadoop](#hadoop)
-6.1. [Hadoop Common](#hadoop-common)
-6.2. [HDFS](#hdfs)
-6.3. [MapReduce](#mapreduce)
-6.4. [YARN](#yarn)
-6.5. [Weitere Komponenten](#weitere-komponenten)
+<br/>6.1. [Hadoop Common](#hadoop-common)
+<br/>6.2. [HDFS](#hdfs)
+<br/>6.3. [MapReduce](#mapreduce)
+<br/>6.4. [YARN](#yarn)
+<br/>6.5. [Weitere Komponenten](#weitere-komponenten)
 7. [MapReduce im Vergleich](#mapreduce-im-vergleich)
-7.1. [mit relationalen Datenbanken](#mit-relationalen-Datenbanken)
-7.2. [mit NoSQL-Datenbanken](#mit-nosql-datenbanken)
+<br/>7.1. [mit relationalen Datenbanken](#mit-relationalen-Datenbanken)
+<br/>7.2. [mit NoSQL-Datenbanken](#mit-nosql-datenbanken)
 8. [Fazit](#fazit)
 
 [Literaturverzeichnis](#literaturverzeichnis)
-[Tabellenverzeichnis](#tabellenverzeichnis)
-[Abbildungsverzeichnis](#abbildungsverzeichnis)
+<br/>[Tabellenverzeichnis](#tabellenverzeichnis)
+<br/>[Abbildungsverzeichnis](#abbildungsverzeichnis)
 
 
 ## 1. Einleitung
