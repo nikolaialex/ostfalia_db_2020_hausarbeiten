@@ -28,8 +28,8 @@ Prof. Dr.-Ing. Nils Jensen und Nicolai Alex
 5. [Anwendungsbeispiel](#anwendungsbeispiel)
 6. [Hadoop](#hadoop)
 7. [Vergleich](#vergleich)
-7.1. [mit relationalen Datenbanken](#mit-relationalen-Datenbanken)
-7.2. [mit NoSQL-Datenbanken](#mit-nosql-datenbanken)
+<br/>7.1. [mit relationalen Datenbanken](#mit-relationalen-Datenbanken)
+<br/>7.2. [mit NoSQL-Datenbanken](#mit-nosql-datenbanken)
 8. [Fazit](#fazit)
 
 [Literaturverzeichnis](#literaturverzeichnis)
@@ -46,7 +46,7 @@ Für dieses Szenario kommt das Programmiermodell MapReduce ins Spiel, da es aufg
 
 MapReduce ist ein von Google im Jahr 2004 entwickeltes Verfahren, mit dem sich große strukturierte oder auch unstrukturierte Datenmengen mit hoher Geschwindigkeit verarbeiten lassen. MapReduce kann als Framework für Datenbanken genutzt werden und eignet sich für die Verarbeitung von großen Datenmengen, die im Big-Data-Umfeld auftreten und bis zu mehreren Petabytes groß sind. Es parallelisiert die Bearbeitung durch die Verteilung auf mehrere Tasks die gleichzeitig ausgeführt werden. Dabei verteilt das Framework die Aufgaben auf verschiedene Rechner oder Cluster und führt die Ergebnisse im Anschluss zusammen. Das Verfahren kann bei Problemen mit einzelnen Rechnern die Aufgaben neu verteilen, was dazu führt, dass Entwickler sich nicht mehr um die Fehlerbehandlung, die Aufgabenüberwachung die Cluster-Kommunikation kümmern müssen (Luber & Litzel, 2017).
 
-## 3 Grundfunktionen
+## 3. Grundfunktionen
 
 **Die Map-Phase**
 
@@ -59,7 +59,6 @@ In der Shuffling Phase werden die Ergebnisdaten der Mapper vom Reducer eingelese
 **Die Reduce-Phase**
 
  „Der Reduce-Funktion werden dann nacheinander ein Schlüssel mit dem Satz seiner zugehörigen Werte zur Verarbeitung übergeben. Die Ausgabe wird dann an ein finales Output-File angehängt. Sind alle Map- und Reduce-Funktionen abgeschlossen, benachrichtigt der Master das Benutzerprogramm. Das Ergebnis liegt dann in den Output-Files der einzelnen Reducer vor“ (Technische Hochschule Mittelhessen, 2015). Optional kann zusätzlich die Combiner-Funktion genutzt werden, die die Ergebnismenge der Map-Funktion reduziert, um möglichst wenig Daten über das Netzwerk senden zu müssen. Die typischen Probleme, die relationale Datenbanken mit der Verarbeitung von großen unstrukturierten Datenmengen haben werden mit MapReduce beseitigt (Luber &amp; Litzel, 2017).
-
 
 
 ## 4. Einsatzfelder
@@ -132,7 +131,7 @@ Anstatt den Worten jeweils eine 1 zuzuweisen wäre es alternativ auch möglich e
 Die Funktion würde dann folgendermaßen aussehen: 
 
 ```
-map((inhalt_datei2, "map-reduce-beispiel.de\datei2.json")) -&>; {
+map((inhalt_datei2, "map-reduce-beispiel.de\datei2.json")) ->; {
     („Big“, "map-reduce-beispiel.de\datei2.json"), 
     („Data“, "map-reduce-beispiel.de\datei2.json"),
     („ist“, "map-reduce-beispiel.de\datei2.json"),
@@ -172,7 +171,7 @@ reduce("Big", [1, 1]) ->;
 Abschließend werden die ermittelten Schlüssel-Wertpaare in eine Datei geschrieben. Das kann beispielsweise eine kommaseparierte Liste sein, in der jedes Wort und die zugehörige Anzahl in eine neue Zeile geschrieben werden.
 (Beispiel nach Dittrich, 2013a; Grus, 2019)
 
-Folgende Abbildung visualisiert noch einmal den oben beschriebenen MapReduce-Algorithmus:
+Folgende Abbildung 1 visualisiert noch einmal den oben beschriebenen MapReduce-Algorithmus.
 
 <p align="left"><img src="images/Abbildung1_Funktionsweise_MapReduce.jpg" title="Funktionsweise_MapReduce" width="60%" height="auto">
 <br>Abbildung 1: Funktionsweise MapReduce (Wuttke, 2020)</p>
@@ -230,7 +229,8 @@ Um die Unterschiede beider Systeme besser verdeutlichen zu können, wurden diese
 | Durchsatz | Niedrig | Hoch |
 | Latenz | Keine | Vorhanden | 
 | Kosten | Hoch | Niedrig |
-*Tabelle 1: Vergleich von RDBMS mit MapReduce (White, 2010; Educba; Geeksforgeeks, 2020)*
+
+<br/>*Tabelle 1: Vergleich von RDBMS mit MapReduce (White, 2010; Educba; Geeksforgeeks, 2020)*
 
 **Datenobjekte und Struktur**
 
@@ -253,8 +253,6 @@ Wie in der untenstehenden Grafik zu sehen ist sind relationale Datenbanken darau
 <p align="left"><img src="images/Architekturvergleich.jpg" title="Architekturvergleich relationale Datenbanken / MapReduce" width="60%" height="auto">
 <br>Abbildung 3: Architekturvergleich relationale Datenbanken / MapReduce  (Dittrich, 2013)</p>
 
-![Dittrich, 2013b][2]
-*Abbildung 3: Architekturvergleich relationale Datenbanken / MapReduce (Dittrich, 2013b)*
 
 **Integrität**
 
