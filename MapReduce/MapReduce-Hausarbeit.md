@@ -188,17 +188,14 @@ reduce("Big", [1, 1]) -&gt;
 Abschließend werden die ermittelten Schlüssel-Wertpaare in eine Datei geschrieben. Das kann beispielsweise eine kommaseparierte Liste sein, in der jedes Wort und die zugehörige Anzahl in eine neue Zeile geschrieben werden.
 
 Folgende Abbildung visualisiert noch einmal den oben beschriebenen MapReduce-Algorithmus:
-![enter image description here][1]
-<p><img src="" title="Funktionsweise MapReduce" width="60%" height="auto">
+
+<p align="left"><img src="images/Abbildung1_Funktionsweise_MapReduce.jpg" title="Funktionsweise_MapReduce" width="60%" height="auto">
 <br>Abbildung 1: Funktionsweise MapReduce (Wuttke, 2020)</p>
 
 
 ## 6. Hadoop
 
 Apache Hadoop ist ein auf Java basierendes Software Framework welches auf dem Map-Reduce Algorithmus basiert. Mit Hilfe dieser verteilten Big Data Plattform lassen sich große Datenmengen auf verteilten Systemen in hoher Geschwindigkeit verarbeiten. Dabei ist Hadoop eins der ersten Open Source Big Data System, gilt als Vorreiter der Big Date Ära und wurde bereits 2008 als Top Level Open Source Projekt eingestuft. Das Framework ist in der Lage sehr große Datenmengen zu speichern und anschließend mit hoher Geschwindigkeit verarbeiten zu können. Dies ist durch die verteile Architektur und die Parallelisierung möglich. Ein Hadoop Cluster setzt sich aus folgenden Komponenten zusammen: HDFS, YARN, MapReduce und einigen Erweiterungen. Dies wird in der Abbildung 2 verdeutlicht (Wuttke, 2020).
-
-<p><img src="" title="Hadoop Komponenten" width="60%" height="auto">
-<br>Abbildung 2: Hadoop Komponenten  (Wuttke, 2020)</p>
 
 <p align="left"><img src="images/Hadoop-Komponenten.jpg" title="Funktionsweise_MapReduce" width="60%" height="auto">
 <br>Abbildung 2: Hadoop Komponenten  (Wuttke, 2020)</p>
@@ -265,8 +262,9 @@ Daten aus relationalen Datenbanken können bequem und interaktiv mittels SQL abg
 **Updates**
 Wie in der untenstehenden Grafik zu sehen ist sind relationale Datenbanken darauf ausgelegt, Daten mehrfach zu lesen, aber auch nachträglich noch zu verändern. MapReduce hingegen ist auf Lesezugriffe spezialisiert. Die Daten werden (meist einmal) über eine externe Anwendung im HDFS geschrieben, damit anschließend über MapReduce lesend darauf zugegriffen werden kann.  
 
-![Dittrich, 2013][2]
-*Abbildung 3: Architekturvergleich relationale Datenbanken / MapReduce*
+<p align="left"><img src="images/Architekturvergleich.jpg" title="Architekturvergleich relationale Datenbanken / MapReduce" width="60%" height="auto">
+<br>Abbildung 3: Architekturvergleich relationale Datenbanken / MapReduce  (Dittrich, 2013)</p>
+
 
 **Integrität**
 In relationalen Datenbanken wird grundsätzlich die Normalform angestrebt, um die Integrität der Daten sicherzustellen und Redundanzen zu vermeiden. Hadoop kennt dieses Konzept nicht bzw. unterstützt auch das Speichern nicht normalisierte Einträge. Ein Beispiel dafür wäre das wiederholte Speichern von identischen Serverdaten in Logdateien. 
