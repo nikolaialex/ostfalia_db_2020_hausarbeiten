@@ -45,16 +45,16 @@ Weitere mögliche *WHERE*-Bedingungen:
 
 SOQL unterstützt die folgenden bedingte Operatoren:
 
-| Operator                        | Beschreibung                                                                                                                      |    
-| :------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------|     
-| =                               | ist gleich                                                                                                                        |           
-| !=                              | ungleich                                                                                                                          |        
-| <, <=                           | kleiner als, kleiner als oder gleich                                                                                              |         
-| >, >=                           | größer als, größer als oder gleich                                                                                                |             
-| INCLUDES, EXCLUDES              | schließt Werte ein oder aus und gilt nur für Auswahllisten mit Mehrfachauswahl                                                    |         
-| LIKE                            | Gibt die Datensätze zurück, bei denen die Werte mit dem nach dem Like-Operator angegebenen Muster übereinstimmen                  |          
-| IN                              | Wählt nur die Datensätze aus, bei denen der Wert des Felds mit einem der nach dem Schlüsselwort IN angegebenen Werte übereinstimmt|           
-| NOT IN                          | Wählt nur die Datensätze aus, bei denen der Wert von nicht mit einem der nach dem Schlüsselwort IN angegebenen Werte übereinstimmt|         
+|      Operator      |                                                            Beschreibung                                                            |    
+|:------------------:|:----------------------------------------------------------------------------------------------------------------------------------:|    
+| =                  | ist gleich                                                                                                                         |    
+| !=                 | ungleich                                                                                                                           |     
+| <, <=              | kleiner als, kleiner als oder gleich                                                                                               |    
+| >, >=              | größer als, größer als oder gleich                                                                                                 |    
+| INCLUDES, EXCLUDES | schließt Werte ein oder aus und gilt nur für Auswahllisten mit Mehrfachauswahl                                                     |    
+| LIKE               | Gibt die Datensätze zurück, bei denen die Werte mit dem nach dem Like-Operator angegebenen Muster übereinstimmen                   |    
+| IN                 | Wählt nur die Datensätze aus, bei denen der Wert des Felds mit einem der nach dem Schlüsselwort IN angegebenen Werte übereinstimmt |     
+| NOT IN             | Wählt nur die Datensätze aus, bei denen der Wert von nicht mit einem der nach dem Schlüsselwort IN angegebenen Werte übereinstimmt |             
 
 * jeder in der obigen Tabelle erwähnte bedingte Operator gibt einen TRUE / FALSE-Wert zurück    
 * benutzerdefinierte Logik durch z.B. mehrere bedingte Operatoren, welche mithilfe logischer Operatoren verbunden werden (AND, OR, NOT -> Boolescher Operator), ist möglich
