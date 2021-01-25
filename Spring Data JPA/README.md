@@ -9,16 +9,10 @@
 | Luis Jacobi        | 70464054               |    Ostfalia        |
 | Volkan Gülsen      |904879          |Beuth Hochschule Berlin|
 | Philipp-Christopher Thiele                   |273060                |TH Lübeck            |
-<<<<<<< HEAD
 | Ferry Fahrenkrog   | 332862         |TH Lübeck            |
-=======
-|                    |                |            |
->>>>>>> upstream/main
-
 
 
 ## Inhaltsverzeichnis
-<<<<<<< HEAD
 1. [Einleitung](01_Einleitung.md)  
 1.1 [Allgemein](01_Einleitung.md#11-allgemeines)  
 1.2 [Spring](01_Einleitung.md#12-spring)  
@@ -46,5 +40,3 @@
 9. [Abbildungsverzeichnis](09_Abbildungsverzeichnis.md)  
 10. [Literaturverzeichnis](10_Literaturverzeichnis.md)  
 11. [Tabellenverzeichnis](11_Tabellenverzeichnis.md)  
-=======
->>>>>>> upstream/main
