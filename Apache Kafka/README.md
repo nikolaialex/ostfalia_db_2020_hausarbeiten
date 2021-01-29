@@ -45,20 +45,20 @@ Tel.: +49 5331-939-31550
 
 <br/>Abbildungsverzeichnis
 
-*[Abbildung 1](media/image1.png "Message-Broker"): Message Broker (eigene Darstellung nach (Haunts, 2015))*
+*![Abbildung 1](media/image1.png "Message-Broker"): Message Broker (eigene Darstellung nach (Haunts, 2015))*
 
-*[Abbildung 2](media/image2.PNG "Data-Ecosystem "): Data Ecosystem (eigene Darstellung nach (Neha Narkhede,
+*![Abbildung 2](media/image2.PNG "Data-Ecosystem "): Data Ecosystem (eigene Darstellung nach (Neha Narkhede,
 2017, S. 12))*
 
-*[Abbildung 3](media/image3.PNG "Cluster-Architecture"): Apache Kafka - Cluster Architecture (Tutorials Point (I)
+*![Abbildung 3](media/image3.PNG "Cluster-Architecture"): Apache Kafka - Cluster Architecture (Tutorials Point (I)
 Pvt. Ltd., 2020)*
 
-*[Abbildung 4](media/image4.PNG "Multiple-Datacenter-Architecture"): Multiple Datacenter Architecture (Neha Narkhede, 2017, S.
+*![Abbildung 4](media/image4.PNG "Multiple-Datacenter-Architecture"): Multiple Datacenter Architecture (Neha Narkhede, 2017, S.
 9)*
 
-*[Abbildung 5](media/image5.png "Partitions-Topics"): Apache Kafka - Partitions Topics (Johansson, 2020)*
+*![Abbildung 5](media/image5.png "Partitions-Topics"): Apache Kafka - Partitions Topics (Johansson, 2020)*
 
-*[Abbildung 6](media/image6.png "Kafka-Webshop"): Apache Kafka Webshop (Johansson, 2020)*
+*![Abbildung 6](media/image6.png "Kafka-Webshop"): Apache Kafka Webshop (Johansson, 2020)*
 
 
 ## 1. Einleitung
@@ -97,21 +97,21 @@ migrierten sie ihre Daten zuerst von einer monolithischen[^[1](#monolithische-An
 auf Microservices basierenden Anwendungsinfrastruktur. Mit Hilfe dieser
 Änderung war es **LinkedIn** möglich, die Such-, Profil-,
 Kommunikations- und anderen Plattformen effizienter zu gestalten und sie
-exponentiell zu vergrößern. Es führte auch zur Schaffung eines zweiten
-Ansatzes von Middle-Tier-Diensten[^2], um API-Zugriffe[^3] auf
-Datenmodelle und Back-End-Dienste zu ermöglichen und einen konsistenten
-Zugriff auf die Datenbanken von **LinkedIn** zu ermöglichen. Zunächst
-entwickelten sie verschiedene benutzerdefinierte Datenpipelines für ihre
-unterschiedlichen Streaming- und Warteschlangendaten. Die vielseitige
-Anwendungsfälle von LinkedIn's Plattformen erstreckten sich von der
-Verfolgung von Site-Ereignissen, wie beispielsweise Seitenaufrufen, bis
-zum Sammeln aggregierter Protokolle von anderen Diensten. Weiterhin
-stellen Datapipelines[^4] Warteschlangenfunktionen für LinkedIn's
-InMail[^5] bereit. Um die Wartung einzelner Datapipelines zu vermeiden,
-wurde in die Entwicklung einer einzigen Pub-Sub-Plattform[^6]
-investiert. Dies war der Beginn von Apache Kafka. Apache Kafka wurde mit
+exponentiell zu vergrößern. Ein zweiter Ansatz von Middle-Tier-Diensten[^2] 
+wurde dringend gebraucht. Dieser stellte die API-Zugriffe[^3] auf
+Datenmodelle und Back-End-Dienste sowie einen langlebigen 
+Zugriff auf die Datenbanken von **LinkedIn** sicher. Für ihre
+unterschiedlichen Streaming- und Warteschlangendaten entwickelten sie 
+verschiedene, an ihre Benutzer angepasste, Datenpipelines. Die vielseitige
+Anwendungsfälle von LinkedIn's Plattformen beinhalteten unter anderem die
+Verfolgung von Site-Ereignissen, wie beispielsweise Seitenaufrufen sowie das 
+Sammeln aggregierter Protokolle von anderen Diensten. Die sogenannten Warteschlangenfunktionen
+stellen zusätzlich Datapipelines[^4] für LinkedIn's
+InMail[^5] bereit. Die individuelle Wartung von Datapipelines führte zu immensem Aufwand 
+und somit nahmen sie sich die Entwicklung einer einzigen Pub-Sub-Plattform[^6]
+vor. Dies war der Beginn von Apache Kafka. Apache Kafka wurde mit
 einer einfachen, aber für einen hohen Durchsatz ausgelegten API für
-Hersteller und Verbraucher sowie für eine von Anfang an skalierten
+Hersteller und Verbraucher sowie für eine skalierten
 Architektur von LinkedIn entwickelt. (Gutierrez, 2016)
 
 Die Architektur Apache Kafka stellte LinkedIn seit Anfang 2011 als Open
@@ -119,7 +119,7 @@ Source für die online oder auch offline Verwaltung von Informationen zur
 Verfügung, 2012 wurde sie zum Teil der **Apache Software
 Foundation**[^7]. Zwei Jahre später wurde aus LinkedIn heraus das
 Unternehmen Confluent gegründet. Dieses hatte als Hauptaufgabe die
-Weiterentwicklung von Apache Kafka. (Wikimedia Foundation Inc., 2020)
+Weiterentwicklung von Apache Kafka. (Wikimedia Foundation Inc., 2021)
 
 Im Allgemein ist Apache Kafka pattformunabhängig und somit an kein
 Betriebssystem gebunden. Kafka ist in Scala und Java geschrieben. Laut
@@ -140,14 +140,14 @@ nötig, um solche Probleme umgehen zu können.
 
 ### 3.1 Grundlagen und Kernkomponenten
 
-Bevor in die Apache Kafka Welt eingetaucht wird, ist es wichtig den
+Bevor in die Apache Kafka Welt eingetaucht wird, ist es von großer Bedeutung den
 Aspekt von „Publish/Subscribe" (Pub/Sub) Messaging zu betrachten.
-Hierbei handelt es sich um eine Messaging-Anwendung, wo der Absender
-(Herausgeber) eines Datenelements (Nachricht), es nicht speziell an
-einen Empfänger weiterleitet. Anstelle dessen klassifiziert der
-Herausgeber (Producer) die Nachricht und der Empfänger (Consumer)
-vermerkt diese und ordnet sie bestimmten Nachrichtenklassen zu. Dieses
-Pub/Sub Messaging wird oft an einen zentralen Punkt, auch Broker
+Pub/Sub Messaging ist eine Messaging-Anwendung, wo der Absender
+(Herausgeber) eines Datenelements (Nachricht), es nicht ausdrücklich an
+einen Empfänger weiterleitet sondern der
+Herausgeber (Producer) die Nachricht klassifiziert und der Empfänger (Consumer)
+diese vermerkt und sie bestimmten Nachrichtenklassen zuordnet. Dieses
+Pub/Sub Messaging wird gern an einen zentralen Punkt, auch Broker
 genannt, geliefert und verwaltet. Dort werden diese Nachrichten über
 einen Austausch (Exchange) als Postfach veröffentlicht. Dieser
 Austausch-Punkt sendet mithilfe verschiedener Regeln die Nachricht dann
@@ -166,7 +166,7 @@ gespeicherten Daten. Apache Kafka realisiert zusätzlich auch eine
 Echtzeit-Aggregierung[^8] der Daten. (Luber, 2018)
 
 Die einzelnen Daten in Apache Kafka werden als Nachrichten bezeichnet.
-Dies wird in der Datenbank Welt als Zeile oder Datensatz verstanden. Aus
+Dies wird in der Datenbankwelt als Zeile oder Datensatz verstanden. Aus
 Sicht von Kafka, werden diese Nachrichten als eine Reihe von Bytes
 gesehen. Somit haben die erhaltenen Daten aus Sicht von Kafka kein
 eingegrenztes Format. Die Nachrichten selbst können ein Byte mit
@@ -199,12 +199,12 @@ einige Vorteile von Kafka aufgeführt (Tutorials Point (I) Pvt. Ltd.,
     Ausfallzeiten problemlos skalieren.
 
 -   Haltbarkeit - Kafka verwendet das verteilte Festschreibungsprotokoll
-    (distributed commit log). Dies bedeutet, dass Nachrichten so schnell
-    wie möglich und dauerhaft auf der Festplatte gespeichert werden.
+    (distributed commit log),wo eine schnelle und dauerhafte Speicherung der Nachrichten
+     auf der Festplatte ermöglicht wird.
 
 -   Leistung - Kafka bietet einen hohen Durchsatz beim Pub/Sub
-    Messaging. Es behält eine stabile Leistung bei, selbst wenn viele
-    Terabyte große Nachrichten gespeichert werden
+    Messaging. Trotz der Speicherung von vielen
+    Terabyte großen Nachrichten, wird eine stabile Leistung beibehalten.
 
 ### 3.2 Nutzung von Kafka
 
@@ -268,17 +268,15 @@ verarbeiten.
 <br><b>Abbildung 2: Data Ecosystem (eigene Darstellung nach (Neha Narkhede, 2017, S. 12))</b></p>
 
 Das Kreislaufsystem für das Datenökosystem (Data Ecosystem) wird mit
-Hilfe von Apache Kafka bereitgestellt (siehe Abbildung 2). Diese stellt
-sicher, dass Nachrichten zwischen den verschiedenen Mitgliedern der
-Infrastruktur übertragen werden und bietet für alle Clients eine
-konsistente Schnittstelle. In Verbindung mit einem System zur
-Bereitstellung von Nachrichtenschemata benötigen der Herausgeber
-(Producer) der Nachricht und der Empfänger (Consumer) keine enge
-Kopplung oder direkte Verbindungen jeglicher Art mehr. Komponenten
-können hinzugefügt und entfernt werden, wenn Geschäftsfälle erstellt und
-aufgelöst werden. Somit müssen die Herausgeber sich keine weiteren
-Gedanken darüber machen, wer die Daten verwendet oder wie viele
-Anwendungen verwendet werden. (Neha Narkhede, 2017, S. 11)
+Hilfe von Apache Kafka bereitgestellt (siehe Abbildung 2). Dieses ist für die 
+Übertragung von Nachrichten zwischen den verschiedenen Mitgliedern der
+Infrastruktur zuständig. Weiterhin kann das Datenökosystem für alle Clients eine
+konsistente Schnittstelle herstellen. Eine enge Kopplung oder eine weitere direkte Verbindung mit einem System zur
+Bereitstellung von Nachrichtenschemata der Herausgeber
+(Producer) der Nachricht und der Empfänger (Consumer) ist somit nicht mehr nötig. 
+Während Geschäftsfälle erstellt und aufgelöst werden, können Komponenten
+sowohl hinzugefügt werden als auch entfernt werden. Somit ist es für die Herausgeber kein Thema mehr
+, wie viele Anwendungen verwendet werden oder wer die Daten verwendet. (Neha Narkhede, 2017, S. 11)
 
 ### 3.3 Technische Möglichkeiten
 
@@ -316,15 +314,15 @@ Ein Cluster in Sinne der Kafka-Cluster, besteht aus einer Vielzahl von
 Brokern, Themen, dazugehörigen Producern und Partitionen. Ein
 Kafka-Cluster-Verbund dient durch zwei oder mehr miteinander verbundene
 Cluster der Vereinfachung der Arbeit der Producer und Consumer. So ein
-Verbund hat die Vorteile, dass Typen von Data isoliert werden können,
-mehrere Datacenter möglich sind und durch die Data Isolation die
-Sicherheitsmaßnahmen eingehalten werden können. Die Data Isolierung
+Verbund hat die Vorteile, dass Typen von Daten isoliert werden können,
+mehrere Datencenter möglich sind und durch die Daten Isolation die
+Sicherheitsmaßnahmen eingehalten werden können. Die Daten Isolierung
 durch mehrere Cluster dient der Trennung verschiedener Datenarten unter
 verschiedenen Brokern. Daten werden in das Topic innerhalb des Clusters
 geschrieben und direkt in den Cluster eingelesen. Die wichtigsten
 Sicherheitsmaßnahmen von Kafka betreffen die Datenerhaltung. Um die
 Daten oder Nachrichten vor Verlusten zu sichern, hilft die Aufbau
-mehrerer Datacenter, die die Daten untereinander kopieren. Dieser
+mehrerer Datencenter, die die Daten untereinander kopieren. Dieser
 Kopier-Vorgang ermöglicht eine Datenwiederherstellung, falls ein Server-
 oder Systemsturz stattfinden sollte. Weiterhin ermöglicht dieser einen
 problemlosen Zugriff an allen Standorten für die Online-Anwendungen auf
@@ -353,12 +351,12 @@ Controller ist für administrative Vorgänge verantwortlich, wie der
 Zuweisung von Partitionen an Broker und der Überwachung auf
 Brokerfehler. Retention, die für dauerhafte Speicherung von Nachrichten
 über einen bestimmten Zeitraum verantwortlich ist, ist ein weiteres
-wesentliches Merkmal der Apache Kafka. Für diese Retention werde die
+wesentliches Merkmal der Apache Kafka. Für diese Retention werden die
 Kafka-Broker mit einer Standardeinstellung von Themen konfiguriert. Eine
 Aufbewahrungsfrist der Nachrichten kann sich entweder auf einen
-bestimmten Zeitraum (beispielsweise Anzahl von Tage) erstrecken oder auf
+bestimmten Zeitraum (beispielsweise Anzahl von Tagen) erstrecken oder auf
 die Größe der Topic beziehen (wenn die Topic eine bestimmte Größe in
-Bytes erreicht hat). Nach der Erreichung diese Grenzwerte werden die
+Bytes erreicht hat). Nach der Erreichung diese Grenzwerte, werden die
 Nachrichten als abgelaufen markiert und folglich gelöscht. Für die
 Aufbewahrungskonfiguration benötigt dieses Verfahren eine jederzeit
 verfügbare Mindestmenge. (Neha Narkhede, 2017, S. 8)
@@ -381,12 +379,11 @@ sollen. (Tutorials Point (I) Pvt. Ltd., 2020)
 Für die Datenintegration und Stream-Verarbeitung hat Kafka fünf
 Kern-APIs zur Verfügung:
 
--   Producer-API: ermöglicht das Senden eines Datenstroms von
-    Datensätzen zu einen oder mehreren Kafka-Themen im Kafka-Cluster.
+-   Producer-API: Datenströme von Datensätzen können von der Anwendung zu mehreren Topics veröffentlicht werden.
 
--   Consumer-API: erlaubt Applikationen die Datenströme im Kafka-Cluster
-    zu lesen und den Stream, der für die erstellten Datensätze zuständig
-    ist, zu verarbeiten.
+-   Consumer-API: Applikationen können dadurch die Datenströme im Kafka-Cluster
+    lesen und den Stream, der für die erstellten Datensätze zuständig
+    ist, verarbeiten.
 
 -   Streams-API: agiert als Stream Prozessor, wo Datenströme von
     Eingabetopic in Ausgabetopic seitens der Applikationen umgewandelt
@@ -397,9 +394,9 @@ Kern-APIs zur Verfügung:
     ein Sekundärdatensystem kontinuierlich verbinden und somit aktuelle
     Daten ermöglichen (Bsp. der Connector zu einer relationalen
     Datenbank erfasst je nach Administration jede Änderung an einer
-    Tabelle) (DataFlair Web Services Pvt Ltd, 2020)
+    Tabelle) 
 
--   Admin-API: unterstützt das Verwalten und Überprüfen von Topics,
+-   Admin-API: dient der Verwaltung und Überprüfung von Topics,
     Brokern, ACLs (Access Control List) und anderen Kafka-Objekten.
 
 Alle API-Funktionen werden von Kafka über ein sprachunabhängiges
@@ -415,7 +412,7 @@ Die verschiedenen Architekturen von Kafka bieten hohe Leistung,
 Skalierbarkeit, Zuverlässigkeit und Notfallwiederherstellung als vier
 wichtige Vorteile.
 
-Leistungsstarke, sequenzielle Schreibvorgänge werden von Kafka zur
+Leistungsstarke und sequenzielle Schreibvorgänge werden von Kafka zur
 Verfügung gestellt. Kafka ist auch in der Lage, Topics in Partitionen
 für hoch skalierbare Lese- und Schreibvorgänge aufzuteilen.
 Infolgedessen ermöglicht Kafka Lese- und Schreibrechte mit
@@ -427,12 +424,15 @@ Festplatten.
 Diese Speicherverteilung stellt eine beliebig skalierbare Leistung zur
 Verfügung und macht eine effiziente Architektur somit möglich.
 
-MirrorMaker ist ein Kafka-Dienstprogramm mit einer umfassenden Disaster
-Recovery-Lösung. MirrorMaker wurde für die Replizierung der gesamten
-Kafka-Cluster entwickelt, was auch bei Katastrophen einen nahtlosen
-Betrieb für die Kafka-Bereitstellung aufrechthält. Anders als bei
-Standard-Failover-Replikationen, wird in einem Kafka-Cluster diese
-Funktionalität als Spiegelung bezeichnet. (Michael Carter, 2020)
+Eine weitere Möglichkeit der Speicherverwaltung über die Standardfunktionen von Kafka hinaus, 
+bietet das Kafka Tool MirrorMaker, welches als Notfallwiederherstellungssystem zum Einsatz kommt. 
+Zur konkreten Leistungsbeschreibung heißt es: 
+“MirrorMaker delivers a full-featured disaster recovery solution. MirrorMaker is 
+designed to replicate your entire Kafka cluster, such as into another region of your 
+cloud provider’s network or within another data center. In this way, Kafka MirrorMaker 
+architecture enables your Kafka deployment to maintain seamless operations throughout 
+even macro-scale disasters. This functionality is referred to as mirroring, as opposed 
+to the standard failover replication performed within a Kafka cluster.” (Michael Carter, 2020)
 
 <p align="left"><img src="media/image4.PNG" title="Multiple-Datacenter-Architecture">
 <br><b>Abbildung 4: Multiple Datacenter Architecture (Neha Narkhede, 2017, S. 9)</b></p>
@@ -453,7 +453,7 @@ durchzuführen, unteranderem Blog-Artikel zu erstellen, zu ergänzen,
 Elemente auf der Website zu selektieren (Mausklick tätigen),
 verschiedene Dateien hochzuladen und letztendlich die Artikel zu
 veröffentlichen. Bei jeder Benutzertätigkeit auf der Website wird
-jeweils ein Ereignis, auch genannt Tracking-Ereignis, und Informationen
+jeweils ein Ereignis, auch Tracking-Ereignis genannt, und Informationen
 darüber insgesamt als Datensatz aufgezeichnet. Dieser Datensatz wird
 einem bestimmten Kafka-Topic („click" und „upload") zugeordnet.
 
@@ -539,7 +539,7 @@ von Avro-Daten erfordert jetzt zuerst die Änderung des erzeugten
 Producer-Code. Um Avro Support bieten zu können, muss eine
 Maven-Repository zum Kafka Client hinzugefügt werden. (Seigneurin, 2018)
 
-Zusammenfassend bietet Avro (The Apache Software Foundation, 2020):
+Zusammenfassend bietet Avro:
 
 -   „Rich data structures.
 
@@ -550,7 +550,7 @@ Zusammenfassend bietet Avro (The Apache Software Foundation, 2020):
 -   Remote procedure call (RPC).
 
 -   Simple integration with dynamic languages." (The Apache Software
-    Foundation, 2020)
+    Foundation, 2020, S. 1.10.1)
 
 ## 7. Fazit
 
@@ -577,7 +577,7 @@ Die überwiegenden Vorteile von Kafka, insbesondere durch ihre
 ereignisgesteuerte Architektur, brachten ihr einiges an Popularität.
 Ihre besondere Architektur wird gern als Systembasis mit dem Ziel der
 Verarbeitung großer Datenmengen verwendet. Der Nutzerkreis erstreckt
-sich momentan auf 27.214 große Unternehmen, Tendenz steigend (HG
+sich momentan auf 28.556 (Stand Januar 2021) große Unternehmen, Tendenz steigend (HG
 Insights, 2020).
 
 ## Literaturverzeichnis
@@ -585,6 +585,10 @@ Insights, 2020).
 Alley, G. (26. November 2018). *What is a Data Pipeline?* Von https://www.alooma.com/blog/what-is-a-data-pipeline abgerufen
 
 Apache Software Foundation . (2017). *Apache Kafka*. Von https://kafka.apache.org/downloads abgerufen
+
+Apache Software Foundation . (2017). *Apache Kafka*. Von https://kafka.apache.org/documentation.html#producerapi abgerufen
+
+Apache Software Foundation. (2017). Kafka 2.7 Documentation. Von https://kafka.apache.org/documentation/ abgerufen
 
 Apache Software Foundation.(2017). *Kafka Apache Org*. Von https://kafka.apache.org/uses abgerufen
 
@@ -635,6 +639,8 @@ Wikimedia Foundation Inc. (12. September 2004). *Metadaten*. Von https://de.wiki
 Wikimedia Foundation Inc. (27. September 2020). *Apache Software Foundation*. Von https://de.wikipedia.org/wiki/Apache_Software_Foundation abgerufen
 
 Wikimedia Foundation Inc. (14. Juni 2020). *Programmierschnittstelle*. Von https://de.wikipedia.org/wiki/Programmierschnittstelle abgerufen
+
+Wikimedia Foundation Inc. (7. Januar 2021). Apache Kafka. Von https://en.wikipedia.org/wiki/Apache_Kafka abgerufen
 
 ## Fußnote
 [^1]: „Eine **monolithische Anwendung** hat ihre Funktionalität ganz
