@@ -45,20 +45,20 @@ Tel.: +49 5331-939-31550
 
 <br/>Abbildungsverzeichnis
 
-*![Abbildung 1](media/image1.png "Message-Broker"): Message Broker (eigene Darstellung nach (Haunts, 2015))*
+*[Abbildung 1](media/image1.png "Message-Broker"): Message Broker (eigene Darstellung nach (Haunts, 2015))*
 
-*![Abbildung 2](media/image2.PNG "Data-Ecosystem "): Data Ecosystem (eigene Darstellung nach (Neha Narkhede,
+*[Abbildung 2](media/image2.PNG "Data-Ecosystem "): Data Ecosystem (eigene Darstellung nach (Neha Narkhede,
 2017, S. 12))*
 
-*![Abbildung 3](media/image3.PNG "Cluster-Architecture"): Apache Kafka - Cluster Architecture (Tutorials Point (I)
+*[Abbildung 3](media/image3.PNG "Cluster-Architecture"): Apache Kafka - Cluster Architecture (Tutorials Point (I)
 Pvt. Ltd., 2020)*
 
-*![Abbildung 4](media/image4.PNG "Multiple-Datacenter-Architecture"): Multiple Datacenter Architecture (Neha Narkhede, 2017, S.
+*[Abbildung 4](media/image4.PNG "Multiple-Datacenter-Architecture"): Multiple Datacenter Architecture (Neha Narkhede, 2017, S.
 9)*
 
-*![Abbildung 5](media/image5.png "Partitions-Topics"): Apache Kafka - Partitions Topics (Johansson, 2020)*
+*[Abbildung 5](media/image5.png "Partitions-Topics"): Apache Kafka - Partitions Topics (Johansson, 2020)*
 
-*![Abbildung 6](media/image6.png "Kafka-Webshop"): Apache Kafka Webshop (Johansson, 2020)*
+*[Abbildung 6](media/image6.png "Kafka-Webshop"): Apache Kafka Webshop (Johansson, 2020)*
 
 
 ## 1. Einleitung
